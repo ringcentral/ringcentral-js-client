@@ -1,0 +1,35 @@
+{
+  "name": "ringcentral-client",
+  "version": "0.1.0",
+  "main": "./build/ringcentral-client.js",
+  "ignore": [
+    "**/*",
+    "!README.md",
+    "!build/ringcentral-client.js",
+    "!build/ringcentral-client.js.map",
+    "!build/ringcentral-client.min.js",
+    "!build/ringcentral-client.min.js.map",
+    "!demo/**/*",
+    "!docs/**/*",
+    "!src/**/*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "ringcentral": "^2.*"
+  },
+  "private": false,
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "RingCentral, Inc.",
+      "email": "devsupport@ringcentral.com"
+    },
+    {
+      "name": "Kirill Konshin"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ringcentral/ringcentral-js-client.git"
+  }
+}

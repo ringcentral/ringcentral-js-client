@@ -1,0 +1,4011 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "<p>This is a beta interactive API explorer for the RingCentral Connect Platform. To use this service, you will need to have an account with the proper credentials to generate an OAuth2 access token.</p><p><b>Quick Start</b></p><ol><li>1) Go to <b>Authentication > /oauth/token</b></li><li>2) Enter <b>app_key, app_secret, username, password</b> fields and then click \"Try it out!\"</li><li>3) Upon success, your access_token is loaded and you can access any form requiring authorization.</li></ol><b>Links</b><ul><li><a href=\"https://developer.ringcentral.com/\">RingCentral Developer Program and API Docs</a></li><li><a href=\"https://github.com/ringcentral\">RingCentral SDKs on Github</a></li><li><a href=\"mailto:devsupport@ringcentral.com\">RingCentral Developer Support Email</a></li></ul>",
+    "version": "1.0",
+    "title": "RingCentral Connect Platform API Explorer",
+    "termsOfService": "https://developer.ringcentral.com"
+  },
+  "host": "platform.devtest.ringcentral.com",
+  "basePath": "/restapi",
+  "tags": [
+    {
+      "name": "OAuth2",
+      "description": ""
+    },
+    {
+      "name": "Authentication"
+    },
+    {
+      "name": "REST Overview"
+    },
+    {
+      "name": "API Usage Plans"
+    },
+    {
+      "name": "Authentication"
+    },
+    {
+      "name": "Exploring Account and Extension Settings"
+    },
+    {
+      "name": "Accessing Call Log"
+    },
+    {
+      "name": "Working with Messages"
+    },
+    {
+      "name": "RingOut"
+    },
+    {
+      "name": "Notifications and Subscriptions"
+    },
+    {
+      "name": "Dictionary: Getting Static Data"
+    },
+    {
+      "name": "API Versions"
+    },
+    {
+      "name": "Account"
+    },
+    {
+      "name": "Extension"
+    },
+    {
+      "name": "Call Log"
+    },
+    {
+      "name": "Messages"
+    },
+    {
+      "name": "Presence"
+    },
+    {
+      "name": "RingOut"
+    },
+    {
+      "name": "Dictionary"
+    },
+    {
+      "name": "Notifications: Subscription API"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/oauth/token": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Get Token",
+        "description": "<p>This endpoint supports two flows:</p><p> <b>1) Resource Owner Password Credentials Flow:</b> Issues new access and refresh tokens. Requests to this endpoint must be authenticated with HTTP Basic scheme. The following paramters are required for this flow: </p><ul style=\"margin:0 0 1em 2em\"> <li> <b>1) api_key</b> </li> <li> <b>2) api_secret</b> </li> <li> <b>3) username</b> </li> <li> <b>4) password</b> </li> </ul><p> This flow can use all the parameters below except for the <b>refresh_token</b> parameter which is used for the Refresh Token Flow decribed below. Since 1.0.4 (Release 5.13) </p><p> <b>2) Refresh Token Flow:</b> Issues new access and refresh tokens by previously issued refresh token. Requests to this endpoint must be authenticated with HTTP Basic scheme. The following parameters are required for this flow: </p><ul style=\"margin:0 0 1em 2em\"> <li> <b>1) api_key</b> </li> <li> <b>2) api_secret</b> </li> <li> <b>3) refresh_token</b> </li> </ul><p> The only formData paramter used for this flow is the <b>refresh_token</b> parameter. Since 1.0.4 (Release 5.13) </p>",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "app_key",
+            "default": "",
+            "type": "string",
+            "description": "<b>Convenience to pre-populate the Authorization header only</b>",
+            "required": false
+          },
+          {
+            "name": "app_secret",
+            "default": "",
+            "type": "string",
+            "description": "<b>Convenience to pre-populate the Authorization header only</b>",
+            "required": false
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "in": "formData",
+            "default": "",
+            "description": "<b>Phone number linked to account or extension in account in E.164 format with or without leading \"+\" sign</b>",
+            "required": false,
+            "allowMultiple": false
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "in": "formData",
+            "default": "",
+            "description": "<b>User's password</b>",
+            "required": false,
+            "allowMultiple": false,
+            "format": "password"
+          },
+          {
+            "name": "extension",
+            "type": "string",
+            "in": "formData",
+            "description": "Optional. Extension short number. If company number is specified as a username, and \"extension\" is not specified, the server will attempt to authenticate client as main company administrator",
+            "required": false,
+            "allowMultiple": false
+          },
+          {
+            "name": "grant_type",
+            "default": "password",
+            "type": "string",
+            "in": "formData",
+            "description": "<b>Must hold \"password\" value for Resource Owner Credentials flow</b>",
+            "required": false,
+            "allowMultiple": false
+          },
+          {
+            "name": "access_token_ttl",
+            "in": "formData",
+            "description": "Optional. Access token lifetime in seconds; the possible values are from 600 sec (10 min) to 3600 sec (1 hour). The default value is 3600 sec. If the value specified exceeds the default one, the default value is set. If the value specified is less than 600 seconds, the minimum value (600 sec) is set",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "refresh_token_ttl",
+            "in": "formData",
+            "description": "Optional. Refresh token lifetime in seconds; default is 604800 sec (1 week). If the value specified exceeds the default one, the default value is set",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "default": "",
+            "description": "List of API permissions to be used with access token. Can be omitted when requesting all permissions defined during the application registration phase",
+            "in": "formData"
+          },
+          {
+            "name": "refresh_token",
+            "type": "string",
+            "default": "",
+            "description": "Previously issued refresh token. This is the only formData field used for the Refresh Token Flow. It is not used for the Resource Owner Password Credentials Flow",
+            "in": "formData"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "<ul> <li>1) invalid_request: Unsupported grant type</li> <li>2) invalid_client: Bad Application Release Status: Blocked</li> </ul>"
+          },
+          "415": {
+            "description": "Unsupported Media Type"
+          },
+          "429": {
+            "description": "Request rate exceeded"
+          }
+        }
+      }
+    },
+    "/oauth/revoke": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Revoke Token",
+        "description": "Since 1.0.5 (Release 5.14)Revokes access/refresh token. Requests to this endpoint <b>must</b> be authenticated with HTTP Basic scheme using the application key and application secret as login and password, correspondingly. ",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "app_key",
+            "default": "",
+            "type": "string",
+            "description": "Used to populate the Authorization header",
+            "required": true
+          },
+          {
+            "name": "app_secret",
+            "default": "",
+            "type": "string",
+            "description": "Used to populate the Authorization header",
+            "required": true
+          },
+          {
+            "name": "token",
+            "type": "string",
+            "in": "formData",
+            "description": "Active access or refresh token to be revoked",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "operationId": "list",
+        "tags": [
+          "API Versions"
+        ],
+        "summary": "Get API Versions",
+        "description": "<p style='font-style:italic;'>Since 1.0.0</p><p>Returns current API version(s) and server info.</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetVersionsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/{apiVersion}": {
+      "get": {
+        "operationId": "load",
+        "tags": [
+          "API Versions"
+        ],
+        "summary": "Get Version Info",
+        "description": "<p style='font-style:italic;'>Since 1.0.0</p><p>Returns current API version info by apiVersion.</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "apiVersion",
+            "type": "string",
+            "in": "path",
+            "description": "API version to be requested, for example 'v1.0'",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetVersionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}": {
+      "get": {
+        "operationId": "load",
+        "tags": [
+          "Account"
+        ],
+        "summary": "Get Account Info",
+        "description": "<p style='font-style:italic;'>Since 1.0.0</p><p>Returns basic information about a particular RingCentral customer account.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAccountInfoResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension": {
+      "get": {
+        "operationId": "list",
+        "tags": [
+          "Extension"
+        ],
+        "summary": "Get Extension List",
+        "description": "<p style='font-style:italic;'>Since 1.0.0</p><p>Returns the list of extensions created for a particular account. All types of extensions are included in this list.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'.",
+            "required": false
+          },
+          {
+            "name": "perPage",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default.",
+            "required": false
+          },
+          {
+            "name": "status",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "allowEmptyValue": true,
+            "enum": [
+              "Enabled",
+              "Disabled",
+              "NotActivated",
+              "Unassigned"
+            ],
+            "in": "query",
+            "description": "Extension current state. If 'Unassigned' is specified, then extensions without extensionNumber are returned. If not specified, then all extensions are returned",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetExtensionListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}": {
+      "get": {
+        "operationId": "load",
+        "tags": [
+          "Extension"
+        ],
+        "summary": "Get Extension Info",
+        "description": "<p style='font-style:italic;'>Since 1.0.0</p><p>Returns basic information about a particular extension of an account.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetExtensionInfoResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/active-calls": {
+      "get": {
+        "operationId": "listActiveCalls",
+        "tags": [
+          "Call Log"
+        ],
+        "summary": "Get Active Calls",
+        "description": "<p style='font-style:italic;'>Since 1.0.13 (Release 6.5)</p><p>Returns records of all extension calls that are in progress, ordered by start time in descending order.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "direction",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "allowEmptyValue": true,
+            "enum": [
+              "Inbound",
+              "Outbound"
+            ],
+            "in": "query",
+            "description": "The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted",
+            "required": false
+          },
+          {
+            "name": "type",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "allowEmptyValue": true,
+            "enum": [
+              "Voice",
+              "Fax"
+            ],
+            "in": "query",
+            "description": "Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted",
+            "required": false
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'.",
+            "required": false
+          },
+          {
+            "name": "perPage",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default.",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExtensionActiveCallsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/call-log": {
+      "get": {
+        "operationId": "list",
+        "tags": [
+          "Call Log"
+        ],
+        "summary": "Get Call Log Records by Filter",
+        "description": "<p style='font-style:italic;'>Since 1.0.3 (Release 5.11)</p><p>Returns call log records filtered by the specified parameters.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionNumber",
+            "type": "string",
+            "in": "query",
+            "description": "Extension number of a user. If specified, returns call log for a particular extension only. Cannot be specified together with the phoneNumber filter",
+            "required": false
+          },
+          {
+            "name": "phoneNumber",
+            "type": "string",
+            "in": "query",
+            "description": "Phone number of a caller/call recipient. If specified, returns all calls (both incoming and outcoming) with the mentioned phone number. Cannot be specified together with the extensionNumber filter",
+            "required": false
+          },
+          {
+            "name": "direction",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "allowEmptyValue": true,
+            "enum": [
+              "Inbound",
+              "Outbound"
+            ],
+            "in": "query",
+            "description": "The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted",
+            "required": false
+          },
+          {
+            "name": "type",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "allowEmptyValue": true,
+            "enum": [
+              "Voice",
+              "Fax"
+            ],
+            "in": "query",
+            "description": "Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted",
+            "required": false
+          },
+          {
+            "name": "view",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "allowEmptyValue": true,
+            "enum": [
+              "Simple",
+              "Detailed"
+            ],
+            "in": "query",
+            "description": "The default value is 'Simple' for both account and extension call log",
+            "required": false
+          },
+          {
+            "name": "withRecording",
+            "type": "boolean",
+            "in": "query",
+            "description": "'True' if only recorded calls have to be returned",
+            "required": false
+          },
+          {
+            "name": "dateTo",
+            "type": "datetime",
+            "in": "query",
+            "description": "Specifies the ending timestamp for result records. Default: current time",
+            "required": false
+          },
+          {
+            "name": "dateFrom",
+            "type": "datetime",
+            "in": "query",
+            "description": "The start timestamp for result records. Default value is equal to dateTo minus 1 week",
+            "required": false
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'.",
+            "required": false
+          },
+          {
+            "name": "perPage",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default.",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExtensionCallLogResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/call-log/{callRecordId}": {
+      "get": {
+        "operationId": "load",
+        "tags": [
+          "Call Log"
+        ],
+        "summary": "Get Call Log Record",
+        "description": "<p style='font-style:italic;'>Since 1.0.3 (Release 5.11)</p><p>Returns individual call log record by callRecordId(s).</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "callRecordId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of a call log record",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetExtensionCallLogRecordResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/recording/{recordingId}": {
+      "get": {
+        "operationId": "loadRecording",
+        "tags": [
+          "Call Log"
+        ],
+        "summary": "Get Call Recording",
+        "description": "<p style='font-style:italic;'>Since 1.0.18</p><p>Returns call recording metadata.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallRecording</td><td>Downloading call recording content</td></tr><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "recordingId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of recording (returned in Call Log)",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCallRecordingResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/company-pager": {
+      "post": {
+        "operationId": "createPager",
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Create Pager Message",
+        "description": "<p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends a pager message.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>InternalMessages</td><td>Sending and receiving intra-company text messages</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "body",
+            "type": "string",
+            "in": "body",
+            "description": "JSON body",
+            "schema": {
+              "$ref": "#/definitions/CreatePagerMessageRequest"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMessageInfoResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/fax": {
+      "post": {
+        "operationId": "createFax",
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Create Fax Message",
+        "description": "<p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends/resends new fax message. Resend can be done if sending failed.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Faxes</td><td>Sending and receiving faxes</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
+        "consumes": [
+          "multipart/mixed; boundary=Boundary_1_14413901_1361871080888"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account (integer) or tilde (~) to indicate the account which was logged-in within the current session.",
+            "notes": "",
+            "paramType": "path",
+            "defaultValue": "~",
+            "required": true,
+            "allowMultiple": false,
+            "type": "string"
+          },
+          {
+            "name": "extensionId",
+            "in": "path",
+            "description": "Internal identifier of an extension (integer) or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "notes": "",
+            "paramType": "path",
+            "defaultValue": "~",
+            "required": true,
+            "allowMultiple": false,
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "default": "multipart/mixed; boundary=Boundary_1_14413901_1361871080888",
+            "type": "string",
+            "description": "This form fills out this required field automatically using the example MIME boundary string."
+          },
+          {
+            "name": "Content-Length",
+            "in": "header",
+            "default": "",
+            "description": "Actual content length. This form fills out this required field automatically.",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "consumes": [
+              "multipart/mixed; boundary=Boundary_1_14413901_1361871080888"
+            ],
+            "default": "--Boundary_1_14413901_1361871080888\nContent-Type: application/json\n\n{\n  \"to\":[{\"phoneNumber\":\"18005630003\"}],\n  \"faxResolution\":\"High\",\n  \"sendTime\":\"2013-02-26T09:31:20.882Z\"\n}\n\n--Boundary_1_14413901_1361871080888\nContent-Type: text/plain\n\nHello, World!\n\n--Boundary_1_14413901_1361871080888--",
+            "type": "string",
+            "description": "Multi-part MIME consisting of one part JSON body and one part text. For the MIME boundary, in this UI, use \"Boundary_1_14413901_1361871080888\". JSON body values:<br><br><table style=\"border:1px #aaa black\"><tr><td>Property</td><td>Data type</td><td>Description</td></tr><tr><td><b>to</b></td><td>Contact Info object</td><td>Recipient information. <b>phoneNumber</b> property is mandatory</td></tr><tr><td>resolution</td><td><select><option>High</option><option>Low</option></select></td><td>Fax resolution</td></tr><tr><td>sendTime</td><td>datetime</td><td>Optional. Timestamp to send fax at. If not specified (current or the past), the fax is sent immediately</td></tr><tr><td>coverIndex</td><td>Integer (0-13)<br><select><option>0 (none - no cover page)</option><option>1 (\"Ancient\" cover page)</option><option>2 (\"Birthday\" cover page)</option><option>3 (\"Blank\" cover page)</option><option>4 (\"Clasmod\" cover page)</option><option>5 (\"Classic\" cover page)</option><option>6 (\"Confidential\" cover page)</option><option>7 (\"Contempo\" cover page)</option><option>8 (\"Elegant\" cover page)</option><option>9 (\"Express\" cover page)</option><option>10 (\"Formal\" cover page)</option><option>11 (\"Jazzy\" cover page)</option><option>12 (\"Modern\" cover page)</option><option>13 (\"Urgent\" cover page)</option></select></td><td>Optional. Cover page index. If not specified, the default cover page which is configured in \"Outbound Fax Settings\" is attached. See also \"Available Cover Pages\" table below</td></tr><tr><td>coverPageText</td><td>string</td><td>Optional. Cover page text, entered by the fax sender and printed on the cover page. Maximum length is limited to 1024 symbols</td></tr></table>"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMessageInfoResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/sms": {
+      "post": {
+        "operationId": "createSms",
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Create SMS Message",
+        "description": "<p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends new SMS message.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>SMS</td><td>Sending and receiving SMS (text) messages</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "body",
+            "type": "string",
+            "in": "body",
+            "description": "JSON body",
+            "schema": {
+              "$ref": "#/definitions/CreateSMSMessage"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMessageInfoResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/message-store": {
+      "get": {
+        "operationId": "list",
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Get Message List",
+        "description": "<p style='font-style:italic;'>Since 1.0.2</p><p>Returns the list of messages from an extension mailbox.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "availability",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "allowEmptyValue": true,
+            "enum": [
+              "Alive",
+              "Deleted",
+              "Purged"
+            ],
+            "in": "query",
+            "description": "Specifies the availability status for the resulting messages. Default value is 'Alive'. Multiple values are accepted",
+            "required": false
+          },
+          {
+            "name": "conversationId",
+            "type": "integer",
+            "in": "query",
+            "description": "Specifies the conversation identifier for the resulting messages",
+            "required": false
+          },
+          {
+            "name": "dateFrom",
+            "type": "datetime",
+            "in": "query",
+            "description": "The start timestamp for the resulting messages. Default value is equal to dateTo minus 1 week",
+            "required": false
+          },
+          {
+            "name": "dateTo",
+            "type": "datetime",
+            "in": "query",
+            "description": "Specifies the ending timestamp for the resulting messages. Default: current time",
+            "required": false
+          },
+          {
+            "name": "direction",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "allowEmptyValue": true,
+            "enum": [
+              "Inbound",
+              "Outbound"
+            ],
+            "in": "query",
+            "description": "The direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted",
+            "required": false
+          },
+          {
+            "name": "messageType",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "allowEmptyValue": true,
+            "enum": [
+              "Fax",
+              "SMS",
+              "VoiceMail",
+              "Pager",
+              "Text"
+            ],
+            "in": "query",
+            "description": "The type of the resulting messages. If not specified, all messages without message type filtering are returned. Multiple values are accepted",
+            "required": false
+          },
+          {
+            "name": "readStatus",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "allowEmptyValue": true,
+            "enum": [
+              "Read",
+              "Unread"
+            ],
+            "in": "query",
+            "description": "The read status for the resulting messages. Multiple values are accepted",
+            "required": false
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'",
+            "required": false
+          },
+          {
+            "name": "perPage",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
+            "required": false
+          },
+          {
+            "name": "phoneNumber",
+            "type": "string",
+            "in": "query",
+            "description": "The phone number. If specified, messages are returned for this particular phone number only",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMessageList"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}": {
+      "get": {
+        "operationId": "load",
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Get Message Info",
+        "description": "<p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "messageId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of a message",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMessageInfoResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "update",
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Update Message",
+        "description": "<p style='font-style:italic;'>Since 1.0.2</p><p>Updates an individual message or several messages. Batch request is supported. Currently, only the message read status updating is supported.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditMessages</td><td>Viewing and updating user messages</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "messageId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of a message",
+            "required": true
+          },
+          {
+            "name": "body",
+            "type": "string",
+            "in": "body",
+            "description": "JSON body",
+            "schema": {
+              "$ref": "#/definitions/UpdateMessageRequest"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMessageInfoResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "remove",
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Delete Message",
+        "description": "<p style='font-style:italic;'></p><p>Deletes an individual message or several messages by the given message ID(s). Batch request is supported.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditMessages</td><td>Viewing and updating user messages</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "messageId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of a message",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}/content/{attachmentId}": {
+      "get": {
+        "operationId": "loadContent",
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Get Message Attachment",
+        "description": "<p style='font-style:italic;'>Since 1.0.4 (Release 5.13)</p><p>Returns particular message attachment data as a media stream.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "attachmentId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of a message attachment",
+            "required": true
+          },
+          {
+            "name": "messageId",
+            "type": "integer",
+            "in": "path",
+            "description": "Internal identifier of a message",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/presence": {
+      "get": {
+        "operationId": "load",
+        "tags": [
+          "Presence"
+        ],
+        "summary": "Get Extension Presence Status",
+        "description": "<p style='font-style:italic;'>Since 1.0.2</p><p>Returns presence status of an extension or several extensions. The presenceStatus is returned as Offline (the parameters telephonyStatus, message, userStatus and dndStatus are not returned at all) for the following extension types: Department/Announcement Only/Take Messages Only (Voicemail)/Fax User/Paging Only Group/Shared Lines Group/IVR Menu/Application Extension. If the user requests his/her own presence status, the response contains actual presence status even if the status publication is turned off. Batch request is supported. For batch requests the number of extensions in one request is limited to 30. If more extensions are included in the request, the error code 400 Bad Request is returned with the logical error code InvalidMultipartRequest and the corresponding message 'Extension Presence Info multipart request is limited to 30 extensions'.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadPresence</td><td>Getting user presence information</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetPresenceInfo"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/ringout": {
+      "post": {
+        "operationId": "create",
+        "tags": [
+          "RingOut"
+        ],
+        "summary": "Make RingOut Call",
+        "description": "<p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "body",
+            "type": "string",
+            "in": "body",
+            "description": "JSON body",
+            "schema": {
+              "$ref": "#/definitions/MakeRingOutRequest"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRingOutStatusResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/account/{accountId}/extension/{extensionId}/ringout/{ringoutId}": {
+      "get": {
+        "operationId": "load",
+        "tags": [
+          "RingOut"
+        ],
+        "summary": "Get Status of RingOut Call",
+        "description": "<p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Returns the status of a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "extensionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session",
+            "required": true,
+            "default": "~"
+          },
+          {
+            "name": "ringoutId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a RingOut call",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRingOutStatusResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "remove",
+        "tags": [
+          "RingOut"
+        ],
+        "summary": "Cancel RingOut Call",
+        "description": "<p style='font-style:italic;'></p><p>Cancels the 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr><tr><td class='code'>accountId</td><td>string</td></tr><tr><td class='code'>extensionId</td><td>string</td></tr><tr><td class='code'>ringoutId</td><td>string</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/dictionary/country": {
+      "get": {
+        "operationId": "listCountries",
+        "tags": [
+          "Dictionary"
+        ],
+        "summary": "Get Country List",
+        "description": "<p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the countries available for calling.</p><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'.",
+            "required": false
+          },
+          {
+            "name": "perPage",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default.",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCountryListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/dictionary/country/{countryId}": {
+      "get": {
+        "operationId": "loadCountry",
+        "tags": [
+          "Dictionary"
+        ],
+        "summary": "Get Country",
+        "description": "<p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns the information on the required country.</p><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "countryId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a country",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CountryInfo"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/dictionary/language": {
+      "get": {
+        "operationId": "listLanguages",
+        "tags": [
+          "Dictionary"
+        ],
+        "summary": "Get Language List",
+        "description": "<p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns the information about supported languages.</p><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/dictionary/language/{languageId}": {
+      "get": {
+        "operationId": "loadLanguage",
+        "tags": [
+          "Dictionary"
+        ],
+        "summary": "Get Language",
+        "description": "<p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns language by its respective ID.</p><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LanguageInfo"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/dictionary/location": {
+      "get": {
+        "operationId": "listLocations",
+        "tags": [
+          "Dictionary"
+        ],
+        "summary": "Get Location List",
+        "description": "<p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the available locations for the certain state.</p><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderBy",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "allowEmptyValue": true,
+            "enum": [
+              "Npa",
+              "City"
+            ],
+            "in": "query",
+            "description": "Sorts results by the specified property. The default value is 'City'",
+            "required": false
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'.",
+            "required": false
+          },
+          {
+            "name": "perPage",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default.",
+            "required": false
+          },
+          {
+            "name": "stateId",
+            "type": "string",
+            "in": "query",
+            "description": "Internal identifier of a state",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLocationListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/dictionary/state": {
+      "get": {
+        "operationId": "listStates",
+        "tags": [
+          "Dictionary"
+        ],
+        "summary": "Get State List",
+        "description": "<p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the states for the certain country.</p><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "countryId",
+            "type": "string",
+            "in": "query",
+            "description": "Internal identifier of a country",
+            "required": false
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'.",
+            "required": false
+          },
+          {
+            "name": "perPage",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
+            "required": false
+          },
+          {
+            "name": "withPhoneNumbers",
+            "type": "boolean",
+            "in": "query",
+            "description": "If 'True', the list of states with phone numbers available for buying is returned. The default value is 'False'",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetStateListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/dictionary/state/{stateId}": {
+      "get": {
+        "operationId": "loadState",
+        "tags": [
+          "Dictionary"
+        ],
+        "summary": "Get State",
+        "description": "<p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns the information on the required state.</p><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "stateId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a state",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetStateInfoResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/dictionary/timezone": {
+      "get": {
+        "operationId": "listTimezones",
+        "tags": [
+          "Dictionary"
+        ],
+        "summary": "Get Timezone List",
+        "description": "<p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all available timezones.</p><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "type": "string",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'",
+            "required": false
+          },
+          {
+            "name": "perPage",
+            "type": "string",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTimezoneListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/dictionary/timezone/{timezoneId}": {
+      "get": {
+        "operationId": "loadTimezone",
+        "tags": [
+          "Dictionary"
+        ],
+        "summary": "Get Timezone",
+        "description": "<p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns the information on the certain timezone.</p><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "timezoneId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a timezone",
+            "required": true
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'",
+            "required": false
+          },
+          {
+            "name": "perPage",
+            "type": "integer",
+            "in": "query",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTimezoneInfoResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/subscription": {
+      "post": {
+        "operationId": "create",
+        "tags": [
+          "Notifications: Subscription API"
+        ],
+        "summary": "Create Subscription",
+        "description": "<p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Creates a new subscription. To call this method with APNS transport type you have to specify endpoint_id attribute in get token request at authorization.</p><h4>Usage Plan Group</h4><p>Medium</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "type": "string",
+            "in": "body",
+            "description": "JSON body",
+            "schema": {
+              "$ref": "#/definitions/CreateSubscriptionRequest"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSubscriptionInfoResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/subscription/{subscriptionId}": {
+      "get": {
+        "operationId": "load",
+        "tags": [
+          "Notifications: Subscription API"
+        ],
+        "summary": "Get Subscription",
+        "description": "<p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Returns the requested subscription.</p><h4>Usage Plan Group</h4><p>Light</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "subscriptionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a subscription",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSubscriptionInfoResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "update",
+        "tags": [
+          "Notifications: Subscription API"
+        ],
+        "summary": "Renew Subscription / Modify Event Filters",
+        "description": "<p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>With empty request body - renews the existent subscription. If event filters specified - modifies the event filters for the existing subscription. The client application can extend or narrow the events for which it receives notifications in the frame of one subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "subscriptionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a subscription",
+            "required": true
+          },
+          {
+            "name": "body",
+            "type": "string",
+            "in": "body",
+            "description": "JSON body",
+            "schema": {
+              "$ref": "#/definitions/ModifySubscriptionRequest"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSubscriptionInfoResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "remove",
+        "tags": [
+          "Notifications: Subscription API"
+        ],
+        "summary": "Cancel Subscription",
+        "description": "<p style='font-style:italic;'></p><p>Cancels the existent subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "subscriptionId",
+            "type": "string",
+            "in": "path",
+            "description": "Internal identifier of a subscription",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreatePagerMessageRequest": {
+      "required": [
+        "text",
+        "to"
+      ],
+      "properties": {
+        "from": {
+          "$ref": "#/definitions/MessageStoreCallerInfo",
+          "description": "Sender of pager message. The extensionNumber property must be filled"
+        },
+        "replyOn": {
+          "type": "integer",
+          "description": "Optional. ID of a message this message replies to"
+        },
+        "text": {
+          "type": "string",
+          "description": "Text of pager message"
+        },
+        "to": {
+          "$ref": "#/definitions/MessageStoreCallerInfo",
+          "description": "Receiver of pager message. The extensionNumber property must be filled"
+        }
+      }
+    },
+    "CreateFaxMessageRequest": {
+      "required": [
+      ],
+      "properties": {
+        "to": {
+          "$ref": "#/definitions/MessageStoreCallerInfo",
+          "description": "Recipient information. Phone number property is mandatory. Optional for resend fax request"
+        },
+        "resolution": {
+          "type": "string",
+          "enum": [
+            "High",
+            "Low"
+          ],
+          "description": "Fax resolution"
+        },
+        "sendTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Optional. Timestamp to send fax at. If not specified (current or the past), the fax is sent immediately"
+        },
+        "coverIndex": {
+          "type": "integer (0-16)",
+          "description": "Optional. Cover page index. If not specified, the default cover page which is configured in  Outbound Fax Settings  is attached. See also 'Available Cover Pages' table below"
+        },
+        "coverPageText": {
+          "type": "string",
+          "description": "Optional. Cover page text, entered by the fax sender and printed on the cover page. Maximum length is limited to 1024 symbols"
+        },
+        "originalMessageId": {
+          "type": "string",
+          "description": "Internal identifier of the original fax message which needs to be resent. Supported for resend fax request"
+        }
+      }
+    },
+    "CreateSMSMessage": {
+      "required": [
+        "from",
+        "to",
+        "text"
+      ],
+      "properties": {
+        "from": {
+          "$ref": "#/definitions/MessageStoreCallerInfo",
+          "description": "Sender of SMS message. The phoneNumber property must be filled to correspond to one of the account phone numbers which is allowed for given extension to send SMS from"
+        },
+        "to": {
+          "$ref": "#/definitions/MessageStoreCallerInfo",
+          "description": "Receiver of SMS message. The phoneNumber property must be filled"
+        },
+        "text": {
+          "type": "string",
+          "description": "Text of SMS message"
+        }
+      }
+    },
+    "UpdateMessageRequest": {
+      "required": [
+      ],
+      "properties": {
+        "readStatus": {
+          "type": "string",
+          "enum": [
+            "Read",
+            "Unread"
+          ],
+          "description": "Read status of a message to be changed. Multiple values are accepted"
+        }
+      }
+    },
+    "MakeRingOutRequest": {
+      "required": [
+        "from",
+        "to"
+      ],
+      "properties": {
+        "from": {
+          "$ref": "#/definitions/MakeRingOutCallerInfoRequest",
+          "description": "Phone number of the caller. This number corresponds to the 1st leg of the RingOut call. This number can be one of user's configured forwarding numbers or arbitrary number."
+        },
+        "to": {
+          "$ref": "#/definitions/MakeRingOutCallerInfoRequest",
+          "description": "Phone number of the called party. This number corresponds to the 2nd leg of the RingOut call."
+        },
+        "callerId": {
+          "$ref": "#/definitions/MakeRingOutCallerInfoRequest",
+          "description": "The number which will be displayed to the called party."
+        },
+        "playPrompt": {
+          "type": "boolean",
+          "description": "The audio prompt that the calling party hears when the call is connected."
+        }
+      }
+    },
+    "MakeRingOutCallerInfoRequest": {
+      "required": [
+      ],
+      "properties": {
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number of a party. Usually it is a plain number including country and area code like 18661234567. But sometimes it could be returned from database with some formatting applied, for example (866)123-4567. This property is filled in all cases where parties communicate by means of global phone numbers, for example when calling to direct numbers or sending/receiving SMS"
+        }
+      }
+    },
+    "CreateSubscriptionRequest": {
+      "required": [
+        "deliveryMode"
+      ],
+      "properties": {
+        "eventFilters": {
+          "type": "string",
+          "description": "Mandatory. Collection of URIs to API resources (see Event Types for details). For APNS transport type only message event filter is available"
+        },
+        "deliveryMode": {
+          "$ref": "#/definitions/NotificationDeliveryModeRequest",
+          "description": "Notification delivery settings"
+        }
+      }
+    },
+    "NotificationDeliveryModeRequest": {
+      "required": [
+      ],
+      "properties": {
+        "transportType": {
+          "type": "string",
+          "enum": [
+            "PubNub",
+            "APNS"
+          ],
+          "description": "Notifications transportation provider name. 'APNS' (Apple Push Notifications Service)"
+        },
+        "encryption": {
+          "type": "boolean",
+          "description": "Optional parameter. Specifies if the message will be encrypted or not. If request contains any presence event filter the value by default is 'true' (even if specified as 'false'). If request contains only message event filters the value by default is 'false'"
+        }
+      }
+    },
+    "ModifySubscriptionRequest": {
+      "required": [
+      ],
+      "properties": {
+        "eventFilters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Collection of URIs to API resources (see Event Types). Mandatory field"
+        }
+      }
+    },
+    "GetVersionsResponse": {
+      "required": [
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Сanonical URI of the API version"
+        },
+        "apiVersions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VersionInfo"
+          },
+          "description": "Full API version information: uri, number, release date"
+        },
+        "serverVersion": {
+          "type": "string",
+          "description": "Server version"
+        },
+        "serverRevision": {
+          "type": "string",
+          "description": "Server revision"
+        }
+      }
+    },
+    "VersionInfo": {
+      "required": [
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of API versions"
+        },
+        "versionString": {
+          "type": "string",
+          "description": "Version of the RingCentral REST API"
+        },
+        "releaseDate": {
+          "type": "string",
+          "description": "Release date of this version"
+        },
+        "uriString": {
+          "type": "string",
+          "description": "URI part determining the current version"
+        }
+      }
+    },
+    "GetVersionResponse": {
+      "required": [
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of the version info resource"
+        },
+        "versionString": {
+          "type": "string",
+          "description": "Version of the RingCentral REST API"
+        },
+        "releaseDate": {
+          "type": "string",
+          "description": "Release date of this version"
+        },
+        "uriString": {
+          "type": "string",
+          "description": "URI part determining the current version"
+        }
+      }
+    },
+    "GetAccountInfoResponse": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of an account"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of an account"
+        },
+        "mainNumber": {
+          "type": "string",
+          "description": "Main phone number of the current account"
+        },
+        "operator": {
+          "$ref": "#/definitions/GetExtensionInfoResponse",
+          "description": "Operator's extension information. This extension will receive all calls and messages intended for the operator"
+        },
+        "partnerId": {
+          "type": "string",
+          "description": "Additional account identifier, developed and applied by the client"
+        },
+        "serviceInfo": {
+          "$ref": "#/definitions/ServiceInfoResponse",
+          "description": "Account service information, including brand, service plan and billing plan"
+        },
+        "setupWizardState": {
+          "type": "string",
+          "enum": [
+            "NotStarted",
+            "Incomplete",
+            "Completed"
+          ],
+          "description": "Specifies account configuration wizard state (web service setup). The default value is 'NotStarted'"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Confirmed",
+            "Disabled"
+          ],
+          "description": "Status of the current account"
+        },
+        "statusInfo": {
+          "$ref": "#/definitions/AccountStatusInfo",
+          "description": "Status information (reason, comment, lifetime). Returned for 'Disabled' status only"
+        }
+      }
+    },
+    "AccountStatusInfo": {
+      "required": [
+      ],
+      "properties": {
+        "reason": {
+          "type": "string",
+          "description": "Reason"
+        },
+        "comment": {
+          "type": "string",
+          "description": "Comment"
+        },
+        "lifetime": {
+          "type": "string",
+          "description": "Lifetime"
+        }
+      }
+    },
+    "ServiceInfoResponse": {
+      "required": [
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a service info resource"
+        },
+        "billingPlan": {
+          "$ref": "#/definitions/BillingPlanInfo",
+          "description": "Information on account billing plan"
+        },
+        "brand": {
+          "$ref": "#/definitions/BrandInfo",
+          "description": "Information on account brand"
+        },
+        "servicePlan": {
+          "$ref": "#/definitions/ServicePlanInfo",
+          "description": "Information on account service plan"
+        },
+        "targetServicePlan": {
+          "$ref": "#/definitions/TargetServicePlanInfo",
+          "description": "Information on account target service plan"
+        }
+      }
+    },
+    "BillingPlanInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a billing plan"
+        },
+        "name": {
+          "type": "string",
+          "description": "Billing plan name"
+        },
+        "durationUnit": {
+          "type": "string",
+          "enum": [
+            "Month",
+            "Day"
+          ],
+          "description": "Duration period"
+        },
+        "duration": {
+          "type": "string",
+          "description": "Number of duration units"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Initial",
+            "Regular",
+            "Suspended",
+            "Trial",
+            "TrialNoCC",
+            "Free"
+          ],
+          "description": "Billing plan type"
+        }
+      }
+    },
+    "BrandInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a brand"
+        },
+        "name": {
+          "type": "string",
+          "description": "Brand name, for example  RingCentral UK ,  ClearFax "
+        },
+        "homeCountry": {
+          "$ref": "#/definitions/CountryInfo",
+          "description": "Home country information"
+        }
+      }
+    },
+    "CountryInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a home country"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Home country URI"
+        },
+        "callingCode": {
+          "type": "string",
+          "description": "Home country calling code defined by ITU-T recommendations E.123 and E.164, see Calling Codes"
+        },
+        "isoCode": {
+          "type": "string",
+          "description": "Home country code according to the ISO standard, see ISO 3166"
+        }
+      }
+    },
+    "ServicePlanInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a service plan"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of a service plan"
+        },
+        "edition": {
+          "type": "string",
+          "description": "Edition of a service plan"
+        }
+      }
+    },
+    "TargetServicePlanInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a target service plan"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of a target service plan"
+        }
+      }
+    },
+    "ExtensionStatusInfo": {
+      "required": [
+      ],
+      "properties": {
+        "comment": {
+          "type": "string",
+          "description": "A free-form user comment, describing the status change reason"
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "Voluntarily",
+            "Involuntarily"
+          ],
+          "description": "Type of suspension"
+        }
+      }
+    },
+    "GetExtensionListResponse": {
+      "required": [
+      ],
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetExtensionInfoResponse"
+          },
+          "description": "List of extensions with extension information"
+        },
+        "navigation": {
+          "$ref": "#/definitions/NavigationInfo",
+          "description": "Information on navigation"
+        },
+        "paging": {
+          "$ref": "#/definitions/PagingInfo",
+          "description": "Information on paging"
+        }
+      }
+    },
+    "NavigationInfo": {
+      "required": [
+      ],
+      "properties": {
+        "firstPage": {
+          "type": "string",
+          "description": "Canonical URI for the first page of the list"
+        },
+        "nextPage": {
+          "type": "string",
+          "description": "Canonical URI for the next page of the list"
+        },
+        "previousPage": {
+          "type": "string",
+          "description": "Canonical URI for the previous page of the list"
+        },
+        "lastPage": {
+          "type": "string",
+          "description": "Canonical URI for the last page of the list"
+        }
+      }
+    },
+    "PagingInfo": {
+      "required": [
+      ],
+      "properties": {
+        "page": {
+          "type": "integer",
+          "description": "The current page number. 1-indexed, so the first page is 1 by default. May be omitted if result is empty (because non-existent page was specified or perPage=0 was requested)"
+        },
+        "perPage": {
+          "type": "integer",
+          "description": "Current page size, describes how many items are in each page. Default value is 100. Maximum value is 1000. If perPage value in the request is greater than 1000, the maximum value (1000) is applied"
+        },
+        "pageStart": {
+          "type": "integer",
+          "description": "The zero-based number of the first element on the current page. Omitted if the page is omitted or result is empty"
+        },
+        "pageEnd": {
+          "type": "integer",
+          "description": "The zero-based index of the last element on the current page. Omitted if the page is omitted or result is empty"
+        },
+        "totalPages": {
+          "type": "integer",
+          "description": "The total number of pages in a dataset. May be omitted for some resources due to performance reasons"
+        },
+        "totalElements": {
+          "type": "integer",
+          "description": "The total number of elements in a dataset. May be omitted for some resource due to performance reasons"
+        }
+      }
+    },
+    "GetExtensionInfoResponse": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of an extension"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of an extension"
+        },
+        "contact": {
+          "$ref": "#/definitions/ContactInfo",
+          "description": "Contact detailed information"
+        },
+        "departments": {
+          "$ref": "#/definitions/DepartmentInfo",
+          "description": "Information on department extension(s), to which the requested extension belongs. Returned only for user extensions, members of department, requested by single extensionId"
+        },
+        "extensionNumber": {
+          "type": "string",
+          "description": "Number of department extension"
+        },
+        "name": {
+          "type": "string",
+          "description": "Extension user name"
+        },
+        "partnerId": {
+          "type": "string",
+          "description": "For Partner Applications Internal identifier of an extension created by partner. The RingCentral supports the mapping of accounts and stores the corresponding accountId/extensionId for each partnerId of a client application. In request URIs partnerIds are accepted instead of regular RingCentral native IDs as path parameters using pid = XXX clause. Though in response URIs contain the corresponding account Ids and extension IDs. In all request and response bodies these values are reflected via  partnerId  attributes of account and extension"
+        },
+        "permissions": {
+          "$ref": "#/definitions/ExtensionPermissions",
+          "description": "Extension permissions, corresponding to the Service Web permissions 'Admin' and 'InternationalCalling'"
+        },
+        "regionalSettings": {
+          "$ref": "#/definitions/RegionalSettingsInfo",
+          "description": "Extension region data (timezone, home country, language)"
+        },
+        "serviceFeatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtensionServiceFeatureInfo"
+          },
+          "description": "Extension service features returned in response only when the logged-in user requests his/her own extension info, see also Extension Service Features"
+        },
+        "setupWizardState": {
+          "type": "string",
+          "enum": [
+            "NotStarted",
+            "Incomplete",
+            "Completed"
+          ],
+          "description": "Specifies extension configuration wizard state (web service setup). The default value is 'NotStarted'"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Enabled",
+            "Disabled",
+            "NotActivated",
+            "Unassigned"
+          ],
+          "description": "Extension current state"
+        },
+        "statusInfo": {
+          "$ref": "#/definitions/ExtensionStatusInfo",
+          "description": "Status information (reason, comment). Returned for 'Disabled' status only"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "User",
+            "Fax User",
+            "VirtualUser",
+            "DigitalUser",
+            "Department",
+            "Announcement",
+            "Voicemail",
+            "SharedLinesGroup",
+            "PagingOnly",
+            "IvrMenu",
+            "ApplicationExtension"
+          ],
+          "description": "Extension type"
+        }
+      }
+    },
+    "ContactInfo": {
+      "required": [
+      ],
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "For User extension type only. Extension user first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "For User extension type only. Extension user last name"
+        },
+        "company": {
+          "type": "string",
+          "description": "Extension user company name"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email of extension user"
+        },
+        "businessPhone": {
+          "type": "string",
+          "description": "Extension user contact phone number"
+        },
+        "businessAddress": {
+          "$ref": "#/definitions/ContactAddressInfo",
+          "description": "Business address of extension user company"
+        }
+      }
+    },
+    "ContactAddressInfo": {
+      "required": [
+      ],
+      "properties": {
+        "country": {
+          "type": "string",
+          "description": "Country name of extension user company"
+        },
+        "state": {
+          "type": "string",
+          "description": "State/province name of extension user company"
+        },
+        "city": {
+          "type": "string",
+          "description": "City name of extension user company"
+        },
+        "street": {
+          "type": "string",
+          "description": "Street address of extension user company"
+        },
+        "zip": {
+          "type": "string",
+          "description": "Zip code of extension user company"
+        }
+      }
+    },
+    "DepartmentInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a department extension"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a department extension"
+        },
+        "extensionNumber": {
+          "type": "string",
+          "description": "Number of a department extension"
+        }
+      }
+    },
+    "ExtensionPermissions": {
+      "required": [
+      ],
+      "properties": {
+        "admin": {
+          "$ref": "#/definitions/PermissionInfo",
+          "description": "Admin permission"
+        },
+        "internationalCalling": {
+          "$ref": "#/definitions/PermissionInfo",
+          "description": "International Calling permission"
+        }
+      }
+    },
+    "PermissionInfo": {
+      "required": [
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Specifies if a permission is enabled or not"
+        }
+      }
+    },
+    "RegionalSettingsInfo": {
+      "required": [
+      ],
+      "properties": {
+        "homeCountry": {
+          "$ref": "#/definitions/CountryInfo",
+          "description": "Extension country information"
+        },
+        "timezone": {
+          "$ref": "#/definitions/TimezoneInfo",
+          "description": "Extension timezone information"
+        },
+        "language": {
+          "$ref": "#/definitions/LanguageInfo",
+          "description": "User interface language data"
+        },
+        "greetingLanguage": {
+          "$ref": "#/definitions/GreetingLanguageInfo",
+          "description": "Information on language used for telephony greetings"
+        },
+        "formattingLocale": {
+          "$ref": "#/definitions/FormattingLocaleInfo",
+          "description": "Formatting language preferences for numbers, dates and currencies"
+        }
+      }
+    },
+    "TimezoneInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a timezone"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a timezone"
+        },
+        "name": {
+          "type": "string",
+          "description": "Short name of a timezone"
+        },
+        "description": {
+          "type": "string",
+          "description": "Meaningful description of the timezone"
+        }
+      }
+    },
+    "LanguageInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a language"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a language"
+        },
+        "greeting": {
+          "type": "boolean",
+          "description": "Indicates whether a language is available as greeting language"
+        },
+        "formattingLocale": {
+          "type": "boolean",
+          "description": "Indicates whether a language is available as formatting locale"
+        },
+        "localeCode": {
+          "type": "string",
+          "description": "Localization code of a language"
+        },
+        "name": {
+          "type": "string",
+          "description": "Official name of a language"
+        },
+        "ui": {
+          "type": "boolean",
+          "description": "Indicates whether a language is available as UI language"
+        }
+      }
+    },
+    "GreetingLanguageInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a greeting language"
+        },
+        "localeCode": {
+          "type": "string",
+          "description": "Localization code of a greeting language"
+        },
+        "name": {
+          "type": "string",
+          "description": "Official name of a greeting language"
+        }
+      }
+    },
+    "FormattingLocaleInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a formatting language"
+        },
+        "localeCode": {
+          "type": "string",
+          "description": "Localization code of a formatting language"
+        },
+        "name": {
+          "type": "string",
+          "description": "Official name of a formatting language"
+        }
+      }
+    },
+    "ExtensionServiceFeatureInfo": {
+      "required": [
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Feature status; shows feature availability for an extension"
+        },
+        "featureName": {
+          "type": "string",
+          "description": "Feature name, see all available values in Service Feature List"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason of limitation for a particular service feature. Returned only if the enabled parameter value is 'False', see Service Feature Limitations and Reasons. When retrieving service features for an extension, the reasons for the limitations, if any, are returned in response"
+        }
+      }
+    },
+    "ServiceFeatureLimitations": {
+      "required": [
+      ],
+      "properties": {
+        "AccountTypeLimitation": {
+          "type": "Principal account type limitation. Feature is not supported for account type",
+          "description": "Free Digital Line service feature is turned off on UBP tier"
+        },
+        "ExtensionTypeLimitation": {
+          "type": "Principal extension type limitation. Feature is not supported for particular extension type (built-in Product restriction)",
+          "description": "Announcement Only or Take Messages Only extension types that cannot send SMS, feature is disabled because of immutable extension type limitation and it is impossible to change the type of this extension"
+        },
+        "AccountLimitation": {
+          "type": "Account limitation (service parameter setting at brand, tier or account level); can be changed only by RC Customer Support, or by upgrading to a different tier",
+          "description": "SMS can be turned off for a particular account/tier"
+        },
+        "ExtensionLimitation": {
+          "type": "Extension limitation, requiring chargeable action; can be changed by Account Administrator, requires chargeable action (except tier upgrades)",
+          "description": "For Free Digital Line (FreeDL) service feature, available only if there is at least one paid digital line on this extension"
+        },
+        "InsufficientPermissions": {
+          "type": "Extension limitation, resolution is not chargeable; can be changed by Account Administrator without extra charges",
+          "description": "International Calling is turned off using extension permissions"
+        }
+      }
+    },
+    "ExtensionActiveCallsResponse": {
+      "required": [
+      ],
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CallLogRecord"
+          },
+          "description": "List of call log records"
+        },
+        "navigation": {
+          "$ref": "#/definitions/NavigationInfo",
+          "description": "Information on navigation"
+        },
+        "paging": {
+          "$ref": "#/definitions/PagingInfo",
+          "description": "Information on paging"
+        }
+      }
+    },
+    "ExtensionCallLogResponse": {
+      "required": [
+        "records",
+        "paging",
+        "navigation"
+      ],
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CallLogRecord"
+          },
+          "description": "List of call log records"
+        },
+        "paging": {
+          "$ref": "#/definitions/PagingInfo",
+          "description": "Information on paging"
+        },
+        "navigation": {
+          "$ref": "#/definitions/NavigationInfo",
+          "description": "Information on navigation"
+        }
+      }
+    },
+    "CallLogRecord": {
+      "required": [
+        "legs"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a cal log record"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a call log record"
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Internal identifier of a call session"
+        },
+        "from": {
+          "$ref": "#/definitions/CallLogCallerInfo",
+          "description": "Caller information"
+        },
+        "to": {
+          "$ref": "#/definitions/CallLogCallerInfo",
+          "description": "Callee information"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Voice",
+            "Fax"
+          ],
+          "description": "Call type"
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "Inbound",
+            "Outbound"
+          ],
+          "description": "Call direction"
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "Unknown",
+            "Phone Call",
+            "Phone Login",
+            "Incoming Fax",
+            "Accept Call",
+            "FindMe",
+            "FollowMe",
+            "Outgoing Fax",
+            "Call Return",
+            "Calling Card",
+            "Ring Directly",
+            "RingOut Web",
+            "VoIP Call",
+            "RingOut PC",
+            "RingMe",
+            "Transfer",
+            "411 Info",
+            "Emergency",
+            "E911 Update",
+            "Support",
+            "RingOut Mobile"
+          ],
+          "description": "Action description of the call operation."
+        },
+        "result": {
+          "type": "string",
+          "enum": [
+            "Unknown",
+            "ResultInProgress",
+            "Missed",
+            "Call accepted",
+            "Voicemail",
+            "Rejected",
+            "Reply",
+            "Received",
+            "Receive Error",
+            "Fax on Demand",
+            "Partial Receive",
+            "Blocked",
+            "Call сonnected",
+            "No Answer",
+            "Busy",
+            "Send Error",
+            "Sent",
+            "No fax machine",
+            "ResultEmpty",
+            "Account",
+            "Suspended",
+            "Call Failed",
+            "Call Failure",
+            "Internal Error",
+            "IP Phone offline",
+            "Restricted Number",
+            "Wrong Number",
+            "Stopped",
+            "Hang up",
+            "Poor Line Quality",
+            "Partially Sent",
+            "International Disabled",
+            "International Restriction",
+            "Abandoned",
+            "Declined",
+            "Fax Receipt Error",
+            "Fax Send Error"
+          ],
+          "description": "Status description of the call operation."
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Call start time"
+        },
+        "duration": {
+          "type": "integer",
+          "description": "Call duration in seconds"
+        },
+        "transport": {
+          "type": "string",
+          "enum": [
+            "PSTN",
+            "VoIP"
+          ],
+          "description": "Call transport"
+        },
+        "message": {
+          "type": "null",
+          "description": "Message attachment"
+        },
+        "recording": {
+          "$ref": "#/definitions/RecordingInfo",
+          "description": "Call recording data. Returned if the call is recorded"
+        },
+        "billing": {
+          "type": "string",
+          "enum": [
+            "costIncluded",
+            "costPurchased"
+          ],
+          "description": "Information on costs"
+        },
+        "legs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CallLogRecordLegInfo"
+          },
+          "description": "Leg description"
+        }
+      }
+    },
+    "CallLogCallerInfo": {
+      "required": [
+      ],
+      "properties": {
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number of a party. Usually it is a plain number including country and area code like 18661234567. But sometimes it could be returned from database with some formatting applied, for example (866)123-4567. This property is filled in all cases where parties communicate by means of global phone numbers, for example when calling to direct numbers or sending/receiving SMS"
+        },
+        "extensionNumber": {
+          "type": "string",
+          "description": "Extension short number (usually 3 or 4 digits). This property is filled when parties communicate by means of short internal numbers, for example when calling to other extension or sending/receiving Company Pager message"
+        },
+        "location": {
+          "type": "string",
+          "description": "Contains party location (city, state) if one can be determined from phoneNumber. This property is filled only when phoneNumber is not empty and server can calculate location information from it (for example, this information is unavailable for US toll-free numbers)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Symbolic name associated with a party. If the phone does not belong to the known extension, only the location is returned, the name is not determined then"
+        }
+      }
+    },
+    "CallLogRecordLegInfo": {
+      "required": [
+      ],
+      "properties": {
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Call start time"
+        },
+        "duration": {
+          "type": "integer",
+          "description": "Call duration in seconds"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Voice",
+            "Fax"
+          ],
+          "description": "Call type"
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "Inbound",
+            "Outbound"
+          ],
+          "description": "Call direction"
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "Unknown",
+            "Phone Call",
+            "Phone Login",
+            "Incoming Fax",
+            "Accept Call",
+            "FindMe",
+            "FollowMe",
+            "Outgoing Fax",
+            "Call Return",
+            "Calling Card",
+            "Ring Directly",
+            "RingOut Web",
+            "VoIP Call",
+            "RingOut PC",
+            "RingMe",
+            "Transfer",
+            "411 Info",
+            "Emergency",
+            "E911 Update",
+            "Support",
+            "RingOut Mobile"
+          ],
+          "description": "Action description of the call operation."
+        },
+        "result": {
+          "type": "string",
+          "enum": [
+            "Unknown",
+            "ResultInProgress",
+            "Missed",
+            "Call accepted",
+            "Voicemail",
+            "Rejected",
+            "Reply",
+            "Received",
+            "Receive Error",
+            "Fax on Demand",
+            "Partial Receive",
+            "Blocked",
+            "Call сonnected",
+            "No Answer",
+            "Busy",
+            "Send Error",
+            "Sent",
+            "No fax machine",
+            "ResultEmpty",
+            "Account",
+            "Suspended",
+            "Call Failed",
+            "Call Failure",
+            "Internal Error",
+            "IP Phone offline",
+            "Restricted Number",
+            "Wrong Number",
+            "Stopped",
+            "Hang up",
+            "Poor Line Quality",
+            "Partially Sent",
+            "International Disabled",
+            "International Restriction",
+            "Abandoned",
+            "Declined",
+            "Fax Receipt Error",
+            "Fax Send Error"
+          ],
+          "description": "Status description of the call operation."
+        },
+        "from": {
+          "$ref": "#/definitions/CallLogCallerInfo",
+          "description": "Caller information"
+        },
+        "to": {
+          "$ref": "#/definitions/CallLogCallerInfo",
+          "description": "Callee information"
+        },
+        "transport": {
+          "type": "string",
+          "enum": [
+            "PSTN",
+            "VoIP"
+          ],
+          "description": "Call transport"
+        },
+        "message": {
+          "type": "null",
+          "description": "Message attachment"
+        },
+        "recording": {
+          "$ref": "#/definitions/RecordingInfo",
+          "description": "Call recording data. Returned if the call is recorded"
+        },
+        "billing": {
+          "type": "string",
+          "enum": [
+            "costIncluded",
+            "costPurchased"
+          ],
+          "description": "Information on costs"
+        },
+        "legType": {
+          "type": "string",
+          "description": "Leg type"
+        }
+      }
+    },
+    "RecordingInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Internal identifier of the call recording"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Link to the call recording metadata resource"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Automatic",
+            "OnDemand"
+          ],
+          "description": "Indicates recording mode used"
+        },
+        "contentUri": {
+          "type": "string",
+          "description": "Link to the call recording binary content"
+        }
+      }
+    },
+    "GetExtensionCallLogRecordResponse": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a cal log record"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a call log record"
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Internal identifier of a call session"
+        },
+        "from": {
+          "$ref": "#/definitions/CallLogCallerInfo",
+          "description": "Caller information"
+        },
+        "to": {
+          "$ref": "#/definitions/CallLogCallerInfo",
+          "description": "Callee information"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Voice",
+            "Fax"
+          ],
+          "description": "Call type"
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "Inbound",
+            "Outbound"
+          ],
+          "description": "Call direction"
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "Unknown",
+            "Phone Call",
+            "Phone Login",
+            "Incoming Fax",
+            "Accept Call",
+            "FindMe",
+            "FollowMe",
+            "Outgoing Fax",
+            "Call Return",
+            "Calling Card",
+            "Ring Directly",
+            "RingOut Web",
+            "VoIP Call",
+            "RingOut PC",
+            "RingMe",
+            "Transfer",
+            "411 Info",
+            "Emergency",
+            "E911 Update",
+            "Support",
+            "RingOut Mobile"
+          ],
+          "description": "Action description of the call operation."
+        },
+        "result": {
+          "type": "string",
+          "enum": [
+            "Unknown",
+            "ResultInProgress",
+            "Missed",
+            "Call accepted",
+            "Voicemail",
+            "Rejected",
+            "Reply",
+            "Received",
+            "Receive Error",
+            "Fax on Demand",
+            "Partial Receive",
+            "Blocked",
+            "Call сonnected",
+            "No Answer",
+            "Busy",
+            "Send Error",
+            "Sent",
+            "No fax machine",
+            "ResultEmpty",
+            "Account",
+            "Suspended",
+            "Call Failed",
+            "Call Failure",
+            "Internal Error",
+            "IP Phone offline",
+            "Restricted Number",
+            "Wrong Number",
+            "Stopped",
+            "Hang up",
+            "Poor Line Quality",
+            "Partially Sent",
+            "International Disabled",
+            "International Restriction",
+            "Abandoned",
+            "Declined",
+            "Fax Receipt Error",
+            "Fax Send Error"
+          ],
+          "description": "Status description of the call operation."
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Call start time"
+        },
+        "duration": {
+          "type": "integer",
+          "description": "Call duration in seconds"
+        },
+        "recording": {
+          "$ref": "#/definitions/RecordingInfo",
+          "description": "Call recording data. Returned if the call is recorded"
+        }
+      }
+    },
+    "GetCallRecordingResponse": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Internal identifier of the call recording"
+        },
+        "contentUri": {
+          "type": "string",
+          "description": "Link to the call recording binary content"
+        },
+        "contentType": {
+          "type": "string",
+          "description": "Call recording file format. Supported format is audio/x-wav"
+        },
+        "duration": {
+          "type": "integer",
+          "description": "Recorded call duration"
+        }
+      }
+    },
+    "GetMessageList": {
+      "required": [
+      ],
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetMessageInfoResponse"
+          },
+          "description": "List of records with message information"
+        },
+        "navigation": {
+          "$ref": "#/definitions/NavigationInfo",
+          "description": "Information on navigation"
+        },
+        "paging": {
+          "$ref": "#/definitions/PagingInfo",
+          "description": "Information on paging"
+        }
+      }
+    },
+    "GetMessageInfoResponse": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a message"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a message"
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MessageAttachmentInfo"
+          },
+          "description": "The list of message attachments"
+        },
+        "availability": {
+          "type": "string",
+          "enum": [
+            "Alive",
+            "Deleted",
+            "Purged"
+          ],
+          "description": "Message availability status. Message in 'Deleted' state is still preserved with all its attachments and can be restored. 'Purged' means that all attachments are already deleted and the message itself is about to be physically deleted shortly"
+        },
+        "conversationId": {
+          "type": "integer",
+          "description": "SMS and Pager only. Identifier of the conversation the message belongs to"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Message creation timestamp"
+        },
+        "deliveryErrorCode": {
+          "type": "string",
+          "description": "SMS only. Delivery error code returned by gateway"
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "Inbound",
+            "Outbound"
+          ],
+          "description": "Message direction. Note that for some message types not all directions are allowed. For example voicemail messages can be only inbound"
+        },
+        "faxPageCount": {
+          "type": "integer",
+          "description": "Fax only. Page count in fax message"
+        },
+        "faxResolution": {
+          "type": "string",
+          "enum": [
+            "High",
+            "Low"
+          ],
+          "description": "Fax only. Resolution of fax message. ('High' for black and white image scanned at 200 dpi, 'Low' for black and white image scanned at 100 dpi)"
+        },
+        "from": {
+          "$ref": "#/definitions/MessageStoreCallerInfo",
+          "description": "Sender information"
+        },
+        "lastModifiedTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the message was modified on server"
+        },
+        "messageStatus": {
+          "type": "string",
+          "enum": [
+            "Queued",
+            "Sent",
+            "Delivered",
+            "DeliveryFailed",
+            "SendingFailed",
+            "Received"
+          ],
+          "description": "Message status. Different message types may have different allowed status values.For outbound faxes the aggregated message status is returned: If status for at least one recipient is 'Queued', then 'Queued' value is returned If status for at least one recipient is 'SendingFailed', then 'SendingFailed' value is returned In other cases Sent status is returned"
+        },
+        "pgToDepartment": {
+          "type": "boolean",
+          "description": "Pager only. True if at least one of the message recipients is Department extension"
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "Normal",
+            "High"
+          ],
+          "description": "Message priority"
+        },
+        "readStatus": {
+          "type": "string",
+          "enum": [
+            "Read",
+            "Unread"
+          ],
+          "description": "Message read status"
+        },
+        "smsDeliveryTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "SMS only. The timestamp when outbound SMS was delivered to recipient's handset. It is filled only if the carrier sends a delivery receipt to RingCentral"
+        },
+        "smsSendingAttemptsCount": {
+          "type": "integer",
+          "description": "SMS only. Number of attempts made to send an outbound SMS to the gateway (if gateway is temporary unavailable)"
+        },
+        "subject": {
+          "type": "string",
+          "description": "Message subject. For SMS and Pager messages it replicates message text which is also returned as an attachment"
+        },
+        "to": {
+          "$ref": "#/definitions/MessageStoreCallerInfo",
+          "description": "Recipient information"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Fax",
+            "SMS",
+            "VoiceMail",
+            "Pager",
+            "Text"
+          ],
+          "description": "Message type"
+        },
+        "vmTranscriptionStatus": {
+          "type": "string",
+          "enum": [
+            "NotAvailable",
+            "InProgress",
+            "TimedOut",
+            "Completed",
+            "CompletedPartially",
+            "Failed"
+          ],
+          "description": "Voicemail only. Status of voicemail to text transcription. If VoicemailToText feature is not activated for account, the 'NotAvailable' value is returned"
+        }
+      }
+    },
+    "MessageAttachmentInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a message attachment"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a message attachment"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "AutoRecording",
+            "AutoTranscription",
+            "Text",
+            "SourceDocument",
+            "RenderedDocument"
+          ],
+          "description": "Type of message attachment"
+        },
+        "contentType": {
+          "type": "string",
+          "description": "MIME type for a given attachment, for instance 'audio/wav'"
+        },
+        "vmDuration": {
+          "type": "integer",
+          "description": "Voicemail only Duration of the voicemail in seconds"
+        }
+      }
+    },
+    "MessageStoreCallerInfo": {
+      "required": [
+        "extensionNumber"
+      ],
+      "properties": {
+        "extensionNumber": {
+          "type": "string",
+          "description": "Extension short number (usually 3 or 4 digits). This property is filled when parties communicate by means of short internal numbers, for example when calling to other extension or sending/receiving Company Pager message"
+        },
+        "location": {
+          "type": "string",
+          "description": "Contains party location (city, state) if one can be determined from phoneNumber. This property is filled only when phoneNumber is not empty and server can calculate location information from it (for example, this information is unavailable for US toll-free numbers)"
+        },
+        "messageStatus": {
+          "type": "string",
+          "enum": [
+            "Queued",
+            "Sent",
+            "Delivered",
+            "DeliveryFailed",
+            "SendingFailed",
+            "Received"
+          ],
+          "description": "Status of a message. Returned for outbound fax messages only"
+        },
+        "name": {
+          "type": "string",
+          "description": "Symbolic name associated with a party. If the phone does not belong to the known extension, only the location is returned, the name is not determined then"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number of a party. Usually it is a plain number including country and area code like 18661234567. But sometimes it could be returned from database with some formatting applied, for example (866)123-4567. This property is filled in all cases where parties communicate by means of global phone numbers, for example when calling to direct numbers or sending/receiving SMS"
+        }
+      }
+    },
+    "GetPresenceInfo": {
+      "required": [
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a presence info resource"
+        },
+        "allowSeeMyPresence": {
+          "type": "boolean",
+          "description": "If 'True' enables other extensions to see the extension presence status"
+        },
+        "dndStatus": {
+          "type": "string",
+          "enum": [
+            "TakeAllCalls",
+            "DoNotAcceptAnyCalls",
+            "DoNotAcceptDepartmentCalls",
+            "TakeDepartmentCallsOnly"
+          ],
+          "description": "Extended DnD (Do not Disturb) status. Cannot be set for Department/Announcement/Voicemail (Take Messages Only)/Fax User/Shared Lines Group/Paging Only Group/IVR Menu/Application Extension extensions. The 'DoNotAcceptDepartmentCalls' and 'TakeDepartmentCallsOnly' values are applicable only for extensions - members of a Department; if these values are set for department outsiders, the 400 Bad Request error code is returned. The 'TakeDepartmentCallsOnly' status can be set through the old RingCentral user interface and is available for some migrated accounts only."
+        },
+        "extension": {
+          "$ref": "#/definitions/GetPresenceExtensionInfo",
+          "description": "Information on extension, for which this presence data is returned"
+        },
+        "message": {
+          "type": "string",
+          "description": "Custom status message (as previously published by user)"
+        },
+        "pickUpCallsOnHold": {
+          "type": "boolean",
+          "description": "If 'True' enables the extension user to pick up a monitored line on hold"
+        },
+        "presenceStatus": {
+          "type": "string",
+          "enum": [
+            "Offline",
+            "Busy",
+            "Available"
+          ],
+          "description": "Aggregated presence status, calculated from a number of sources"
+        },
+        "ringOnMonitoredCall": {
+          "type": "boolean",
+          "description": "If 'True' enables to ring extension phone, if any user monitored by this extension is ringing"
+        },
+        "telephonyStatus": {
+          "type": "string",
+          "enum": [
+            "NoCall",
+            "CallConnected",
+            "Ringing",
+            "OnHold",
+            "ParkedCall"
+          ],
+          "description": "Telephony presence status"
+        },
+        "userStatus": {
+          "type": "string",
+          "enum": [
+            "Offline",
+            "Busy",
+            "Available"
+          ],
+          "description": "User-defined presence status (as previously published by the user)"
+        }
+      }
+    },
+    "GetPresenceExtensionInfo": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of an extension"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of an extension"
+        },
+        "extensionNumber": {
+          "type": "string",
+          "description": "Extension number (usually 3 or 4 digits)"
+        }
+      }
+    },
+    "GetRingOutStatusResponse": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a RingOut call"
+        },
+        "status": {
+          "$ref": "#/definitions/RingOutStatusInfo",
+          "description": "RingOut status information"
+        }
+      }
+    },
+    "RingOutStatusInfo": {
+      "required": [
+      ],
+      "properties": {
+        "callStatus": {
+          "type": "string",
+          "enum": [
+            "Invalid",
+            "Success",
+            "InProgress",
+            "Busy",
+            "NoAnswer",
+            "Rejected",
+            "GenericError",
+            "Finished",
+            "InternationalDisabled",
+            "DestinationBlocked",
+            "NotEnoughFunds",
+            "NoSuchUser"
+          ],
+          "description": "Status of a call"
+        },
+        "callerStatus": {
+          "type": "string",
+          "enum": [
+            "Invalid",
+            "Success",
+            "InProgress",
+            "Busy",
+            "NoAnswer",
+            "Rejected",
+            "GenericError",
+            "Finished",
+            "InternationalDisabled",
+            "DestinationBlocked",
+            "NotEnoughFunds",
+            "NoSuchUser"
+          ],
+          "description": "Status of a calling party"
+        },
+        "calleeStatus": {
+          "type": "string",
+          "enum": [
+            "Invalid",
+            "Success",
+            "InProgress",
+            "Busy",
+            "NoAnswer",
+            "Rejected",
+            "GenericError",
+            "Finished",
+            "InternationalDisabled",
+            "DestinationBlocked",
+            "NotEnoughFunds",
+            "NoSuchUser"
+          ],
+          "description": "Status of a called party"
+        }
+      }
+    },
+    "GetCountryListResponse": {
+      "required": [
+        "navigation",
+        "paging"
+      ],
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CountryInfo"
+          },
+          "description": "List of countries with the country data"
+        },
+        "navigation": {
+          "$ref": "#/definitions/NavigationInfo",
+          "description": "Information on navigation"
+        },
+        "paging": {
+          "$ref": "#/definitions/PagingInfo",
+          "description": "Information on paging"
+        }
+      }
+    },
+    "GetLocationListResponse": {
+      "required": [
+      ],
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LocationInfo"
+          },
+          "description": "List of locations"
+        },
+        "navigation": {
+          "$ref": "#/definitions/NavigationInfo",
+          "description": "Information on navigation"
+        },
+        "paging": {
+          "$ref": "#/definitions/PagingInfo",
+          "description": "Information on paging"
+        }
+      }
+    },
+    "LocationInfo": {
+      "required": [
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a location"
+        },
+        "city": {
+          "type": "string",
+          "description": "Official name of the city, belonging to the certain state"
+        },
+        "npa": {
+          "type": "string",
+          "description": "Area code of the location (3-digit usually), according to the NANP number format, that can be summarized as NPA-NXX-xxxx and covers Canada, the United States, parts of the Caribbean Sea, and some Atlantic and Pacific islands. See for details North American Numbering Plan"
+        },
+        "nxx": {
+          "type": "string",
+          "description": "Central office code of the location, according to the NANP number format, that can be summarized as NPA-NXX-xxxx and covers Canada, the United States, parts of the Caribbean Sea, and some Atlantic and Pacific islands. See for details North American Numbering Plan"
+        },
+        "state": {
+          "type": "string",
+          "description": "ID and URI of the state this location belongs to, see State Info"
+        }
+      }
+    },
+    "GetStateListResponse": {
+      "required": [
+      ],
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetStateInfoResponse"
+          },
+          "description": "List of states"
+        },
+        "navigation": {
+          "$ref": "#/definitions/NavigationInfo",
+          "description": "Information on navigation"
+        },
+        "paging": {
+          "$ref": "#/definitions/PagingInfo",
+          "description": "Information on paging"
+        }
+      }
+    },
+    "GetStateInfoResponse": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a state"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a state"
+        },
+        "country": {
+          "type": "string",
+          "description": "ID and URI of the country the state is in, as a part of the Country Info"
+        },
+        "isoCode": {
+          "type": "string",
+          "description": "Short code for a state (2-letter usually)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Official name of a state"
+        }
+      }
+    },
+    "GetTimezoneListResponse": {
+      "required": [
+      ],
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTimezoneInfoResponse"
+          },
+          "description": "List of timezones"
+        },
+        "navigation": {
+          "$ref": "#/definitions/NavigationInfo",
+          "description": "Information on navigation"
+        },
+        "paging": {
+          "$ref": "#/definitions/PagingInfo",
+          "description": "Information on paging"
+        }
+      }
+    },
+    "GetTimezoneInfoResponse": {
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a timezone"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of the timezone"
+        },
+        "name": {
+          "type": "string",
+          "description": "Short name of the timezone"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the timezone"
+        }
+      }
+    },
+    "GetSubscriptionInfoResponse": {
+      "required": [
+        "deliveryMode"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a subscription"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a subscription"
+        },
+        "eventFilters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Collection of URIs to API resources (message-store/presence/detailed presence)"
+        },
+        "expirationTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Subscription expiration time"
+        },
+        "expiresIn": {
+          "type": "integer",
+          "description": "Subscription lifetime in seconds. The default value is 900"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Active",
+            "Suspended"
+          ],
+          "description": "Subscription status"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Subscription creation time"
+        },
+        "deliveryMode": {
+          "$ref": "#/definitions/NotificationDeliveryMode",
+          "description": "Delivery mode data"
+        }
+      }
+    },
+    "NotificationDeliveryMode": {
+      "required": [
+      ],
+      "properties": {
+        "transportType": {
+          "type": "string",
+          "enum": [
+            "PubNub",
+            "APNS"
+          ],
+          "description": "Notifications transportation provider name. 'APNS' (Apple Push Notifications Service)"
+        },
+        "encryption": {
+          "type": "boolean",
+          "description": "Optional parameter. Specifies if the message will be encrypted or not. For APNS transport type the value is always  false "
+        },
+        "address": {
+          "type": "string",
+          "description": "PubNub channel name. For APNS transport type - internal identifier of a device  device_token "
+        },
+        "subscriberKey": {
+          "type": "string",
+          "description": "PubNub subscriber credentials required to subscribe to the channel"
+        },
+        "secretKey": {
+          "type": "string",
+          "description": "PubNub subscriber credentials required to subscribe to the channel. Optional (for PubNub transport type only)"
+        },
+        "encryptionAlgorithm": {
+          "type": "string",
+          "description": "Encryption algorithm 'AES' (for PubNub transport type only)"
+        },
+        "encryptionKey": {
+          "type": "string",
+          "description": "Key for notification message decryption (for PubNub transport type only)"
+        }
+      }
+    }
+  }
+}
