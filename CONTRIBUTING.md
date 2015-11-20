@@ -1,0 +1,1 @@
+The code in `src/clients` and `src/models` is auto-generated, do not alter any files there.
