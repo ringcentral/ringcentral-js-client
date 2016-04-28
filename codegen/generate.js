@@ -73,7 +73,7 @@ var models = Object.keys(swagger.definitions)
         model.properties = properties
             .map(function(prop) {
 
-                prop.isRequired = def.required.indexOf(prop.$name) != -1;
+                prop.isRequired = def.required? def.required.indexOf(prop.$name) != -1 : false;
 
                 if (prop.$ref) {
 
@@ -204,3 +204,5 @@ Object.keys(clients).forEach(function(tag) {
     fs.writeFileSync(clientPath + '/clients/' + tag + '.ts', clientGenerator(tag, operations));
 
 });
+
+console.log("Generation Completed!");
