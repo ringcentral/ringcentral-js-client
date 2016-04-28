@@ -10,6 +10,11 @@ export class LocationInfo extends model.Model {
     uri:string;
 
     /**
+     * Area code of the location
+     */
+    areaCode:string;
+
+    /**
      * Official name of the city, belonging to the certain state
      */
     city:string;
@@ -33,6 +38,7 @@ export class LocationInfo extends model.Model {
 
         return [
             {property: 'uri', Class: null /* string */, isArray: false,isRequired: false},
+            {property: 'areaCode', Class: null /* string */, isArray: false,isRequired: false},
             {property: 'city', Class: null /* string */, isArray: false,isRequired: false},
             {property: 'npa', Class: null /* string */, isArray: false,isRequired: false},
             {property: 'nxx', Class: null /* string */, isArray: false,isRequired: false},

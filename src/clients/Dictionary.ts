@@ -1,14 +1,18 @@
 /// <reference path="../externals.d.ts" />
 
 import client = require('../core/Client');
-import getcountrylistresponse = require('../models/GetCountryListResponse');
-import countryinfo = require('../models/CountryInfo');
+import countrylist = require('../models/CountryList');
+import dictionarycountryinfo = require('../models/DictionaryCountryInfo');
+import languagelist = require('../models/LanguageList');
 import languageinfo = require('../models/LanguageInfo');
-import getlocationlistresponse = require('../models/GetLocationListResponse');
-import getstatelistresponse = require('../models/GetStateListResponse');
-import getstateinforesponse = require('../models/GetStateInfoResponse');
-import gettimezonelistresponse = require('../models/GetTimezoneListResponse');
-import gettimezoneinforesponse = require('../models/GetTimezoneInfoResponse');
+import dictionarylocationlist = require('../models/DictionaryLocationList');
+import dictionarysecretquestionlist = require('../models/DictionarySecretQuestionList');
+import secretquestioninfo = require('../models/SecretQuestionInfo');
+import dictionaryshippingoptions = require('../models/DictionaryShippingOptions');
+import dictionarystatelist = require('../models/DictionaryStateList');
+import dictionarystateinfo = require('../models/DictionaryStateInfo');
+import dictionarytimezonelist = require('../models/DictionaryTimezoneList');
+import dictionarytimezoneinfo = require('../models/DictionaryTimezoneInfo');
 
 export class Dictionary extends client.Client {
 
@@ -17,18 +21,22 @@ export class Dictionary extends client.Client {
      *
      * <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p>
      * <p>Returns all the countries available for calling.</p>
-     * <h4>Usage Plan Group</h4>
+     * <h4>API Group</h4>
      * <p>Light</p>
      */
     listCountries(options?:{
-        /** Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'. */
+        /** Specifies whether login with the phone numbers of this country is enabled or not */
+        'loginAllowed'?:boolean;
+        /** Specifies if RingCentral sells phone numbers of this country */
+        'numberSelling'?:boolean;
+        /** Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1' */
         'page'?:number;
-        /** Indicates the page size (number of items). If not specified, the value is '100' by default. */
+        /** Indicates the page size (number of items). If not specified, the value is '100' by default */
         'perPage'?:number;
-    }):Promise<getcountrylistresponse.GetCountryListResponse> {
+    }):Promise<countrylist.CountryList> {
 
         return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/country', options, listCountriesOptions),
-                         getcountrylistresponse.GetCountryListResponse);
+                         countrylist.CountryList);
 
     }
 
@@ -37,16 +45,16 @@ export class Dictionary extends client.Client {
      *
      * <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p>
      * <p>Returns the information on the required country.</p>
-     * <h4>Usage Plan Group</h4>
+     * <h4>API Group</h4>
      * <p>Light</p>
      */
     loadCountry(options?:{
         /** Internal identifier of a country */
         'countryId':string;
-    }):Promise<countryinfo.CountryInfo> {
+    }):Promise<dictionarycountryinfo.DictionaryCountryInfo> {
 
         return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/country/{countryId}', options, loadCountryOptions),
-                         countryinfo.CountryInfo);
+                         dictionarycountryinfo.DictionaryCountryInfo);
 
     }
 
@@ -55,14 +63,14 @@ export class Dictionary extends client.Client {
      *
      * <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p>
      * <p>Returns the information about supported languages.</p>
-     * <h4>Usage Plan Group</h4>
+     * <h4>API Group</h4>
      * <p>Light</p>
      */
     listLanguages(options?:{
-    }):Promise<any> {
+    }):Promise<languagelist.LanguageList> {
 
         return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/language', options, listLanguagesOptions),
-                         null);
+                         languagelist.LanguageList);
 
     }
 
@@ -71,10 +79,12 @@ export class Dictionary extends client.Client {
      *
      * <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p>
      * <p>Returns language by its respective ID.</p>
-     * <h4>Usage Plan Group</h4>
+     * <h4>API Group</h4>
      * <p>Light</p>
      */
     loadLanguage(options?:{
+        /** Internal identifier of a language */
+        'languageId':string;
     }):Promise<languageinfo.LanguageInfo> {
 
         return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/language/{languageId}', options, loadLanguageOptions),
@@ -87,7 +97,7 @@ export class Dictionary extends client.Client {
      *
      * <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p>
      * <p>Returns all the available locations for the certain state.</p>
-     * <h4>Usage Plan Group</h4>
+     * <h4>API Group</h4>
      * <p>Light</p>
      */
     listLocations(options?:{
@@ -99,10 +109,62 @@ export class Dictionary extends client.Client {
         'perPage'?:number;
         /** Internal identifier of a state */
         'stateId'?:string;
-    }):Promise<getlocationlistresponse.GetLocationListResponse> {
+        /** Specifies if nxx codes are returned */
+        'withNxx'?:boolean;
+    }):Promise<dictionarylocationlist.DictionaryLocationList> {
 
         return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/location', options, listLocationsOptions),
-                         getlocationlistresponse.GetLocationListResponse);
+                         dictionarylocationlist.DictionaryLocationList);
+
+    }
+
+    /**
+     * Get Secret Question List
+     *
+     * <p style='font-style:italic;'>Since 1.0.20 (Release 7.4)</p>
+     * <p>Returns the list of secret questions for a specific language.</p>
+     * <h4>API Group</h4>
+     * <p>Light</p>
+     */
+    listSecretQuestions(options?:{
+    }):Promise<dictionarysecretquestionlist.DictionarySecretQuestionList> {
+
+        return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/secret-question', options, listSecretQuestionsOptions),
+                         dictionarysecretquestionlist.DictionarySecretQuestionList);
+
+    }
+
+    /**
+     * Get Secret Question
+     *
+     * <p style='font-style:italic;'>Since 1.0.20 (Release 7.4)</p>
+     * <p>Returns a particular secret question in specific language by question ID.</p>
+     * <h4>API Group</h4>
+     * <p>Light</p>
+     */
+    loadSecretQuestion(options?:{
+        /** Internal identifier of a question */
+        'questionId':string;
+    }):Promise<secretquestioninfo.SecretQuestionInfo> {
+
+        return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/secret-question/questionId', options, loadSecretQuestionOptions),
+                         secretquestioninfo.SecretQuestionInfo);
+
+    }
+
+    /**
+     * Get Shipping Options
+     *
+     * <p style='font-style:italic;'>Since 1.0.16 (Release 7.1)</p>
+     * <p>Returns the list of device shipping options with their prices, according to brand, tier, number of ordered devices.</p>
+     * <h4>API Group</h4>
+     * <p>Light</p>
+     */
+    listShippingOptions(options?:{
+    }):Promise<dictionaryshippingoptions.DictionaryShippingOptions> {
+
+        return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/shipping-options', options, listShippingOptionsOptions),
+                         dictionaryshippingoptions.DictionaryShippingOptions);
 
     }
 
@@ -110,23 +172,23 @@ export class Dictionary extends client.Client {
      * Get State List
      *
      * <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p>
-     * <p>Returns all the states for the certain country.</p>
-     * <h4>Usage Plan Group</h4>
+     * <p>Returns all the states for a certain country.</p>
+     * <h4>API Group</h4>
      * <p>Light</p>
      */
-    listStates(options?:{
+    loadlistStates(options?:{
         /** Internal identifier of a country */
-        'countryId'?:string;
+        'countryId'?:number;
         /** Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'. */
         'page'?:number;
         /** Indicates the page size (number of items). If not specified, the value is '100' by default */
         'perPage'?:number;
         /** If 'True', the list of states with phone numbers available for buying is returned. The default value is 'False' */
         'withPhoneNumbers'?:boolean;
-    }):Promise<getstatelistresponse.GetStateListResponse> {
+    }):Promise<dictionarystatelist.DictionaryStateList> {
 
-        return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/state', options, listStatesOptions),
-                         getstatelistresponse.GetStateListResponse);
+        return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/state', options, loadlistStatesOptions),
+                         dictionarystatelist.DictionaryStateList);
 
     }
 
@@ -135,16 +197,16 @@ export class Dictionary extends client.Client {
      *
      * <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p>
      * <p>Returns the information on the required state.</p>
-     * <h4>Usage Plan Group</h4>
+     * <h4>API Group</h4>
      * <p>Light</p>
      */
     loadState(options?:{
         /** Internal identifier of a state */
         'stateId':string;
-    }):Promise<getstateinforesponse.GetStateInfoResponse> {
+    }):Promise<dictionarystateinfo.DictionaryStateInfo> {
 
         return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/state/{stateId}', options, loadStateOptions),
-                         getstateinforesponse.GetStateInfoResponse);
+                         dictionarystateinfo.DictionaryStateInfo);
 
     }
 
@@ -153,7 +215,7 @@ export class Dictionary extends client.Client {
      *
      * <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p>
      * <p>Returns all available timezones.</p>
-     * <h4>Usage Plan Group</h4>
+     * <h4>API Group</h4>
      * <p>Light</p>
      */
     listTimezones(options?:{
@@ -161,10 +223,10 @@ export class Dictionary extends client.Client {
         'page'?:string;
         /** Indicates the page size (number of items). If not specified, the value is '100' by default */
         'perPage'?:string;
-    }):Promise<gettimezonelistresponse.GetTimezoneListResponse> {
+    }):Promise<dictionarytimezonelist.DictionaryTimezoneList> {
 
         return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/timezone', options, listTimezonesOptions),
-                         gettimezonelistresponse.GetTimezoneListResponse);
+                         dictionarytimezonelist.DictionaryTimezoneList);
 
     }
 
@@ -172,8 +234,8 @@ export class Dictionary extends client.Client {
      * Get Timezone
      *
      * <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p>
-     * <p>Returns the information on the certain timezone.</p>
-     * <h4>Usage Plan Group</h4>
+     * <p>Returns the information on a certain timezone.</p>
+     * <h4>API Group</h4>
      * <p>Light</p>
      */
     loadTimezone(options?:{
@@ -183,10 +245,10 @@ export class Dictionary extends client.Client {
         'page'?:number;
         /** Indicates the page size (number of items). If not specified, the value is '100' by default */
         'perPage'?:number;
-    }):Promise<gettimezoneinforesponse.GetTimezoneInfoResponse> {
+    }):Promise<dictionarytimezoneinfo.DictionaryTimezoneInfo> {
 
         return this.send(this.parseOptions('GET', '/restapi/v1.0/dictionary/timezone/{timezoneId}', options, loadTimezoneOptions),
-                         gettimezoneinforesponse.GetTimezoneInfoResponse);
+                         dictionarytimezoneinfo.DictionaryTimezoneInfo);
 
     }
 
@@ -197,14 +259,28 @@ export class Dictionary extends client.Client {
  */
 export var listCountriesOptions:client.IOperationParameter[] = [
     {
+        "name": "loginAllowed",
+        "type": "boolean",
+        "in": "query",
+        "required": false
+    },
+    {
+        "name": "numberSelling",
+        "type": "boolean",
+        "in": "query",
+        "required": false
+    },
+    {
         "name": "page",
         "type": "number",
+        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
+        "format": "int64",
         "in": "query",
         "required": false
     }
@@ -230,7 +306,14 @@ export var listLanguagesOptions:client.IOperationParameter[] = [];
 /**
  * Definition of options for loadLanguage operation
  */
-export var loadLanguageOptions:client.IOperationParameter[] = [];
+export var loadLanguageOptions:client.IOperationParameter[] = [
+    {
+        "name": "languageId",
+        "type": "string",
+        "in": "path",
+        "required": true
+    }
+];
 
 /**
  * Definition of options for listLocations operation
@@ -254,12 +337,14 @@ export var listLocationsOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
+        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
+        "format": "int64",
         "in": "query",
         "required": false
     },
@@ -268,28 +353,59 @@ export var listLocationsOptions:client.IOperationParameter[] = [
         "type": "string",
         "in": "query",
         "required": false
+    },
+    {
+        "name": "withNxx",
+        "type": "boolean",
+        "in": "query",
+        "required": false
     }
 ];
 
 /**
- * Definition of options for listStates operation
+ * Definition of options for listSecretQuestions operation
  */
-export var listStatesOptions:client.IOperationParameter[] = [
+export var listSecretQuestionsOptions:client.IOperationParameter[] = [];
+
+/**
+ * Definition of options for loadSecretQuestion operation
+ */
+export var loadSecretQuestionOptions:client.IOperationParameter[] = [
+    {
+        "name": "questionId",
+        "type": "string",
+        "in": "path",
+        "required": true
+    }
+];
+
+/**
+ * Definition of options for listShippingOptions operation
+ */
+export var listShippingOptionsOptions:client.IOperationParameter[] = [];
+
+/**
+ * Definition of options for loadlistStates operation
+ */
+export var loadlistStatesOptions:client.IOperationParameter[] = [
     {
         "name": "countryId",
-        "type": "string",
+        "type": "number",
+        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "page",
         "type": "number",
+        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
+        "format": "int64",
         "in": "query",
         "required": false
     },
@@ -344,12 +460,14 @@ export var loadTimezoneOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
+        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
+        "format": "int64",
         "in": "query",
         "required": false
     }

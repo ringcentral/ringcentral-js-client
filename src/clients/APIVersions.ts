@@ -1,8 +1,8 @@
 /// <reference path="../externals.d.ts" />
 
 import client = require('../core/Client');
-import getversionsresponse = require('../models/GetVersionsResponse');
-import getversionresponse = require('../models/GetVersionResponse');
+import versions = require('../models/Versions');
+import version = require('../models/Version');
 
 export class APIVersions extends client.Client {
 
@@ -11,12 +11,14 @@ export class APIVersions extends client.Client {
      *
      * <p style='font-style:italic;'>Since 1.0.0</p>
      * <p>Returns current API version(s) and server info.</p>
+     * <h4>API Group</h4>
+     * <p>Light</p>
      */
-    list(options?:{
-    }):Promise<getversionsresponse.GetVersionsResponse> {
+    (options?:{
+    }):Promise<versions.Versions> {
 
-        return this.send(this.parseOptions('GET', '/restapi/', options, listOptions),
-                         getversionsresponse.GetVersionsResponse);
+        return this.send(this.parseOptions('GET', '/restapi/', options, Options),
+                         versions.Versions);
 
     }
 
@@ -25,28 +27,30 @@ export class APIVersions extends client.Client {
      *
      * <p style='font-style:italic;'>Since 1.0.0</p>
      * <p>Returns current API version info by apiVersion.</p>
+     * <h4>API Group</h4>
+     * <p>Light</p>
      */
-    load(options?:{
+    (options?:{
         /** API version to be requested, for example 'v1.0' */
         'apiVersion':string;
-    }):Promise<getversionresponse.GetVersionResponse> {
+    }):Promise<version.Version> {
 
-        return this.send(this.parseOptions('GET', '/restapi/{apiVersion}', options, loadOptions),
-                         getversionresponse.GetVersionResponse);
+        return this.send(this.parseOptions('GET', '/restapi/{apiVersion}', options, Options),
+                         version.Version);
 
     }
 
 }
 
 /**
- * Definition of options for list operation
+ * Definition of options for  operation
  */
-export var listOptions:client.IOperationParameter[] = [];
+export var Options:client.IOperationParameter[] = [];
 
 /**
- * Definition of options for load operation
+ * Definition of options for  operation
  */
-export var loadOptions:client.IOperationParameter[] = [
+export var Options:client.IOperationParameter[] = [
     {
         "name": "apiVersion",
         "type": "string",

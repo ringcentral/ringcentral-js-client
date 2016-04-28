@@ -8,7 +8,7 @@ export class CreateSubscriptionRequest extends model.Model {
     /**
      * Mandatory. Collection of URIs to API resources (see Event Types for details). For APNS transport type only message event filter is available
      */
-    eventFilters:string;
+    eventFilters:string[];
 
     /**
      * Notification delivery settings
@@ -18,7 +18,7 @@ export class CreateSubscriptionRequest extends model.Model {
     getPropertyMappings():model.ModelPropertyMapping[] {
 
         return [
-            {property: 'eventFilters', Class: null /* string */, isArray: false,isRequired: false},
+            {property: 'eventFilters', Class: null /* string[] */, isArray: true,isRequired: true},
             {property: 'deliveryMode', Class: notificationdeliverymoderequest.NotificationDeliveryModeRequest, isArray: false,isRequired: true}
         ];
 

@@ -1,25 +1,16 @@
 /// <reference path="../externals.d.ts" />
 
 import model = require('../core/Model');
+import extensioninfocalllog = require('./ExtensionInfoCallLog');
 import calllogcallerinfo = require('./CallLogCallerInfo');
 import recordinginfo = require('./RecordingInfo');
 
 export class CallLogRecordLegInfo extends model.Model {
 
     /**
-     * Call start time
+     * Action description of the call operation
      */
-    startTime:string;
-
-    /**
-     * Call duration in seconds
-     */
-    duration:number;
-
-    /**
-     * Call type
-     */
-    type:CallLogRecordLegInfoType;
+    action:CallLogRecordLegInfoAction;
 
     /**
      * Call direction
@@ -27,12 +18,32 @@ export class CallLogRecordLegInfo extends model.Model {
     direction:CallLogRecordLegInfoDirection;
 
     /**
-     * Action description of the call operation.
+     * Call duration in seconds
      */
-    action:CallLogRecordLegInfoAction;
+    duration:number;
 
     /**
-     * Status description of the call operation.
+     * Information on extension
+     */
+    extension:extensioninfocalllog.ExtensionInfoCallLog;
+
+    /**
+     * Leg type
+     */
+    legType:string;
+
+    /**
+     * The call start datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
+     */
+    startTime:string;
+
+    /**
+     * Call type
+     */
+    type:CallLogRecordLegInfoType;
+
+    /**
+     * Status description of the call operation
      */
     result:CallLogRecordLegInfoResult;
 
@@ -52,41 +63,25 @@ export class CallLogRecordLegInfo extends model.Model {
     transport:CallLogRecordLegInfoTransport;
 
     /**
-     * Message attachment
-     */
-    message:any;
-
-    /**
      * Call recording data. Returned if the call is recorded
      */
     recording:recordinginfo.RecordingInfo;
 
-    /**
-     * Information on costs
-     */
-    billing:CallLogRecordLegInfoBilling;
-
-    /**
-     * Leg type
-     */
-    legType:string;
-
     getPropertyMappings():model.ModelPropertyMapping[] {
 
         return [
-            {property: 'startTime', Class: null /* string */, isArray: false,isRequired: false},
-            {property: 'duration', Class: null /* number */, isArray: false,isRequired: false},
-            {property: 'type', Class: CallLogRecordLegInfoType, isArray: false,isRequired: false},
-            {property: 'direction', Class: CallLogRecordLegInfoDirection, isArray: false,isRequired: false},
             {property: 'action', Class: CallLogRecordLegInfoAction, isArray: false,isRequired: false},
+            {property: 'direction', Class: CallLogRecordLegInfoDirection, isArray: false,isRequired: false},
+            {property: 'duration', Class: null /* number */, isArray: false,isRequired: false},
+            {property: 'extension', Class: extensioninfocalllog.ExtensionInfoCallLog, isArray: false,isRequired: false},
+            {property: 'legType', Class: null /* string */, isArray: false,isRequired: false},
+            {property: 'startTime', Class: null /* string */, isArray: false,isRequired: false},
+            {property: 'type', Class: CallLogRecordLegInfoType, isArray: false,isRequired: false},
             {property: 'result', Class: CallLogRecordLegInfoResult, isArray: false,isRequired: false},
             {property: 'from', Class: calllogcallerinfo.CallLogCallerInfo, isArray: false,isRequired: false},
             {property: 'to', Class: calllogcallerinfo.CallLogCallerInfo, isArray: false,isRequired: false},
             {property: 'transport', Class: CallLogRecordLegInfoTransport, isArray: false,isRequired: false},
-            {property: 'message', Class: null /* any */, isArray: false,isRequired: false},
-            {property: 'recording', Class: recordinginfo.RecordingInfo, isArray: false,isRequired: false},
-            {property: 'billing', Class: CallLogRecordLegInfoBilling, isArray: false,isRequired: false},
-            {property: 'legType', Class: null /* string */, isArray: false,isRequired: false}
+            {property: 'recording', Class: recordinginfo.RecordingInfo, isArray: false,isRequired: false}
         ];
 
     }
@@ -98,16 +93,6 @@ export class CallLogRecordLegInfo extends model.Model {
     // CUSTOM METHODS
     // CUSTOM METHODS
 
-}
-
-export enum CallLogRecordLegInfoType {
-    Voice = <any>'Voice',
-    Fax = <any>'Fax'
-}
-
-export enum CallLogRecordLegInfoDirection {
-    Inbound = <any>'Inbound',
-    Outbound = <any>'Outbound'
 }
 
 export enum CallLogRecordLegInfoAction {
@@ -134,6 +119,16 @@ export enum CallLogRecordLegInfoAction {
     RingOutMobile = <any>'RingOut Mobile'
 }
 
+export enum CallLogRecordLegInfoDirection {
+    Inbound = <any>'Inbound',
+    Outbound = <any>'Outbound'
+}
+
+export enum CallLogRecordLegInfoType {
+    Voice = <any>'Voice',
+    Fax = <any>'Fax'
+}
+
 export enum CallLogRecordLegInfoResult {
     Unknown = <any>'Unknown',
     ResultInProgress = <any>'ResultInProgress',
@@ -147,8 +142,9 @@ export enum CallLogRecordLegInfoResult {
     FaxonDemand = <any>'Fax on Demand',
     PartialReceive = <any>'Partial Receive',
     Blocked = <any>'Blocked',
-    'Callсonnected' = <any>'Call сonnected',
+    Callconnected = <any>'Call connected',
     NoAnswer = <any>'No Answer',
+    InternationalDisabled = <any>'International Disabled',
     Busy = <any>'Busy',
     SendError = <any>'Send Error',
     Sent = <any>'Sent',
@@ -166,7 +162,6 @@ export enum CallLogRecordLegInfoResult {
     Hangup = <any>'Hang up',
     PoorLineQuality = <any>'Poor Line Quality',
     PartiallySent = <any>'Partially Sent',
-    InternationalDisabled = <any>'International Disabled',
     InternationalRestriction = <any>'International Restriction',
     Abandoned = <any>'Abandoned',
     Declined = <any>'Declined',
@@ -177,9 +172,4 @@ export enum CallLogRecordLegInfoResult {
 export enum CallLogRecordLegInfoTransport {
     PSTN = <any>'PSTN',
     VoIP = <any>'VoIP'
-}
-
-export enum CallLogRecordLegInfoBilling {
-    costIncluded = <any>'costIncluded',
-    costPurchased = <any>'costPurchased'
 }

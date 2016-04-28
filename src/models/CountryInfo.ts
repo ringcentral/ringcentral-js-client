@@ -10,27 +10,21 @@ export class CountryInfo extends model.Model {
     id:string;
 
     /**
-     * Home country URI
+     * Canonical URI of a home country
      */
     uri:string;
 
     /**
-     * Home country calling code defined by ITU-T recommendations E.123 and E.164, see Calling Codes
+     * Official name of a home country
      */
-    callingCode:string;
-
-    /**
-     * Home country code according to the ISO standard, see ISO 3166
-     */
-    isoCode:string;
+    name:string;
 
     getPropertyMappings():model.ModelPropertyMapping[] {
 
         return [
             {property: 'id', Class: null /* string */, isArray: false,isRequired: false},
             {property: 'uri', Class: null /* string */, isArray: false,isRequired: false},
-            {property: 'callingCode', Class: null /* string */, isArray: false,isRequired: false},
-            {property: 'isoCode', Class: null /* string */, isArray: false,isRequired: false}
+            {property: 'name', Class: null /* string */, isArray: false,isRequired: false}
         ];
 
     }

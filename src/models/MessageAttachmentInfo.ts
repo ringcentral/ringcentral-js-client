@@ -51,8 +51,8 @@ export class MessageAttachmentInfo extends model.Model {
 }
 
 export enum MessageAttachmentInfoType {
-    AutoRecording = <any>'AutoRecording',
-    AutoTranscription = <any>'AutoTranscription',
+    AudioRecording = <any>'AudioRecording',
+    AudioTranscription = <any>'AudioTranscription',
     Text = <any>'Text',
     SourceDocument = <any>'SourceDocument',
     RenderedDocument = <any>'RenderedDocument'

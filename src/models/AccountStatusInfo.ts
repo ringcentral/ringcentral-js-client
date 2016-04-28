@@ -5,26 +5,20 @@ import model = require('../core/Model');
 export class AccountStatusInfo extends model.Model {
 
     /**
-     * Reason
-     */
-    reason:string;
-
-    /**
-     * Comment
+     * A free-form user comment, describing the status change reason
      */
     comment:string;
 
     /**
-     * Lifetime
+     * Type of suspension
      */
-    lifetime:string;
+    reason:AccountStatusInfoReason;
 
     getPropertyMappings():model.ModelPropertyMapping[] {
 
         return [
-            {property: 'reason', Class: null /* string */, isArray: false,isRequired: false},
             {property: 'comment', Class: null /* string */, isArray: false,isRequired: false},
-            {property: 'lifetime', Class: null /* string */, isArray: false,isRequired: false}
+            {property: 'reason', Class: AccountStatusInfoReason, isArray: false,isRequired: false}
         ];
 
     }
@@ -36,4 +30,9 @@ export class AccountStatusInfo extends model.Model {
     // CUSTOM METHODS
     // CUSTOM METHODS
 
+}
+
+export enum AccountStatusInfoReason {
+    Voluntarily = <any>'Voluntarily',
+    Involuntarily = <any>'Involuntarily'
 }

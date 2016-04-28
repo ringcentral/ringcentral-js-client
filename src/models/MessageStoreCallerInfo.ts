@@ -20,6 +20,11 @@ export class MessageStoreCallerInfo extends model.Model {
     messageStatus:MessageStoreCallerInfoMessageStatus;
 
     /**
+     * Fax only. Error code returned in case of fax sending failure. Returned if messageStatus value is 'SendingFailed'
+     */
+    faxErrorCode:MessageStoreCallerInfoFaxErrorCode;
+
+    /**
      * Symbolic name associated with a party. If the phone does not belong to the known extension, only the location is returned, the name is not determined then
      */
     name:string;
@@ -35,6 +40,7 @@ export class MessageStoreCallerInfo extends model.Model {
             {property: 'extensionNumber', Class: null /* string */, isArray: false,isRequired: true},
             {property: 'location', Class: null /* string */, isArray: false,isRequired: false},
             {property: 'messageStatus', Class: MessageStoreCallerInfoMessageStatus, isArray: false,isRequired: false},
+            {property: 'faxErrorCode', Class: MessageStoreCallerInfoFaxErrorCode, isArray: false,isRequired: false},
             {property: 'name', Class: null /* string */, isArray: false,isRequired: false},
             {property: 'phoneNumber', Class: null /* string */, isArray: false,isRequired: false}
         ];
@@ -57,4 +63,28 @@ export enum MessageStoreCallerInfoMessageStatus {
     DeliveryFailed = <any>'DeliveryFailed',
     SendingFailed = <any>'SendingFailed',
     Received = <any>'Received'
+}
+
+export enum MessageStoreCallerInfoFaxErrorCode {
+    Undefined = <any>'Undefined',
+    NoFaxSendPermission = <any>'NoFaxSendPermission',
+    NoInternationalPermission = <any>'NoInternationalPermission',
+    NoFaxMachine = <any>'NoFaxMachine',
+    OutgoingCallError = <any>'OutgoingCallError',
+    RenderingFailed = <any>'RenderingFailed',
+    TooManyPages = <any>'TooManyPages',
+    ReturnToDBQueue = <any>'ReturnToDBQueue',
+    NoCallTime = <any>'NoCallTime',
+    WrongNumber = <any>'WrongNumber',
+    ProhibitedNumber = <any>'ProhibitedNumber',
+    InternalError = <any>'InternalError',
+    FaxSendingProhibited = <any>'FaxSendingProhibited',
+    ThePhoneIsBlacklisted = <any>'ThePhoneIsBlacklisted',
+    UserNotFound = <any>'UserNotFound',
+    ConvertError = <any>'ConvertError',
+    DBGeneralError = <any>'DBGeneralError',
+    SkypeBillingFailed = <any>'SkypeBillingFailed',
+    AccountSuspended = <any>'AccountSuspended',
+    ProhibitedDestination = <any>'ProhibitedDestination',
+    InternationalDisabled = <any>'InternationalDisabled'
 }

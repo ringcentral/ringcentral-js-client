@@ -5,7 +5,7 @@ import model = require('../core/Model');
 export class ContactAddressInfo extends model.Model {
 
     /**
-     * Country name of extension user company
+     * Country name of extension user company. Not returned for Address Book
      */
     country:string;
 

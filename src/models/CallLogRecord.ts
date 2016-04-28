@@ -43,17 +43,17 @@ export class CallLogRecord extends model.Model {
     direction:CallLogRecordDirection;
 
     /**
-     * Action description of the call operation.
+     * Action description of the call operation
      */
     action:CallLogRecordAction;
 
     /**
-     * Status description of the call operation.
+     * Status description of the call operation
      */
     result:CallLogRecordResult;
 
     /**
-     * Call start time
+     * The call start datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
      */
     startTime:string;
 
@@ -63,27 +63,22 @@ export class CallLogRecord extends model.Model {
     duration:number;
 
     /**
-     * Call transport
-     */
-    transport:CallLogRecordTransport;
-
-    /**
-     * Message attachment
-     */
-    message:any;
-
-    /**
-     * Call recording data. Returned if the call is recorded
+     * Call recording data. Returned if the call is recorded, the withRecording parameter is set to 'True' in this case
      */
     recording:recordinginfo.RecordingInfo;
 
     /**
-     * Information on costs
+     * For 'Detailed' view only. The datetime when the call log record was modified in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
      */
-    billing:CallLogRecordBilling;
+    lastModifiedTime:string;
 
     /**
-     * Leg description
+     * For 'Detailed' view only. Call transport
+     */
+    transport:CallLogRecordTransport;
+
+    /**
+     * For 'Detailed' view only. Leg description
      */
     legs:calllogrecordleginfo.CallLogRecordLegInfo[];
 
@@ -101,10 +96,9 @@ export class CallLogRecord extends model.Model {
             {property: 'result', Class: CallLogRecordResult, isArray: false,isRequired: false},
             {property: 'startTime', Class: null /* string */, isArray: false,isRequired: false},
             {property: 'duration', Class: null /* number */, isArray: false,isRequired: false},
-            {property: 'transport', Class: CallLogRecordTransport, isArray: false,isRequired: false},
-            {property: 'message', Class: null /* any */, isArray: false,isRequired: false},
             {property: 'recording', Class: recordinginfo.RecordingInfo, isArray: false,isRequired: false},
-            {property: 'billing', Class: CallLogRecordBilling, isArray: false,isRequired: false},
+            {property: 'lastModifiedTime', Class: null /* string */, isArray: false,isRequired: false},
+            {property: 'transport', Class: CallLogRecordTransport, isArray: false,isRequired: false},
             {property: 'legs', Class: calllogrecordleginfo.CallLogRecordLegInfo, isArray: true,isRequired: true}
         ];
 
@@ -166,8 +160,9 @@ export enum CallLogRecordResult {
     FaxonDemand = <any>'Fax on Demand',
     PartialReceive = <any>'Partial Receive',
     Blocked = <any>'Blocked',
-    'Callсonnected' = <any>'Call сonnected',
+    Callconnected = <any>'Call connected',
     NoAnswer = <any>'No Answer',
+    InternationalDisabled = <any>'International Disabled',
     Busy = <any>'Busy',
     SendError = <any>'Send Error',
     Sent = <any>'Sent',
@@ -185,7 +180,6 @@ export enum CallLogRecordResult {
     Hangup = <any>'Hang up',
     PoorLineQuality = <any>'Poor Line Quality',
     PartiallySent = <any>'Partially Sent',
-    InternationalDisabled = <any>'International Disabled',
     InternationalRestriction = <any>'International Restriction',
     Abandoned = <any>'Abandoned',
     Declined = <any>'Declined',
@@ -196,9 +190,4 @@ export enum CallLogRecordResult {
 export enum CallLogRecordTransport {
     PSTN = <any>'PSTN',
     VoIP = <any>'VoIP'
-}
-
-export enum CallLogRecordBilling {
-    costIncluded = <any>'costIncluded',
-    costPurchased = <any>'costPurchased'
 }
