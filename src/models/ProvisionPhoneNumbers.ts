@@ -23,7 +23,7 @@ export class ProvisionPhoneNumbers extends model.Model {
     /**
      * Phone type (purposes for which the number may be used). The default value is  VoiceFax  (for  AdditionalCompanyNumber ,  CompanyNumber ,  DirectNumber ) and  FaxOnly  (for  CompanyFaxNumber )
      */
-    type:'VoiceFax' (for 'AdditionalCompanyNumber', 'CompanyNumber', 'DirectNumber') 'VoiceOnly' (for 'CompanyNumber', 'DirectNumber')  'FaxOnly' (for 'CompanyNumber', 'DirectNumber', 'CompanyFaxNumber');
+    type:string;
 
     /**
      * Usage type of the phone number, see Phone Numbers. The default value is  DirectNumber 
@@ -41,7 +41,7 @@ export class ProvisionPhoneNumbers extends model.Model {
             {property: 'extensionId', Class: provisionphonenumbersextensioninfo.ProvisionPhoneNumbersExtensionInfo, isArray: false,isRequired: false},
             {property: 'phoneNumber', Class: null /* string */, isArray: false,isRequired: false},
             {property: 'reservationId', Class: null /* string */, isArray: false,isRequired: false},
-            {property: 'type', Class: 'VoiceFax' (for 'AdditionalCompanyNumber', 'CompanyNumber', 'DirectNumber') 'VoiceOnly' (for 'CompanyNumber', 'DirectNumber')  'FaxOnly' (for 'CompanyNumber', 'DirectNumber', 'CompanyFaxNumber'), isArray: false,isRequired: false},
+            {property: 'type', Class: null /* string */, isArray: false,isRequired: false},
             {property: 'usageType', Class: ProvisionPhoneNumbersUsageType, isArray: false,isRequired: false},
             {property: 'vanityPattern', Class: null /* string */, isArray: false,isRequired: false}
         ];

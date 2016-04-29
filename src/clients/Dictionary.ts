@@ -273,14 +273,12 @@ export var listCountriesOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }
@@ -337,14 +335,12 @@ export var listLocationsOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
@@ -391,21 +387,18 @@ export var loadlistStatesOptions:client.IOperationParameter[] = [
     {
         "name": "countryId",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
@@ -460,14 +453,12 @@ export var loadTimezoneOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }

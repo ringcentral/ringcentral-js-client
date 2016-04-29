@@ -521,14 +521,12 @@ export var listAccountActiveCallsOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }
@@ -611,28 +609,24 @@ export var loadAccountCallLogOptions:client.IOperationParameter[] = [
     {
         "name": "dateFrom",
         "type": "string",
-        "format": "date-time",
         "in": "query",
         "required": false
     },
     {
         "name": "dateTo",
         "type": "string",
-        "format": "date-time",
         "in": "query",
         "required": false
     },
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }
@@ -652,7 +646,6 @@ export var deleteAccountCallLogOptions:client.IOperationParameter[] = [
     {
         "name": "dateTo",
         "type": "string",
-        "format": "date-time",
         "in": "query",
         "required": false
     }
@@ -728,14 +721,12 @@ export var listExtensionActiveCallsOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }
@@ -825,28 +816,24 @@ export var loadExtensionCallLogOptions:client.IOperationParameter[] = [
     {
         "name": "dateTo",
         "type": "string",
-        "format": "date-time",
         "in": "query",
         "required": false
     },
     {
         "name": "dateFrom",
         "type": "string",
-        "format": "date-time",
         "in": "query",
         "required": false
     },
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }
@@ -873,7 +860,6 @@ export var deleteExtensionCallLogOptions:client.IOperationParameter[] = [
     {
         "name": "dateTo",
         "type": "string",
-        "format": "date-time",
         "in": "query",
         "required": false
     }
@@ -947,14 +933,12 @@ export var syncExtensionCallLogOptions:client.IOperationParameter[] = [
     {
         "name": "dateFrom",
         "type": "string",
-        "format": "date-time",
         "in": "query",
         "required": false
     },
     {
         "name": "recordCount",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },

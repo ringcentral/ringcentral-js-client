@@ -1,7 +1,6 @@
 /// <reference path="./externals.d.ts" />
 
 import accountClient = require('./clients/Account');
-import versioningClient = require('./clients/APIVersions');
 import callLogClient = require('./clients/CallLog');
 import dictionaryClient = require('./clients/Dictionary');
 import extensionClient = require('./clients/Extension');
@@ -16,7 +15,6 @@ class Client {
 
     private _sdk;
     private _account:accountClient.Account;
-    private _versioning:versioningClient.APIVersions;
     private _callLog:callLogClient.CallLog;
     private _dictionary:dictionaryClient.Dictionary;
     private _extension:extensionClient.Extension;
@@ -30,7 +28,6 @@ class Client {
         this._sdk = sdk;
 
         this._account = new accountClient.Account(sdk);
-        this._versioning = new versioningClient.APIVersions(sdk);
         this._callLog = new callLogClient.CallLog(sdk);
         this._dictionary = new dictionaryClient.Dictionary(sdk);
         this._extension = new extensionClient.Extension(sdk);
@@ -42,7 +39,6 @@ class Client {
     }
 
     account() { return this._account; }
-    versioning() { return this._versioning; }
     callLog() { return this._callLog; }
     dictionary() { return this._dictionary; }
     extension() { return this._extension; }

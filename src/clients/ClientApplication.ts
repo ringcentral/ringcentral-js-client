@@ -168,7 +168,6 @@ export var Options:client.IOperationParameter[] = [
     {
         "name": "countryId",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }

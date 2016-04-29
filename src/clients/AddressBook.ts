@@ -469,14 +469,12 @@ export var listContactsOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }
@@ -648,14 +646,12 @@ export var syncAddressBookOptions:client.IOperationParameter[] = [
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "pageId",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }

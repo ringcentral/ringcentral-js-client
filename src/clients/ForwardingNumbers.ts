@@ -183,14 +183,12 @@ export var listExtensionForwardingNumbersOptions:client.IOperationParameter[] = 
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }

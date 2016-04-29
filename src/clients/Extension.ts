@@ -363,14 +363,12 @@ export var listExtensionsOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
@@ -478,14 +476,12 @@ export var listExtensionPhoneNumbersOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }
@@ -512,14 +508,12 @@ export var listExtensionGrantsOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }
@@ -631,14 +625,12 @@ export var listDepartmentMembersOptions:client.IOperationParameter[] = [
     {
         "name": "page",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     }

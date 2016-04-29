@@ -106,7 +106,6 @@ export var lookupPhoneNumbersOptions:client.IOperationParameter[] = [
     {
         "name": "areaCode",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
@@ -176,7 +175,6 @@ export var lookupPhoneNumbersOptions:client.IOperationParameter[] = [
     {
         "name": "perPage",
         "type": "number",
-        "format": "int64",
         "in": "query",
         "required": false
     },
