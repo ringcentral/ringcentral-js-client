@@ -5239,7 +5239,7 @@
           "description": "Internal identifier of phone number reservation; encoded data including reservation type (by brand, by account, by session), particular brand/account/session data, and reservation date and time"
         },
         "type": {
-          "type": "'VoiceFax' (for 'AdditionalCompanyNumber', 'CompanyNumber', 'DirectNumber') 'VoiceOnly' (for 'CompanyNumber', 'DirectNumber')  'FaxOnly' (for 'CompanyNumber', 'DirectNumber', 'CompanyFaxNumber')",
+          "type": "string",
           "description": "Phone type (purposes for which the number may be used). The default value is  VoiceFax  (for  AdditionalCompanyNumber ,  CompanyNumber ,  DirectNumber ) and  FaxOnly  (for  CompanyFaxNumber )"
         },
         "usageType": {

@@ -40,14 +40,14 @@ describe('Client.clients.CallLog', function() {
             }
         ];
 
-    describe('list()', function() {
+    describe('loadExtensionCallLog()', function() {
 
         it('returns URL depending on options', function() {
 
             getRegistry().apiCall('GET', '/restapi/v1.0/account/~/extension/~/call-log', {records: data});
 
             return CallLog
-                .list()
+                .loadExtensionCallLog()
                 .then((calls:any) => {
 
                     expect(calls.getClassName()).to.equal('ExtensionCallLogResponse');
