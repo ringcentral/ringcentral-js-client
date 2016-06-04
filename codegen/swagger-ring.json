@@ -501,7 +501,14 @@
           "consumes": [ "application/json" ],
           "produces": [ "application/json" ],
           "parameters" : [
-
+            {
+              "name": "accountId",
+              "type": "string",
+              "in": "path",
+              "description": "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session",
+              "required": true,
+              "default": "~"
+            },
             {
               "name": "page",
               "type": "integer",
