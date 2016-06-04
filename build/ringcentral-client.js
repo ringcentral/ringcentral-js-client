@@ -420,6 +420,13 @@ exports.updateAccountBusinessAddressOptions = [
  */
 exports.listDialingPlansOptions = [
     {
+        "name": "accountId",
+        "type": "string",
+        "in": "path",
+        "required": true,
+        "default": "~"
+    },
+    {
         "name": "page",
         "type": "number",
         "in": "query",

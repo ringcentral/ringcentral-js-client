@@ -183,6 +183,8 @@ export class Account extends client.Client {
      * <p>Heavy</p>
      */
     listDialingPlans(options?:{
+        /** Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session */
+        'accountId':string;
         /** Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1' */
         'page'?:number;
         /** Indicates the page size (number of items). If not specified, the value is '100' by default */
@@ -388,6 +390,13 @@ export var updateAccountBusinessAddressOptions:client.IOperationParameter[] = [
  * Definition of options for listDialingPlans operation
  */
 export var listDialingPlansOptions:client.IOperationParameter[] = [
+    {
+        "name": "accountId",
+        "type": "string",
+        "in": "path",
+        "required": true,
+        "default": "~"
+    },
     {
         "name": "page",
         "type": "number",

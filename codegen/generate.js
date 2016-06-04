@@ -146,7 +146,7 @@ var clients = Object.keys(swagger.paths).reduce(function(res, path) {
 
         console.log('Parsing operation', gutil.colors.magenta(method), gutil.colors.magenta(path));
 
-        if (path.indexOf('/oauth') > -1 || path.indexOf('/{apiVersion}')) {
+        if (path.indexOf('/oauth') > -1 || path.indexOf('/{apiVersion}') > -1) {
             return;
         }
 
