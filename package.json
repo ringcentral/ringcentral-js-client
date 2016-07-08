@@ -30,7 +30,7 @@
     "sinon-chai": "^2.8.0",
     "soap": "^0.11.0",
     "ts-loader": "^0.7.1",
-    "typescript": "^1.6.2",
+    "typescript": "^1.8.10",
     "webpack": "^1.12.2"
   },
   "preferGlobal": false,
@@ -54,7 +54,7 @@
   },
   "homepage": "https://github.com/ringcentral/ringcentral-js-client",
   "engines": {
-    "node": ">=0.10.36"
+    "node": ">=0.10.36 <6.0.0"
   },
   "license": "MIT"
 }

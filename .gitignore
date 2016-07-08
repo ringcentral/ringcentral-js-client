@@ -3,6 +3,7 @@
 .idea
 .tscache
 bower_components
+build
 build/coverage
 build/karma
 build/tests
