@@ -4,17 +4,16 @@ module.exports = function(model) {
         enums = [],
         propertyMappings = [];
 
-    res.push('/// <reference path="../externals.d.ts" />');
-    res.push('');
-    res.push('import model = require(\'../core/Model\');');
+    //res.push('/// <reference path="../externals.d.ts" />');
+    //res.push('');
+    //res.push('import model = require(\'../core/Model\');');
 
     model.imports.forEach(function(imp) {
-        imp = imp.split('.');
-        res.push('import ' + imp[0] + ' = require(\'./' + imp[1] + '\');');
+        res.push('import ' + imp + ' from \""./' + imp + '\";');
     });
 
     res.push('');
-    res.push('export class ' + model.name + ' extends model.Model {');
+    res.push('export default class ' + model.name + ' {');
 
     model.properties.forEach(function(prop) {
 

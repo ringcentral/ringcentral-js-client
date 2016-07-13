@@ -1,12 +1,35 @@
 var fs = require('fs');
-var gutil = require('gulp-util');
-var swagger = require('./swagger-ring.json');
+var path = require('path');
+var parseArgs = require('minimist');
+var chalk = require('chalk');
+//var Model = require('./model.js');
+
+var args = parseArgs(process.argv.slice(2));
+var outDir = args.out;
+var swaggerFile = args._[0];
+if (!outDir || !swaggerFile) {
+    console.log('Usage: node generate.js --out path/to/generated/source path/to/api/swagger/json');
+    return;
+}
+
 var modelGenerator = require('./templates/model');
 var clientGenerator = require('./templates/client');
-var clientPath = __dirname + '/../src';
+var swagger = JSON.parse(fs.readFileSync(swaggerFile));
+var clientPath = outDir;
 
-//console.log(swagger.definitions);
+//genModels(swagger.definitions);
 
+function genModels(definitions) {
+    for(var name in definitions) {
+        var m = new Model(name, definitions[name]);
+    }
+}
+
+function genModel(name, definition) {
+    var outFile = path.join(outDir, name + '.ts');
+    console.log('Generating\t' + chalk.magenta(outFile));
+}
+//return;
 function ref2model(ref) {
     return ref.split('/').pop();
 }
@@ -40,9 +63,9 @@ function renameTypes(prop) {
 
 function addToImports(imports, ref) {
 
-    if (!swagger.definitions[ref2model(ref)]) throw new Error('Definition ' + gutil.colors.magenta(ref) + ' not found');
+    if (!swagger.definitions[ref2model(ref)]) throw new Error('Definition ' + chalk.magenta(ref) + ' not found');
 
-    var type = ref2modelNS(ref);
+    var type = ref2model(ref);
 
     if (imports.indexOf(type) == -1) imports.push(type);
 
@@ -56,12 +79,13 @@ var models = Object.keys(swagger.definitions)
         return swagger.definitions[key];
     })
     .map(function(def) {
-
-        console.log('Parsing model', gutil.colors.magenta(def.name));
+        var outFile = path.join(outDir, def.name + '.ts');
+        console.log('Generating ', chalk.magenta(outFile));
 
         var properties = Object.keys(def.properties).map(function(key) {
-            def.properties[key].$name = key;
-            return def.properties[key];
+            var prop = def.properties[key];
+            prop.$name = key;
+            return prop;
         });
 
         var model = {};
@@ -77,8 +101,9 @@ var models = Object.keys(swagger.definitions)
 
                 if (prop.$ref) {
 
-                    prop.type = ref2modelNS(prop.$ref);
+                    prop.type = ref2model(prop.$ref);
                     model.imports = addToImports(model.imports, prop.$ref);
+                    console.log('Model imports', model.imports)
 
                 } else if (prop.type.indexOf('#/') != -1) {
 
@@ -109,19 +134,18 @@ var models = Object.keys(swagger.definitions)
                 return renameTypes(prop);
 
             });
-
         return model;
 
     })
     .forEach(function(model) {
 
-        var file = clientPath + '/models/' + model.name + '.ts',
+        var file = path.join(clientPath,  model.name + '.ts'),
             previousModel = fs.existsSync(file) ? fs.readFileSync(file, 'utf-8') : '',
             re = /(\/\/ CUSTOM METHODS(.|[\r\n])*?\/\/ CUSTOM METHODS)/igm,
             m = re.exec(previousModel),
             modelSource = modelGenerator(model);
 
-        console.log('Saving model', gutil.colors.magenta(file));
+        console.log('Saving model', chalk.magenta(file));
 
         if (m !== null) {
 
@@ -144,7 +168,7 @@ var clients = Object.keys(swagger.paths).reduce(function(res, path) {
 
         var operation = operations[method];
 
-        console.log('Parsing operation', gutil.colors.magenta(method), gutil.colors.magenta(path));
+        console.log('Parsing operation', chalk.magenta(method), chalk.magenta(path));
 
         if (path.indexOf('/oauth') > -1 || path.indexOf('/{apiVersion}') > -1) {
             return;

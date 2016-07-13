@@ -1,0 +1,1 @@
+tsc --outDir ../build/js-sample ./ts-sample/* -t ES6 -m es6

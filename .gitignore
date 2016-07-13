@@ -3,6 +3,7 @@
 .idea
 .tscache
 bower_components
+src/generated
 build
 build/coverage
 build/karma

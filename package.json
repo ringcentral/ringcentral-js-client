@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "scripts": {
     "start": "node server.js",
-    "build": "npm run swagger && ./node_modules/.bin/gulp",
+    "build": "npm run generate && ./node_modules/.bin/gulp",
     "watch": "npm run build -- watch",
     "test": "npm run build && npm run mocha",
     "mocha": "./node_modules/.bin/mocha ./build/tests/specs.js",
     "istanbul": "./node_modules/.bin/istanbul cover -x specs.js --dir=./build/coverage --report=lcov --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --reporter spec ./build/test/specs.js",
-    "swagger": "node codegen/generate.js",
-    "docs": "typedoc --mode file --out ./api-docs/ src/ -m commonjs"
+    "generate": "node codegen/generate.js  --out src/generated codegen/swagger.json",
+    "docs": "typedoc --mode modules --out ./build/api-docs/ src/generated/ --module es6 -t es6",
+    "lint": "tslint -c tslint.json codegen/ts-sample/*"
   },
   "dependencies": {},
   "devDependencies": {
@@ -25,6 +26,7 @@
     "gulp-webpack-build": "^0.13.1",
     "istanbul": "^0.4.0",
     "js-beautify": "^1.5.10",
+    "minimist": "^1.2.0",
     "mocha": "^2.2.5",
     "node-fetch": "^1.5.3",
     "ringcentral": "^2.*",
