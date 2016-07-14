@@ -1,8 +1,7 @@
 language: node_js
 node_js:
-- '4.4.7'
+- '4'
 - '5'
 - '6'
 script:
-- npm run generate
 - npm run lint
