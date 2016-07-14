@@ -37,6 +37,7 @@
     "soap": "^0.11.0",
     "ts-loader": "^0.7.1",
     "tslint": "^3.13.0",
+    "typedoc": "^0.4.4",
     "typescript": "^1.8.10",
     "webpack": "^1.12.2"
   },
