@@ -9,8 +9,8 @@
     "mocha": "./node_modules/.bin/mocha ./build/tests/specs.js",
     "istanbul": "./node_modules/.bin/istanbul cover -x specs.js --dir=./build/coverage --report=lcov --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --reporter spec ./build/test/specs.js",
     "generate": "node codegen/generate.js  --out src/generated codegen/swagger.json",
-    "docs": "typedoc --mode modules --out ./build/api-docs/ src/generated/ --module es6 -t es6",
-    "lint": "tslint -c tslint.json codegen/ts-sample/*"
+    "docs": "typedoc --mode file --out ./build/api-docs/ src/generated/ --module es6 -t es6",
+    "lint": "tslint -c tslint.json codegen/ts-sample/*.ts src/generated/*.ts"
   },
   "dependencies": {},
   "devDependencies": {

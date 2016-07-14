@@ -6,10 +6,10 @@ module.exports = function(model) {
 
     //res.push('/// <reference path="../externals.d.ts" />');
     //res.push('');
-    //res.push('import model = require(\'../core/Model\');');
+    res.push('import * as model from "../core/Model";');
 
     model.imports.forEach(function(imp) {
-        res.push('import ' + imp + ' from \""./' + imp + '\";');
+        res.push('import ' + imp + ' from "./' + imp + '";');
     });
 
     res.push('');
@@ -18,7 +18,7 @@ module.exports = function(model) {
     model.properties.forEach(function(prop) {
 
         if (prop.enum) { //TODO Bring it back
-
+            
             prop.type = model.name + prop.$name.substr(0, 1).toUpperCase() + prop.$name.substr(1);
 
             enums.push({
@@ -36,20 +36,20 @@ module.exports = function(model) {
             res.push('     */');
         }
 
-        res.push('    ' + prop.$name + ':' + prop.type + ';');
+        res.push('    ' + prop.$name + ': ' + prop.type + ';');
 
         var isPrimitive = ['number', 'string', 'string[]', 'any', 'boolean'].indexOf(prop.type) != -1;
 
-        propertyMappings.push('{property: \'' + prop.$name + '\', ' +
-                              'Class: ' + (isPrimitive ? 'null /* ' + prop.type + ' */' : prop.type.replace('[]', '')) + ', ' +
-                              'isArray: ' + (prop.type.indexOf('[]') != -1 ? 'true' : 'false') + ',' +
+        propertyMappings.push('{property: "' + prop.$name + '", ' +
+                              'Class: ' + (isPrimitive || prop.enum ? 'null /* ' + prop.type + ' */' : prop.type.replace('[]', '')) + ', ' +
+                              'isArray: ' + (prop.type.indexOf('[]') != -1 ? 'true' : 'false') + ', ' +
                               'isRequired: ' + (prop.isRequired ? 'true' : 'false') + '}');
 
     });
 
     if (propertyMappings.length > 0) {
         res.push('');
-        res.push('    getPropertyMappings():model.ModelPropertyMapping[] {');
+        res.push('    getPropertyMappings(): model.ModelPropertyMapping[] {');
         res.push('');
         res.push('        return [');
         res.push('            ' + propertyMappings.join(',\n            '));
@@ -60,7 +60,7 @@ module.exports = function(model) {
 
     res.push('');
     res.push('    getClassName() {');
-    res.push('        return \'' + model.name + '\';');
+    res.push('        return "' + model.name + '";');
     res.push('    }');
     res.push('');
     res.push('    // CUSTOM METHODS');
@@ -69,20 +69,8 @@ module.exports = function(model) {
     res.push('}');
 
     enums.forEach(function(en) {
-
         res.push('');
-        res.push('export enum ' + en.name + ' {');
-        res.push('    ' + en.values.map(function(v) {
-
-                var k = v.split(' ').join('');
-
-                if (!k.match(/^[a-z]+$/i)) k = '\'' + k + '\'';
-
-                return k + ' = <any>\'' + v + '\'';
-
-            }).join(',\n    '));
-        res.push('}');
-
+        res.push('export type ' + en.name + ' = "' + en.values.join('" | "') + '";');
     });
 
     //res.push('');

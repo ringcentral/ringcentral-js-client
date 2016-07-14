@@ -20,7 +20,7 @@ var clientPath = outDir;
 //genModels(swagger.definitions);
 
 function genModels(definitions) {
-    for(var name in definitions) {
+    for (var name in definitions) {
         var m = new Model(name, definitions[name]);
     }
 }
@@ -29,14 +29,19 @@ function genModel(name, definition) {
     var outFile = path.join(outDir, name + '.ts');
     console.log('Generating\t' + chalk.magenta(outFile));
 }
-//return;
+
+// e.g. ExtensionInfo.Request.ContactInfo -> ExtensionInfo$Request$ContactInfo
+function flatDefinitionName(name) {
+    return name.replace(/\./g, '');
+}
+
 function ref2model(ref) {
-    return ref.split('/').pop();
+    return flatDefinitionName(ref.split('/').pop());
 }
 
 function ref2modelNS(ref) {
     var model = ref2model(ref);
-    return model.toLowerCase() + '.' + model;
+    return model;
 }
 
 function renameTypes(prop) {
@@ -74,15 +79,18 @@ function addToImports(imports, ref) {
 }
 
 var models = Object.keys(swagger.definitions)
-    .map(function(key) {
-        swagger.definitions[key].name = key;
-        return swagger.definitions[key];
+    .map(function (key) {
+        var def = swagger.definitions[key];
+        def.name = flatDefinitionName(key);
+        delete swagger.definitions[key];
+        swagger.definitions[def.name] = def;
+        return def;
     })
-    .map(function(def) {
+    .map(function (def) {
         var outFile = path.join(outDir, def.name + '.ts');
-        console.log('Generating ', chalk.magenta(outFile));
+        //console.log('Generating ', chalk.magenta(outFile));
 
-        var properties = Object.keys(def.properties).map(function(key) {
+        var properties = Object.keys(def.properties).map(function (key) {
             var prop = def.properties[key];
             prop.$name = key;
             return prop;
@@ -95,15 +103,14 @@ var models = Object.keys(swagger.definitions)
         model.imports = [];
 
         model.properties = properties
-            .map(function(prop) {
+            .map(function (prop) {
 
-                prop.isRequired = def.required? def.required.indexOf(prop.$name) != -1 : false;
+                prop.isRequired = def.required ? def.required.indexOf(prop.$name) != -1 : false;
 
                 if (prop.$ref) {
 
                     prop.type = ref2model(prop.$ref);
                     model.imports = addToImports(model.imports, prop.$ref);
-                    console.log('Model imports', model.imports)
 
                 } else if (prop.type.indexOf('#/') != -1) {
 
@@ -137,9 +144,9 @@ var models = Object.keys(swagger.definitions)
         return model;
 
     })
-    .forEach(function(model) {
+    .forEach(function (model) {
 
-        var file = path.join(clientPath,  model.name + '.ts'),
+        var file = path.join(clientPath, model.name + '.ts'),
             previousModel = fs.existsSync(file) ? fs.readFileSync(file, 'utf-8') : '',
             re = /(\/\/ CUSTOM METHODS(.|[\r\n])*?\/\/ CUSTOM METHODS)/igm,
             m = re.exec(previousModel),
@@ -160,11 +167,11 @@ var models = Object.keys(swagger.definitions)
 
     });
 
-var clients = Object.keys(swagger.paths).reduce(function(res, path) {
+var clients = Object.keys(swagger.paths).reduce(function (res, path) {
 
     var operations = swagger.paths[path];
 
-    Object.keys(operations).forEach(function(method) {
+    Object.keys(operations).forEach(function (method) {
 
         var operation = operations[method];
 
@@ -186,7 +193,7 @@ var clients = Object.keys(swagger.paths).reduce(function(res, path) {
 
         operation.imports = operation.responseSchema != '.' ? [operation.responseSchema] : [];
 
-        operation.parameters.map(function(param) {
+        operation.parameters.map(function (param) {
 
             if (param.schema) {
 
@@ -197,7 +204,7 @@ var clients = Object.keys(swagger.paths).reduce(function(res, path) {
 
             }
 
-            if(param.format) {
+            if (param.format) {
                 delete param.format;
             }
 
@@ -209,7 +216,7 @@ var clients = Object.keys(swagger.paths).reduce(function(res, path) {
 
         });
 
-        operation.tags.forEach(function(tag) {
+        operation.tags.forEach(function (tag) {
 
             if (!res[tag]) res[tag] = [];
 
@@ -223,7 +230,7 @@ var clients = Object.keys(swagger.paths).reduce(function(res, path) {
 
 }, {});
 
-Object.keys(clients).forEach(function(tag) {
+Object.keys(clients).forEach(function (tag) {
 
     var operations = clients[tag];
 

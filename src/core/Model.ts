@@ -1,16 +1,10 @@
-/// <reference path="../externals.d.ts" />
+export default class Model {
 
-export class Model {
-
-    protected _sdk;
-
-    constructor(sdk, data?:any) {
-
-        this._sdk = sdk;
+    constructor(data?: any) {
 
         data = data || {};
 
-        this.getPropertyMappings().forEach((mapping)=> {
+        this.getPropertyMappings().forEach((mapping) => {
 
             var Class = mapping.Class,
                 prop = mapping.property;
@@ -20,7 +14,7 @@ export class Model {
                 return;
             }
 
-            var processProperty = (dataPart)=> {
+            var processProperty = (dataPart) => {
 
                 if (!Class || typeof Class !== 'function') { // primitives & enums
 
@@ -28,7 +22,7 @@ export class Model {
 
                 } else {
 
-                    return new Class(this._sdk, dataPart);
+                    return new Class(dataPart);
 
                 }
 
@@ -48,7 +42,7 @@ export class Model {
 
     }
 
-    getPropertyMappings():ModelPropertyMapping[] {
+    getPropertyMappings(): ModelPropertyMapping[] {
         return [];
     }
 
@@ -56,15 +50,15 @@ export class Model {
         return 'Model';
     }
 
-    getId(){
+    getId() {
         return this['id'];
     }
 
 }
 
 export interface ModelPropertyMapping {
-    property:string;
-    Class?: typeof Model|any;
+    property: string;
+    Class?: typeof Model | any;
     isArray: boolean;
     isRequired: boolean;
 }
