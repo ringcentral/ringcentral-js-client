@@ -2,7 +2,7 @@
   "name": "ringcentral-client",
   "version": "0.1.0",
   "scripts": {
-    "install": "export PATH=./node_modules/.bin:$PATH; npm run generate",
+    "prepublish": "export PATH=./node_modules/.bin:$PATH; npm run generate",
     "start": "node server.js",
     "build": "npm run generate && ./node_modules/.bin/gulp",
     "watch": "npm run build -- watch",
@@ -13,7 +13,10 @@
     "docs": "typedoc --mode file --out ./build/api-docs/ src/generated/ --module es6 -t es6",
     "lint": "tslint -c tslint.json codegen/ts-sample/*.ts src/generated/*.ts"
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-fetch": "^1.5.3",
+    "ringcentral": "^2.*"
+  },
   "devDependencies": {
     "chai": "^3.0.0",
     "chalk": "^1.1.3",
@@ -30,8 +33,6 @@
     "js-beautify": "^1.5.10",
     "minimist": "^1.2.0",
     "mocha": "^2.2.5",
-    "node-fetch": "^1.5.3",
-    "ringcentral": "^2.*",
     "sinon": "^1.15.4",
     "sinon-chai": "^2.8.0",
     "soap": "^0.11.0",
