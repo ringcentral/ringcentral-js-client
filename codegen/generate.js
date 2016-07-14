@@ -166,7 +166,8 @@ var models = Object.keys(swagger.definitions)
         fs.writeFileSync(file, modelSource);
 
     });
-
+console.log('All data structure definitions generated.');
+return;
 var clients = Object.keys(swagger.paths).reduce(function (res, path) {
 
     var operations = swagger.paths[path];
