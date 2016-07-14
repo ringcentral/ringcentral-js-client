@@ -1,5 +1,7 @@
 # RingCentral Connect Platform JS Client
 
+[![Build Status](https://travis-ci.org/zengfenfei/ringcentral-js-client.svg?branch=working)](https://travis-ci.org/zengfenfei/ringcentral-js-client)
+
 Experimental! Do not use in production.
 
 # Installation
