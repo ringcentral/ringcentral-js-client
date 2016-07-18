@@ -229,3 +229,17 @@ graph LR
 **Issues**
 
 Some of the paths are not composed of entities only, e.g. `/account/{accountId}/recording/{recordingId}/content`, `/dictionary/*`
+
+## Proposal 4: url builder
+
+```typescript
+let a: Promise<Account> = client.account('id').get();
+let exts: Promise<Extension[]> = client.account('id').extension().list();
+let result: Promise<CreateExtensionResult> = client.account('id').extension('id').create(extension);
+let result: Promise<UpdateExtensionResult> = client.account('id').extension('id').update(extension);
+let result: Promise<RemoveExtensionResult> = client.account('id').extension('id').remove();
+let callLogs: Promise<CallLog[]> = client.account('id').extension('id').callLog().list();
+let accountCallLogs: Promise<CallLog[]> = client.account('id').callLog().list();
+let serviceInfo: Promise<ServiceInfo> = client.account('id').serviceInfo().get();
+let meetingServiceInfo: Promise<MeetingServiceInfo> = client.account('id').meeting().serviceInfo().get();
+```
