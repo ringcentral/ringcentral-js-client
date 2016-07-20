@@ -1,8 +1,4 @@
-/*
-/account/{accountId}/call-log
-/account/{accountId}/extension
-/account/{accountId}/extension/{extensionId}/call-log
-*/
+import UrlSection from "../../src/UrlSection";
 
 /**
  * RingcentralClient
@@ -12,37 +8,6 @@ class RingcentralClient {
     }
     account(id?: string): Account {
         return new Account(id);
-    }
-}
-
-/**
- * UrlParts
- */
-class UrlSection {
-    private name: string;
-    private value: string;
-    private previous: UrlSection;
-    constructor(name, value?, prv?) {
-        // this.sdk = sdk;
-        this.name = name;
-        this.value = value || null;
-        this.previous = prv;
-    }
-
-    toString(): string {
-        let str = "/" + this.name;
-        if (this.value) {
-            str += "/" + this.value;
-        }
-        return str;
-    }
-
-    getEndpoint(): string {
-        let end: string = "";
-        if (this.previous) {
-            end = this.previous.getEndpoint();
-        }
-        return end + this;
     }
 }
 

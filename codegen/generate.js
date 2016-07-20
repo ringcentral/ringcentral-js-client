@@ -3,6 +3,7 @@ var path = require('path');
 var parseArgs = require('minimist');
 var chalk = require('chalk');
 //var Model = require('./model.js');
+var genUrlBuilders = require('./gen-url-builders.js');
 
 var args = parseArgs(process.argv.slice(2));
 var outDir = args.out;
@@ -78,6 +79,7 @@ function addToImports(imports, ref) {
 
 }
 
+genUrlBuilders(Object.keys(swagger.paths), outDir + '/url-builders');
 var models = Object.keys(swagger.definitions)
     .map(function (key) {
         var def = swagger.definitions[key];
@@ -169,11 +171,13 @@ var models = Object.keys(swagger.definitions)
 console.log('All data structure definitions generated.');
 return;
 var clients = Object.keys(swagger.paths).reduce(function (res, path) {
-
+    console.log('res', res)
     var operations = swagger.paths[path];
 
     Object.keys(operations).forEach(function (method) {
-
+        if (method == 'parameters') {
+            return;
+        }
         var operation = operations[method];
 
         console.log('Parsing operation', chalk.magenta(method), chalk.magenta(path));
@@ -181,20 +185,21 @@ var clients = Object.keys(swagger.paths).reduce(function (res, path) {
         if (path.indexOf('/oauth') > -1 || path.indexOf('/{apiVersion}') > -1) {
             return;
         }
-
-        if (!operation.responses || !operation.responses['200']) {
+        var response = operation.responses['default'];
+        if (!operation.responses || !response) {
+            console.log(method, operation)
             throw new Error('Cannot find 200 response');
         }
 
         operation.path = '/restapi' + path;
 
         operation.method = method;
-
-        operation.responseSchema = ref2modelNS(operation.responses['200'].schema.$ref);
+        if (!response.schema.$ref) console.log(response)
+        operation.responseSchema = ref2modelNS(response.schema.$ref);
 
         operation.imports = operation.responseSchema != '.' ? [operation.responseSchema] : [];
 
-        operation.parameters.map(function (param) {
+        operation.parameters && operation.parameters.map(function (param) {
 
             if (param.schema) {
 
@@ -217,7 +222,7 @@ var clients = Object.keys(swagger.paths).reduce(function (res, path) {
 
         });
 
-        operation.tags.forEach(function (tag) {
+        operation.tags && operation.tags.forEach(function (tag) {
 
             if (!res[tag]) res[tag] = [];
 
