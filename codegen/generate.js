@@ -79,7 +79,7 @@ function addToImports(imports, ref) {
 
 }
 
-genUrlBuilders(Object.keys(swagger.paths), outDir + '/url-builders');
+genUrlBuilders(Object.keys(swagger.paths), swagger.parameters, outDir + '/url-builders');
 var models = Object.keys(swagger.definitions)
     .map(function (key) {
         var def = swagger.definitions[key];

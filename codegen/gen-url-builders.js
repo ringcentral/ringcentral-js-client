@@ -5,7 +5,7 @@ var tplFile = __dirname + '/templates/UrlSection.ts.tpl';
 
 var ignoredUrlSections = ['restapi', 'v1.0'];
 var tpl = handlebars.compile('' + fs.readFileSync(tplFile));
-module.exports = function (paths, outDir) {
+module.exports = function (paths, parameters, outDir) {
     var classes = {}; // url part -> UrlSectionClass
     var classNames = [];
     for(var i = 0; i < paths.length; i++) {
@@ -18,7 +18,13 @@ module.exports = function (paths, outDir) {
                 continue;
             }
             if (prvSec) {
-                var isValue = urlPart.match(/^{.+}$/);
+                var pathParameterName = urlPart.match(/^{(.+)}$/);
+                pathParameterName && (pathParameterName = pathParameterName[1]);
+                if (pathParameterName) {
+                    prvSec.defaultValue = parameters[pathParameterName].default;
+                    prvSec.valueDesc = parameters[pathParameterName].description;
+                }
+                var isValue = !!pathParameterName;
                 if (isValue && !prvPartIsValue) {
                     prvSec.allowValue();
                 } else if (!isValue && !prvPartIsValue) {
@@ -62,6 +68,8 @@ var urlSectionValuePresences = ['optional', 'required', 'forbidden'];
 function UrlSectionClass(urlName) {
     this.urlName = urlName;
     this.name = uppercamelcase(urlName);
+    this.defaultValue = null;
+    this.valueDesc = null;
     this.valuePresence = '';
     this.methodName = lowercaseFirstLetter(this.name);
     this.subSections = [];  // UrlSectionClass[]
