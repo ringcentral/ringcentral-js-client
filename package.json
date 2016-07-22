@@ -4,7 +4,6 @@
   "scripts": {
     "prepublish": "export PATH=./node_modules/.bin:$PATH; npm run generate",
     "start": "node server.js",
-    "tsc": "tsc --outDir build/js ./src/**/*.ts -t ES5 -m commonjs",
     "build": "npm run generate && ./node_modules/.bin/gulp",
     "watch": "npm run build -- watch",
     "test": "npm run build && npm run mocha",
@@ -47,7 +46,8 @@
   },
   "preferGlobal": false,
   "private": false,
-  "main": "./build/ringcentral-client.js",
+  "main": "./build/src/Client.js",
+  "typings": "./src/Client.ts",
   "author": {
     "name": "RingCentral, Inc.",
     "email": "devsupport@ringcentral.com"
