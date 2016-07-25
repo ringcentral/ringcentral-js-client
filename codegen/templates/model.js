@@ -15,6 +15,14 @@ module.exports = function(model) {
     res.push('');
     res.push('export default class ' + model.name + ' {');
 
+    // Gen Constructor
+    res.push('    constructor(data) {')
+    model.properties.forEach(function(prop) {
+        // TODO When this property is another class, create an instance of this class recursively.
+        res.push('        this.' + prop.$name + ' = data["'+prop.$name+'"];');
+    });
+    res.push('    }');
+
     model.properties.forEach(function(prop) {
 
         if (prop.enum) { //TODO Bring it back
@@ -47,6 +55,7 @@ module.exports = function(model) {
 
     });
 
+/*
     if (propertyMappings.length > 0) {
         res.push('');
         res.push('    getPropertyMappings(): model.ModelPropertyMapping[] {');
@@ -57,7 +66,7 @@ module.exports = function(model) {
         res.push('');
         res.push('    }');
     }
-
+*/
     res.push('');
     res.push('    getClassName() {');
     res.push('        return "' + model.name + '";');

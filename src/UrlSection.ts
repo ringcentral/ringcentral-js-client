@@ -5,26 +5,39 @@ export default class UrlSection {
     private name: string;
     private value: string;
     private previous: UrlSection;
-    constructor(name, value?, prv?) {
-        // this.sdk = sdk;
+    private _service: any;
+    constructor(name: string, value?: string,  prv?: UrlSection, service?) {
+        this._service = service;
         this.name = name;
         this.value = value || null;
         this.previous = prv;
     }
 
-    toString(): string {
+    toString(withValue = true): string {
         let str = "/" + this.name;
-        if (this.value) {
+        if (withValue && this.value) {
             str += "/" + this.value;
         }
         return str;
     }
 
-    getEndpoint(): string {
+    getEndpoint(withValue = true): string {
         let end: string = "";
         if (this.previous) {
             end = this.previous.getEndpoint();
         }
-        return end + this;
+        return end + this.toString(withValue);
+    }
+
+    protected getService() {
+        var sec: UrlSection = this;
+        while(sec) {
+            if (sec._service) {
+                return sec._service;
+            }
+            if (sec.previous) {
+                sec = sec.previous;
+            }
+        }
     }
 }
