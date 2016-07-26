@@ -5,7 +5,7 @@ import {{this.name}} from "./{{this.name}}";
 {{/each}}
 
 export default class {{name}} extends UrlSection {
-    constructor(prv: UrlSection, id?) {
+    constructor(prv: UrlSection, id?: string) {
         super("{{urlName}}", id {{#if defaultValue}} || "{{defaultValue}}" {{/if}}, prv);
     }
     {{#each subSections}}
@@ -15,7 +15,7 @@ export default class {{name}} extends UrlSection {
      * {{this.valueDesc}}
      */
     {{/if}}
-    {{this.methodName}}(id?) {
+    {{this.methodName}}(id?: string) {
         return new {{this.name}}(this, id);
     }
     {{/each}}
