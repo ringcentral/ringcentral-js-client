@@ -3,6 +3,7 @@ import AccountInfo from "../../src/generated/AccountInfo";
 import ExtensionInfo from "../../src/generated/ExtensionInfo";
 import MessageInfo from "../../src/generated/MessageInfo";
 import CallerInfo from "../../src/generated/CallerInfo";
+import BusinessAddressInfo from "../../src/generated/BusinessAddressInfo";
 import PagingResult from "../../src/PagingResult";
 import auth from "../../src/test/auth";
 
@@ -38,10 +39,62 @@ class Account extends UrlSection {
     extention(id?) {
         return new Extension(id, this);
     }
+
+    businessAddress(id?: string) {
+        return new BusinessAddress(id, this);
+    }
+
     get(): Promise<AccountInfo> {
         return this.getService().get(this.getEndpoint()).then(function (res) {
             return new AccountInfo(res.json());
         });
+    }
+}
+
+/**
+ * BusinessAddress
+ */
+class BusinessAddress extends UrlSection {
+    constructor(id?: string, prv?: UrlSection) {
+        super("business-address", id, prv)
+    }
+
+    /**
+     * BusinessAddress sample
+     *  { street: 'Simin',
+         city: 'San Mateo',
+         state: 'ON',
+         zip: '300188',
+         country: 'Canada' },
+      company: 'RC',
+      email: 'a7031x@ringcentral.com' }
+    
+      // TODO: Assume that put method allow only body parameters
+    */
+    put(body: {
+        company?: string, /* Company business name */
+        email?: string, /* Company business email address */
+        businessAddress?: BusinessAddressInfo
+    }): Promise<UpdateResponse> {
+        return this.getService().put(this.getEndpoint(), body).then(function (data) {
+            return new UpdateResponse(data);
+        });
+    }
+}
+
+/**
+ * UpdateResponse
+ */
+class UpdateResponse {
+    uri: string;
+    company: string;
+    email: string;
+    businessAddress: BusinessAddressInfo;
+    constructor(data) {
+        this.uri = data["uri"];
+        this.company = data["company"];
+        this.email = data["email"];
+        this.businessAddress = data["businessAddress"];
     }
 }
 
@@ -110,7 +163,10 @@ class CompanyPager extends UrlSection {
         super("company-pager", id, prv);
     }
 
-    // FIXME Assumes post doest not accept query parameters
+    /* 
+        FIXME: Assumes post doe not accept query parameters
+        FIXME: All properties of body will optional
+    */
     post(body: {
         from?: CallerInfo,
         replyOn?: number, /* Internal identifier of a message this message replies to */
@@ -125,6 +181,7 @@ class CompanyPager extends UrlSection {
 
 auth.then(function (rcService) {
     let client = new RingcentralClient(rcService);
+    /*
     client.account().get().then(function (ac: AccountInfo) {
         console.log(">>> My account info", ac);
     }).catch(function (e) {
@@ -132,7 +189,7 @@ auth.then(function (rcService) {
     });
 
     client.account().extention().list({ perPage: 2 }).then(function (extensionPages) {
-        console.log(">>>extension list slice", extensionPages.records.slice(3));
+        console.log(">>>extension list slice", extensionPages.records);
     }).catch(function (e) {
         console.error("Fail to get extensions", e);
     });
@@ -145,6 +202,23 @@ auth.then(function (rcService) {
     }).catch(function (e) {
         console.error("Fail to send company page", e);
     });
+    */
+
+    client._service.get("/account/~/extension/~").then(function (res) {
+        console.log("ExtensionInfo", res.json());
+    });
+
+    client._service.put("/account/~/extension/~", {
+        contact: {
+            lastName: "Stolyarchuk3"
+        }
+    }).then(function (res) {
+        console.log("Put extension result", res.json());
+    }).catch(function (e) {
+        console.error("put extension error:" + e);
+    });
+
+
 }).catch(function (e) {
     console.error("Fail to login: " + e);
 });
