@@ -5,8 +5,8 @@ import PagingInfo from "./generated/PagingInfo";
  * PagingResult
  */
 export default class PagingResult<T> {
-    constructor(data) {
-        this.records = data["records"];
+    constructor(data, t) {
+        this.records = convertArray<T>(data["records"], t);
         this.navigation = data["navigation"];
         this.paging = data["paging"];
     }
@@ -19,4 +19,12 @@ export default class PagingResult<T> {
     navigation: NavigationInfo;
 
     paging: PagingInfo;
+}
+
+function convertArray<T>(ar, constr: {new(a): T}): T[] {
+    var typedAr: T[] = [];
+    for (var i = 0; i < ar.length; i++) {
+        typedAr.push(new constr(ar[i]));
+    }
+    return typedAr;
 }

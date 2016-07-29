@@ -188,13 +188,13 @@ auth.then(function (rcService) {
     }).catch(function (e) {
         console.error("Fail to get account info", e);
     });
-    /*
-        client.account().extention().list({ perPage: 2 }).then(function (extensionPages) {
-            console.log(">>>extension list slice", extensionPages.records);
+    
+        client.account().extension().list({ perPage: 2 }).then(function (extensionPages) {
+            console.log(">>>extension list slice", extensionPages);
         }).catch(function (e) {
             console.error("Fail to get extensions", e);
         });
-    
+  /*  
         client.account().extention().companyPager().post({
             to: [new CallerInfo({ extensionNumber: "109" })],
             text: "test pager message"

@@ -18,7 +18,7 @@ module.exports = function(model) {
     // Gen Constructor
     res.push('    constructor(data) {')
     model.properties.forEach(function(prop) {
-        // TODO When this property is another class, create an instance of this class recursively.
+        // TODO When this property is another class, create an instance of that class recursively.
         res.push('        this.' + prop.$name + ' = data["'+prop.$name+'"];');
     });
     res.push('    }');

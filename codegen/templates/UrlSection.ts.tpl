@@ -6,6 +6,9 @@ import {{this.name}} from "./{{this.name}}";
 {{#if modelType}}
 import {{modelType}} from "../{{modelType}}";
 {{/if}}
+{{#if listMethod}}
+import PagingResult from "../../PagingResult";
+{{/if}}
 
 export default class {{name}} extends UrlSection {
     constructor(prv: UrlSection, id?: string, service?) {
@@ -35,12 +38,17 @@ export default class {{name}} extends UrlSection {
     {{/if}}
     {{#if listMethod}}
 
+    /*
+    {{listMethod.comment}}
+    // FIXME: Assume that list operation only allow query parameters
+    */
     list(options?: {
-        //page?: number, /** Indicates the page number to retrieve. Only positive number value */
-        //perPage?: number, /** Indicates the page size (number of items). If not specified, the val */
-    }): Promise<PagingResult<ModelType>> {
+        {{#each listMethod.parameters}}
+        {{@key}}?: {{this.type}}, /* {{this.comment}} */
+        {{/each}}
+    }): Promise<PagingResult<{{modelType}}>> {
         return this.getService().get(this.getEndpoint(false), options).then(function (res) {
-            return new PagingResult(res.json());
+            return new PagingResult<{{modelType}}>(res.json(), {{modelType}});
         });
     }
     {{/if}}

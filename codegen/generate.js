@@ -88,7 +88,7 @@ genOperations(urlBuilderClasses, swagger.paths);
 for (var k in urlBuilderClasses) {
     var cls = urlBuilderClasses[k];
     var file = outDir + '/url-builders/' + cls.name + '.ts';
-    console.log('Saving ' + file, cls);
+    console.log('Saving ' + file);
     fs.writeFileSync(file, tpl(cls));
 }
 

@@ -1,4 +1,5 @@
 var isListResponse = require('./plugins/list-response');
+var jsonType2TsType = require('./jsonType2Ts.js');
 
 /* Get CRUD operation method. */
 module.exports = function (classes, paths) {
@@ -16,7 +17,7 @@ module.exports = function (classes, paths) {
 
 function addGetOperation(cls, getOperation) {
     if (isListResponse(getOperation.responses.default.schema)) {
-        addListOperation();
+        addListOperation(cls, getOperation);
         return;
     }
     cls.getMethod = {
@@ -28,8 +29,25 @@ function addGetOperation(cls, getOperation) {
     }
 }
 
-function addListOperation() {
-    
+function addListOperation(cls, getOperation) {
+    var parameters = {};
+    cls.listMethod = {
+        comment: getOperation.description
+    };
+    if (!getOperation.parameters) {
+        return;
+    }
+    var parameters = cls.listMethod.parameters = {};
+    getOperation.parameters.forEach(function (p) {
+        if (p.in != 'query') {
+            console.warn('List Operation allow none query parameters', p);
+            return;
+        }
+        parameters[p.name] = {
+            type: jsonType2TsType(p.type),
+            comment: p.description
+        };
+    });
 }
 
 function resolveUrlEntity(url) {
