@@ -1,11 +1,7 @@
-var handlebars = require('handlebars');
-var fs = require('fs');
-var uppercamelcase = require('uppercamelcase');
-var tplFile = __dirname + '/templates/UrlSection.ts.tpl';
+var UrlSectionClass = require('./UrlSectionClass');
 
 var ignoredUrlSections = ['restapi', 'v1.0'];
-var tpl = handlebars.compile('' + fs.readFileSync(tplFile));
-module.exports = function (paths, parameters, outDir) {
+module.exports = function (paths, parameters) {
     var classes = {}; // url part -> UrlSectionClass
     var classNames = [];
     for(var i = 0; i < paths.length; i++) {
@@ -55,44 +51,5 @@ module.exports = function (paths, parameters, outDir) {
             prvSec.forbidValue();
         }
     }
-    
-    for(var k in classes) {
-        var cls = classes[k];
-        var file = outDir + '/' + cls.name + '.ts';
-        console.log('Saving ' + file);
-      	fs.writeFileSync(file, tpl(cls));
-    }
+    return classes;
 };
-
-var urlSectionValuePresences = ['optional', 'required', 'forbidden'];
-function UrlSectionClass(urlName) {
-    this.urlName = urlName;
-    this.name = uppercamelcase(urlName);
-    this.defaultValue = null;
-    this.valueDesc = null;
-    this.valuePresence = '';
-    this.methodName = lowercaseFirstLetter(this.name);
-    this.subSections = [];  // UrlSectionClass[]
-}
-
-// When value appears
-UrlSectionClass.prototype.allowValue = function() {
-    if (!this.valuePresence) {
-        this.valuePresence = 'required';
-    } else if (this.valuePresence == 'forbidden') {
-        this.valuePresence = 'optional';
-    }
-};
-
-// When no value
-UrlSectionClass.prototype.forbidValue = function() {
-    if (!this.valuePresence) {
-        this.valuePresence = 'forbidden';
-    } else if (this.valuePresence == 'required') {
-        this.valuePresence = 'optional';
-    }
-};
-
-function lowercaseFirstLetter(str) {
-    return str.charAt(0).toLowerCase() + str.substring(1);
-}

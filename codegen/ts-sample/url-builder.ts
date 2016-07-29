@@ -1,5 +1,6 @@
 import UrlSection from "../../src/UrlSection";
 import AccountInfo from "../../src/generated/AccountInfo";
+import GenAccount from "../../src/generated/url-builders/Account";
 import ExtensionInfo from "../../src/generated/ExtensionInfo";
 import MessageInfo from "../../src/generated/MessageInfo";
 import CallerInfo from "../../src/generated/CallerInfo";
@@ -20,8 +21,8 @@ class RingcentralClient {
     constructor(service) {
         this._service = service;
     }
-    account(id?: string): Account {
-        return new Account(this._service, id);
+    account(id?: string): GenAccount {
+        return new GenAccount(null, id, this._service);
     }
 }
 
@@ -56,7 +57,7 @@ class Account extends UrlSection {
  */
 class BusinessAddress extends UrlSection {
     constructor(id?: string, prv?: UrlSection) {
-        super("business-address", id, prv)
+        super("business-address", id, prv);
     }
 
     /**
@@ -181,43 +182,43 @@ class CompanyPager extends UrlSection {
 
 auth.then(function (rcService) {
     let client = new RingcentralClient(rcService);
-    /*
+
     client.account().get().then(function (ac: AccountInfo) {
         console.log(">>> My account info", ac);
     }).catch(function (e) {
         console.error("Fail to get account info", e);
     });
-
-    client.account().extention().list({ perPage: 2 }).then(function (extensionPages) {
-        console.log(">>>extension list slice", extensionPages.records);
-    }).catch(function (e) {
-        console.error("Fail to get extensions", e);
-    });
-
-    client.account().extention().companyPager().post({
-        to: [new CallerInfo({ extensionNumber: "109" })],
-        text: "test pager message"
-    }).then(function (msgInfo) {
-        console.log(">>> Post pager message result", msgInfo);
-    }).catch(function (e) {
-        console.error("Fail to send company page", e);
-    });
+    /*
+        client.account().extention().list({ perPage: 2 }).then(function (extensionPages) {
+            console.log(">>>extension list slice", extensionPages.records);
+        }).catch(function (e) {
+            console.error("Fail to get extensions", e);
+        });
+    
+        client.account().extention().companyPager().post({
+            to: [new CallerInfo({ extensionNumber: "109" })],
+            text: "test pager message"
+        }).then(function (msgInfo) {
+            console.log(">>> Post pager message result", msgInfo);
+        }).catch(function (e) {
+            console.error("Fail to send company page", e);
+        });
+        
+    
+        client._service.get("/account/~/extension/~").then(function (res) {
+            console.log("ExtensionInfo", res.json());
+        });
+    
+        client._service.put("/account/~/extension/~", {
+            contact: {
+                lastName: "Stolyarchuk3"
+            }
+        }).then(function (res) {
+            console.log("Put extension result", res.json());
+        }).catch(function (e) {
+            console.error("put extension error:" + e);
+        });
     */
-
-    client._service.get("/account/~/extension/~").then(function (res) {
-        console.log("ExtensionInfo", res.json());
-    });
-
-    client._service.put("/account/~/extension/~", {
-        contact: {
-            lastName: "Stolyarchuk3"
-        }
-    }).then(function (res) {
-        console.log("Put extension result", res.json());
-    }).catch(function (e) {
-        console.error("put extension error:" + e);
-    });
-
 
 }).catch(function (e) {
     console.error("Fail to login: " + e);

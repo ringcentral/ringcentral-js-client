@@ -3,7 +3,9 @@ var path = require('path');
 var parseArgs = require('minimist');
 var chalk = require('chalk');
 //var Model = require('./model.js');
+var handlebars = require('handlebars');
 var genUrlBuilders = require('./gen-url-builders.js');
+var genOperations = require('./gen-operations.js');
 
 var args = parseArgs(process.argv.slice(2));
 var outDir = args.out;
@@ -79,7 +81,17 @@ function addToImports(imports, ref) {
 
 }
 
-genUrlBuilders(Object.keys(swagger.paths), swagger.parameters, outDir + '/url-builders');
+var tplFile = __dirname + '/templates/UrlSection.ts.tpl';
+var tpl = handlebars.compile('' + fs.readFileSync(tplFile));
+var urlBuilderClasses = genUrlBuilders(Object.keys(swagger.paths), swagger.parameters);
+genOperations(urlBuilderClasses, swagger.paths);
+for (var k in urlBuilderClasses) {
+    var cls = urlBuilderClasses[k];
+    var file = outDir + '/url-builders/' + cls.name + '.ts';
+    console.log('Saving ' + file, cls);
+    fs.writeFileSync(file, tpl(cls));
+}
+
 var models = Object.keys(swagger.definitions)
     .map(function (key) {
         var def = swagger.definitions[key];
