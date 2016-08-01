@@ -3,9 +3,9 @@ import UrlSection from "../../UrlSection";
 {{#each subSections}}
 import {{this.name}} from "./{{this.name}}";
 {{/each}}
-{{#if modelType}}
-import {{modelType}} from "../{{modelType}}";
-{{/if}}
+{{#each modelTypes}}
+import {{@key}} from "../{{@key}}";
+{{/each}}
 {{#if listMethod}}
 import PagingResult from "../../PagingResult";
 {{/if}}
@@ -52,4 +52,22 @@ export default class {{name}} extends UrlSection {
         });
     }
     {{/if}}
+    {{#if postMethod}}
+
+    /* 
+        {{postMethod.comment}}
+        FIXME: Assumes post only accept query and body parameters
+        FIXME: All properties of body will be optional
+    */
+    post(body: {{postMethod.bodyParams}},
+    query?: {{postMethod.queryParams}}): Promise<{{postMethod.resType}}> {
+        return this.getService().post(this.getEndpoint(false), body, query).then(function (res) {
+            return new {{postMethod.resType}}(res.json());
+        });
+    }
+    {{/if}}
 }
+{{#each innerTypes}}
+
+export {{{this}}}
+{{/each}}

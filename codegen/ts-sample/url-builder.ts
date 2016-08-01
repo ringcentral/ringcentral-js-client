@@ -151,7 +151,7 @@ class Extension extends UrlSection {
         perPage?: number, /** Indicates the page size (number of items). If not specified, the val */
     }): Promise<PagingResult<ExtensionInfo>> {
         return this.getService().get(this.getEndpoint(false), options).then(function (res) {
-            return new PagingResult(res.json());
+            return new PagingResult(res.json(), ExtensionInfo);
         });
     }
 }
@@ -165,8 +165,8 @@ class CompanyPager extends UrlSection {
     }
 
     /* 
-        FIXME: Assumes post doe not accept query parameters
-        FIXME: All properties of body will optional
+        FIXME: Assumes post doe not accept query parameters, only body parameters are accepted
+        FIXME: All properties of body will be optional
     */
     post(body: {
         from?: CallerInfo,
@@ -183,7 +183,16 @@ class CompanyPager extends UrlSection {
 auth.then(function (rcService) {
     let client = new RingcentralClient(rcService);
 
-    client.account().get().then(function (ac: AccountInfo) {
+    client.account().extension().companyPager().post({
+        to: [new CallerInfo({ extensionNumber: "109" })],
+        text: "test generated post pager message"
+    }).then(function (msgInfo) {
+        console.log(">>> Post pager message result", msgInfo);
+    }).catch(function (e) {
+        console.error("Fail to send company page", e);
+    });
+
+    /*client.account().get().then(function (ac: AccountInfo) {
         console.log(">>> My account info", ac);
     }).catch(function (e) {
         console.error("Fail to get account info", e);
@@ -194,16 +203,6 @@ auth.then(function (rcService) {
         }).catch(function (e) {
             console.error("Fail to get extensions", e);
         });
-  /*  
-        client.account().extention().companyPager().post({
-            to: [new CallerInfo({ extensionNumber: "109" })],
-            text: "test pager message"
-        }).then(function (msgInfo) {
-            console.log(">>> Post pager message result", msgInfo);
-        }).catch(function (e) {
-            console.error("Fail to send company page", e);
-        });
-        
     
         client._service.get("/account/~/extension/~").then(function (res) {
             console.log("ExtensionInfo", res.json());

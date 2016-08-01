@@ -157,6 +157,13 @@
       "type": "string",
       "description": "Internal identifier of a line"
     },
+    "meetingId": {
+      "name": "meetingId",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "Internal identifier of a meeting"
+    },
     "messageId": {
       "name": "messageId",
       "in": "path",
@@ -1160,6 +1167,51 @@
         }
       }
     },
+    "DialInNumbers": {
+      "type": "object",
+      "properties": {
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number of the dial-in number for the meeting in e.164 format"
+        },
+        "formattedNumber": {
+          "type": "string",
+          "description": "Phone number of the dial-in number formatted according to the extension home country"
+        },
+        "location": {
+          "type": "string",
+          "description": "Optional field in case the dial-in number is associated with a particular location"
+        },
+        "country": {
+          "$ref": "#/definitions/DialInNumbers.CountryInfo"
+        }
+      }
+    },
+    "DialInNumbers.CountryInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a country"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a country"
+        },
+        "callingCode": {
+          "type": "string",
+          "description": "Country calling code defined by ITU-T recommendations E.123 and E.164, see Calling Codes"
+        },
+        "isoCode": {
+          "type": "string",
+          "description": "Country code according to the ISO standard, see ISO 3166"
+        },
+        "name": {
+          "type": "string",
+          "description": "Official name of a country"
+        }
+      }
+    },
     "EmergencyAddressInfo": {
       "type": "object",
       "properties": {
@@ -1460,6 +1512,28 @@
         "reason": {
           "type": "string",
           "description": "Reason of limitation for a particular service feature. Returned only if the enabled parameter value is 'False', see Service Feature Limitations and Reasons. When retrieving service features for an extension, the reasons for the limitations, if any, are returned in response"
+        }
+      }
+    },
+    "ExternalUserInfo": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "type": "string",
+          "description": "User type of a meeting account",
+          "default": "~"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Meeting account user identifier"
+        },
+        "userToken": {
+          "type": "string",
+          "description": "Meeting account user token"
+        },
+        "userType": {
+          "type": "integer",
+          "description": "Meeting account user type"
         }
       }
     },
@@ -2263,20 +2337,25 @@
       "type": "object",
       "properties": {
         "firstPage": {
-          "type": "string",
-          "description": "Canonical URI for the first page of the list"
+          "$ref": "#/definitions/Page"
         },
         "nextPage": {
-          "type": "string",
-          "description": "Canonical URI for the next page of the list"
+          "$ref": "#/definitions/Page"
         },
         "previousPage": {
-          "type": "string",
-          "description": "Canonical URI for the previous page of the list"
+          "$ref": "#/definitions/Page"
         },
         "lastPage": {
+          "$ref": "#/definitions/Page"
+        }
+      }
+    },
+    "Page": {
+      "type": "object",
+      "properties": {
+        "uri": {
           "type": "string",
-          "description": "Canonical URI for the last page of the list"
+          "description": "Canonical URI for the page"
         }
       }
     },
@@ -4474,6 +4553,12 @@
         "parameters": [
           {
             "type": "string",
+            "description": "Phone number in E.164 (11-digits) format with or without plus '+'. Multiple values are supported",
+            "name": "phoneNumber",
+            "in": "query"
+          },
+          {
+            "type": "string",
             "description": "If specified, only contacts whose First name or Last name start with the mentioned substring are returned. Case-insensitive",
             "name": "startsWith",
             "in": "query"
@@ -4597,6 +4682,30 @@
         },
         {
           "$ref": "#/parameters/extensionId"
+        }
+      ]
+    },
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/address-book/group/{groupId}": {
+      "get": {
+        "description": "Get Contact Group by ID",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GroupInfo"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/accountId"
+        },
+        {
+          "$ref": "#/parameters/extensionId"
+        },
+        {
+          "$ref": "#/parameters/groupId"
         }
       ]
     },
@@ -5162,7 +5271,7 @@
                     "$ref": "#/definitions/CallerInfo"
                   }
                 },
-                "resolution": {
+                "faxResolution": {
                   "type": "string",
                   "description": "Fax resolution",
                   "enum": [
@@ -5429,6 +5538,161 @@
         },
         {
           "$ref": "#/parameters/extensionId"
+        }
+      ]
+    },
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/service-info": {
+      "get": {
+        "description": "Get Meeting Service Info",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string",
+                  "description": "Canonical URI of a meeting service info resource"
+                },
+                "supportUri": {
+                  "type": "string",
+                  "description": "URI to retrieve support information for meetings functionality"
+                },
+                "intlDialInNumbersUri": {
+                  "type": "string",
+                  "description": "URI to retrieve international dial in numbers"
+                },
+                "externalUserInfo": {
+                  "$ref": "#/definitions/ExternalUserInfo"
+                },
+                "dialInNumbers": {
+                  "$ref": "#/definitions/DialInNumbers"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/accountId"
+        },
+        {
+          "$ref": "#/parameters/extensionId"
+        }
+      ]
+    },
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId}": {
+      "delete": {
+        "description": "Delete Meeting",
+        "responses": {
+          "default": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "description": "Get Meeting",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MeetingInfo"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Update Meeting",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MeetingInfo"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "topic": {
+                  "type": "string",
+                  "description": "Topic of a meeting"
+                },
+                "meetingType": {
+                  "type": "string",
+                  "description": "Type of a meeting. 'Instant' - meeting that is instantly started as soon as the host creates it; 'Scheduled' - common scheduled meeting; 'Recurring' - a recurring meeting. If the specified meeting type is 'Scheduled' then schedule property is mandatory for request",
+                  "enum": [
+                    "Scheduled",
+                    "Instant",
+                    "Recurring"
+                  ]
+                },
+                "password": {
+                  "type": "string",
+                  "description": "Password required to join a meeting. Max number of characters is 10"
+                },
+                "schedule": {
+                  "$ref": "#/definitions/MeetingScheduleInfo"
+                },
+                "allowJoinBeforeHost": {
+                  "type": "boolean",
+                  "description": "If 'True' then the meeting can be joined and started by any participant (not host only). Supported for the meetings of 'Scheduled' and 'Recurring' type."
+                },
+                "startHostVideo": {
+                  "type": "boolean",
+                  "description": "Enables starting video when host joins the meeting"
+                },
+                "startParticipantsVideo": {
+                  "type": "boolean",
+                  "description": "Enables starting video when participants join the meeting"
+                },
+                "audioOptions": {
+                  "type": "array",
+                  "description": "Meeting audio options. Possible values are 'Phone', 'ComputerAudio'",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/accountId"
+        },
+        {
+          "$ref": "#/parameters/extensionId"
+        },
+        {
+          "$ref": "#/parameters/meetingId"
+        }
+      ]
+    },
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId}/end": {
+      "post": {
+        "description": "End Current Meeting",
+        "responses": {
+          "default": {
+            "description": "OK"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/accountId"
+        },
+        {
+          "$ref": "#/parameters/extensionId"
+        },
+        {
+          "$ref": "#/parameters/meetingId"
         }
       ]
     },

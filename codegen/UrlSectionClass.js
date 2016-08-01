@@ -9,8 +9,9 @@ function UrlSectionClass(urlName) {
     this.valuePresence = '';
     this.methodName = lowercaseFirstLetter(this.name);
     this.subSections = [];  // UrlSectionClass[]
-
+    this.modelTypes = {};   // Keys are model type name
     this.getMethod = null;
+    this.innerTypes = []; //[string], class for string enum definitions
 }
 
 // When value appears

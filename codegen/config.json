@@ -1,0 +1,8 @@
+{
+    "postIngore": [
+        "profile-image",
+        "lookup",
+        "revoke",
+        "end"
+    ]
+}

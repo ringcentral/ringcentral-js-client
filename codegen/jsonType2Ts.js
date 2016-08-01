@@ -1,11 +1,27 @@
-// Convert json schema type to TS type
-module.exports = function (jsonType) {
+// Convert json schema primitive type to TS type
+module.exports = function resolveJsonType (schemaProp, typeName) {
+    /*
+    1. primitive type -> {type} ts primitive type name string
+    2. reference type -> {type, ref:}
+    3. string enum type -> {type: typeName, enum:[]}
+    4. array type -> primitive[], reference[]
+    5. object type  -> {type: typeName, props}
+    */
     var type = {};
-    if (jsonType == 'integer') {
-        return 'number';
-    } else if (jsonType.charAt(0)!='#') {
-        return jsonType;
+    if (schemaProp.type == 'integer') {
+        return {type: 'number', isPrimitive: true };
+    } else if (schemaProp['$ref']) {
+        var n = schemaProp['$ref'].split('/').pop().replace(/\./g, '');
+        return {type:n, ref: n};
+    } if (schemaProp.type == 'string' && schemaProp.enum) {
+        return {type: typeName || 'string', enum: schemaProp.enum};
+    } else if (schemaProp.type == 'array') {
+        var itemType = resolveJsonType(schemaProp.items);
+        itemType.type += '[]';
+        return itemType;
+    } else if (schemaProp.type == 'object') {
+        return {type: typeName, isObject: true};
     } else {
-        console.warn('Can not convert reference type.');
+        return {type: schemaProp.type, isPrimitive: true};
     }
 };
