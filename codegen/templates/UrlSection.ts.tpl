@@ -61,8 +61,22 @@ export default class {{name}} extends UrlSection {
     */
     post(body: {{postMethod.bodyParams}},
     query?: {{postMethod.queryParams}}): Promise<{{postMethod.resType}}> {
-        return this.getService().post(this.getEndpoint(false), body, query).then(function (res) {
+        return this.getService().post(this.getEndpoint(false), body.json(), query).then(function (res) {
             return new {{postMethod.resType}}(res.json());
+        });
+    }
+    {{/if}}
+    {{#if putMethod}}
+
+    /* 
+        {{putMethod.comment}}
+        FIXME: Assumes post only accept query and body parameters
+        FIXME: All properties of body will be optional
+    */
+    put(body: {{putMethod.bodyParams}},
+    query?: {{putMethod.queryParams}}): Promise<{{putMethod.resType}}> {
+        return this.getService().put(this.getEndpoint(), body.json(), query).then(function (res) {
+            return new {{putMethod.resType}}(res.json());
         });
     }
     {{/if}}

@@ -4,6 +4,7 @@ import GenAccount from "../../src/generated/url-builders/Account";
 import ExtensionInfo from "../../src/generated/ExtensionInfo";
 import MessageInfo from "../../src/generated/MessageInfo";
 import CallerInfo from "../../src/generated/CallerInfo";
+import PersonalContactInfo from "../../src/generated/PersonalContactInfo";
 import BusinessAddressInfo from "../../src/generated/BusinessAddressInfo";
 import PagingResult from "../../src/PagingResult";
 import auth from "../../src/test/auth";
@@ -182,42 +183,57 @@ class CompanyPager extends UrlSection {
 
 auth.then(function (rcService) {
     let client = new RingcentralClient(rcService);
-
-    client.account().extension().companyPager().post({
-        to: [new CallerInfo({ extensionNumber: "109" })],
-        text: "test generated post pager message"
-    }).then(function (msgInfo) {
-        console.log(">>> Post pager message result", msgInfo);
-    }).catch(function (e) {
-        console.error("Fail to send company page", e);
+    client.account().extension().addressBook().contact('397569004').get().then(function (contacts) {
+        console.log('@@@ original contact', contacts);
+        client.account().extension().addressBook().contact("397569004").put(new PersonalContactInfo({ lastName: "updatedAt" + Date.now() })).then(function (updated) {
+            console.log("Updated contact", updated);
+        }).catch(function (e) {
+            console.error("Fail update contact", e)
+        });
     });
 
-    /*client.account().get().then(function (ac: AccountInfo) {
-        console.log(">>> My account info", ac);
+    /*
+    client.account().extension().addressBook().contact().post(new PersonalContactInfo({ firstName: "Kevin" })).then(function (res) {
+        console.log('Create Contact', res);
     }).catch(function (e) {
-        console.error("Fail to get account info", e);
+        console.error('Error', e.apiResponse._request, e);
     });
-    
-        client.account().extension().list({ perPage: 2 }).then(function (extensionPages) {
-            console.log(">>>extension list slice", extensionPages);
-        }).catch(function (e) {
-            console.error("Fail to get extensions", e);
-        });
-    
-        client._service.get("/account/~/extension/~").then(function (res) {
-            console.log("ExtensionInfo", res.json());
-        });
-    
-        client._service.put("/account/~/extension/~", {
-            contact: {
-                lastName: "Stolyarchuk3"
-            }
-        }).then(function (res) {
-            console.log("Put extension result", res.json());
-        }).catch(function (e) {
-            console.error("put extension error:" + e);
-        });
-    */
+
+            client.account().extension().companyPager().post({
+                to: [new CallerInfo({ extensionNumber: "109" })],
+                text: "test generated post pager message"
+            }).then(function (msgInfo) {
+                console.log(">>> Post pager message result", msgInfo);
+            }).catch(function (e) {
+                console.error("Fail to send company page", e);
+            });
+        
+            client.account().get().then(function (ac: AccountInfo) {
+                console.log(">>> My account info", ac);
+            }).catch(function (e) {
+                console.error("Fail to get account info", e);
+            });
+            
+                client.account().extension().list({ perPage: 2 }).then(function (extensionPages) {
+                    console.log(">>>extension list slice", extensionPages);
+                }).catch(function (e) {
+                    console.error("Fail to get extensions", e);
+                });
+            
+                client._service.get("/account/~/extension/~").then(function (res) {
+                    console.log("ExtensionInfo", res.json());
+                });
+            
+                client._service.put("/account/~/extension/~", {
+                    contact: {
+                        lastName: "Stolyarchuk3"
+                    }
+                }).then(function (res) {
+                    console.log("Put extension result", res.json());
+                }).catch(function (e) {
+                    console.error("put extension error:" + e);
+                });
+            */
 
 }).catch(function (e) {
     console.error("Fail to login: " + e);

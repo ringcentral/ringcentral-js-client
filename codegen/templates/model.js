@@ -1,4 +1,4 @@
-module.exports = function(model) {
+module.exports = function (model) {
 
     var res = [],
         enums = [],
@@ -6,27 +6,28 @@ module.exports = function(model) {
 
     //res.push('/// <reference path="../externals.d.ts" />');
     //res.push('');
-    res.push('import * as model from "../core/Model";');
+    res.push('import Model from "../core/Model";');
 
-    model.imports.forEach(function(imp) {
+    model.imports.forEach(function (imp) {
         res.push('import ' + imp + ' from "./' + imp + '";');
     });
 
     res.push('');
-    res.push('export default class ' + model.name + ' {');
+    res.push('export default class ' + model.name + ' extends Model {');
 
     // Gen Constructor
-    res.push('    constructor(data) {')
-    model.properties.forEach(function(prop) {
+    res.push('    constructor(data) {');
+    res.push('    super();');
+    model.properties.forEach(function (prop) {
         // TODO When this property is another class, create an instance of that class recursively.
-        res.push('        this.' + prop.$name + ' = data["'+prop.$name+'"];');
+        res.push('        data["' + prop.$name + '"] && (this.' + prop.$name + ' = data["' + prop.$name + '"]);');
     });
     res.push('    }');
 
-    model.properties.forEach(function(prop) {
+    model.properties.forEach(function (prop) {
 
         if (prop.enum) { //TODO Bring it back
-            
+
             prop.type = model.name + prop.$name.substr(0, 1).toUpperCase() + prop.$name.substr(1);
 
             enums.push({
@@ -49,24 +50,24 @@ module.exports = function(model) {
         var isPrimitive = ['number', 'string', 'string[]', 'any', 'boolean'].indexOf(prop.type) != -1;
 
         propertyMappings.push('{property: "' + prop.$name + '", ' +
-                              'Class: ' + (isPrimitive || prop.enum ? 'null /* ' + prop.type + ' */' : prop.type.replace('[]', '')) + ', ' +
-                              'isArray: ' + (prop.type.indexOf('[]') != -1 ? 'true' : 'false') + ', ' +
-                              'isRequired: ' + (prop.isRequired ? 'true' : 'false') + '}');
+            'Class: ' + (isPrimitive || prop.enum ? 'null /* ' + prop.type + ' */' : prop.type.replace('[]', '')) + ', ' +
+            'isArray: ' + (prop.type.indexOf('[]') != -1 ? 'true' : 'false') + ', ' +
+            'isRequired: ' + (prop.isRequired ? 'true' : 'false') + '}');
 
     });
 
-/*
-    if (propertyMappings.length > 0) {
-        res.push('');
-        res.push('    getPropertyMappings(): model.ModelPropertyMapping[] {');
-        res.push('');
-        res.push('        return [');
-        res.push('            ' + propertyMappings.join(',\n            '));
-        res.push('        ];');
-        res.push('');
-        res.push('    }');
-    }
-*/
+    /*
+        if (propertyMappings.length > 0) {
+            res.push('');
+            res.push('    getPropertyMappings(): model.ModelPropertyMapping[] {');
+            res.push('');
+            res.push('        return [');
+            res.push('            ' + propertyMappings.join(',\n            '));
+            res.push('        ];');
+            res.push('');
+            res.push('    }');
+        }
+    */
     res.push('');
     res.push('    getClassName() {');
     res.push('        return "' + model.name + '";');
@@ -77,7 +78,7 @@ module.exports = function(model) {
     res.push('');
     res.push('}');
 
-    enums.forEach(function(en) {
+    enums.forEach(function (en) {
         res.push('');
         res.push('export type ' + en.name + ' = "' + en.values.join('" | "') + '";');
     });

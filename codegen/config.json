@@ -1,8 +1,12 @@
 {
-    "postIngore": [
+    "postIgnore": [
         "profile-image",
         "lookup",
         "revoke",
         "end"
+    ],
+    "putIgnore": [
+        "profile-image",
+        "extension"
     ]
 }

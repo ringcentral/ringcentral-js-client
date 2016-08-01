@@ -8,6 +8,7 @@ module.exports = function (classes, paths) {
     for (var p in paths) {
         var cls = classes[resolveUrlEntity(p)];
         if (!cls) {
+            console.warn('No class found for ' + p);
             continue;
         }
         var getOperation = paths[p].get;
@@ -15,18 +16,23 @@ module.exports = function (classes, paths) {
             addGetOperation(cls, getOperation);
         }
         var postOperation = paths[p].post;
-        if (postOperation && config.postIngore.indexOf(cls.urlName) == -1) {
-            addPostOperation(cls, postOperation);
+        if (postOperation && config.postIgnore.indexOf(cls.urlName) == -1) {
+            addOperation(cls, postOperation, 'post');
+        }
+        var putOperation = paths[p].put;
+        if (putOperation && config.putIgnore.indexOf(cls.urlName) == -1) {
+            console.log('@@', p)
+            addOperation(cls, putOperation, 'put');
         }
     }
 };
 
-function addPostOperation(cls, postOperation) {
-    var schema = postOperation.responses.default.schema;
-    cls.postMethod = {
-        comment: postOperation.description
+function addOperation(cls, operation, method) {
+    var schema = operation.responses.default.schema;
+    var operationMethod = cls[method + 'Method'] = {
+        comment: operation.description
     };
-    var params = postOperation.parameters;
+    var params = operation.parameters;
 
     // Body parameter type: object, ref, primitive type(string)
     var bodyParams = [];
@@ -41,7 +47,7 @@ function addPostOperation(cls, postOperation) {
             }
             queryParams[p.name] = p;
         } else {
-            console.error('Unexpected post request parameter in ' + p['in'], p);
+            console.error('Unexpected ' + method + ' request parameter in ' + p['in'], p);
         }
     }
 
@@ -50,45 +56,45 @@ function addPostOperation(cls, postOperation) {
         bodyParams = bodyParams[0];
         var typeInfo = resolveType(bodyParams.schema);
         if (typeInfo.ref) {
-            cls.postMethod.bodyParams = typeInfo.type;
+            operationMethod.bodyParams = typeInfo.type;
             cls.modelTypes[typeInfo.ref] = 1;
         } else if (typeInfo.isObject) {
             var bodyDef = toOptionsDef(bodyParams.schema.properties, '        ');
-            cls.postMethod.bodyParams = bodyDef.def;
+            operationMethod.bodyParams = bodyDef.def;
             var imports = bodyDef.imports;
-            imports.forEach(function(imp) {
+            imports.forEach(function (imp) {
                 cls.modelTypes[imp] = 1;
             });
         } else {
             console.error("Unexpected body parameter type", bodyParams);
         }
     } else {
-        console.error("Number of post body parameters must be 1, the post operation.", postOperation)
+        console.error("Number of " + method + " body parameters must be 1, the " + method + " operation.", operation)
     }
-    
+
     // 2. queryParams
     var queryDef = toOptionsDef(queryParams, '        ');
-    cls.postMethod.queryParams = queryDef.def;
+    operationMethod.queryParams = queryDef.def;
     // Since queryParams are primitives, no imports
     if (queryDef.imports.length > 0) {
         console.error('Type query parameter must be primitive', getOperation);
     }
 
     // Handle Response
-    var resSchema = postOperation.responses.default.schema;
-    var typeInfo = resolveType(resSchema, 'PostResponse');
+    var resSchema = operation.responses.default.schema;
+    var typeInfo = resolveType(resSchema, method + 'Response');
     if (typeInfo.ref) {
         cls.modelTypes[typeInfo.ref] = 1;
-        cls.postMethod.resType = typeInfo.ref;
-    } else if (typeInfo.isObject) { console.log('@@@', postOperation)
-        cls.postMethod.resType = typeInfo.type;
+        operationMethod.resType = typeInfo.ref;
+    } else if (typeInfo.isObject) {
+        operationMethod.resType = typeInfo.type;
         var modelDef = genModel(resSchema, typeInfo.type);
         cls.innerTypes = cls.innerTypes.concat(modelDef.typeDefs);
-        for(var imp in modelDef.imports) {
+        for (var imp in modelDef.imports) {
             cls.modelTypes[imp] = 1;
         }
     } else {
-        console.error("Unexpected post response type", postOperation);
+        console.error("Unexpected " + method + " response type", operation);
     }
 }
 
@@ -98,10 +104,10 @@ function toOptionsDef(props, paddingLeft) {
     var propDefs = [];
     for (var propName in props) {
         var typeInfo = resolveType(props[propName]);
-        propDefs.push(propName + "?: " + typeInfo.type + ' /*'+ (props[propName].description|| '') +'*/');
+        propDefs.push(propName + "?: " + typeInfo.type + ' /*' + (props[propName].description || '') + '*/');
         typeInfo.ref && imports.push(typeInfo.ref);
     }
-    return {def: '{\n' + paddingLeft + propDefs.join(',\n' + paddingLeft) + '\n\t}', imports: imports};
+    return { def: '{\n' + paddingLeft + propDefs.join(',\n' + paddingLeft) + '\n\t}', imports: imports };
 }
 
 function addGetOperation(cls, getOperation) {
