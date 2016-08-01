@@ -21,8 +21,11 @@ module.exports = function (classes, paths) {
         }
         var putOperation = paths[p].put;
         if (putOperation && config.putIgnore.indexOf(cls.urlName) == -1) {
-            console.log('@@', p)
             addOperation(cls, putOperation, 'put');
+        }
+        var deleteOperation = paths[p]['delete'];
+        if (deleteOperation) {
+            addOperation(cls, deleteOperation, 'delete');
         }
     }
 };
@@ -33,6 +36,9 @@ function addOperation(cls, operation, method) {
         comment: operation.description
     };
     var params = operation.parameters;
+    if (!params) {
+        return;
+    }
 
     // Body parameter type: object, ref, primitive type(string)
     var bodyParams = [];
@@ -68,7 +74,7 @@ function addOperation(cls, operation, method) {
         } else {
             console.error("Unexpected body parameter type", bodyParams);
         }
-    } else {
+    } else if (method != 'delete') {
         console.error("Number of " + method + " body parameters must be 1, the " + method + " operation.", operation)
     }
 
@@ -82,6 +88,9 @@ function addOperation(cls, operation, method) {
 
     // Handle Response
     var resSchema = operation.responses.default.schema;
+    if (!resSchema) {
+        return;
+    }
     var typeInfo = resolveType(resSchema, method + 'Response');
     if (typeInfo.ref) {
         cls.modelTypes[typeInfo.ref] = 1;

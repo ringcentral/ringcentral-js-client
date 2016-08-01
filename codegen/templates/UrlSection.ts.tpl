@@ -80,6 +80,18 @@ export default class {{name}} extends UrlSection {
         });
     }
     {{/if}}
+    {{#if deleteMethod}}
+
+    /* 
+        {{deleteMethod.comment}}
+        FIXME: Assumes post only accept query and body parameters
+        FIXME: All properties of body will be optional
+    */
+    delete(
+    query?: {{deleteMethod.queryParams}}): Promise<void> {
+        return this.getService().delete(this.getEndpoint(), query);
+    }
+    {{/if}}
 }
 {{#each innerTypes}}
 
