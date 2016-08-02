@@ -185,26 +185,26 @@ auth.then(function (rcService) {
     let client = new RingcentralClient(rcService);
     // # delete
     client.account().extension().callLog().delete().then(function (res) {
-        console.log('delete ok', res);
+        console.log("delete ok", res);
     }).catch(function (e) {
-        console.log('Delete fail', e);
+        console.log("Delete fail", e);
     });
 
     // # put
-    client.account().extension().addressBook().contact('397569004').get().then(function (contacts) {
-        console.log('@@@ original contact', contacts);
+    client.account().extension().addressBook().contact("397569004").get().then(function (contacts) {
+        console.log("@@@ original contact", contacts);
         client.account().extension().addressBook().contact("397569004").put(new PersonalContactInfo({ lastName: "updatedAt" + Date.now() })).then(function (updated) {
             console.log("Updated contact", updated);
         }).catch(function (e) {
-            console.error("Fail update contact", e)
+            console.error("Fail update contact", e);
         });
     });
 
     // # post
     client.account().extension().addressBook().contact().post(new PersonalContactInfo({ firstName: "Kevin" })).then(function (res) {
-        console.log('Create Contact', res);
+        console.log("Create Contact", res);
     }).catch(function (e) {
-        console.error('Error', e.apiResponse._request, e);
+        console.error("Error", e.apiResponse._request, e);
     });
 
     client.account().extension().companyPager().post({

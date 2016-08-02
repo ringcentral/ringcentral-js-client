@@ -116,7 +116,10 @@ function toOptionsDef(props, paddingLeft) {
         propDefs.push(propName + "?: " + typeInfo.type + ' /*' + (props[propName].description || '') + '*/');
         typeInfo.ref && imports.push(typeInfo.ref);
     }
-    return { def: '{\n' + paddingLeft + propDefs.join(',\n' + paddingLeft) + '\n\t}', imports: imports };
+    if (propDefs.length < 1) {
+        return {def: '{}', imports: imports};
+    }
+    return { def: '{\n' + paddingLeft + propDefs.join(',\n' + paddingLeft) + '\n    }', imports: imports };
 }
 
 function addGetOperation(cls, getOperation) {
