@@ -19,7 +19,7 @@ module.exports = function (schema, name) {
     var imports = {};
     var defs = [];
     var classData = {
-        name: uppercamelcase(name),
+        name: name,
         properties: {}
     };
     var stringEnums = [];   //[string]

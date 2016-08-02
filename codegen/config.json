@@ -1,4 +1,8 @@
 {
+    "getIngore": [
+        "profile-image",
+        "content"
+    ],
     "postIgnore": [
         "profile-image",
         "lookup",

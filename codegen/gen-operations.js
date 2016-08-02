@@ -1,3 +1,4 @@
+var uppercamelcase = require('uppercamelcase');
 var isListResponse = require('./plugins/list-response');
 var resolveType = require('./jsonType2Ts');
 var genModel = require('./gen-model-class');
@@ -12,7 +13,7 @@ module.exports = function (classes, paths) {
             continue;
         }
         var getOperation = paths[p].get;
-        if (getOperation) {
+        if (getOperation && config.getIngore.indexOf(cls.urlName) == -1) {
             addGetOperation(cls, getOperation);
         }
         var postOperation = paths[p].post;
@@ -37,6 +38,8 @@ function addOperation(cls, operation, method) {
     };
     var params = operation.parameters;
     if (!params) {
+        operationMethod.queryParams = '{}';
+        operationMethod.bodyParams = '{}';
         return;
     }
 
@@ -63,6 +66,7 @@ function addOperation(cls, operation, method) {
         var typeInfo = resolveType(bodyParams.schema);
         if (typeInfo.ref) {
             operationMethod.bodyParams = typeInfo.type;
+            operationMethod.isExternalResType = true;
             cls.modelTypes[typeInfo.ref] = 1;
         } else if (typeInfo.isObject) {
             var bodyDef = toOptionsDef(bodyParams.schema.properties, '        ');
@@ -91,7 +95,7 @@ function addOperation(cls, operation, method) {
     if (!resSchema) {
         return;
     }
-    var typeInfo = resolveType(resSchema, method + 'Response');
+    var typeInfo = resolveType(resSchema, uppercamelcase(method + 'Response'));
     if (typeInfo.ref) {
         cls.modelTypes[typeInfo.ref] = 1;
         operationMethod.resType = typeInfo.ref;
@@ -117,7 +121,7 @@ function toOptionsDef(props, paddingLeft) {
         typeInfo.ref && imports.push(typeInfo.ref);
     }
     if (propDefs.length < 1) {
-        return {def: '{}', imports: imports};
+        return { def: '{}', imports: imports };
     }
     return { def: '{\n' + paddingLeft + propDefs.join(',\n' + paddingLeft) + '\n    }', imports: imports };
 }
@@ -130,10 +134,23 @@ function addGetOperation(cls, getOperation) {
     cls.getMethod = {
         comment: getOperation.description
     };
-    var typeInfo = resolveType(getOperation.responses.default.schema);
+    var typeInfo = resolveType(getOperation.responses.default.schema, 'GetResponse');
     if (typeInfo.ref) {
         cls.modelTypes[typeInfo.ref] = 1;
-        cls.modelType = typeInfo.ref;
+        cls.modelType = typeInfo.type;
+    } else if (typeInfo.isObject) {
+        if (cls.modelType) {
+            console.warn('Model type exists for ', cls);
+            return;
+        }
+        cls.modelType = typeInfo.type;
+        var modelDef = genModel(getOperation.responses.default.schema, typeInfo.type);
+        cls.innerTypes = cls.innerTypes.concat(modelDef.typeDefs);
+        for (var imp in modelDef.imports) {
+            cls.modelTypes[imp] = 1;
+        }
+    } else {
+        console.error('Unknown get response type.', getOperation.responses.default);
     }
 }
 
@@ -142,6 +159,10 @@ function addListOperation(cls, getOperation) {
     cls.listMethod = {
         comment: getOperation.description
     };
+    if (!cls.modelType) {
+        cls.modelType = resolveType(getOperation.responses.default.schema.properties.records).ref;
+        cls.modelTypes[cls.modelType] = 1;
+    }
     if (!getOperation.parameters) {
         return;
     }

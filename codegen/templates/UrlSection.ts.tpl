@@ -1,3 +1,4 @@
+/// <reference path="../../typings/es6-promise/es6-promise.d.ts" />
 // This is Generated Source.
 import UrlSection from "../../UrlSection";
 {{#each subSections}}
@@ -61,8 +62,8 @@ export default class {{name}} extends UrlSection {
     */
     post(body: {{postMethod.bodyParams}},
     query?: {{postMethod.queryParams}}): Promise<{{postMethod.resType}}> {
-        return this.getService().post(this.getEndpoint(false), body.json(), query).then(function (res) {
-            return new {{postMethod.resType}}(res.json());
+        return this.getService().post(this.getEndpoint(false), body{{#if postMethod.isExternalResType}}.json(){{/if}}, query).then(function (res) {
+            return new {{postMethod.resType}}(res{{#if postMethod.isExternalResType}}.json(){{/if}});
         });
     }
     {{/if}}
@@ -75,8 +76,8 @@ export default class {{name}} extends UrlSection {
     */
     put(body: {{putMethod.bodyParams}},
     query?: {{putMethod.queryParams}}): Promise<{{putMethod.resType}}> {
-        return this.getService().put(this.getEndpoint(), body.json(), query).then(function (res) {
-            return new {{putMethod.resType}}(res.json());
+        return this.getService().put(this.getEndpoint(), body{{#if putMethod.isExternalResType}}.json(){{/if}}, query).then(function (res) {
+            return new {{putMethod.resType}}(res{{#if putMethod.isExternalResType}}.json(){{/if}});
         });
     }
     {{/if}}
