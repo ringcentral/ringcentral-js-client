@@ -7,6 +7,7 @@ import CallerInfo from "../../src/generated/CallerInfo";
 import PersonalContactInfo from "../../src/generated/PersonalContactInfo";
 import BusinessAddressInfo from "../../src/generated/BusinessAddressInfo";
 import PagingResult from "../../src/PagingResult";
+import Client from "../../src/Client";
 import auth from "../../src/test/auth";
 
 /*
@@ -182,7 +183,7 @@ class CompanyPager extends UrlSection {
 }
 
 auth.then(function (rcService) {
-    let client = new RingcentralClient(rcService);
+    let client = new Client(rcService);
     // # delete
     client.account().extension().callLog().delete().then(function (res) {
         console.log("delete ok", res);
