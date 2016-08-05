@@ -117,13 +117,14 @@ function toOptionsDef(props, paddingLeft) {
     var propDefs = [];
     for (var propName in props) {
         var typeInfo = resolveType(props[propName]);
-        propDefs.push(propName + "?: " + typeInfo.type + ' /*' + (props[propName].description || '') + '*/');
+        propDefs.push(' /** ' + (props[propName].description || '') + ' */');
+        propDefs.push(propName + "?: " + typeInfo.type + ';');
         typeInfo.ref && imports.push(typeInfo.ref);
     }
     if (propDefs.length < 1) {
         return { def: '{}', imports: imports };
     }
-    return { def: '{\n' + paddingLeft + propDefs.join(',\n' + paddingLeft) + '\n    }', imports: imports };
+    return { def: '{\n' + paddingLeft + propDefs.join('\n' + paddingLeft) + '\n    }', imports: imports };
 }
 
 function addGetOperation(cls, getOperation) {

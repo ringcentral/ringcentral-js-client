@@ -28,7 +28,7 @@ export default class {{name}} extends UrlSection {
     {{/each}}
     {{#if getMethod}}
 
-    /*
+    /**
     {{getMethod.comment}}
     */
     get(): Promise<{{modelType}}> {
@@ -39,13 +39,14 @@ export default class {{name}} extends UrlSection {
     {{/if}}
     {{#if listMethod}}
 
-    /*
+    /**
     {{listMethod.comment}}
     // FIXME: Assume that list operation only allow query parameters
     */
     list(options?: {
         {{#each listMethod.parameters}}
-        {{@key}}?: {{this.type}}, /* {{this.comment}} */
+        /** {{this.comment}} */
+        {{@key}}?: {{this.type}};
         {{/each}}
     }): Promise<PagingResult<{{modelType}}>> {
         return this.getService().get(this.getEndpoint(false), options).then(function (res) {
@@ -55,7 +56,7 @@ export default class {{name}} extends UrlSection {
     {{/if}}
     {{#if postMethod}}
 
-    /* 
+    /**
         {{postMethod.comment}}
         FIXME: Assumes post only accept query and body parameters
         FIXME: All properties of body will be optional
@@ -69,7 +70,7 @@ export default class {{name}} extends UrlSection {
     {{/if}}
     {{#if putMethod}}
 
-    /* 
+    /**
         {{putMethod.comment}}
         FIXME: Assumes post only accept query and body parameters
         FIXME: All properties of body will be optional
@@ -83,7 +84,7 @@ export default class {{name}} extends UrlSection {
     {{/if}}
     {{#if deleteMethod}}
 
-    /* 
+    /** 
         {{deleteMethod.comment}}
         FIXME: Assumes post only accept query and body parameters
         FIXME: All properties of body will be optional
