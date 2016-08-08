@@ -95,14 +95,14 @@ function addOperation(cls, operation, method) {
     if (!resSchema) {
         return;
     }
-    var typeInfo = resolveType(resSchema, uppercamelcase(method + 'Response'));
+    var typeInfo = resolveType(resSchema, cls.name + uppercamelcase(method) + 'Response');
     if (typeInfo.ref) {
         cls.modelTypes[typeInfo.ref] = 1;
         operationMethod.resType = typeInfo.ref;
     } else if (typeInfo.isObject) {
         operationMethod.resType = typeInfo.type;
         var modelDef = genModel(resSchema, typeInfo.type);
-        cls.innerTypes = cls.innerTypes.concat(modelDef.typeDefs);
+        cls.innerTypes = cls.innerTypes.concat(modelDef);
         for (var imp in modelDef.imports) {
             cls.modelTypes[imp] = 1;
         }
@@ -135,7 +135,7 @@ function addGetOperation(cls, getOperation) {
     cls.getMethod = {
         comment: getOperation.description
     };
-    var typeInfo = resolveType(getOperation.responses.default.schema, 'GetResponse');
+    var typeInfo = resolveType(getOperation.responses.default.schema, cls.name + 'GetResponse');
     if (typeInfo.ref) {
         cls.modelTypes[typeInfo.ref] = 1;
         cls.modelType = typeInfo.type;
@@ -146,7 +146,7 @@ function addGetOperation(cls, getOperation) {
         }
         cls.modelType = typeInfo.type;
         var modelDef = genModel(getOperation.responses.default.schema, typeInfo.type);
-        cls.innerTypes = cls.innerTypes.concat(modelDef.typeDefs);
+        cls.innerTypes = cls.innerTypes.concat(modelDef);
         for (var imp in modelDef.imports) {
             cls.modelTypes[imp] = 1;
         }

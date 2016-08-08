@@ -97,5 +97,17 @@ export default class {{name}} extends UrlSection {
 }
 {{#each innerTypes}}
 
-export {{{this}}}
+export interface {{this.name}} {
+    {{#each this.properties}}
+
+    /**
+     * {{this.comment}}
+     */
+    {{@key}}: {{this.type}};
+    {{/each}}
+}
+{{#each this.enums}}
+
+export type {{this.name}} = {{#each this.strings}}{{#if @key}} | {{/if}}"{{this}}"{{/each}};
+{{/each}}
 {{/each}}

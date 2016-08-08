@@ -24,10 +24,8 @@ describe("Account", function () {
     });
 });
 
-describe("extension", function() {
+describe("extension", function () {
     it("Get extension list", function () {
         return client.account().extension().list();
     });
-
-    
 });

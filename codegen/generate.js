@@ -17,11 +17,12 @@ if (!outDir || !swaggerFile) {
 
 var swagger = JSON.parse(fs.readFileSync(swaggerFile));
 
+var modelTpl = handlebars.compile('' + fs.readFileSync(__dirname + '/templates/model.tpl'));
+genModels(swagger.definitions, modelTpl);
+
 var tplFile = __dirname + '/templates/UrlSection.ts.tpl';
 var tpl = handlebars.compile('' + fs.readFileSync(tplFile));
 genUrlBuildersWithOperationApi(swagger, tpl);
-
-genModels(swagger.definitions);
 
 
 function genUrlBuildersWithOperationApi(swagger, tpl) {
@@ -35,19 +36,11 @@ function genUrlBuildersWithOperationApi(swagger, tpl) {
     }
 }
 
-function genModels(keyedDefinitions) {
+function genModels(keyedDefinitions, tpl) {
     for (var name in keyedDefinitions) {
         var model = genModel(keyedDefinitions[name], name);
-        var modelSrc = '';
-        for (var imp in model.imports) {
-            modelSrc += 'import {' + imp + '} from "./' + imp + '";\n'
-        }
-        modelSrc += '\n';
-        for (var i = 0; i < model.typeDefs.length; i++) {
-            modelSrc += 'export ' + model.typeDefs[i] + '\n';
-        }
         var file = outDir + '/' + model.name + '.ts';
         console.log('Saving ' + chalk.magenta(file));
-        fs.writeFileSync(file, modelSrc);
+        fs.writeFileSync(file, tpl(model));
     }
 }

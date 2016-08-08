@@ -1,11 +1,11 @@
 import UrlSection from "../../src/UrlSection";
-import AccountInfo from "../../src/generated/AccountInfo";
+import { AccountInfo } from "../../src/generated/AccountInfo";
 import GenAccount from "../../src/generated/url-builders/Account";
-import ExtensionInfo from "../../src/generated/ExtensionInfo";
-import MessageInfo from "../../src/generated/MessageInfo";
-import CallerInfo from "../../src/generated/CallerInfo";
-import PersonalContactInfo from "../../src/generated/PersonalContactInfo";
-import BusinessAddressInfo from "../../src/generated/BusinessAddressInfo";
+import { ExtensionInfo } from "../../src/generated/ExtensionInfo";
+import { MessageInfo } from "../../src/generated/MessageInfo";
+import { CallerInfo } from "../../src/generated/CallerInfo";
+import { PersonalContactInfo } from "../../src/generated/PersonalContactInfo";
+import { BusinessAddressInfo } from "../../src/generated/BusinessAddressInfo";
 import PagingResult from "../../src/PagingResult";
 import Client from "../../src/Client";
 import auth from "../../src/test/auth";
@@ -49,7 +49,7 @@ class Account extends UrlSection {
 
     get(): Promise<AccountInfo> {
         return this.getService().get(this.getEndpoint()).then(function (res) {
-            return new AccountInfo(res.json());
+            return res.json();
         });
     }
 }
@@ -153,7 +153,7 @@ class Extension extends UrlSection {
         perPage?: number, /** Indicates the page size (number of items). If not specified, the val */
     }): Promise<PagingResult<ExtensionInfo>> {
         return this.getService().get(this.getEndpoint(false), options).then(function (res) {
-            return new PagingResult(res.json(), ExtensionInfo);
+            return res.json();
         });
     }
 }
@@ -177,7 +177,7 @@ class CompanyPager extends UrlSection {
         to: CallerInfo[]    /* Optional if replyOn parameter is specified. Receiver of a pager message. The extensionNumber property must be filled */
     }): Promise<MessageInfo> {
         return this.getService().post(this.getEndpoint(false), body).then(function (res) {
-            return new MessageInfo(res.json());
+            return res.json();
         });
     }
 }
@@ -194,7 +194,7 @@ auth.then(function (rcService) {
     // # put
     client.account().extension().addressBook().contact("397569004").get().then(function (contacts) {
         console.log("@@@ original contact", contacts);
-        client.account().extension().addressBook().contact("397569004").put(new PersonalContactInfo({ lastName: "updatedAt" + Date.now() })).then(function (updated) {
+        client.account().extension().addressBook().contact("397569004").put({ lastName: "updatedAt" + Date.now() }).then(function (updated) {
             console.log("Updated contact", updated);
         }).catch(function (e) {
             console.error("Fail update contact", e);
@@ -202,14 +202,14 @@ auth.then(function (rcService) {
     });
 
     // # post
-    client.account().extension().addressBook().contact().post(new PersonalContactInfo({ firstName: "Kevin" })).then(function (res) {
+    client.account().extension().addressBook().contact().post({ firstName: "Kevin" }).then(function (res) {
         console.log("Create Contact", res);
     }).catch(function (e) {
         console.error("Error", e.apiResponse._request, e);
     });
 
     client.account().extension().companyPager().post({
-        to: [new CallerInfo({ extensionNumber: "109" })],
+        to: [{ extensionNumber: "109" }],
         text: "test generated post pager message"
     }).then(function (msgInfo) {
         console.log(">>> Post pager message result", msgInfo);
