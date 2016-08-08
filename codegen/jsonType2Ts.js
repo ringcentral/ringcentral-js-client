@@ -1,3 +1,5 @@
+var normalizeModelName = require('./normalize-model-name');
+
 // Convert json schema primitive type to TS type
 module.exports = function resolveJsonType (schemaProp, typeName) {
     /*
@@ -11,7 +13,7 @@ module.exports = function resolveJsonType (schemaProp, typeName) {
     if (schemaProp.type == 'integer') {
         return {type: 'number', isPrimitive: true };
     } else if (schemaProp['$ref']) {
-        var n = schemaProp['$ref'].split('/').pop().replace(/\./g, '');
+        var n = normalizeModelName(schemaProp['$ref'].split('/').pop());
         return {type:n, ref: n};
     } if (schemaProp.type == 'string' && schemaProp.enum) {
         return {type: typeName || 'string', enum: schemaProp.enum};

@@ -5,7 +5,7 @@ import UrlSection from "../../UrlSection";
 import {{this.name}} from "./{{this.name}}";
 {{/each}}
 {{#each modelTypes}}
-import {{@key}} from "../{{@key}}";
+import { {{@key}} } from "../{{@key}}";
 {{/each}}
 {{#if listMethod}}
 import PagingResult from "../../PagingResult";
@@ -33,7 +33,7 @@ export default class {{name}} extends UrlSection {
     */
     get(): Promise<{{modelType}}> {
         return this.getService().get(this.getEndpoint()).then(function (res) {
-            return new {{modelType}}(res.json());
+            return res.json();
         });
     }
     {{/if}}
@@ -50,7 +50,7 @@ export default class {{name}} extends UrlSection {
         {{/each}}
     }): Promise<PagingResult<{{modelType}}>> {
         return this.getService().get(this.getEndpoint(false), options).then(function (res) {
-            return new PagingResult<{{modelType}}>(res.json(), {{modelType}});
+            return new PagingResult<{{modelType}}>(res.json());
         });
     }
     {{/if}}
@@ -63,8 +63,8 @@ export default class {{name}} extends UrlSection {
     */
     post(body: {{postMethod.bodyParams}},
     query?: {{postMethod.queryParams}}): Promise<{{postMethod.resType}}> {
-        return this.getService().post(this.getEndpoint(false), body{{#if postMethod.isExternalResType}}.json(){{/if}}, query).then(function (res) {
-            return new {{postMethod.resType}}(res{{#if postMethod.isExternalResType}}.json(){{/if}});
+        return this.getService().post(this.getEndpoint(false), body, query).then(function (res) {
+            return res.json();
         });
     }
     {{/if}}
@@ -77,8 +77,8 @@ export default class {{name}} extends UrlSection {
     */
     put(body: {{putMethod.bodyParams}},
     query?: {{putMethod.queryParams}}): Promise<{{putMethod.resType}}> {
-        return this.getService().put(this.getEndpoint(), body{{#if putMethod.isExternalResType}}.json(){{/if}}, query).then(function (res) {
-            return new {{putMethod.resType}}(res{{#if putMethod.isExternalResType}}.json(){{/if}});
+        return this.getService().put(this.getEndpoint(), body, query).then(function (res) {
+            return res.json();
         });
     }
     {{/if}}

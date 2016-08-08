@@ -1,9 +1,10 @@
 var fs = require('fs');
 var handlebars = require('handlebars');
 var uppercamelcase = require('uppercamelcase');
+var normalizeModelName = require('./normalize-model-name');
 var resolveType = require('./jsonType2Ts.js');
 
-var tpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/class.tpl')+'');
+var tpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/model.tpl')+'');
 /*
 convert json schema to TS class definition, type must be object
 return {
@@ -16,6 +17,7 @@ module.exports = function (schema, name) {
         console.error('Type of this schema must object.');
         return;
     }
+    name = normalizeModelName(name);
     var imports = {};
     var defs = [];
     var classData = {
@@ -40,6 +42,7 @@ module.exports = function (schema, name) {
     }
     defs.push(tpl(classData));
     return {
+        name: name,
         imports: imports,
         typeDefs: defs
     };

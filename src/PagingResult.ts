@@ -1,12 +1,12 @@
-import NavigationInfo from "./generated/NavigationInfo";
-import PagingInfo from "./generated/PagingInfo";
+import { NavigationInfo } from "./generated/NavigationInfo";
+import { PagingInfo } from "./generated/PagingInfo";
 
 /**
  * PagingResult
  */
 export default class PagingResult<T> {
-    constructor(data, t) {
-        this.records = convertArray<T>(data["records"], t);
+    constructor(data) {
+        this.records = data["records"];
         this.navigation = data["navigation"];
         this.paging = data["paging"];
     }
