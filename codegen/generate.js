@@ -24,6 +24,7 @@ var tplFile = __dirname + '/templates/UrlSection.ts.tpl';
 var tpl = handlebars.compile('' + fs.readFileSync(tplFile));
 genUrlBuildersWithOperationApi(swagger, tpl);
 
+console.log(chalk.green('===All generated==='));
 
 function genUrlBuildersWithOperationApi(swagger, tpl) {
     var urlBuilderClasses = genUrlBuilders(Object.keys(swagger.paths), swagger.parameters);

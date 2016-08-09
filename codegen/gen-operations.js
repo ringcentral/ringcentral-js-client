@@ -135,7 +135,8 @@ function addGetOperation(cls, getOperation) {
     cls.getMethod = {
         comment: getOperation.description
     };
-    var typeInfo = resolveType(getOperation.responses.default.schema, cls.name + 'GetResponse');
+    var resSchema = getOperation.responses.default.schema;
+    var typeInfo = resolveType(resSchema, cls.name + 'GetResponse');
     if (typeInfo.ref) {
         cls.modelTypes[typeInfo.ref] = 1;
         cls.modelType = typeInfo.type;
@@ -145,11 +146,14 @@ function addGetOperation(cls, getOperation) {
             return;
         }
         cls.modelType = typeInfo.type;
-        var modelDef = genModel(getOperation.responses.default.schema, typeInfo.type);
+        var modelDef = genModel(resSchema, typeInfo.type);
         cls.innerTypes = cls.innerTypes.concat(modelDef);
         for (var imp in modelDef.imports) {
             cls.modelTypes[imp] = 1;
         }
+    } else if (resSchema.format == 'binary' && resSchema.type == 'string') {
+        cls.modelType = 'Response';
+        cls.getReturnBinary = true;
     } else {
         console.error('Unknown get response type.', getOperation.responses.default);
     }

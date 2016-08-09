@@ -7,4 +7,4 @@
 /// <reference path="q/Q.d.ts" />
 /// <reference path="sinon/sinon.d.ts" />
 /// <reference path="sinon-chai/sinon-chai.d.ts" />
-/// <reference path="globals/node-fetch/index.d.ts" />
+/// <reference path="globals/whatwg-fetch/index.d.ts" />

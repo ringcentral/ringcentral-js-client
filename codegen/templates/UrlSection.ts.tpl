@@ -33,7 +33,7 @@ export default class {{name}} extends UrlSection {
     */
     get(): Promise<{{modelType}}> {
         return this.getService().get(this.getEndpoint()).then(function (res) {
-            return res.json();
+            return res.{{#if getReturnBinary}}response{{else}}json{{/if}}();
         });
     }
     {{/if}}
