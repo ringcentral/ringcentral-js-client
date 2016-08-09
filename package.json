@@ -2,7 +2,7 @@
   "name": "ringcentral-client",
   "version": "0.1.0",
   "scripts": {
-    "prepublish": "export PATH=./node_modules/.bin:$PATH; npm run generate",
+    "prepublish": "npm run generate",
     "start": "node server.js",
     "build": "npm run generate && ./node_modules/.bin/gulp",
     "watch": "npm run build -- watch",
