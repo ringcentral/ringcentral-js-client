@@ -23,6 +23,8 @@ module.exports = function resolveJsonType (schemaProp, typeName) {
         return itemType;
     } else if (schemaProp.type == 'object') {
         return {type: typeName, isObject: true};
+    } else if (schemaProp.format == 'binary') {
+        return {type:'ArrayBuffer', isBinary: true};
     } else {
         return {type: schemaProp.type, isPrimitive: true};
     }

@@ -1,6 +1,5 @@
 {
-    "getIngore": [
-    ],
+    "getIngore": [],
     "postIgnore": [
         "profile-image",
         "lookup",
@@ -8,7 +7,33 @@
         "end"
     ],
     "putIgnore": [
-        "profile-image",
         "extension"
-    ]
+    ],
+    "swaggerFix": {
+        "paths": {
+            "/restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image": {
+                "put": {
+                    "parameters": [
+                        {
+                            "name": "image",
+                            "in": "formData",
+                            "type": "file",
+                            "category": "image",
+                            "defaultType": "png"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "urlBuilders": {
+        "ProfileImage": {
+            "putMethod": {
+                "nodeImports": {
+                    "form-data": "FormData"
+                },
+                "body": "put(imageData: string | Blob | Buffer | NodeJS.ReadableStream, contentType=\"image/png\"): Promise<void> {\n        var form = new FormData();\n        form.append(\"image\", imageData, { contentType: contentType, filename: \"profile.\" + contentType.split('/').pop() });\n        return this.getService().put(this.getEndpoint(), form).then(function (res) {});\n    }"
+            }
+        }
+    }
 }

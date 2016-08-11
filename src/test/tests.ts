@@ -1,6 +1,7 @@
 import auth from "./auth";
 import Client from "../Client";
 import {expect} from "chai";
+import * as fs from "fs";
 
 let client: Client;
 
@@ -56,4 +57,12 @@ describe("Binary response", function () {
         });
     });
 
+});
+
+describe("Binary request", function() {
+    it("Put profile image, input binary, response is empty.", function() {
+        return client.account().extension().profileImage().put(fs.createReadStream("/Users/kevin.zeng/Desktop/profile.png")).then(function(res) {
+            console.log("Profile Image update response", res);
+        });
+    });
 });

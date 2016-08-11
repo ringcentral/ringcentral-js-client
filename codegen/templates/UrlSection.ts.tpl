@@ -1,4 +1,4 @@
-/// <reference path="../../typings/es6-promise/es6-promise.d.ts" />
+/// <reference path="../../typings/tsd.d.ts" />
 // This is Generated Source.
 import UrlSection from "../../UrlSection";
 {{#each subSections}}
@@ -10,6 +10,9 @@ import { {{@key}} } from "../{{@key}}";
 {{#if listMethod}}
 import PagingResult from "../../PagingResult";
 {{/if}}
+{{#each nodeImports}}
+import * as {{this}} from "{{@key}}";
+{{/each}}
 
 export default class {{name}} extends UrlSection {
     constructor(prv: UrlSection, id?: string, service?) {
@@ -75,12 +78,16 @@ export default class {{name}} extends UrlSection {
         FIXME: Assumes post only accept query and body parameters
         FIXME: All properties of body will be optional
     */
+    {{#if putMethod.body}}
+    {{{putMethod.body}}}
+    {{else}}
     put(body: {{putMethod.bodyParams}},
     query?: {{putMethod.queryParams}}): Promise<{{putMethod.resType}}> {
         return this.getService().put(this.getEndpoint(), body, query).then(function (res) {
             return res.json();
         });
     }
+    {{/if}}
     {{/if}}
     {{#if deleteMethod}}
 

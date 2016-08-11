@@ -33,9 +33,23 @@ module.exports = function (classes, paths) {
 
 function addOperation(cls, operation, method) {
     var schema = operation.responses.default.schema;
-    var operationMethod = cls[method + 'Method'] = {
+    var operationKey = method + 'Method';
+    var operationMethod = cls[operationKey] = {
         comment: operation.description
     };
+
+    // try to use hand written methods
+    try {
+        var customMethod = config.urlBuilders[cls.name][operationKey];
+        for (var imp in customMethod.nodeImports) {
+            cls.nodeImports[imp] = customMethod.nodeImports[imp];
+        }
+        operationMethod.body = customMethod.body;
+        return;
+    } catch (e) {
+        // No customMethod
+    }
+
     var params = operation.parameters;
     if (!params) {
         operationMethod.queryParams = '{}';
@@ -75,8 +89,10 @@ function addOperation(cls, operation, method) {
             imports.forEach(function (imp) {
                 cls.modelTypes[imp] = 1;
             });
+        } else if (typeInfo.isBinary) {
+            operationMethod.reqBodyIsBinary = true;
         } else {
-            console.error("Unexpected body parameter type", bodyParams);
+            console.error(method + " " + cls.urlName + ": Unexpected body parameter type", bodyParams);
         }
     } else if (method != 'delete') {
         console.error("Number of " + method + " body parameters must be 1, the " + method + " operation.", operation)
@@ -93,6 +109,7 @@ function addOperation(cls, operation, method) {
     // Handle Response
     var resSchema = operation.responses.default.schema;
     if (!resSchema) {
+        operationMethod.resType = 'void';
         return;
     }
     var typeInfo = resolveType(resSchema, cls.name + uppercamelcase(method) + 'Response');

@@ -10,6 +10,7 @@ function UrlSectionClass(urlName) {
     this.methodName = lowercaseFirstLetter(this.name);
     this.subSections = [];  // UrlSectionClass[]
     this.modelTypes = {};   // Keys are model type name
+    this.nodeImports = {};
     this.getMethod = null;
     this.innerTypes = []; //[string], class for string enum definitions
 }
