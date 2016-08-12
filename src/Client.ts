@@ -5,7 +5,7 @@ import NumberPool from "./generated/url-builders/NumberPool";
 export default class Client {
     _service: any;
     constructor(service) {
-        this._service = service;
+        this._service = service.platform();
     }
 
     account(id?: string): Account {
