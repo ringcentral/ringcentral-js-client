@@ -7,7 +7,6 @@
         "end"
     ],
     "putIgnore": [
-        "extension"
     ],
     "swaggerFix": {
         "paths": {

@@ -80,8 +80,12 @@ function addOperation(cls, operation, method) {
         var typeInfo = resolveType(bodyParams.schema);
         if (typeInfo.ref) {
             operationMethod.bodyParams = typeInfo.type;
-            operationMethod.isExternalResType = true;
             cls.modelTypes[typeInfo.ref] = 1;
+        } else if (typeInfo.refs) {
+            operationMethod.bodyParams = typeInfo.type;
+            typeInfo.refs.forEach(function(imp) {
+                cls.modelTypes[imp] = 1;
+            });
         } else if (typeInfo.isObject) {
             var bodyDef = toOptionsDef(bodyParams.schema.properties, '        ');
             operationMethod.bodyParams = bodyDef.def;

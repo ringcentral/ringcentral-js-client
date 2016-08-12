@@ -8,3 +8,4 @@
 /// <reference path="sinon/sinon.d.ts" />
 /// <reference path="sinon-chai/sinon-chai.d.ts" />
 /// <reference path="globals/whatwg-fetch/index.d.ts" />
+/// <reference path="modules/form-data/index.d.ts" />

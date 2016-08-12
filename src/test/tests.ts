@@ -24,9 +24,13 @@ describe("Account", function () {
     });
 });
 
-describe("extension", function () {
+describe("Extension", function () {
     it("Get extension list", function () {
         return client.account().extension().list();
+    });
+
+    it("Union type parameters, update extension info", function () {
+        return client.account().extension().put({ status: "Enabled" });
     });
 });
 
@@ -59,9 +63,9 @@ describe("Binary response", function () {
 
 });
 
-describe("Binary request", function() {
-    it("Put profile image, input binary, response is empty.", function() {
-        return client.account().extension().profileImage().put(fs.createReadStream("/Users/kevin.zeng/Desktop/profile.png")).then(function(res) {
+describe("Binary request", function () {
+    it("Put profile image, input binary, response is empty.", function () {
+        return client.account().extension().profileImage().put(fs.createReadStream("/Users/kevin.zeng/Desktop/profile.png")).then(function (res) {
             console.log("Profile Image update response", res);
         });
     });

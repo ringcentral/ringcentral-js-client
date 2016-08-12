@@ -8,7 +8,7 @@ export interface {{name}} {
     /**
      * {{this.comment}}
      */
-    {{@key}}?: {{this.type}};
+    {{@key}}?: {{{this.type}}};
     {{/each}}
 }
 {{#each enums}}
