@@ -64,9 +64,12 @@ describe("Binary response", function () {
 });
 
 describe("Binary request", function () {
+    let imgPath = "/Users/kevin.zeng/Desktop/profile.png";
     it("Put profile image, input binary, response is empty.", function () {
-        return client.account().extension().profileImage().put(fs.createReadStream("/Users/kevin.zeng/Desktop/profile.png")).then(function (res) {
-            console.log("Profile Image update response", res);
-        });
+        return client.account().extension().profileImage().put(fs.createReadStream(imgPath));
+    });
+
+    it("Post profile image, input binary, response is empty.", function () {
+        return client.account().extension().profileImage().post(fs.createReadStream(imgPath));
     });
 });

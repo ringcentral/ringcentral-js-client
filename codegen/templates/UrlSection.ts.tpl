@@ -64,12 +64,16 @@ export default class {{name}} extends UrlSection {
         FIXME: Assumes post only accept query and body parameters
         FIXME: All properties of body will be optional
     */
+    {{#if postMethod.body}}
+    {{{postMethod.body}}}
+    {{else}}
     post(body: {{{postMethod.bodyParams}}},
     query?: {{postMethod.queryParams}}): Promise<{{postMethod.resType}}> {
         return this.getService().post(this.getEndpoint(false), body, query).then(function (res) {
             return res.json();
         });
     }
+    {{/if}}
     {{/if}}
     {{#if putMethod}}
 
