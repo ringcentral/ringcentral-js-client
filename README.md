@@ -1,92 +1,75 @@
-# RingCentral Connect Platform JS Client
+# RingCentral Client
 
 [![Build Status](https://travis-ci.org/zengfenfei/ringcentral-js-client.svg?branch=working)](https://travis-ci.org/zengfenfei/ringcentral-js-client)
 
-Experimental! Do not use in production.
+This is a library implemented in typescript which provides convenient apis for typescript and javascript developers to access RingCentral webservice(https://developer.ringcentral.com/api-docs/latest/index.html).
 
-# Installation
+## Getting started
 
-SDK can be used in 2 environments:
+### Install
 
-1. [Browser](#1-set-things-up-in-browser)
-2. [NodeJS](#1-set-things-up-in-nodejs)
-
-## 1. Set things up in Browser
-
-### 1.1. Get the code
-
-Pick the option that works best for you:
-
-- **Preferred way to install SDK is to use Bower**, all dependencies will be downloaded to `bower_components` directory:
-
-    ```sh
-    bower install ringcentral-client --save
-    ```Bower
-    
-- Donwload everything manually *(not recommended)*:
-    - [ZIP file with source code](https://github.com/ringcentral/ringcentral-js-client/archive/master.zip)
-
-## 1.2.a. Add scripts to HTML page
-
-You can use bundle version (with PUBNUB and ES6 Promise included in main file).
-
-Add this to your HTML:
-
-```html
-<script type="text/javascript" src="path-to-scripts/ringcentral-client/build/ringcentral-client.js"></script>
+```shell
+npm install https://github.com/zengfenfei/ringcentral-js-client#releases --save # This version is for test only which will change soon.
 ```
 
-Use the object:
+### For Typescript or ES6 users
+```typescript
+import RingcentralClient from "ringcentral-client";
 
-```js
-var sdk = new RingCentral.SDK({...});
-var client = RingCentral.Client(sdk);
-```
-
-## 1.2.b. Set things up in Browser (if you use RequireJS in your project)
-
-```js
-// Add this to your RequireJS configuration file
-require.config({
-    paths: {
-        'ringcentral-client': 'path-to-scripts/ringcentral-client/build/ringcentral-client',
-        'ringcentral': 'path-to-scripts/ringcentral/build/ringcentral',
-    }
-});
-
-// Then you can use the SDK like any other AMD component
-require(['ringcentral', 'ringcentral-helpers'], function(SDK, Client) {
-    var sdk = new SDK({...});
-    var client = new Client(sdk);
-    // your code here
+let RcSdk; // Create your Ringcentral JS sdk and login
+let client = new RingcentralClient(RcSdk);
+client.account().get().then(function(accountInfo) {
+console.log(accountInfo)
 });
 ```
 
-## 2. Set things up in NodeJS
+### For commonjs(node.js, webpack and browserify) users
+```typescript
+var RingcentralClient = require("ringcentral-client").default; // Don't forget the `default`
 
-1. Install the NPM package:
+var RcSdk; // Create your Ringcentral JS sdk and login
+var client = new RingcentralClient(RcSdk);
+client.account().get().then(function(accountInfo) {
+console.log(accountInfo)
+});
+```
 
-    ```sh
-    npm install ringcentral-client --save
-    npm install ringcentral --save
-    ```
+## Examples
 
-2. Require the SDK:
+### Get extension info
 
-    ```js
-    var SDK = require('ringcentral');
-    var Client = require('ringcentral-client');
-    
-    var sdk = new SDK({...});
-    var client = new Client(sdk);
-    ```
+```typescript
+client.account().extension('theExtensionId').get().then(function (extInfo) {
+    console.log("The extension info", extInfo);
+}).catch(function (e) {
+    console.error("Get extension error", e);
+});
+```
 
-# Usage
+### List extensions of an account
 
-```js
-client.callLog().list().then((calls) => {
-                 
-    alert(calls.records[0].id);
+```typescript
+client.account("theAccountId").extension().list().then(function (extensions) {
+    console.log("The list of extension info", extensions.records);
+}).catch(function (e) {
+    console.error("Get extension list error", e);
+});
+```
 
+### Update extension info
+```typescript
+client.account().extension().put({ status: "Enabled" }).then(function () {
+    console.log("Success to update extension.");
+}).catch(function () {
+    console.error("Fail to update extension.");
+});
+```
+
+### Send sms
+```typescript
+client.account().extension().sms().post({ to: [{ phoneNumber: "911" }], text: "Sms content" }).then(function (messageInfo) {
+    console.log("Sms sent successfully", messageInfo);
+}).catch(function (e) {
+    console.error("Fail to send sms", e);
 });
 ```
