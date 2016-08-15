@@ -68,9 +68,9 @@ export default class {{name}} extends UrlSection {
     {{{postMethod.body}}}
     {{else}}
     post({{#if postMethod.bodyParams}}body: {{{postMethod.bodyParams}}},{{/if}}
-    query?: {{{postMethod.queryParams}}}): Promise<{{postMethod.resType}}> {
+    query?: {{{postMethod.queryParams}}}): Promise<{{#if postMethod.resType}}{{postMethod.resType}}{{else}}void{{/if}}> {
         return this.getService().post(this.getEndpoint(false), {{#if postMethod.bodyParams}}body{{else}}null{{/if}}, query).then(function (res) {
-            return res.json();
+            {{#if postMethod.resType}}return res.json();{{/if}}
         });
     }
     {{/if}}

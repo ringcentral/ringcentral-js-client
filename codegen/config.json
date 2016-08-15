@@ -1,8 +1,7 @@
 {
     "getIngore": [],
     "postIgnore": [
-        "revoke",
-        "end"
+        "revoke"
     ],
     "putIgnore": [
     ],

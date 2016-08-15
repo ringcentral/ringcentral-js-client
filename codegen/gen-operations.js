@@ -37,6 +37,9 @@ function addOperation(cls, operation, method) {
     var operationMethod = cls[operationKey] = {
         comment: operation.description
     };
+    if (!schema) {
+        operationMethod.resType = '';
+    }
 
     // try to use hand written methods
     try {
@@ -53,7 +56,7 @@ function addOperation(cls, operation, method) {
     var params = operation.parameters;
     if (!params) {
         operationMethod.queryParams = '{}';
-        operationMethod.bodyParams = '{}';
+        operationMethod.bodyParams = '';
         return;
     }
 
@@ -115,7 +118,6 @@ function addOperation(cls, operation, method) {
     // Handle Response
     var resSchema = operation.responses.default.schema;
     if (!resSchema) {
-        operationMethod.resType = 'void';
         return;
     }
     var typeInfo = resolveType(resSchema, cls.name + uppercamelcase(method) + 'Response');
