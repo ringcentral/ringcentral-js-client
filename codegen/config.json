@@ -1,7 +1,6 @@
 {
     "getIngore": [],
     "postIgnore": [
-        "lookup",
         "revoke",
         "end"
     ],

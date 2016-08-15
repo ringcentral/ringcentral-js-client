@@ -98,6 +98,8 @@ function addOperation(cls, operation, method) {
         } else {
             console.error(method + " " + cls.urlName + ": Unexpected body parameter type", bodyParams);
         }
+    } else if (bodyParams.length == 0) {
+        operationMethod.bodyParams = '';
     } else if (method != 'delete') {
         console.error("Number of " + method + " body parameters must be 1, the " + method + " operation.", operation)
     }
