@@ -2,9 +2,9 @@
   "name": "ringcentral-client",
   "version": "1.0.0",
   "scripts": {
-    "prepublish": "npm run generate",
+    "prepublish": "npm run build",
     "start": "node server.js",
-    "build": "npm run generate && ./node_modules/.bin/gulp",
+    "build": ". ./envsetup.sh && npm run generate && tsc && webpack",
     "watch": "npm run build -- watch",
     "test": "npm run build && npm run mocha",
     "mocha": "./node_modules/.bin/mocha ./build/tests/specs.js",

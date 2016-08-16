@@ -34,7 +34,7 @@
                 "nodeImports": {
                     "form-data": "FormData"
                 },
-                "body": "post(imageData: string | Blob | Buffer | NodeJS.ReadableStream, contentType: string): Promise<void> {\n        return this.put(imageData, contentType);\n    }"
+                "body": "post(imageData: string | Blob | Buffer | NodeJS.ReadableStream, contentType=\"image/png\"): Promise<void> {\n        return this.put(imageData, contentType);\n    }"
             }
         }
     }
