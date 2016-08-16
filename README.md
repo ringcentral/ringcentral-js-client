@@ -12,25 +12,82 @@ This is a library implemented in typescript which provides convenient apis for t
 npm install https://github.com/zengfenfei/ringcentral-js-client#releases --save # This version is for test only which will change soon.
 ```
 
-### For Typescript or ES6 users
+### Used in Typescript or ES6
 ```typescript
 import RingcentralClient from "ringcentral-client";
+import * as Ringcentral from "ringcentral";
 
-let RcSdk; // Create your Ringcentral JS sdk and login
-let client = new RingcentralClient(RcSdk);
-client.account().get().then(function(accountInfo) {
-console.log(accountInfo)
+var RcSdk = new Ringcentral({
+	"server": "https://platform.devtest.ringcentral.com",
+	"appKey": "{yourAppKey}",
+	"appSecret": "{yourAppSecret}"
+}); // Create your Ringcentral JS sdk instance and login
+
+RcSdk.platform().login({
+	"username": "{username}",
+	"extension": "",
+	"password": "{password}"
+}).then(function() {
+
+	var client = new RingcentralClient(RcSdk);
+	client.account().get().then(function(accountInfo) {
+		console.log(accountInfo)
+	});
+
 });
 ```
 
-### For commonjs(node.js, webpack and browserify) users
-```typescript
+### Used in commonjs(node.js, webpack and browserify)
+```javascript
 var RingcentralClient = require("ringcentral-client").default; // Don't forget the `default`
+var Ringcentral = require("ringcentral");
 
-var RcSdk; // Create your Ringcentral JS sdk and login
-var client = new RingcentralClient(RcSdk);
-client.account().get().then(function(accountInfo) {
-console.log(accountInfo)
+var RcSdk = new Ringcentral({
+	"server": "https://platform.devtest.ringcentral.com",
+	"appKey": "{yourAppKey}",
+	"appSecret": "{yourAppSecret}"
+}); // Create your Ringcentral JS sdk instance and login
+
+RcSdk.platform().login({
+	"username": "{username}",
+	"extension": "",
+	"password": "{password}"
+}).then(function() {
+
+	var client = new RingcentralClient(RcSdk);
+	client.account().get().then(function(accountInfo) {
+		console.log(accountInfo)
+	});
+
+});
+```
+
+### Used in browser as a bundled javascript library 
+Add the following `script` tags to your html:
+```html
+<script src="path/to/node_modules/build/ringcentral.min.js"></script>
+<script src="path/to/node_modules/build/RingcentralClient.js"></script>
+```
+
+Then you can use the two exposed global variable `RingcentralClient` and `Ringcentral`.
+```javascript
+var RcSdk = new Ringcentral({
+	"server": "https://platform.devtest.ringcentral.com",
+	"appKey": "{yourAppKey}",
+	"appSecret": "{yourAppSecret}"
+}); // Create your Ringcentral JS sdk instance and login
+
+RcSdk.platform().login({
+	"username": "{username}",
+	"extension": "",
+	"password": "{password}"
+}).then(function() {
+
+	var client = new RingcentralClient(RcSdk);
+	client.account().get().then(function(accountInfo) {
+		console.log(accountInfo)
+	});
+
 });
 ```
 
