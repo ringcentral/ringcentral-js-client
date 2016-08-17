@@ -15,14 +15,14 @@ npm install ringcentral
 
 ### Used in Typescript or ES6
 ```typescript
-import RingcentralClient from "ringcentral-client";
-import * as Ringcentral from "ringcentral";
+import RingCentralClient from "ringcentral-client";
+import * as RingCentral from "ringcentral";
 
-var RcSdk = new Ringcentral({
+var RcSdk = new RingCentral({
 	"server": "https://platform.devtest.ringcentral.com",
 	"appKey": "{yourAppKey}",
 	"appSecret": "{yourAppSecret}"
-}); // Create your Ringcentral JS sdk instance and login
+}); // Create your RingCentral JS sdk instance and login
 
 RcSdk.platform().login({
 	"username": "{username}",
@@ -30,7 +30,7 @@ RcSdk.platform().login({
 	"password": "{password}"
 }).then(function() {
 
-	var client = new RingcentralClient(RcSdk);
+	var client = new RingCentralClient(RcSdk);
 	client.account().get().then(function(accountInfo) {
 		console.log(accountInfo)
 	});
@@ -40,14 +40,14 @@ RcSdk.platform().login({
 
 ### Used in commonjs(node.js, webpack and browserify)
 ```javascript
-var RingcentralClient = require("ringcentral-client").default; // Don't forget the `default`
-var Ringcentral = require("ringcentral");
+var RingCentralClient = require("ringcentral-client").default; // Don't forget the `default`
+var RingCentral = require("ringcentral");
 
-var RcSdk = new Ringcentral({
+var RcSdk = new RingCentral({
 	"server": "https://platform.devtest.ringcentral.com",
 	"appKey": "{yourAppKey}",
 	"appSecret": "{yourAppSecret}"
-}); // Create your Ringcentral JS sdk instance and login
+}); // Create your RingCentral JS sdk instance and login
 
 RcSdk.platform().login({
 	"username": "{username}",
@@ -55,7 +55,7 @@ RcSdk.platform().login({
 	"password": "{password}"
 }).then(function() {
 
-	var client = new RingcentralClient(RcSdk);
+	var client = new RingCentralClient(RcSdk);
 	client.account().get().then(function(accountInfo) {
 		console.log(accountInfo)
 	});
@@ -67,16 +67,16 @@ RcSdk.platform().login({
 Add the following `script` tags to your html:
 ```html
 <script src="path/to/node_modules/ringcentral/build/ringcentral.min.js"></script>
-<script src="path/to/node_modules/ringcentral-client/build/RingcentralClient.js"></script>
+<script src="path/to/node_modules/ringcentral-client/build/RingCentralClient.js"></script>
 ```
 
-Then you can use the two exposed global variable `RingcentralClient` and `Ringcentral`.
+Then you can use the two exposed global variable `RingCentralClient` and `RingCentral`.
 ```javascript
-var RcSdk = new Ringcentral({
+var RcSdk = new RingCentral.SDK({
 	"server": "https://platform.devtest.ringcentral.com",
 	"appKey": "{yourAppKey}",
 	"appSecret": "{yourAppSecret}"
-}); // Create your Ringcentral JS sdk instance and login
+}); // Create your RingCentral JS sdk instance and login
 
 RcSdk.platform().login({
 	"username": "{username}",
@@ -84,7 +84,7 @@ RcSdk.platform().login({
 	"password": "{password}"
 }).then(function() {
 
-	var client = new RingcentralClient(RcSdk);
+	var client = new RingCentralClient(RcSdk);
 	client.account().get().then(function(accountInfo) {
 		console.log(accountInfo)
 	});

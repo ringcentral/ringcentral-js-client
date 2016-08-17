@@ -4,8 +4,8 @@ module.exports = {
     entry: "./src/browser-exports.js",
     output: {
         path: "./build",
-        filename: "RingcentralClient.js",
-        library: "RingcentralClient",
+        filename: "RingCentralClient.js",
+        library: "RingCentralClient",
         libraryTarget: "umd"
     },
     plugins: [
