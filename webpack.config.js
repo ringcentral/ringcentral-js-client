@@ -1,6 +1,6 @@
 const webpack = require("webpack");
 
-module.exports = {
+module.exports = [{
     entry: "./src/browser-exports.js",
     output: {
         path: "./build",
@@ -23,4 +23,18 @@ module.exports = {
             { test: /\.css$/, loader: "style!css" }
         ]
     }
-};
+}, {
+    entry: "./build/src/test/tests.js",
+    output: {
+        path: "./build",
+        filename: "tests.js"
+    },
+    externals: {
+        "../Client": "RingCentralClient",
+        "node-fetch": "fetch"
+    },
+    node: {
+        fs: "empty"
+    },
+    plugins: [new webpack.optimize.UglifyJsPlugin({})]
+}];
