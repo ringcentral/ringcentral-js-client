@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 original_dir=`pwd`
 cd ./node_modules/.bin
 if [ $? != '0' ]; then
