@@ -47,6 +47,9 @@ function addOperation(cls, operation, method) {
         for (var imp in customMethod.nodeImports) {
             cls.nodeImports[imp] = customMethod.nodeImports[imp];
         }
+        for (var imp in customMethod.modelTypes) {
+            cls.modelTypes[imp] = 1;
+        }
         operationMethod.body = customMethod.body;
         return;
     } catch (e) {

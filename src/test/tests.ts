@@ -12,6 +12,10 @@ before(function () {
     });
 });
 
+after(() => {
+    return client._service.logout();
+});
+
 describe("Account", function () {
     it("Get Account info", function () {
         return client.account().get();
@@ -63,13 +67,22 @@ describe("Binary response", function () {
 
 });
 
+let imgPath = "/Users/kevin.zeng/Desktop/profile.png";
 describe("Binary request", function () {
-    let imgPath = "/Users/kevin.zeng/Desktop/profile.png";
+    if (!fs.createReadStream) {
+        return;
+    }
     it("Put profile image, input binary, response is empty.", function () {
         return client.account().extension().profileImage().put(fs.createReadStream(imgPath));
     });
 
     it("Post profile image, input binary, response is empty.", function () {
         return client.account().extension().profileImage().post(fs.createReadStream(imgPath));
+    });
+});
+
+describe("Fax", function () {
+    it("Send fax", function () {
+        return client.account().extension().fax().post({ to: [{ phoneNumber: "+16507411615" }] }, ["Text attentment for test", "Text paragraph attachments 2."]);
     });
 });
