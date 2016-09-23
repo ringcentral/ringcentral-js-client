@@ -285,14 +285,16 @@
           "description": "Main phone number of the current account"
         },
         "operator": {
-          "$ref": "#/definitions/ExtensionInfo"
+          "$ref": "#/definitions/ExtensionInfo",
+          "description": "Operator's extension information. This extension will receive all calls and messages intended for the operator"
         },
         "partnerId": {
           "type": "string",
           "description": "Additional account identifier, developed and applied by the client"
         },
         "serviceInfo": {
-          "$ref": "#/definitions/ServiceInfo"
+          "$ref": "#/definitions/ServiceInfo",
+          "description": "Account service information, including brand, service plan and billing plan"
         },
         "setupWizardState": {
           "type": "string",
@@ -312,7 +314,8 @@
           ]
         },
         "statusInfo": {
-          "$ref": "#/definitions/StatusInfo"
+          "$ref": "#/definitions/StatusInfo",
+          "description": "Status information (reason, comment, lifetime). Returned for 'Disabled' status only"
         }
       }
     },
@@ -375,7 +378,8 @@
           "description": "Specifies if an answering rule is active or inactive"
         },
         "schedule": {
-          "$ref": "#/definitions/ScheduleInfo"
+          "$ref": "#/definitions/ScheduleInfo",
+          "description": "Schedule when an answering rule should be applied"
         },
         "calledNumbers": {
           "type": "array",
@@ -402,13 +406,16 @@
           ]
         },
         "forwarding": {
-          "$ref": "#/definitions/ForwardingInfo"
+          "$ref": "#/definitions/ForwardingInfo",
+          "description": "Forwarding parameters. Returned if 'ForwardCalls' is specified in 'callHandlingAction'. These settings determine the forwarding numbers to which the call will be forwarded"
         },
         "unconditionalForwarding": {
-          "$ref": "#/definitions/UnconditionalForwardingInfo"
+          "$ref": "#/definitions/UnconditionalForwardingInfo",
+          "description": "Unconditional forwarding parameters. Returned if 'UnconditionalForwarding' is specified in 'callHandlingAction'"
         },
         "voicemail": {
-          "$ref": "#/definitions/VoicemailInfo"
+          "$ref": "#/definitions/VoicemailInfo",
+          "description": "Specifies whether to take a voicemail and who should do it"
         }
       }
     },
@@ -517,7 +524,8 @@
           "description": "Brand name, for example \"RingCentral UK\", \"ClearFax\""
         },
         "homeCountry": {
-          "$ref": "#/definitions/CountryInfo"
+          "$ref": "#/definitions/CountryInfo",
+          "description": "Home country information"
         }
       }
     },
@@ -550,7 +558,8 @@
       "type": "object",
       "properties": {
         "weeklyRanges": {
-          "$ref": "#/definitions/WeeklyScheduleInfo"
+          "$ref": "#/definitions/WeeklyScheduleInfo",
+          "description": "Weekly schedule"
         }
       }
     },
@@ -570,10 +579,12 @@
           "description": "Internal identifier of a call session"
         },
         "from": {
-          "$ref": "#/definitions/CallerInfo"
+          "$ref": "#/definitions/CallerInfo",
+          "description": "Caller information"
         },
         "to": {
-          "$ref": "#/definitions/CallerInfo"
+          "$ref": "#/definitions/CallerInfo",
+          "description": "Callee information"
         },
         "type": {
           "type": "string",
@@ -671,7 +682,8 @@
           "description": "Call duration in seconds"
         },
         "recording": {
-          "$ref": "#/definitions/RecordingInfo"
+          "$ref": "#/definitions/RecordingInfo",
+          "description": "Call recording data. Returned if the call is recorded"
         }
       }
     },
@@ -691,10 +703,12 @@
           "description": "Internal identifier of a call session"
         },
         "from": {
-          "$ref": "#/definitions/CallerInfo"
+          "$ref": "#/definitions/CallerInfo",
+          "description": "Caller information"
         },
         "to": {
-          "$ref": "#/definitions/CallerInfo"
+          "$ref": "#/definitions/CallerInfo",
+          "description": "Callee information"
         },
         "type": {
           "type": "string",
@@ -792,7 +806,8 @@
           "description": "Call duration in seconds"
         },
         "recording": {
-          "$ref": "#/definitions/RecordingInfo"
+          "$ref": "#/definitions/RecordingInfo",
+          "description": "Call recording data. Returned if the call is recorded, the withRecording parameter is set to 'True' in this case"
         },
         "lastModifiedTime": {
           "type": "string",
@@ -894,7 +909,8 @@
       "type": "object",
       "properties": {
         "country": {
-          "$ref": "#/definitions/ConferencingInfo.PhoneNumberInfo.CountryInfo"
+          "$ref": "#/definitions/ConferencingInfo.PhoneNumberInfo.CountryInfo",
+          "description": "Information on a home country of a conference phone number"
         },
         "default": {
           "type": "boolean",
@@ -992,7 +1008,8 @@
           "description": "Extension user contact phone number"
         },
         "businessAddress": {
-          "$ref": "#/definitions/ContactAddressInfo"
+          "$ref": "#/definitions/ContactAddressInfo",
+          "description": "Business address of extension user company"
         }
       }
     },
@@ -1126,19 +1143,24 @@
           "description": "PC name for softphone"
         },
         "model": {
-          "$ref": "#/definitions/ModelInfo"
+          "$ref": "#/definitions/ModelInfo",
+          "description": "HardPhone model information"
         },
         "extension": {
-          "$ref": "#/definitions/DeviceInfo.ExtensionInfo"
+          "$ref": "#/definitions/DeviceInfo.ExtensionInfo",
+          "description": "This attribute can be omitted for unassigned devices"
         },
         "emergencyServiceAddress": {
-          "$ref": "#/definitions/EmergencyAddressInfo"
+          "$ref": "#/definitions/EmergencyAddressInfo",
+          "description": "Address for emergency cases. The same emergency address is assigned to all the numbers of one device"
         },
         "phoneLines": {
-          "$ref": "#/definitions/PhoneLinesInfo"
+          "$ref": "#/definitions/PhoneLinesInfo",
+          "description": "Phone lines information"
         },
         "shipping": {
-          "$ref": "#/definitions/ShippingInfo"
+          "$ref": "#/definitions/ShippingInfo",
+          "description": "Shipping information, according to which devices (in case of \"HardPhone\") or e911 stickers (in case of \"SoftPhone\" and \"OtherPhone\") will be delivered to the customer"
         },
         "boxBillingId": {
           "type": "integer",
@@ -1183,11 +1205,37 @@
           "description": "Optional field in case the dial-in number is associated with a particular location"
         },
         "country": {
-          "$ref": "#/definitions/DialInNumbers.CountryInfo"
+          "$ref": "#/definitions/DialInNumbers.CountryInfo",
+          "description": "Country resource corresponding to the dial-in number"
         }
       }
     },
     "DialInNumbers.CountryInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a country"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a country"
+        },
+        "callingCode": {
+          "type": "string",
+          "description": "Country calling code defined by ITU-T recommendations E.123 and E.164, see Calling Codes"
+        },
+        "isoCode": {
+          "type": "string",
+          "description": "Country code according to the ISO standard, see ISO 3166"
+        },
+        "name": {
+          "type": "string",
+          "description": "Official name of a country"
+        }
+      }
+    },
+    "DialingPlanCountryInfo": {
       "type": "object",
       "properties": {
         "id": {
@@ -1257,10 +1305,15 @@
           "description": "Canonical URI of an extension"
         },
         "contact": {
-          "$ref": "#/definitions/ContactInfo"
+          "$ref": "#/definitions/ContactInfo",
+          "description": "Contact detailed information"
         },
         "departments": {
-          "$ref": "#/definitions/DepartmentInfo"
+          "type": "array",
+          "description": "Information on department extension(s), to which the requested extension belongs. Returned only for user extensions, members of department, requested by single extensionId",
+          "items": {
+            "$ref": "#/definitions/DepartmentInfo"
+          }
         },
         "extensionNumber": {
           "type": "string",
@@ -1275,10 +1328,12 @@
           "description": "For Partner Applications Internal identifier of an extension created by partner. The RingCentral supports the mapping of accounts and stores the corresponding account ID/extension ID for each partner ID of a client application. In request URIs partner IDs are accepted instead of regular RingCentral native IDs as path parameters using pid = XXX clause. Though in response URIs contain the corresponding account IDs and extension IDs. In all request and response bodies these values are reflected via partnerId attributes of account and extension"
         },
         "permissions": {
-          "$ref": "#/definitions/ExtensionPermissions"
+          "$ref": "#/definitions/ExtensionPermissions",
+          "description": "Extension permissions, corresponding to the Service Web permissions 'Admin' and 'InternationalCalling'"
         },
         "profileImage": {
-          "$ref": "#/definitions/ProfileImageInfo"
+          "$ref": "#/definitions/ProfileImageInfo",
+          "description": "Information on profile image"
         },
         "references": {
           "type": "array",
@@ -1288,7 +1343,8 @@
           }
         },
         "regionalSettings": {
-          "$ref": "#/definitions/RegionalSettings"
+          "$ref": "#/definitions/RegionalSettings",
+          "description": "Extension region data (timezone, home country, language)"
         },
         "serviceFeatures": {
           "type": "array",
@@ -1317,7 +1373,8 @@
           ]
         },
         "statusInfo": {
-          "$ref": "#/definitions/StatusInfo"
+          "$ref": "#/definitions/StatusInfo",
+          "description": "Status information (reason, comment). Returned for 'Disabled' status only"
         },
         "type": {
           "type": "string",
@@ -1343,10 +1400,12 @@
       "type": "object",
       "properties": {
         "contact": {
-          "$ref": "#/definitions/ContactInfo"
+          "$ref": "#/definitions/ContactInfo",
+          "description": "Contact information"
         },
         "regionalSettings": {
-          "$ref": "#/definitions/ExtensionInfo.Request.ContactInfo.RegionalSettings"
+          "$ref": "#/definitions/ExtensionInfo.Request.ContactInfo.RegionalSettings",
+          "description": "Region data (timezone, home country, language)"
         },
         "setupWizardState": {
           "type": "string",
@@ -1367,16 +1426,20 @@
       "type": "object",
       "properties": {
         "timezone": {
-          "$ref": "#/definitions/ExtensionInfo.Request.ContactInfo.RegionalSettings.Timezone"
+          "$ref": "#/definitions/ExtensionInfo.Request.ContactInfo.RegionalSettings.Timezone",
+          "description": "Timezone data"
         },
         "language": {
-          "$ref": "#/definitions/ExtensionInfo.Request.ContactInfo.RegionalSettings.Language"
+          "$ref": "#/definitions/ExtensionInfo.Request.ContactInfo.RegionalSettings.Language",
+          "description": "User interface language data"
         },
         "greetingLanguage": {
-          "$ref": "#/definitions/ExtensionInfo.Request.ContactInfo.RegionalSettings.GreetingLanguage"
+          "$ref": "#/definitions/ExtensionInfo.Request.ContactInfo.RegionalSettings.GreetingLanguage",
+          "description": "Information on language used for telephony greetings"
         },
         "formattingLocale": {
-          "$ref": "#/definitions/ExtensionInfo.Request.ContactInfo.RegionalSettings.FormattingLocale"
+          "$ref": "#/definitions/ExtensionInfo.Request.ContactInfo.RegionalSettings.FormattingLocale",
+          "description": "Formatting language preferences for numbers, dates and currencies"
         }
       }
     },
@@ -1449,7 +1512,8 @@
           ]
         },
         "contact": {
-          "$ref": "#/definitions/ExtensionInfo.Request.Provision.ContactInfo"
+          "$ref": "#/definitions/ExtensionInfo.Request.Provision.ContactInfo",
+          "description": "Mandatory. Extension user contact information"
         }
       }
     },
@@ -1483,7 +1547,8 @@
           ]
         },
         "statusInfo": {
-          "$ref": "#/definitions/StatusInfo"
+          "$ref": "#/definitions/StatusInfo",
+          "description": "Extension status information, only for the 'Disabled' status"
         }
       }
     },
@@ -1491,10 +1556,12 @@
       "type": "object",
       "properties": {
         "admin": {
-          "$ref": "#/definitions/PermissionInfo"
+          "$ref": "#/definitions/PermissionInfo",
+          "description": "Admin permission"
         },
         "internationalCalling": {
-          "$ref": "#/definitions/PermissionInfo"
+          "$ref": "#/definitions/PermissionInfo",
+          "description": "International Calling permission"
         }
       }
     },
@@ -1664,7 +1731,8 @@
           "description": "Canonical URI of a grant"
         },
         "extension": {
-          "$ref": "#/definitions/GrantInfo.ExtensionInfo"
+          "$ref": "#/definitions/GrantInfo.ExtensionInfo",
+          "description": "Extension information"
         },
         "callPickup": {
           "type": "boolean",
@@ -1753,6 +1821,15 @@
         }
       }
     },
+    "ImageUri": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Link to an image."
+        }
+      }
+    },
     "LanguageInfo": {
       "type": "object",
       "properties": {
@@ -1829,7 +1906,8 @@
           "description": "Call duration in seconds"
         },
         "extension": {
-          "$ref": "#/definitions/LegInfo.ExtensionInfo"
+          "$ref": "#/definitions/LegInfo.ExtensionInfo",
+          "description": "Information on extension"
         },
         "legType": {
           "type": "string",
@@ -1892,10 +1970,12 @@
           ]
         },
         "from": {
-          "$ref": "#/definitions/CallerInfo"
+          "$ref": "#/definitions/CallerInfo",
+          "description": "Caller information"
         },
         "to": {
-          "$ref": "#/definitions/CallerInfo"
+          "$ref": "#/definitions/CallerInfo",
+          "description": "Callee information"
         },
         "transport": {
           "type": "string",
@@ -1906,7 +1986,8 @@
           ]
         },
         "recording": {
-          "$ref": "#/definitions/RecordingInfo"
+          "$ref": "#/definitions/RecordingInfo",
+          "description": "Call recording data. Returned if the call is recorded"
         }
       }
     },
@@ -2023,10 +2104,12 @@
           ]
         },
         "links": {
-          "$ref": "#/definitions/LinksInfo"
+          "$ref": "#/definitions/LinksInfo",
+          "description": "Links to start/join the meeting"
         },
         "schedule": {
-          "$ref": "#/definitions/MeetingScheduleInfo"
+          "$ref": "#/definitions/MeetingScheduleInfo",
+          "description": "Schedule of a meeting"
         },
         "allowJoinBeforeHost": {
           "type": "boolean",
@@ -2062,7 +2145,8 @@
           "description": "Duration of a meeting in minutes"
         },
         "timeZone": {
-          "$ref": "#/definitions/MeetingScheduleInfo.TimezoneInfo"
+          "$ref": "#/definitions/MeetingScheduleInfo.TimezoneInfo",
+          "description": "Timezone of a meeting"
         }
       }
     },
@@ -2169,7 +2253,8 @@
           ]
         },
         "from": {
-          "$ref": "#/definitions/MessageInfo.CallerInfo"
+          "$ref": "#/definitions/MessageInfo.CallerInfo",
+          "description": "Sender information"
         },
         "lastModifiedTime": {
           "type": "string",
@@ -2337,16 +2422,20 @@
       "type": "object",
       "properties": {
         "firstPage": {
-          "$ref": "#/definitions/Page"
+          "$ref": "#/definitions/Page",
+          "description": "First page of the list"
         },
         "nextPage": {
-          "$ref": "#/definitions/Page"
+          "$ref": "#/definitions/Page",
+          "description": "Next page of the list"
         },
         "previousPage": {
-          "$ref": "#/definitions/Page"
+          "$ref": "#/definitions/Page",
+          "description": "Previous page of the list"
         },
         "lastPage": {
-          "$ref": "#/definitions/Page"
+          "$ref": "#/definitions/Page",
+          "description": "Last page of the list"
         }
       }
     },
@@ -2458,6 +2547,15 @@
         "normalized": {
           "type": "string",
           "description": "E.164 (11-digits) format of a phone number without the plus sign ('+')"
+        }
+      }
+    },
+    "PermissionDetailsInfo": {
+      "type": "object",
+      "properties": {
+        "permission": {
+          "$ref": "#/definitions/UserPermissionInfo",
+          "description": "Information on a permission checked"
         }
       }
     },
@@ -2575,13 +2673,16 @@
           "description": "The 3-d email of a personal contact"
         },
         "homeAddress": {
-          "$ref": "#/definitions/ContactAddressInfo"
+          "$ref": "#/definitions/ContactAddressInfo",
+          "description": "Home address of a personal contact"
         },
         "businessAddress": {
-          "$ref": "#/definitions/ContactAddressInfo"
+          "$ref": "#/definitions/ContactAddressInfo",
+          "description": "Business address of a personal contact"
         },
         "otherAddress": {
-          "$ref": "#/definitions/ContactAddressInfo"
+          "$ref": "#/definitions/ContactAddressInfo",
+          "description": "Other address of a personal contact"
         },
         "birthday": {
           "type": "string",
@@ -2612,7 +2713,8 @@
           ]
         },
         "phoneInfo": {
-          "$ref": "#/definitions/PhoneLinesInfo.PhoneNumberInfo"
+          "$ref": "#/definitions/PhoneLinesInfo.PhoneNumberInfo",
+          "description": "Phone number information"
         }
       }
     },
@@ -2624,7 +2726,8 @@
           "description": "Internal identifier of a phone number"
         },
         "country": {
-          "$ref": "#/definitions/CountryInfo"
+          "$ref": "#/definitions/CountryInfo",
+          "description": "Brief information on a phone number country"
         },
         "location": {
           "type": "string",
@@ -2678,10 +2781,12 @@
           "description": "Internal identifier of a phone number"
         },
         "country": {
-          "$ref": "#/definitions/CountryInfo"
+          "$ref": "#/definitions/CountryInfo",
+          "description": "Brief information on a phone number country"
         },
         "extension": {
-          "$ref": "#/definitions/PhoneNumberInfo.ExtensionInfo"
+          "$ref": "#/definitions/PhoneNumberInfo.ExtensionInfo",
+          "description": "Information on the extension, to which the phone number is assigned. Returned only for the request of Account phone number list"
         },
         "features": {
           "type": "array",
@@ -2777,7 +2882,8 @@
           ]
         },
         "extension": {
-          "$ref": "#/definitions/PresenceInfo.ExtensionInfo"
+          "$ref": "#/definitions/PresenceInfo.ExtensionInfo",
+          "description": "Information on extension, for which this presence data is returned"
         },
         "message": {
           "type": "string",
@@ -2863,7 +2969,7 @@
           "type": "array",
           "description": "List of URIs to profile images in different dimensions",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/ImageUri"
           }
         }
       }
@@ -2942,19 +3048,24 @@
       "type": "object",
       "properties": {
         "homeCountry": {
-          "$ref": "#/definitions/CountryInfo"
+          "$ref": "#/definitions/CountryInfo",
+          "description": "Extension country information"
         },
         "timezone": {
-          "$ref": "#/definitions/TimezoneInfo"
+          "$ref": "#/definitions/TimezoneInfo",
+          "description": "Extension timezone information"
         },
         "language": {
-          "$ref": "#/definitions/LanguageInfo"
+          "$ref": "#/definitions/LanguageInfo",
+          "description": "User interface language data"
         },
         "greetingLanguage": {
-          "$ref": "#/definitions/GreetingLanguageInfo"
+          "$ref": "#/definitions/GreetingLanguageInfo",
+          "description": "Information on language used for telephony greetings"
         },
         "formattingLocale": {
-          "$ref": "#/definitions/FormattingLocaleInfo"
+          "$ref": "#/definitions/FormattingLocaleInfo",
+          "description": "Formatting language preferences for numbers, dates and currencies"
         }
       }
     },
@@ -3051,7 +3162,8 @@
           "description": "Internal identifier of a RingOut call"
         },
         "status": {
-          "$ref": "#/definitions/RingOutStatusInfo"
+          "$ref": "#/definitions/RingOutStatusInfo",
+          "description": "RingOut status information"
         }
       }
     },
@@ -3159,10 +3271,12 @@
       "type": "object",
       "properties": {
         "weeklyRanges": {
-          "$ref": "#/definitions/WeeklyScheduleInfo"
+          "$ref": "#/definitions/WeeklyScheduleInfo",
+          "description": "Weekly schedule"
         },
         "ranges": {
-          "$ref": "#/definitions/RangesInfo"
+          "$ref": "#/definitions/RangesInfo",
+          "description": "Specific data ranges"
         },
         "ref": {
           "type": "string",
@@ -3219,16 +3333,20 @@
           "description": "Canonical URI of a service info resource"
         },
         "billingPlan": {
-          "$ref": "#/definitions/BillingPlanInfo"
+          "$ref": "#/definitions/BillingPlanInfo",
+          "description": "Information on account billing plan"
         },
         "brand": {
-          "$ref": "#/definitions/BrandInfo"
+          "$ref": "#/definitions/BrandInfo",
+          "description": "Information on account brand"
         },
         "servicePlan": {
-          "$ref": "#/definitions/ServicePlanInfo"
+          "$ref": "#/definitions/ServicePlanInfo",
+          "description": "Information on account service plan"
         },
         "targetServicePlan": {
-          "$ref": "#/definitions/TargetServicePlanInfo"
+          "$ref": "#/definitions/TargetServicePlanInfo",
+          "description": "Information on account target service plan"
         }
       }
     },
@@ -3353,7 +3471,8 @@
           "description": "Canonical URI of a state"
         },
         "country": {
-          "$ref": "#/definitions/StateInfo.CountryInfo"
+          "$ref": "#/definitions/StateInfo.CountryInfo",
+          "description": "Information on a country the state belongs to"
         },
         "isoCode": {
           "type": "string",
@@ -3454,7 +3573,8 @@
           "format": "date-time"
         },
         "deliveryMode": {
-          "$ref": "#/definitions/DeliveryMode"
+          "$ref": "#/definitions/DeliveryMode",
+          "description": "Delivery mode data"
         }
       }
     },
@@ -3538,6 +3658,35 @@
         }
       }
     },
+    "UserPermission": {
+      "type": "object",
+      "properties": {
+        "permission": {
+          "$ref": "#/definitions/UserPermissionInfo",
+          "description": "Information on a permission granted"
+        },
+        "scopes": {
+          "type": "array",
+          "description": "List of active scopes for permission",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UserPermissionInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Internal identifier of a permission"
+        },
+        "uri": {
+          "type": "string",
+          "description": "Canonical URI of a permission resource"
+        }
+      }
+    },
     "VersionInfo": {
       "type": "object",
       "properties": {
@@ -3567,7 +3716,8 @@
           "description": "If 'True' then voicemails are allowed to be received"
         },
         "recipient": {
-          "$ref": "#/definitions/RecipientInfo"
+          "$ref": "#/definitions/RecipientInfo",
+          "description": "Recipient data"
         }
       }
     },
@@ -3857,10 +4007,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -3929,7 +4081,8 @@
                   "description": "Company business email address"
                 },
                 "businessAddress": {
-                  "$ref": "#/definitions/BusinessAddressInfo"
+                  "$ref": "#/definitions/BusinessAddressInfo",
+                  "description": "Company business address"
                 }
               }
             }
@@ -3957,7 +4110,8 @@
                   "description": "Company business email address"
                 },
                 "businessAddress": {
-                  "$ref": "#/definitions/BusinessAddressInfo"
+                  "$ref": "#/definitions/BusinessAddressInfo",
+                  "description": "Company business address"
                 }
               }
             }
@@ -3979,7 +4133,8 @@
                   "description": "Company business email address"
                 },
                 "businessAddress": {
-                  "$ref": "#/definitions/BusinessAddressInfo"
+                  "$ref": "#/definitions/BusinessAddressInfo",
+                  "description": "Company business address"
                 }
               }
             }
@@ -4009,10 +4164,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -4139,10 +4296,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -4189,10 +4348,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -4226,6 +4387,55 @@
         }
       ]
     },
+    "/restapi/v1.0/account/{accountId}/dialing-plan": {
+      "get": {
+        "description": "Get IBO Dialing Plans",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "records": {
+                  "type": "array",
+                  "description": "List of countries which can be selected for a dialing plan",
+                  "items": {
+                    "$ref": "#/definitions/DialingPlanCountryInfo"
+                  }
+                },
+                "paging": {
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
+                },
+                "navigation": {
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "type": "integer",
+            "description": "Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'",
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "description": "Indicates the page size (number of items). If not specified, the value is '100' by default",
+            "name": "perPage",
+            "in": "query"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/accountId"
+        }
+      ]
+    },
     "/restapi/v1.0/account/{accountId}/extension": {
       "get": {
         "description": "Get Extension List",
@@ -4243,10 +4453,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -4380,10 +4592,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -4450,7 +4664,8 @@
                   }
                 },
                 "syncInfo": {
-                  "$ref": "#/definitions/SyncInfo"
+                  "$ref": "#/definitions/SyncInfo",
+                  "description": "Sync type, token and time"
                 },
                 "nextPageId": {
                   "type": "integer",
@@ -4541,10 +4756,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -4666,10 +4883,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -4733,6 +4952,96 @@
         }
       ]
     },
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/authz-profile": {
+      "get": {
+        "description": "Get User Permissions",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string",
+                  "description": "Canonical URI of an authorization profile resource"
+                },
+                "permissions": {
+                  "type": "array",
+                  "description": "List of user permissions granted",
+                  "items": {
+                    "$ref": "#/definitions/UserPermission"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/accountId"
+        },
+        {
+          "$ref": "#/parameters/extensionId"
+        }
+      ]
+    },
+    "/restapi/v1.0/account/{accountId}/extension/{extensionId}/authz-profile/check": {
+      "get": {
+        "description": "Check User Permissions",
+        "responses": {
+          "default": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string",
+                  "description": "Canonical URI of a permission resource"
+                },
+                "successful": {
+                  "type": "boolean",
+                  "description": "Specifies if check result is successful or not"
+                },
+                "details": {
+                  "$ref": "#/definitions/PermissionDetailsInfo",
+                  "description": "Information on a permission checked. Returned if successful is 'True'"
+                },
+                "scopes": {
+                  "type": "array",
+                  "description": "List of active scopes for permission. Returned if successful is 'True'",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Permission to check",
+            "name": "permissionId",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "Optional. Internal identifier of an extension for which user permissions are to be checked. The default value is the currently logged-in extension",
+            "name": "targetExtensionId",
+            "in": "query"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/accountId"
+        },
+        {
+          "$ref": "#/parameters/extensionId"
+        }
+      ]
+    },
     "/restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number": {
       "post": {
         "description": "Add New Blocked Number",
@@ -4770,10 +5079,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -4855,7 +5166,8 @@
                   "description": "Canonical URI of a business-hours resource"
                 },
                 "schedule": {
-                  "$ref": "#/definitions/BusinessHour.ScheduleInfo"
+                  "$ref": "#/definitions/BusinessHour.ScheduleInfo",
+                  "description": "Schedule when an answering rule is applied"
                 }
               }
             }
@@ -4905,10 +5217,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -5017,7 +5331,8 @@
                   }
                 },
                 "syncInfo": {
-                  "$ref": "#/definitions/SyncInfo"
+                  "$ref": "#/definitions/SyncInfo",
+                  "description": "Sync type, token and time"
                 }
               }
             }
@@ -5117,7 +5432,8 @@
               "type": "object",
               "properties": {
                 "from": {
-                  "$ref": "#/definitions/CallerInfo"
+                  "$ref": "#/definitions/CallerInfo",
+                  "description": "Sender of a pager message. The extensionNumber property must be filled"
                 },
                 "replyOn": {
                   "type": "integer",
@@ -5227,10 +5543,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -5357,10 +5675,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -5407,10 +5727,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -5476,7 +5798,8 @@
                   "description": "Password required to join a meeting. Max number of characters is 10"
                 },
                 "schedule": {
-                  "$ref": "#/definitions/MeetingScheduleInfo"
+                  "$ref": "#/definitions/MeetingScheduleInfo",
+                  "description": "Schedule of a meeting"
                 },
                 "allowJoinBeforeHost": {
                   "type": "boolean",
@@ -5522,10 +5845,12 @@
                   }
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 }
               }
             }
@@ -5563,10 +5888,12 @@
                   "description": "URI to retrieve international dial in numbers"
                 },
                 "externalUserInfo": {
-                  "$ref": "#/definitions/ExternalUserInfo"
+                  "$ref": "#/definitions/ExternalUserInfo",
+                  "description": "External user data"
                 },
                 "dialInNumbers": {
-                  "$ref": "#/definitions/DialInNumbers"
+                  "$ref": "#/definitions/DialInNumbers",
+                  "description": "Dial-in numbers data"
                 }
               }
             }
@@ -5637,7 +5964,8 @@
                   "description": "Password required to join a meeting. Max number of characters is 10"
                 },
                 "schedule": {
-                  "$ref": "#/definitions/MeetingScheduleInfo"
+                  "$ref": "#/definitions/MeetingScheduleInfo",
+                  "description": "Schedule of a meeting"
                 },
                 "allowJoinBeforeHost": {
                   "type": "boolean",
@@ -5713,10 +6041,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -5945,7 +6275,8 @@
                   }
                 },
                 "syncInfo": {
-                  "$ref": "#/definitions/SyncInfo"
+                  "$ref": "#/definitions/SyncInfo",
+                  "description": "Sync type, token and time"
                 }
               }
             }
@@ -6052,10 +6383,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -6222,20 +6555,24 @@
               "type": "object",
               "properties": {
                 "from": {
-                  "$ref": "#/definitions/RingOut.Request.From"
+                  "$ref": "#/definitions/RingOut.Request.From",
+                  "description": "Phone number of the caller. This number corresponds to the 1st leg of the RingOut call. This number can be one of user's configured forwarding numbers or arbitrary number"
                 },
                 "to": {
-                  "$ref": "#/definitions/RingOut.Request.To"
+                  "$ref": "#/definitions/RingOut.Request.To",
+                  "description": "Phone number of the called party. This number corresponds to the 2nd leg of the RingOut call"
                 },
                 "callerId": {
-                  "$ref": "#/definitions/RingOut.Request.To"
+                  "$ref": "#/definitions/RingOut.Request.To",
+                  "description": "The number which will be displayed to the called party"
                 },
                 "playPrompt": {
                   "type": "boolean",
                   "description": "The audio prompt that the calling party hears when the call is connected"
                 },
                 "country": {
-                  "$ref": "#/definitions/RingOut.Request.CountryInfo"
+                  "$ref": "#/definitions/RingOut.Request.CountryInfo",
+                  "description": "Optional. Dialing plan country data. If not specified, then extension home country is applied by default"
                 }
               }
             }
@@ -6302,7 +6639,8 @@
               "type": "object",
               "properties": {
                 "from": {
-                  "$ref": "#/definitions/CallerInfo"
+                  "$ref": "#/definitions/CallerInfo",
+                  "description": "Sender of an SMS message. The phoneNumber property must be filled to correspond to one of the account phone numbers which is allowed to send SMS"
                 },
                 "to": {
                   "type": "array",
@@ -6429,10 +6767,12 @@
                   }
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 }
               }
             }
@@ -6580,11 +6920,8 @@
                   }
                 },
                 "limits": {
-                  "type": "array",
-                  "description": "Limits which are effective for the account",
-                  "items": {
-                    "$ref": "#/definitions/AccountLimits"
-                  }
+                  "$ref": "#/definitions/AccountLimits",
+                  "description": "Limits which are effective for the account"
                 }
               }
             }
@@ -6623,7 +6960,8 @@
                   "description": "Time of the last change in custom data"
                 },
                 "attachment": {
-                  "$ref": "#/definitions/AttachmentInfo"
+                  "$ref": "#/definitions/AttachmentInfo",
+                  "description": "Attachment data: link and type"
                 }
               }
             }
@@ -6672,10 +7010,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -6744,10 +7084,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -6790,10 +7132,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -6854,10 +7198,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -6926,10 +7272,12 @@
                   }
                 },
                 "navigation": {
-                  "$ref": "#/definitions/NavigationInfo"
+                  "$ref": "#/definitions/NavigationInfo",
+                  "description": "Information on navigation"
                 },
                 "paging": {
-                  "$ref": "#/definitions/PagingInfo"
+                  "$ref": "#/definitions/PagingInfo",
+                  "description": "Information on paging"
                 }
               }
             }
@@ -7247,7 +7595,8 @@
                   }
                 },
                 "deliveryMode": {
-                  "$ref": "#/definitions/Subscription.Request.DeliveryMode"
+                  "$ref": "#/definitions/Subscription.Request.DeliveryMode",
+                  "description": "Notification delivery settings"
                 }
               }
             }
