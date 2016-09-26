@@ -10,7 +10,6 @@ This is a library implemented in typescript which provides convenient apis for t
 
 ```shell
 npm install https://github.com/zengfenfei/ringcentral-js-client#releases --save # This version is for test only which will change soon.
-npm install ringcentral
 ```
 
 ### Used in Typescript or ES6

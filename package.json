@@ -16,7 +16,7 @@
   "dependencies": {
     "form-data": "^1.0.0-rc4",
     "isomorphic-fetch": "^2.2.1",
-    "ringcentral": "^2.*"
+    "ringcentral": "^3.0.0-rc1"
   },
   "devDependencies": {
     "chai": "^3.0.0",
