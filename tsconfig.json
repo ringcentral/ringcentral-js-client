@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "./build",
         "target": "es5",
-        "module": "commonjs"
+        "declaration": true
     },
     "compileOnSave": true
 }

@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 
 module.exports = [{
-    entry: "./src/browser-exports.js",
+    entry: "./build/src/Client.js",
     output: {
         path: "./build",
         filename: "RingCentralClient.js",

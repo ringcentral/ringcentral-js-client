@@ -91,6 +91,15 @@ RcSdk.platform().login({
 });
 ```
 
+## Authorization
+
+### Login by oauth 2.0
+
+### Login by password
+
+### Logout
+
+
 ## Examples
 
 ### Get extension info
