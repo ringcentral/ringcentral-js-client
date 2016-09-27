@@ -93,13 +93,17 @@ RcSdk.platform().login({
 
 ## Authorization
 
+There are several authorization flows you can use to get an authorized access to RingCentral API.
+
+Apps with 'Public' application type are not allowed to use Password Flow for security reasons, as well as 'Private' apps of 'Browser-Based' or 'Server/Web' platform type. Apps with no user interface are not allowed to use Authorization Code Flow.
+
 ### Login by OAuth 2.0 Flows
 
 1. Call `client.loginUrl(...)` to get the **RingCentral OAuth login page url**, go to the login page and enter the credentials.
 2. If successfully logged in, the login page will redirect to the page of `redirectUri`, from the url parameters of that page you can get the **authorization code** by call `client.getAuthCode({redirectPageUrl})`.
 3. Login with auth code: `client.login({ code: authCode, redirectUri: redirectUri })`
 
-Use webpack to pack the following sample and run in the browser.
+Use webpack to pack the following complete sample and run in the browser.
 ```typescript
 import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
 
@@ -133,7 +137,24 @@ function checkLogin() {
 }
 ```
 
-### Login by password
+### Login by Password Flow
+
+Complete sample:
+```typescript
+import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
+
+let client = new RingCentralClient({
+    server: SERVER_SANDBOX, // Optional, default is production server
+    appKey: "{yourAppKey}",
+    appSecret: "{yourAppSecret}"
+});
+
+client.login({ username: "{username}", password: "{password}" }).then(() => {
+    console.log("Login success");
+}).catch(e => {
+    console.error("Login fail ", e);
+});
+```
 
 ### Logout
 
