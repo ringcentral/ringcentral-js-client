@@ -93,12 +93,49 @@ RcSdk.platform().login({
 
 ## Authorization
 
-### Login by oauth 2.0
+### Login by OAuth 2.0 Flows
+
+1. Call `client.loginUrl(...)` to get the **RingCentral OAuth login page url**, go to the login page and enter the credentials.
+2. If successfully logged in, the login page will redirect to the page of `redirectUri`, from the url parameters of that page you can get the **authorization code** by call `client.getAuthCode({redirectPageUrl})`.
+3. Login with auth code: `client.login({ code: authCode, redirectUri: redirectUri })`
+
+Use webpack to pack the following sample and run in the browser.
+```typescript
+import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
+
+let client = new RingCentralClient({
+    server: SERVER_SANDBOX, // Optional, default is production server
+    appKey: "{yourAppKey}",
+    appSecret: "{yourAppSecret}"
+});
+
+// To be simple, let redirectUri be the url of the current page without any parameters, and add this url to your apps 'OAuth Redirect URI' via the settings page of your app(https://developer.ringcentral.com/my-account.html#/applications).  
+const redirectUri = "{currentPageUrlAsRedirectUri}";
+
+checkLogin();
+
+function checkLogin() {
+    // #2 Get the auth code from the query of the redirectUri page
+    let authCode = client.getAuthCode(location.href);
+    if (!authCode) {
+        // #1 Go to oauth login page
+        location.href = client.loginUrl({ redirectUri: redirectUri });
+        return;
+    }
+    // #3 login with auth code
+    client.login({ code: authCode, redirectUri: redirectUri }).then(() => {
+        console.log("Login success");
+        alert("Login success");
+    }).catch(e => {
+        console.error("Login fail ", e);
+        alert("Login fail." + e);
+    });
+}
+```
 
 ### Login by password
 
 ### Logout
-
 
 ## Examples
 
