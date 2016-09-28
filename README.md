@@ -200,6 +200,27 @@ client.on(EventLogoutSuccess, () => {
 });
 ```
 
+## Subscriptions
+
+For more info, refer to https://github.com/ringcentral/ringcentral-js#server-side-subscriptions.
+
+```
+var subscription = client.createSubscription();
+
+subscription.on(subscription.events.notification, function (msg) {
+    console.log(msg, msg.body);
+});
+
+subscription
+    .setEventFilters(['/account/~/extension/~/presence']) // a list of server-side events
+    .register()
+    .then((subscription) => {
+        console.log("Create subscription", subscription.json());
+    }, e => {
+        console.error("Fail to create subscription", e);
+    });
+```
+
 ## API Call Examples
 
 ### Get extension info

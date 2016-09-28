@@ -12,7 +12,7 @@ export default class Client {
         appSecret: string;
     }) {
         opts.server = opts.server || SERVER_PRODUCTION;
-        this.service = new Ringcentral(opts).platform();
+        this.service = new Ringcentral(opts);
     }
 
     /**
@@ -22,7 +22,7 @@ export default class Client {
         redirectUri: string,
         state?: string
     }): string {
-        return this.service.loginUrl(opts);
+        return this.service.platform().loginUrl(opts);
     }
 
     login(opts: {
@@ -40,7 +40,7 @@ export default class Client {
         refreshTokenTtl?: number;
         scope?: string[];
     }): Promise<void> {
-        return this.service.login(opts);
+        return this.service.platform().login(opts);
     }
 
     getAuthCode(callbackUrl: string): string {
@@ -57,28 +57,32 @@ export default class Client {
     }
 
     logout(): Promise<void> {
-        return this.service.logout();
+        return this.service.platform().logout();
     }
 
     on(evtName: string, handler: Function) {
-        this.service.on(evtName, handler);
+        this.service.platform().on(evtName, handler);
+    }
+
+    createSubscription() {
+        return this.service.createSubscription();
     }
 
     /** Returns a promise that resovles if access token is valid or refresh token is valid, and refresh the token if needed. */
     ensureLoggedIn(): Promise<void> {
-        return this.service.ensureLoggedIn();
+        return this.service.platform().ensureLoggedIn();
     }
 
     account(id?: string): Account {
-        return new Account(null, id, this.service);
+        return new Account(null, id, this.service.platform());
     }
 
     clientInfo(): ClientInfo {
-        return new ClientInfo(null, null, this.service);
+        return new ClientInfo(null, null, this.service.platform());
     }
 
     numberPool(): NumberPool {
-        return new NumberPool(null, null, this.service);
+        return new NumberPool(null, null, this.service.platform());
     }
 }
 
