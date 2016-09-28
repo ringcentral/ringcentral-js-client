@@ -39,7 +39,7 @@ export default class Client {
         accessTokenTtl?: number;
         refreshTokenTtl?: number;
         scope?: string[];
-    }):Promise<any> {
+    }):Promise<void> {
         return this.service.login(opts);
     }
 
@@ -54,6 +54,10 @@ export default class Client {
             err["errors"] = res["errors"];
             throw err;
         }
+    }
+
+    logout():Promise<void> {
+        return this.service.logout();
     }
 
     account(id?: string): Account {

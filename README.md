@@ -93,7 +93,7 @@ RcSdk.platform().login({
 
 ## Authorization
 
-There are several authorization flows you can use to get an authorized access to RingCentral API.
+You must get the access token through the authorization flows before calling any RingCentral APIs. There are several authorization flows you can use to get an authorized access to RingCentral API.
 
 Apps with 'Public' application type are not allowed to use Password Flow for security reasons, as well as 'Private' apps of 'Browser-Based' or 'Server/Web' platform type. Apps with no user interface are not allowed to use Authorization Code Flow.
 
@@ -157,6 +157,8 @@ client.login({ username: "{username}", password: "{password}" }).then(() => {
 ```
 
 ### Logout
+
+Call `client.logout()` to revoke the access token.
 
 ## Examples
 
