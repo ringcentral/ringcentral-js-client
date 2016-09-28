@@ -172,7 +172,35 @@ client.ensureLoggedIn().then(() => {
 });
 ```
 
-## Examples
+### Authorization Events
+
+Supported events:
+
+* EventLoginStart
+* EventLoginSuccess
+* EventLoginError
+* EventRefreshStart
+* EventRefreshSuccess
+* EventRefreshError
+* EventLogoutStart
+* EventLogoutSuccess
+* EventLogoutError
+
+```
+import RingCentralClient, {EventLoginSuccess, EventLogoutSuccess} from "ringcentral-client";
+
+let client = new RingCentralClient({...});
+
+client.on(EventLoginSuccess, () => {
+    console.log("Login success event.");
+});
+
+client.on(EventLogoutSuccess, () => {
+    console.log("Logout sucess event.");
+});
+```
+
+## API Call Examples
 
 ### Get extension info
 

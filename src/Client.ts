@@ -60,6 +60,10 @@ export default class Client {
         return this.service.logout();
     }
 
+    on(evtName: string, handler: Function) {
+        this.service.on(evtName, handler);
+    }
+
     /** Returns a promise that resovles if access token is valid or refresh token is valid, and refresh the token if needed. */
     ensureLoggedIn(): Promise<void> {
         return this.service.ensureLoggedIn();
@@ -81,8 +85,29 @@ export default class Client {
 const SERVER_PRODUCTION = "https://platform.ringcentral.com";
 const SERVER_SANDBOX = "https://platform.devtest.ringcentral.com";
 
+// Auth events
+const EventLoginStart = "beforeLogin";
+const EventLoginSuccess = "loginSuccess";
+const EventLoginError = "loginError";
+const EventRefreshStart = "beforeRefresh";
+const EventRefreshSuccess = "refreshSuccess";
+const EventRefreshError = "refreshError";
+const EventLogoutStart = "beforeLogout";
+const EventLogoutSuccess = "logoutSuccess";
+const EventLogoutError = "logoutError";
+
 export {
 Client, // For commonjs
 SERVER_PRODUCTION,
-SERVER_SANDBOX
+SERVER_SANDBOX,
+
+EventLoginStart,
+EventLoginSuccess,
+EventLoginError,
+EventRefreshStart,
+EventRefreshSuccess,
+EventRefreshError,
+EventLogoutStart,
+EventLogoutSuccess,
+EventLogoutError
 };
