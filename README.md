@@ -93,7 +93,7 @@ RcSdk.platform().login({
 
 ## Authorization
 
-You must get the access token through the authorization flows before calling any RingCentral APIs. There are several authorization flows you can use to get an authorized access to RingCentral API.
+You must get the access token through the **authorization flows** before calling any RingCentral APIs. There are several authorization flows you can use to get an authorized access to RingCentral API.
 
 Apps with 'Public' application type are not allowed to use Password Flow for security reasons, as well as 'Private' apps of 'Browser-Based' or 'Server/Web' platform type. Apps with no user interface are not allowed to use Authorization Code Flow.
 
@@ -159,6 +159,18 @@ client.login({ username: "{username}", password: "{password}" }).then(() => {
 ### Logout
 
 Call `client.logout()` to revoke the access token.
+
+### Check Login Status
+
+By default, token is stored in `localStorage` of browser, so before you do the real login, you may want to check the existing access and refresh token and try to refresh the token if needed:
+
+```javascript
+client.ensureLoggedIn().then(() => {
+    console.log("Already login.");  // Existing token is valid or token refreshed successfully.
+}).catch(e => {
+    console.error("Not logged in.");    // No existing token or both access token and refresh toke have expired.
+});
+```
 
 ## Examples
 

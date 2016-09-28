@@ -13,7 +13,7 @@ before(function () {
 });
 
 after(() => {
-    return client._service.logout();
+    return client.logout();
 });
 
 describe("Account", function () {

@@ -34,18 +34,18 @@ export default class Client {
         // Login by oauth
         code?: string;
         redirectUri?: string;
-        
+
         // Common options
         accessTokenTtl?: number;
         refreshTokenTtl?: number;
         scope?: string[];
-    }):Promise<void> {
+    }): Promise<void> {
         return this.service.login(opts);
     }
 
     getAuthCode(callbackUrl: string): string {
         let res = parseUrl(callbackUrl, true).query;
-        let code  = res["code"];
+        let code = res["code"];
         if (code) {
             return code;
         } else if (res["error_description"]) {
@@ -56,8 +56,13 @@ export default class Client {
         }
     }
 
-    logout():Promise<void> {
+    logout(): Promise<void> {
         return this.service.logout();
+    }
+
+    /** Returns a promise that resovles if access token is valid or refresh token is valid, and refresh the token if needed. */
+    ensureLoggedIn(): Promise<void> {
+        return this.service.ensureLoggedIn();
     }
 
     account(id?: string): Account {

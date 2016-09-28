@@ -230,21 +230,21 @@ auth.then(function (rcService) {
     }).catch(function (e) {
         console.error("Fail to get extensions", e);
     });
-
-    client._service.get("/account/~/extension/~").then(function (res) {
-        console.log("ExtensionInfo", res.json());
-    });
-
-    client._service.put("/account/~/extension/~", {
-        contact: {
-            lastName: "Stolyarchuk3"
-        }
-    }).then(function (res) {
-        console.log("Put extension result", res.json());
-    }).catch(function (e) {
-        console.error("put extension error:" + e);
-    });
-    /**/
+    /*
+        client._service.get("/account/~/extension/~").then(function (res) {
+            console.log("ExtensionInfo", res.json());
+        });
+    
+        client._service.put("/account/~/extension/~", {
+            contact: {
+                lastName: "Stolyarchuk3"
+            }
+        }).then(function (res) {
+            console.log("Put extension result", res.json());
+        }).catch(function (e) {
+            console.error("put extension error:" + e);
+        });
+        */
 
 }).catch(function (e) {
     console.error("Fail to login: " + e);
