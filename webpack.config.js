@@ -4,9 +4,8 @@ module.exports = [{
     entry: "./build/src/Client.js",
     output: {
         path: "./build",
-        filename: "RingCentralClient.js",
-        library: "RingCentralClient",
-        libraryTarget: "umd"
+        filename: "ringcentral-client.min.js",
+        library: "ringcentral"
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
