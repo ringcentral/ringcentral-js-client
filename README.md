@@ -4,6 +4,17 @@
 
 This is a library implemented in typescript which provides convenient apis for typescript and javascript developers to access RingCentral webservice(https://developer.ringcentral.com/api-docs/latest/index.html).
 
+# Table of contents
+
+- [Getting Started](#getting-started)
+- [Authorization](#authorization)
+- [Subscriptions](#subscriptions)
+- [API Call Examples](#api-call-examples)
+    - [Telephony Calls](#telephony-calls)
+    - [Server-side Subscriptions](#server-side-subscriptions)
+    - [Making telephony calls](#making-telephony-calls)
+
+
 ## Getting started
 
 ### Install
@@ -222,6 +233,68 @@ subscription
 ```
 
 ## API Call Examples
+
+### Telephony Calls
+
+1. Make phone calls by ringout(https://developer.ringcentral.com/api-docs/latest/index.html#!#MakeRingOut.html):
+
+    ```javascript
+    client.account().extension().ringout().post({
+        from: { phoneNumber: "xxx" },
+        to: { phoneNumber: "xxx" },
+        callerId: { phoneNumber: "xxx" }
+    }).then(ringout => {
+        console.log("Ringout sucess", ringout);
+        // To check the call status: `client.account().extension().ringout(ringout.id).get();`
+    }, e => {
+        console.error("Fail to ringout", e);
+    });
+    ```
+
+2. Track the telephony status
+
+    To get notications when calls come in, go out or ends, subscribe to the **Presence Event**:
+    ```javascript
+    let subscription = client.createSubscription();
+
+    subscription.on(subscription.events.notification, function (msg) {
+        let presenceEvt = msg.body; // Detail for presence event: https://developer.ringcentral.com/api-docs/latest/index.html?section=RefNotifications.html#!#RefGetDetailedPresenceEvent
+        console.log("@@@@presence event", presenceEvt);
+        console.log("telephonyStatus", presenceEvt.telephonyStatus);
+        console.log("activeCalls", presenceEvt.activeCalls);
+    });
+
+    subscription
+        .setEventFilters(['/account/~/extension/~/presence?detailedTelephonyState=true ']) // a list of server-side events
+        .register()
+        .then((subscription) => {
+            console.log("Subscription created", subscription.json());
+        }, e => {
+            console.error("Fail to create subscription", e);
+        });
+    ```
+
+3. View the list of active calls
+    ```javascript
+    client.account().extension().activeCalls().list({
+        page: 1,    // Get the 1st page of the result
+        direction: "Inbound"    // Specify the direction of the call, omit to get all directions
+    }).then(results => {
+        console.log("Active calls", results.records);
+    }, e => {
+        console.error("Fail to get active calls", e);
+    });
+    ```
+    
+4. View the recent calls
+    ```javascript
+    let dateFrom = new Date(Date.now() - 24 * 60 * 60 * 1000);  // A day ago
+    client.account().extension().callLog().list({ dateFrom: dateFrom.toISOString() }).then(results => {
+        console.log("Recent call logs", results.records);
+    }, e => {
+        console.error("Fail to get call logs", e);
+    });
+    ```
 
 ### Get extension info
 
