@@ -11,8 +11,9 @@ This is a library implemented in typescript which provides convenient apis for t
 - [Subscriptions](#subscriptions)
 - [API Call Examples](#api-call-examples)
     - [Telephony Calls](#telephony-calls)
-    - [Server-side Subscriptions](#server-side-subscriptions)
-    - [Making telephony calls](#making-telephony-calls)
+    - [Send SMS](#send-sms)
+    - [Send Fax](#send-fax)
+    - [Extension management](#extension-management)
 
 
 ## Getting started
@@ -296,8 +297,33 @@ subscription
     });
     ```
 
-### Get extension info
+### Send SMS
+```typescript
+client.account().extension().sms().post({ to: [{ phoneNumber: "911" }], text: "Sms content" }).then(function (messageInfo) {
+    console.log("Sms sent successfully", messageInfo);
+}).catch(function (e) {
+    console.error("Fail to send sms", e);
+});
+```
 
+### Send Fax
+
+For all supported options and mediatype, please refer to https://developer.ringcentral.com/api-docs/latest/index.html#!#RefFaxMessages.html.
+```typescript
+import * as fs from "fs";
+client.account().extension().fax().post({
+            to: [{ phoneNumber: "{receiverPhoneNumber}" }],
+            faxResolution: 'High'
+        }, [    // Second argument is an array of attachments, attachment can be string, Blob, node readable stream.
+                "{Message text}",
+                fs.createReadStream("{filePath}")   // In node only
+            ]);
+    });
+```
+
+### Extension management
+
+Get detail information of an extension:
 ```typescript
 client.account().extension('theExtensionId').get().then(function (extInfo) {
     console.log("The extension info", extInfo);
@@ -306,8 +332,7 @@ client.account().extension('theExtensionId').get().then(function (extInfo) {
 });
 ```
 
-### List extensions of an account
-
+List extensions of an account:
 ```typescript
 client.account("theAccountId").extension().list().then(function (extensions) {
     console.log("The list of extension info", extensions.records);
@@ -316,20 +341,11 @@ client.account("theAccountId").extension().list().then(function (extensions) {
 });
 ```
 
-### Update extension info
+Update infomation of an extension:
 ```typescript
 client.account().extension().put({ status: "Enabled" }).then(function () {
     console.log("Success to update extension.");
 }).catch(function () {
     console.error("Fail to update extension.");
-});
-```
-
-### Send sms
-```typescript
-client.account().extension().sms().post({ to: [{ phoneNumber: "911" }], text: "Sms content" }).then(function (messageInfo) {
-    console.log("Sms sent successfully", messageInfo);
-}).catch(function (e) {
-    console.error("Fail to send sms", e);
 });
 ```
