@@ -15,8 +15,7 @@
   },
   "dependencies": {
     "form-data": "^1.0.0-rc4",
-    "isomorphic-fetch": "^2.2.1",
-    "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master"
+    "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
     "chai": "^3.0.0",
@@ -43,7 +42,11 @@
     "typedoc": "^0.4.4",
     "typescript": "^2.0.0",
     "uppercamelcase": "^1.1.0",
-    "webpack": "^1.12.2"
+    "webpack": "^1.12.2",
+    "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master"
+  },
+  "peerDependencies": {
+    "ringcentral": ">=3.0.0"
   },
   "preferGlobal": false,
   "private": false,
