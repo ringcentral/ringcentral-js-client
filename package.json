@@ -1,6 +1,6 @@
 {
   "name": "ringcentral-client",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "scripts": {
     "prepublish": "npm run build",
     "start": "node server.js",
