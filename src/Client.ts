@@ -5,14 +5,18 @@ import NumberPool from "./generated/url-builders/NumberPool";
 import * as Ringcentral from "ringcentral";
 
 export default class Client {
-    service: any;
+    service: Ringcentral;
     constructor(opts: {
         server?: string;
         appKey: string;
         appSecret: string;
-    }) {
-        opts.server = opts.server || SERVER_PRODUCTION;
-        this.service = new Ringcentral(opts);
+    } | Ringcentral) {
+        if (opts instanceof Ringcentral) {
+            this.service = opts;
+        } else {
+            opts.server = opts.server || SERVER_PRODUCTION;
+            this.service = new Ringcentral(opts);
+        }
     }
 
     /**
