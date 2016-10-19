@@ -1,4 +1,6 @@
-.svn
+*.js
+*.d.ts
+typings/
 .DS_Store
 .idea
 .tscache

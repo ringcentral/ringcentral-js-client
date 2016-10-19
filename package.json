@@ -34,6 +34,7 @@
     "js-beautify": "^1.5.10",
     "minimist": "^1.2.0",
     "mocha": "^2.2.5",
+    "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master",
     "sinon": "^1.15.4",
     "sinon-chai": "^2.8.0",
     "soap": "^0.11.0",
@@ -41,17 +42,17 @@
     "tslint": "^3.13.0",
     "typedoc": "^0.4.4",
     "typescript": "^2.0.0",
+    "typings": "^1.4.0",
     "uppercamelcase": "^1.1.0",
-    "webpack": "^1.12.2",
-    "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master"
+    "webpack": "^1.12.2"
   },
   "peerDependencies": {
     "ringcentral": ">=3.0.0"
   },
   "preferGlobal": false,
   "private": false,
-  "main": "./build/src/Client.js",
-  "typings": "./build/src/Client.d.ts",
+  "main": "./src/Client.js",
+  "typings": "./src/Client.d.ts",
   "author": {
     "name": "RingCentral, Inc.",
     "email": "devsupport@ringcentral.com"

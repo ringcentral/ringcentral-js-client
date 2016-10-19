@@ -1,5 +1,3 @@
-/// <reference path="../typings/tsd.d.ts" />
-
 import * as fetch from "isomorphic-fetch";
 import * as Ringcentral from "ringcentral";
 import testConfig from "./config";
