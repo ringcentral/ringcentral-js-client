@@ -1,4 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
 // This is Generated Source.
 import UrlSection from "../../UrlSection";
 import {ConferencingInfo} from "../ConferencingInfo";
