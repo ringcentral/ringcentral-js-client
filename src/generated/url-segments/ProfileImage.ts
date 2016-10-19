@@ -2,6 +2,7 @@
 // This is Generated Source.
 import UrlSection from "../../UrlSection";
 import Binary from "../../Binary";
+import * as FormData from "form-data";
 
 export default class ProfileImage extends UrlSection {
     constructor(prv: UrlSection, id?: string, service?) {
@@ -20,18 +21,18 @@ export default class ProfileImage extends UrlSection {
     /**
         Update Profile Image
     */
-    put(body: Binary): Promise<void> {
-        return this.getService().send({method: "put", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
-            return res.response();
-        });
+    put(imageData: Binary, contentType = "image/png"): Promise<void> {
+        var form = new FormData();
+        form.append("image", imageData, { contentType: contentType, filename: "profile." + contentType.split('/').pop() });
+        return this.getService().put(this.getEndpoint(), form).then( res=>{});
     }
 
     /**
         Update Profile Image (same as PUT)
     */
-    post(body: Binary): Promise<void> {
-        return this.getService().send({method: "post", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
-            return res.response();
-        });
+    post(imageData: Binary, contentType = "image/png"): Promise<void> {
+        var form = new FormData();
+        form.append("image", imageData, { contentType: contentType, filename: "profile." + contentType.split('/').pop() });
+        return this.getService().put(this.getEndpoint(), form).then( res=>{});
     }
 }
