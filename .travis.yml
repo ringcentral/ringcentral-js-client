@@ -4,4 +4,4 @@ node_js:
 - '6'
 script:
 - npm run lint
-- npm run docs
+# - npm run docs # typedoc is not compatible with typescript 2.0 at the moment.
