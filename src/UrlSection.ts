@@ -6,7 +6,7 @@ export default class UrlSection {
     private value: string;
     private previous: UrlSection;
     private _service: any;
-    constructor(name: string, value?: string,  prv?: UrlSection, service?) {
+    constructor(name: string, value?: string, prv?: UrlSection, service?) {
         this._service = service;
         this.name = name;
         this.value = value || null;
@@ -30,8 +30,8 @@ export default class UrlSection {
     }
 
     protected getService() {
-        var sec: UrlSection = this;
-        while(sec) {
+        let sec: UrlSection = this;
+        while (sec) {
             if (sec._service) {
                 return sec._service;
             }

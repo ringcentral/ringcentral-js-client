@@ -1,6 +1,19 @@
 {
     "extends": "tslint:recommended",
     "rules": {
-        
+        "interface-name": [
+            false
+        ],
+        "max-line-length": [
+            false
+        ],
+        "variable-name": [
+            true,
+            "ban-keywords",
+            "check-format",
+            "allow-leading-underscore"
+        ],
+        "member-access": false,
+        "no-string-literal": false
     }
 }

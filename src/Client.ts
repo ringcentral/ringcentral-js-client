@@ -1,4 +1,5 @@
-/// <reference path="../typings/index.d.ts" />
+import "../typings/index.d.ts";
+import "../typings/ringcentral.d.ts";
 import {parse as parseUrl} from "url";
 import Account from "./generated/url-segments/Account";
 import ClientInfo from "./generated/url-segments/ClientInfo";
@@ -6,7 +7,9 @@ import NumberPool from "./generated/url-segments/NumberPool";
 import * as Ringcentral from "ringcentral";
 
 export default class Client {
+
     service: Ringcentral;
+
     constructor(opts: {
         server?: string;
         appKey: string;
@@ -95,28 +98,28 @@ const SERVER_PRODUCTION = "https://platform.ringcentral.com";
 const SERVER_SANDBOX = "https://platform.devtest.ringcentral.com";
 
 // Auth events
-const EventLoginStart = "beforeLogin";
-const EventLoginSuccess = "loginSuccess";
-const EventLoginError = "loginError";
-const EventRefreshStart = "beforeRefresh";
-const EventRefreshSuccess = "refreshSuccess";
-const EventRefreshError = "refreshError";
-const EventLogoutStart = "beforeLogout";
-const EventLogoutSuccess = "logoutSuccess";
-const EventLogoutError = "logoutError";
+const EVT_LOGIN_START = "beforeLogin";
+const EVT_LOGIN_SUCCESS = "loginSuccess";
+const EVT_LOGIN_ERROR = "loginError";
+const EVT_REFRESH_START = "beforeRefresh";
+const EVT_REFRESH_SUCCESS = "refreshSuccess";
+const EVT_REFRESH_ERROR = "refreshError";
+const EVT_LOGOUT_START = "beforeLogout";
+const EVT_LOGOUT_SUCCESS = "logoutSuccess";
+const EVT_LOGOUT_ERROR = "logoutError";
 
 export {
 Client, // For commonjs
 SERVER_PRODUCTION,
 SERVER_SANDBOX,
 
-EventLoginStart,
-EventLoginSuccess,
-EventLoginError,
-EventRefreshStart,
-EventRefreshSuccess,
-EventRefreshError,
-EventLogoutStart,
-EventLogoutSuccess,
-EventLogoutError
+EVT_LOGIN_START,
+EVT_LOGIN_SUCCESS,
+EVT_LOGIN_ERROR,
+EVT_REFRESH_START,
+EVT_REFRESH_SUCCESS,
+EVT_REFRESH_ERROR,
+EVT_LOGOUT_START,
+EVT_LOGOUT_SUCCESS,
+EVT_LOGOUT_ERROR
 };

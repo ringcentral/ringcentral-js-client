@@ -55,7 +55,7 @@ describe("Binary response", function () {
 
     it("Get recording content", function () {
         let ext = client.account().extension();
-        return ext.callLog().list({ withRecording: true, dateFrom: aYearAgo.toISOString() }).then(function (callLogs) {
+        return ext.callLog().list({ dateFrom: aYearAgo.toISOString(), withRecording: true }).then(function (callLogs) {
             if (callLogs.records.length <= 0) {
                 throw new Error("No recordings found.");
             }
@@ -83,6 +83,8 @@ describe("Binary request", function () {
 
 describe("Fax", function () {
     it("Send fax", function () {
-        return client.account().extension().fax().post({ to: [{ phoneNumber: "+16507411615" }] }, ["Text attentment for test", "Text paragraph attachments 2."]);
+        return client.account().extension().fax().post({
+            to: [{ phoneNumber: "+16507411615" }],
+        }, ["Text attentment for test", "Text paragraph attachments 2."]);
     });
 });

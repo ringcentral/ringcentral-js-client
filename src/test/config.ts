@@ -1,3 +1,3 @@
 export default {
-    authDataUrl: "http://localhost/sensitive/auth.json"
+    authDataUrl: "http://localhost/sensitive/auth.json",
 };

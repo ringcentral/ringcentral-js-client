@@ -5,7 +5,12 @@
             "es6",
             "dom"
         ],
-        "declaration": true
+        "declaration": true,
+        "declarationDir": "./build/typings"
     },
+    "exclude": [
+        "build",
+        "node_modules"
+    ],
     "compileOnSave": true
 }
