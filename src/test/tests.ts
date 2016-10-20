@@ -67,7 +67,7 @@ describe("Binary response", function () {
 
 });
 
-let imgPath = "/Users/kevin.zeng/Desktop/profile.png";
+let imgPath = __dirname + "/res/banner_index_logged.png";
 describe("Binary request", function () {
     if (!fs.createReadStream) {
         return;
