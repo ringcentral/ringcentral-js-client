@@ -6,7 +6,7 @@
             "dom"
         ],
         "declaration": true,
-        "declarationDir": "./build/typings"
+        "declarationDir": "./build/typings/"
     },
     "exclude": [
         "build",

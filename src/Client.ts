@@ -1,6 +1,4 @@
-/// <reference path="../typings/index.d.ts" />
-/// <reference path="../typings/ringcentral.d.ts" />
-import {parse as parseUrl} from "url";
+import { parse as parseUrl } from "url";
 import Account from "./generated/url-segments/Account";
 import ClientInfo from "./generated/url-segments/ClientInfo";
 import NumberPool from "./generated/url-segments/NumberPool";
@@ -109,17 +107,17 @@ const EVENT_LOGOUT_SUCCESS = "logoutSuccess";
 const EVENT_LOGOUT_ERROR = "logoutError";
 
 export {
-Client, // For commonjs
-SERVER_PRODUCTION,
-SERVER_SANDBOX,
+    Client, // For commonjs
+    SERVER_PRODUCTION,
+    SERVER_SANDBOX,
 
-EVENT_LOGIN_START,
-EVENT_LOGIN_SUCCESS,
-EVENT_LOGIN_ERROR,
-EVENT_REFRESH_START,
-EVENT_REFRESH_SUCCESS,
-EVENT_REFRESH_ERROR,
-EVENT_LOGOUT_START,
-EVENT_LOGOUT_SUCCESS,
-EVENT_LOGOUT_ERROR
+    EVENT_LOGIN_START,
+    EVENT_LOGIN_SUCCESS,
+    EVENT_LOGIN_ERROR,
+    EVENT_REFRESH_START,
+    EVENT_REFRESH_SUCCESS,
+    EVENT_REFRESH_ERROR,
+    EVENT_LOGOUT_START,
+    EVENT_LOGOUT_SUCCESS,
+    EVENT_LOGOUT_ERROR
 };
