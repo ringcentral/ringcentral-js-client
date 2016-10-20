@@ -10,7 +10,7 @@ fi;
 local_bin=`pwd`;
 cd $original_dir;
 
-if [[ $PATH != *$local_bin* ]]
+if [ $PATH != *$local_bin* ]
 then
   export PATH=$local_bin:$PATH;
 fi
