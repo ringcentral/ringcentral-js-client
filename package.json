@@ -23,7 +23,7 @@
     "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master",
     "sinon": "^1.15.4",
     "sinon-chai": "^2.8.0",
-    "tslint": "^3.13.0",
+    "tslint": "^3.15.1",
     "typedoc": "^0.5.0",
     "typescript": "^2.0.0",
     "typings": "^1.4.0",
