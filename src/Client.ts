@@ -1,5 +1,5 @@
-import "../typings/index.d.ts";
-import "../typings/ringcentral.d.ts";
+/// <reference path="../typings/index.d.ts" />
+/// <reference path="../typings/ringcentral.d.ts" />
 import {parse as parseUrl} from "url";
 import Account from "./generated/url-segments/Account";
 import ClientInfo from "./generated/url-segments/ClientInfo";
