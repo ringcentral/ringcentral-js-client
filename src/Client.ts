@@ -98,28 +98,28 @@ const SERVER_PRODUCTION = "https://platform.ringcentral.com";
 const SERVER_SANDBOX = "https://platform.devtest.ringcentral.com";
 
 // Auth events
-const EVT_LOGIN_START = "beforeLogin";
-const EVT_LOGIN_SUCCESS = "loginSuccess";
-const EVT_LOGIN_ERROR = "loginError";
-const EVT_REFRESH_START = "beforeRefresh";
-const EVT_REFRESH_SUCCESS = "refreshSuccess";
-const EVT_REFRESH_ERROR = "refreshError";
-const EVT_LOGOUT_START = "beforeLogout";
-const EVT_LOGOUT_SUCCESS = "logoutSuccess";
-const EVT_LOGOUT_ERROR = "logoutError";
+const EVENT_LOGIN_START = "beforeLogin";
+const EVENT_LOGIN_SUCCESS = "loginSuccess";
+const EVENT_LOGIN_ERROR = "loginError";
+const EVENT_REFRESH_START = "beforeRefresh";
+const EVENT_REFRESH_SUCCESS = "refreshSuccess";
+const EVENT_REFRESH_ERROR = "refreshError";
+const EVENT_LOGOUT_START = "beforeLogout";
+const EVENT_LOGOUT_SUCCESS = "logoutSuccess";
+const EVENT_LOGOUT_ERROR = "logoutError";
 
 export {
 Client, // For commonjs
 SERVER_PRODUCTION,
 SERVER_SANDBOX,
 
-EVT_LOGIN_START,
-EVT_LOGIN_SUCCESS,
-EVT_LOGIN_ERROR,
-EVT_REFRESH_START,
-EVT_REFRESH_SUCCESS,
-EVT_REFRESH_ERROR,
-EVT_LOGOUT_START,
-EVT_LOGOUT_SUCCESS,
-EVT_LOGOUT_ERROR
+EVENT_LOGIN_START,
+EVENT_LOGIN_SUCCESS,
+EVENT_LOGIN_ERROR,
+EVENT_REFRESH_START,
+EVENT_REFRESH_SUCCESS,
+EVENT_REFRESH_ERROR,
+EVENT_LOGOUT_START,
+EVENT_LOGOUT_SUCCESS,
+EVENT_LOGOUT_ERROR
 };

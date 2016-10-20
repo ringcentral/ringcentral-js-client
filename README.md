@@ -213,26 +213,26 @@ client.ensureLoggedIn().then(() => {
 
 Supported events:
 
-* EventLoginStart
-* EventLoginSuccess
-* EventLoginError
-* EventRefreshStart
-* EventRefreshSuccess
-* EventRefreshError
-* EventLogoutStart
-* EventLogoutSuccess
-* EventLogoutError
+* `EVENT_LOGIN_START`
+* `EVENT_LOGIN_SUCCESS`
+* `EVENT_LOGIN_ERROR`
+* `EVENT_REFRESH_START`
+* `EVENT_REFRESH_SUCCESS`
+* `EVENT_REFRESH_ERROR`
+* `EVENT_LOGOUT_START`
+* `EVENT_LOGOUT_SUCCESS`
+* `EVENT_LOGOUT_ERROR`
 
-```
-import RingCentralClient, {EventLoginSuccess, EventLogoutSuccess} from "ringcentral-client";
+```typescript
+import RingCentralClient, {EVENT_LOGIN_SUCCESS, EVENT_LOGOUT_SUCCESS} from "ringcentral-client";
 
 let client = new RingCentralClient({...});
 
-client.on(EventLoginSuccess, () => {
+client.on(EVENT_LOGIN_SUCCESS, () => {
     console.log("Login success event.");
 });
 
-client.on(EventLogoutSuccess, () => {
+client.on(EVENT_LOGOUT_SUCCESS, () => {
     console.log("Logout sucess event.");
 });
 ```
@@ -241,7 +241,7 @@ client.on(EventLogoutSuccess, () => {
 
 For more info, refer to https://github.com/ringcentral/ringcentral-js#server-side-subscriptions.
 
-```
+```typescript
 var subscription = client.createSubscription();
 
 subscription.on(subscription.events.notification, function (msg) {
