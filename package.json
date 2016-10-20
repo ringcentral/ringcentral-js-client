@@ -4,12 +4,11 @@
   "scripts": {
     "prepublish": "npm run build",
     "start": "node server.js",
-    "build": ". ./envsetup.sh && npm run generate && tsc && webpack",
+    "build": ". ./envsetup.sh && tsc && webpack",
     "watch": "npm run build -- watch",
     "test": "npm run build && npm run mocha",
     "mocha": "./node_modules/.bin/mocha ./build/tests/specs.js",
     "istanbul": "./node_modules/.bin/istanbul cover -x specs.js --dir=./build/coverage --report=lcov --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --reporter spec ./build/test/specs.js",
-    "generate": "mkdir -p src/generated/url-builders; node codegen/generate.js  --out src/generated codegen/swagger.json",
     "docs": "typedoc --mode file --out ./build/api-docs/ src/ -m commonjs -t es2015 --exclude **/src/test/**/*.ts",
     "lint": "tslint -c tslint.json codegen/ts-sample/*.ts src/**/*.ts"
   },
@@ -35,6 +34,7 @@
     "minimist": "^1.2.0",
     "mocha": "^2.2.5",
     "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master",
+    "rollup": "^0.36.3",
     "sinon": "^1.15.4",
     "sinon-chai": "^2.8.0",
     "soap": "^0.11.0",

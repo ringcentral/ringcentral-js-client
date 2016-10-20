@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 
 module.exports = [{
-    entry: "./build/src/Client.js",
+    entry: "./src/Client.js",
     output: {
         path: "./build",
         filename: "ringcentral-client.min.js",
@@ -23,17 +23,17 @@ module.exports = [{
         ]
     }
 }, {
-    entry: "./build/src/test/tests.js",
-    output: {
-        path: "./build",
-        filename: "tests.js"
-    },
-    externals: {
-        "../Client": "RingCentralClient",
-        "node-fetch": "fetch"
-    },
-    node: {
-        fs: "empty"
-    },
-    plugins: [new webpack.optimize.UglifyJsPlugin({})]
-}];
+        entry: "./src/test/tests.js",
+        output: {
+            path: "./build",
+            filename: "tests.js"
+        },
+        externals: {
+            "../Client": "RingCentralClient",
+            "node-fetch": "fetch"
+        },
+        node: {
+            fs: "empty"
+        },
+        plugins: [new webpack.optimize.UglifyJsPlugin({})]
+    }];
