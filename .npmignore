@@ -1,3 +1,4 @@
+src/**/*.ts
 .editorconfig
 .jshintrc
 bower.json
