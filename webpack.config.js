@@ -28,6 +28,7 @@ module.exports = [{
         path: "./build",
         filename: "tests.js"
     },
+    devtool: 'inline-source-map',
     node: {
         fs: "empty"
     },
