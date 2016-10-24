@@ -12,7 +12,7 @@ export default class Language extends UrlSection {
         Get Supported Language List
     */
     list(): Promise<PagingResult<LanguageInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -21,7 +21,7 @@ export default class Language extends UrlSection {
         Get Language by ID
     */
     get(): Promise<LanguageInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }

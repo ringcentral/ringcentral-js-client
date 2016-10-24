@@ -204,7 +204,7 @@ export default class Extension extends UrlSection {
         Get Extension List
     */
     list(query?:ListQuery): Promise<PagingResult<ExtensionInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -213,7 +213,7 @@ export default class Extension extends UrlSection {
         Get Extension Info by ID
     */
     get(): Promise<ExtensionInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -222,7 +222,7 @@ export default class Extension extends UrlSection {
         Update Extension by ID
     */
     put(body: PutBody): Promise<ExtensionInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "put", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
             return res.json();
         });
     }

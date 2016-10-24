@@ -19,7 +19,7 @@ export default class AuthzProfile extends UrlSection {
         Get User Permissions
     */
     get(): Promise<GetResponse> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }

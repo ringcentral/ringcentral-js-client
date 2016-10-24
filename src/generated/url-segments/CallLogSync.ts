@@ -12,7 +12,7 @@ export default class CallLogSync extends UrlSection {
         Call Log Synchronization
     */
     get(query?:GetQuery): Promise<GetResponse> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: query, body: null }).then(function (res) {
             return res.json();
         });
     }

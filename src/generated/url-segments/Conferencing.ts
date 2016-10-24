@@ -12,7 +12,7 @@ export default class Conferencing extends UrlSection {
         Get Conferencing info
     */
     get(query?:GetQuery): Promise<ConferencingInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: query, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -21,7 +21,7 @@ export default class Conferencing extends UrlSection {
         Update Conferencing info
     */
     put(body: PutBody): Promise<ConferencingInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "put", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
             return res.json();
         });
     }

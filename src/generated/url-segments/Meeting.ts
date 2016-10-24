@@ -29,7 +29,7 @@ export default class Meeting extends UrlSection {
         Create Meeting
     */
     post(body: PostBody): Promise<MeetingInfo> {
-        return this.getService().send({method: "post", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
             return res.json();
         });
     }
@@ -38,7 +38,7 @@ export default class Meeting extends UrlSection {
         Get Meetings List
     */
     list(): Promise<PagingResult<MeetingInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -47,7 +47,7 @@ export default class Meeting extends UrlSection {
         Delete Meeting
     */
     delete(): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.response();
         });
     }
@@ -56,7 +56,7 @@ export default class Meeting extends UrlSection {
         Get Meeting
     */
     get(): Promise<MeetingInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -65,7 +65,7 @@ export default class Meeting extends UrlSection {
         Update Meeting
     */
     put(body: PutBody): Promise<MeetingInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "put", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
             return res.json();
         });
     }

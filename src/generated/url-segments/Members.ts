@@ -12,7 +12,7 @@ export default class Members extends UrlSection {
         Get Department Members
     */
     list(query?:ListQuery): Promise<PagingResult<DepartmentResponseExtensionInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
             return res.json();
         });
     }

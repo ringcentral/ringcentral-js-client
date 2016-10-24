@@ -19,7 +19,7 @@ export default class AnsweringRule extends UrlSection {
         Create Custom Answering Rule
     */
     post(body: PostBody): Promise<AnsweringRuleInfo> {
-        return this.getService().send({method: "post", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
             return res.json();
         });
     }
@@ -28,7 +28,7 @@ export default class AnsweringRule extends UrlSection {
         Get Answering Rules List
     */
     list(): Promise<PagingResult<AnsweringRuleInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -37,7 +37,7 @@ export default class AnsweringRule extends UrlSection {
         Delete Answering Rule by ID
     */
     delete(): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.response();
         });
     }
@@ -46,7 +46,7 @@ export default class AnsweringRule extends UrlSection {
         Get Custom Answering Rule by ID
     */
     get(): Promise<AnsweringRuleInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -55,7 +55,7 @@ export default class AnsweringRule extends UrlSection {
         Update Answering Rule by ID
     */
     put(body: PutBody): Promise<AnsweringRuleInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "put", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
             return res.json();
         });
     }

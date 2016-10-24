@@ -11,7 +11,7 @@ export default class ServiceInfo extends UrlSection {
         Get Meeting Service Info
     */
     get(): Promise<MeetingServiceInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }

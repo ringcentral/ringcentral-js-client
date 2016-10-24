@@ -11,7 +11,7 @@ export default class Content extends UrlSection {
         Get Message Attachment
     */
     get(): Promise<Response> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.response();
         });
     }

@@ -12,7 +12,7 @@ export default class Grant extends UrlSection {
         Get Extension Grants
     */
     list(query?:ListQuery): Promise<PagingResult<GrantInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
             return res.json();
         });
     }

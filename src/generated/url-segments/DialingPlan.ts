@@ -12,7 +12,7 @@ export default class DialingPlan extends UrlSection {
         Get IBO Dialing Plans
     */
     list(query?:ListQuery): Promise<PagingResult<DialingPlanCountryInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
             return res.json();
         });
     }

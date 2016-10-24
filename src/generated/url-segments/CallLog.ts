@@ -13,7 +13,7 @@ export default class CallLog extends UrlSection {
         Get Account Call Log
     */
     list(query?:ListQuery): Promise<PagingResult<CallLogRecord>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -22,7 +22,7 @@ export default class CallLog extends UrlSection {
         Get Account Call Log Record by ID
     */
     get(): Promise<CallLogInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -31,7 +31,7 @@ export default class CallLog extends UrlSection {
         Delete Extension Call Log
     */
     delete(query?:DeleteQuery): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: query, body: null }).then(function (res) {
             return res.response();
         });
     }

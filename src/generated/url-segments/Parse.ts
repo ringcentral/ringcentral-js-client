@@ -12,7 +12,7 @@ export default class Parse extends UrlSection {
         Parse Phone Number
     */
     post(body: PostBody, query?:PostQuery): Promise<PostResponse> {
-        return this.getService().send({method: "post", url: this.getEndpoint(), query: query, body: body }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: query, body: body }).then(function (res) {
             return res.json();
         });
     }

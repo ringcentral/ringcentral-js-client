@@ -12,7 +12,7 @@ export default class Greeting extends UrlSection {
         Create Custom Greeting
     */
     post(body: PostBody): Promise<CustomGreetingInfo> {
-        return this.getService().send({method: "post", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
             return res.json();
         });
     }
@@ -21,7 +21,7 @@ export default class Greeting extends UrlSection {
         Get Custom Greeting by ID
     */
     get(): Promise<CustomGreetingInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }

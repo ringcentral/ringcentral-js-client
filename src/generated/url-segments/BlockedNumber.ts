@@ -12,7 +12,7 @@ export default class BlockedNumber extends UrlSection {
         Add New Blocked Number
     */
     post(body: BlockedNumberInfo): Promise<BlockedNumberInfo> {
-        return this.getService().send({method: "post", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
             return res.json();
         });
     }
@@ -21,7 +21,7 @@ export default class BlockedNumber extends UrlSection {
         Get Blocked Number List
     */
     list(): Promise<PagingResult<BlockedNumberInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -30,7 +30,7 @@ export default class BlockedNumber extends UrlSection {
         Delete Blocked Number by ID
     */
     delete(): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.response();
         });
     }
@@ -39,7 +39,7 @@ export default class BlockedNumber extends UrlSection {
         Get Blocked Number by ID
     */
     get(): Promise<BlockedNumberInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -48,7 +48,7 @@ export default class BlockedNumber extends UrlSection {
         Update Blocked Number Label
     */
     put(body: BlockedNumberInfo): Promise<BlockedNumberInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "put", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
             return res.json();
         });
     }

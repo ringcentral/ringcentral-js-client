@@ -12,7 +12,7 @@ export default class Timezone extends UrlSection {
         Get Time Zone List
     */
     list(query?:ListQuery): Promise<PagingResult<TimezoneInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -21,7 +21,7 @@ export default class Timezone extends UrlSection {
         Get Time Zone by ID
     */
     get(): Promise<TimezoneInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }

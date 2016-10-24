@@ -11,7 +11,7 @@ export default class BusinessAddress extends UrlSection {
         Get Company Business Address
     */
     get(): Promise<GetResponse> {
-        return this.getService().send({method: "get", url: this.getEndpoint(), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
             return res.json();
         });
     }
@@ -20,7 +20,7 @@ export default class BusinessAddress extends UrlSection {
         Update Company Business Address
     */
     put(body: PutBody): Promise<PutResponse> {
-        return this.getService().send({method: "put", url: this.getEndpoint(), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "put", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
             return res.json();
         });
     }
