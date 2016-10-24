@@ -74,7 +74,7 @@ describe("Binary response", function () {
 
     it("Get recording content", function () {
         let ext = client.account().extension();
-        return ext.callLog().list({ withRecording: true, dateFrom: aYearAgo.toISOString() }).then(function (callLogs) {
+        return ext.callLog().list({ dateFrom: aYearAgo.toISOString(), withRecording: true }).then(function (callLogs) {
             if (callLogs.records.length <= 0) {
                 throw new Error("No recordings found.");
             }
@@ -124,7 +124,7 @@ describe("Fax", function () {
 
 describe("Call Log", () => {
     it("Get call log", () => {
-        return client.account().extension().callLog().list({ perPage: 2, dateFrom: aYearAgo.toISOString() }).then(callLogs => {
+        return client.account().extension().callLog().list({ dateFrom: aYearAgo.toISOString(), perPage: 2 }).then(callLogs => {
             shouldBePagingResult(callLogs);
             if (callLogs.records.length < 1) {
                 return console.warn("No call log items");
@@ -140,13 +140,17 @@ describe("Call Log", () => {
 
 describe("post", () => {
     it("send sms, post plain object", () => {
-        return client.account().extension().sms().post({ to: [{ phoneNumber: "+16507411615" }], from: { phoneNumber: config.user.username }, text: "test sms text content." }).then(sms => {
+        return client.account().extension().sms().post({
+            from: { phoneNumber: config.user.username },
+            text: "test sms text content.",
+            to: [{ phoneNumber: "+16507411615" }],
+        }).then(sms => {
             expect(sms).to.has.keys(["uri", "id", "to", "from", "type", "creationTime", "readStatus", "priority", "attachments", "direction", "availability", "subject", "messageStatus", "smsSendingAttemptsCount", "conversationId", "conversation", "lastModifiedTime"]);
         });
     });
 
     it("send sms, without from", () => {
-        return client.account().extension().sms().post({ to: [{ phoneNumber: "+16507411615" }], text: "test sms text content." }).then(sms => {
+        return client.account().extension().sms().post({ text: "test sms text content.", to: [{ phoneNumber: "+16507411615" }] }).then(sms => {
             throw new Error("should fail");
         }).catch(e => {
             expect(e.apiResponse.json().errorCode).to.eq("InvalidParameter");
