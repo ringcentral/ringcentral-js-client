@@ -99,7 +99,7 @@ export default class Account extends UrlSection {
         Get Account Info by ID
     */
     get(): Promise<AccountInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.json();
         });
     }

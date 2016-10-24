@@ -11,7 +11,7 @@ export default class Lookup extends UrlSection {
         Look up Phone Number
     */
     post(query?:PostQuery): Promise<PostResponse> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: query, body: undefined }).then(function (res) {
             return res.json();
         });
     }

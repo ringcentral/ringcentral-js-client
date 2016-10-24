@@ -12,7 +12,7 @@ export default class Reserve extends UrlSection {
         Reserve Phone Number
     */
     post(body: PostBody): Promise<PostResponse> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
             return res.json();
         });
     }

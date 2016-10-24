@@ -14,7 +14,7 @@ export default class Ringout extends UrlSection {
         Initiate RingOut Call
     */
     post(body: PostBody): Promise<RingOutInfo> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
             return res.json();
         });
     }
@@ -23,7 +23,7 @@ export default class Ringout extends UrlSection {
         Cancel RingOut Call
     */
     delete(): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.response();
         });
     }
@@ -32,7 +32,7 @@ export default class Ringout extends UrlSection {
         Get RingOut Call Status
     */
     get(): Promise<RingOutInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.json();
         });
     }

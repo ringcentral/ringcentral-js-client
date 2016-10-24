@@ -12,7 +12,7 @@ export default class State extends UrlSection {
         Get State/Province List
     */
     list(query?:ListQuery): Promise<PagingResult<StateInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
             return res.json();
         });
     }
@@ -21,7 +21,7 @@ export default class State extends UrlSection {
         Get State/Province by ID
     */
     get(): Promise<StateInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.json();
         });
     }

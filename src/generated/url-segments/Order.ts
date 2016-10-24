@@ -11,7 +11,7 @@ export default class Order extends UrlSection {
         Create New Order
     */
     post(body: PostBody): Promise<PostResponse> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
             return res.json();
         });
     }
@@ -20,7 +20,7 @@ export default class Order extends UrlSection {
         Get Order by ID
     */
     get(): Promise<GetResponse> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.json();
         });
     }

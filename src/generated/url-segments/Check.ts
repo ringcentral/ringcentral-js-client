@@ -11,7 +11,7 @@ export default class Check extends UrlSection {
         Check User Permissions
     */
     get(query?:GetQuery): Promise<GetResponse> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: query, body: undefined }).then(function (res) {
             return res.json();
         });
     }

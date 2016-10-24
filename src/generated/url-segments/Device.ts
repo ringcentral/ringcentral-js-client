@@ -12,7 +12,7 @@ export default class Device extends UrlSection {
         Get Account Device List
     */
     list(): Promise<PagingResult<DeviceInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: undefined, body: undefined }).then(function (res) {
             return res.json();
         });
     }
@@ -21,7 +21,7 @@ export default class Device extends UrlSection {
         Get Device by ID
     */
     get(): Promise<DeviceInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.json();
         });
     }

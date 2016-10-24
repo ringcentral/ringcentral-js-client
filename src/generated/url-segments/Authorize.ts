@@ -10,7 +10,7 @@ export default class Authorize extends UrlSection {
         OAuth2 Authorize
     */
     post(body: PostBody): Promise<PostResponse> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
             return res.json();
         });
     }

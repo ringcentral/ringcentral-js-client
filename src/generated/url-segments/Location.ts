@@ -12,7 +12,7 @@ export default class Location extends UrlSection {
         Get Location List
     */
     list(query?:ListQuery): Promise<PagingResult<LocationInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
             return res.json();
         });
     }

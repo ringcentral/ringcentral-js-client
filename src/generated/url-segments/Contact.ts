@@ -12,7 +12,7 @@ export default class Contact extends UrlSection {
         Create New Contact
     */
     post(body: PersonalContactInfo): Promise<PersonalContactInfo> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
             return res.json();
         });
     }
@@ -21,7 +21,7 @@ export default class Contact extends UrlSection {
         Get Contact List
     */
     list(query?:ListQuery): Promise<PagingResult<PersonalContactInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
             return res.json();
         });
     }
@@ -30,7 +30,7 @@ export default class Contact extends UrlSection {
         Delete Contact by ID
     */
     delete(): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.response();
         });
     }
@@ -39,7 +39,7 @@ export default class Contact extends UrlSection {
         Get Contact by ID
     */
     get(): Promise<PersonalContactInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.json();
         });
     }
@@ -48,7 +48,7 @@ export default class Contact extends UrlSection {
         Update Contact by ID
     */
     put(body: PersonalContactInfo): Promise<PersonalContactInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "put", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
             return res.json();
         });
     }

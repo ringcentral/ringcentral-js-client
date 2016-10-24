@@ -10,7 +10,7 @@ export default class End extends UrlSection {
         End Current Meeting
     */
     post(): Promise<void> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.response();
         });
     }

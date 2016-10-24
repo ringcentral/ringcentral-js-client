@@ -10,7 +10,7 @@ export default class Revoke extends UrlSection {
         OAuth2 Revoke Token
     */
     post(body: PostBody): Promise<void> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
             return res.response();
         });
     }

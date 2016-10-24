@@ -11,7 +11,7 @@ export default class CustomData extends UrlSection {
         Update Custom Data by Key
     */
     put(body: PutBody): Promise<PutResponse> {
-        return this.getService().send({method: "put", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "put", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
             return res.json();
         });
     }

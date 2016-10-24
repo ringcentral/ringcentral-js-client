@@ -12,7 +12,7 @@ export default class Country extends UrlSection {
         Get Country List
     */
     list(query?:ListQuery): Promise<PagingResult<FullCountryInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
             return res.json();
         });
     }
@@ -21,7 +21,7 @@ export default class Country extends UrlSection {
         Get Country by ID
     */
     get(): Promise<FullCountryInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.json();
         });
     }

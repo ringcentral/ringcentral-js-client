@@ -12,7 +12,7 @@ export default class PhoneNumber extends UrlSection {
         Get Extension Phone Numbers
     */
     list(query?:ListQuery): Promise<PagingResult<PhoneNumberInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
             return res.json();
         });
     }
@@ -21,7 +21,7 @@ export default class PhoneNumber extends UrlSection {
         Get Phone Number by ID
     */
     get(): Promise<PhoneNumberInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.json();
         });
     }

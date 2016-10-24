@@ -20,7 +20,7 @@ export default class MessageStore extends UrlSection {
         Get Message List
     */
     list(query?:ListQuery): Promise<PagingResult<MessageInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
             return res.json();
         });
     }
@@ -29,7 +29,7 @@ export default class MessageStore extends UrlSection {
         Delete Message by ID
     */
     delete(query?:DeleteQuery): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: query, body: null }).then(function (res) {
+        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: query, body: undefined }).then(function (res) {
             return res.response();
         });
     }
@@ -38,7 +38,7 @@ export default class MessageStore extends UrlSection {
         Get Message by ID
     */
     get(): Promise<MessageInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: null, body: null }).then(function (res) {
+        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
             return res.json();
         });
     }
@@ -47,7 +47,7 @@ export default class MessageStore extends UrlSection {
         Update Message by ID
     */
     put(body: PutBody): Promise<MessageInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(true), query: null, body: body }).then(function (res) {
+        return this.getService().send({method: "put", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
             return res.json();
         });
     }
