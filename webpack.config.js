@@ -23,17 +23,13 @@ module.exports = [{
         ]
     }
 }, {
-        entry: "./src/test/tests.js",
-        output: {
-            path: "./build",
-            filename: "tests.js"
-        },
-        externals: {
-            "../Client": "RingCentralClient",
-            "node-fetch": "fetch"
-        },
-        node: {
-            fs: "empty"
-        },
-        plugins: [new webpack.optimize.UglifyJsPlugin({})]
-    }];
+    entry: "./src/test/tests.js",
+    output: {
+        path: "./build",
+        filename: "tests.js"
+    },
+    node: {
+        fs: "empty"
+    },
+    plugins: [new webpack.optimize.UglifyJsPlugin({})]
+}];
