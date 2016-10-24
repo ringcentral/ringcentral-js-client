@@ -8,14 +8,13 @@ fi
 base_branch=`git rev-parse --abbrev-ref HEAD`
 
 rm -rf build
-rm -rf src/generated
 
 git checkout releases
-git merge origin/$base_branch --no-edit
-npm run build
+git merge $base_branch --no-edit
 rm .gitignore
 git add build
 git add src
+git add typings
 git commit -m "$1"
 git checkout -- .gitignore
 git push -f
