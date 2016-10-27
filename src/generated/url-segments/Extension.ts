@@ -26,6 +26,11 @@ import Ringout from "./Ringout";
 import Sms from "./Sms";
 import {ExtensionInfo} from "../ExtensionInfo";
 import PagingResult from "../../PagingResult";
+import {ExtensionInfoRequestStatusInfo} from "../ExtensionInfoRequestStatusInfo";
+import {ExtensionInfoRequestContactInfo} from "../ExtensionInfoRequestContactInfo";
+import {ExtensionInfoRequestPasswordPin} from "../ExtensionInfoRequestPasswordPin";
+import {ExtensionInfoRequestPartnerId} from "../ExtensionInfoRequestPartnerId";
+import {ExtensionInfoRequestProvision} from "../ExtensionInfoRequestProvision";
 
 export default class Extension extends UrlSection {
     constructor(prv: UrlSection, id?: string, service?) {
@@ -251,5 +256,4 @@ export interface ListQuery {
     type?: "User" | "FaxUser" | "VirtualUser" | "DigitalUser" | "Department" | "Announcement" | "Voicemail" | "SharedLinesGroup" | "PagingOnlyGroup" | "IvrMenu" | "ApplicationExtension" | "ParkLocation";
 }
 
-export interface PutBody {
-}
+export type PutBody = ExtensionInfoRequestStatusInfo | ExtensionInfoRequestContactInfo | ExtensionInfoRequestPasswordPin | ExtensionInfoRequestPartnerId | ExtensionInfoRequestProvision;
