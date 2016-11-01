@@ -82,7 +82,7 @@ client.login({
 });
 ```
 
-### Used in browser through the prebuilt javascript bundle 
+### Used in browser through the prebuilt javascript bundle
 All APIs are exposed on the global variable `ringcentral`.
 ```html
 <!DOCTYPE html>
@@ -150,7 +150,7 @@ let client = new RingCentralClient({
     appSecret: "{yourAppSecret}"
 });
 
-// To be simple, let redirectUri be the url of the current page without any parameters, and add this url to your apps 'OAuth Redirect URI' via the settings page of your app(https://developer.ringcentral.com/my-account.html#/applications).  
+// To be simple, let redirectUri be the url of the current page without any parameters, and add this url to your apps 'OAuth Redirect URI' via the settings page of your app(https://developer.ringcentral.com/my-account.html#/applications).
 const redirectUri = "{currentPageUrlAsRedirectUri}";
 
 checkLogin();
@@ -311,7 +311,7 @@ subscription
         console.error("Fail to get active calls", e);
     });
     ```
-    
+
 4. View the recent calls
     ```javascript
     let dateFrom = new Date(Date.now() - 24 * 60 * 60 * 1000);  // A day ago
@@ -324,10 +324,18 @@ subscription
 
 ### Send SMS
 ```typescript
-client.account().extension().sms().post({ to: [{ phoneNumber: "911" }], text: "Sms content" }).then(function (messageInfo) {
-    console.log("Sms sent successfully", messageInfo);
-}).catch(function (e) {
-    console.error("Fail to send sms", e);
+client.account().extension().sms().post({
+	to: [{
+		phoneNumber: "{receiverPhoneNumber}"
+	}],
+	from: {
+		phoneNumber: "{yourSmsNumber}"
+	},
+	text: "Sms content"
+}).then(function(messageInfo) {
+	console.log("Sms sent successfully", messageInfo);
+}).catch(function(e) {
+	console.error("Fail to send sms", e);
 });
 ```
 
