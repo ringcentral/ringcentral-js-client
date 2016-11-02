@@ -4,13 +4,13 @@
         "lib": [
             "es6",
             "dom"
-        ],
-        "declaration": true,
-        "declarationDir": "./build/typings/"
+        ]
     },
-    "exclude": [
-        "build",
-        "node_modules"
+    "files": [
+        "src/Client.ts",
+        "src/test/tests.ts",
+        "typings/index.d.ts",
+        "typings/ringcentral.d.ts"
     ],
     "compileOnSave": true
 }
