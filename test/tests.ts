@@ -2,8 +2,8 @@ import testConfig from "./config";
 import Client from "../src/Client";
 import { expect } from "chai";
 import { createReadStream } from "fs";
+import "../src/Client-test";
 
-let config: any;
 let client: Client;
 const inNode = !!createReadStream;
 
@@ -13,7 +13,7 @@ aYearAgo.setFullYear(aYearAgo.getFullYear() - 1);
 before(function () {
     // runs before all tests in this block
     return testConfig.then(conf => {
-        config = conf;
+        let config = conf;
         client = new Client(config.app);
         return client.login(config.user);
     });
@@ -146,7 +146,7 @@ describe("Call Log", () => {
 describe("post", () => {
     it("send sms, post plain object", () => {
         return client.account().extension().sms().post({
-            from: { phoneNumber: config.user.username },
+            from: { phoneNumber: "+16507411615" },
             text: "test sms text content.",
             to: [{ phoneNumber: "+16507411615" }],
         }).then(sms => {

@@ -6,4 +6,17 @@ if (typeof process !== "undefined" && !process["browser"]) {
     authDataUrl = "http://localhost" + authDataUrl;
 }
 
-export default fetch(authDataUrl).then(res => res.json());
+interface Config {
+    app: {
+        server: string;
+        appKey: string;
+        appSecret: string;
+    };
+    user: {
+        username: string;
+        extension: string;
+        password: string;
+    };
+}
+
+export default <Promise<Config>> fetch(authDataUrl).then(res => res.json());
