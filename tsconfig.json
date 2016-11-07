@@ -8,7 +8,7 @@
     },
     "files": [
         "src/Client.ts",
-        "src/test/tests.ts",
+        "test/tests.ts",
         "typings/index.d.ts",
         "typings/ringcentral.d.ts"
     ],

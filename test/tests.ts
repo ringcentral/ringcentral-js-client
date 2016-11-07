@@ -1,5 +1,5 @@
 import testConfig from "./config";
-import Client from "../Client";
+import Client from "../src/Client";
 import { expect } from "chai";
 import { createReadStream } from "fs";
 
