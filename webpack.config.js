@@ -23,7 +23,7 @@ module.exports = [{
         ]
     }
 }, {
-    entry: "./src/test/tests.js",
+    entry: "./test/tests.js",
     output: {
         path: "./build",
         filename: "tests.js"

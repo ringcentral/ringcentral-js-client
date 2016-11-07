@@ -19,7 +19,7 @@
     "devDependencies": {
         "chai": "^3.0.0",
         "istanbul": "^0.4.0",
-        "mocha": "^2.2.5",
+        "mocha": "^2.5.3",
         "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master",
         "sinon": "^1.15.4",
         "sinon-chai": "^2.8.0",

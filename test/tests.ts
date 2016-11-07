@@ -5,6 +5,7 @@ import { createReadStream } from "fs";
 
 let config: any;
 let client: Client;
+const inNode = !!createReadStream;
 
 let aYearAgo = new Date();
 aYearAgo.setFullYear(aYearAgo.getFullYear() - 1);
@@ -90,9 +91,13 @@ describe("Binary response", function () {
 
 let imgPath = __dirname + "/res/banner_index_logged.png";
 describe("Binary request", function () {
-    if (!createReadStream) {
-        return;
-    }
+
+    before("Only run in node", function () {
+        if (!inNode) {
+            this.skip();
+        }
+    });
+
     it("Put profile image, input binary, response is empty.", function () {
         return client.account().extension().profileImage().put(createReadStream(imgPath));
     });
