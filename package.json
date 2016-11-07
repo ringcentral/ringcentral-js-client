@@ -6,9 +6,9 @@
         "start": "node server.js",
         "build": "tsc && webpack",
         "watch": "npm run build -- watch",
-        "test": "npm run build && npm run mocha",
-        "mocha": "./node_modules/.bin/mocha ./build/tests/specs.js",
-        "istanbul": "./node_modules/.bin/istanbul cover -x specs.js --dir=./build/coverage --report=lcov --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --reporter spec ./build/test/specs.js",
+        "test": "_mocha",
+        "coverage": "istanbul --report lcovonly cover _mocha -- -R spec",
+        "coverage-badge": "cat ./coverage/lcov.info | coveralls",
         "docs": "typedoc --mode file --out ./build/api-docs/ src/ -m commonjs -t es2015 --exclude **/src/test/**/*.ts",
         "lint": "tslint ./src/*.ts ./src/**/*.ts"
     },
@@ -18,6 +18,7 @@
     },
     "devDependencies": {
         "chai": "^3.0.0",
+        "coveralls": "^2.11.14",
         "istanbul": "^0.4.0",
         "mocha": "^2.5.3",
         "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master",

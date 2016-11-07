@@ -1,13 +1,11 @@
 *.js
 *.d.ts
+build/
+coverage/
+node_modules/
 typings/
 .DS_Store
 .idea
 .tscache
 bower_components
-build
-build/coverage
-build/karma
-build/tests
 npm-debug.*
-node_modules
