@@ -28,7 +28,13 @@ module.exports = [{
         path: "./build",
         filename: "tests.js"
     },
-    devtool: 'inline-source-map',
+    module: {
+        preLoaders: [{
+            test: /\.js$/,
+            loader: "source-map-loader"
+        }]
+    },
+    devtool: 'source-map',
     node: {
         fs: "empty"
     },
