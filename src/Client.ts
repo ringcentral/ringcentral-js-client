@@ -2,6 +2,9 @@ import { parse as parseUrl } from "url";
 import Account from "./generated/url-segments/Account";
 import ClientInfo from "./generated/url-segments/ClientInfo";
 import NumberPool from "./generated/url-segments/NumberPool";
+import NumberParser from "./generated/url-segments/NumberParser";
+import Dictionary from "./generated/url-segments/Dictionary";
+import Subscription from "./generated/url-segments/Subscription";
 import * as Ringcentral from "ringcentral";
 
 export default class Client {
@@ -87,9 +90,22 @@ export default class Client {
         return new ClientInfo(null, null, this.service.platform());
     }
 
+    dictionary(): Dictionary {
+        return new Dictionary(null, null, this.service.platform());
+    }
+
+    numberParser(): NumberParser {
+        return new NumberParser(null, null, this.service.platform());
+    }
+
     numberPool(): NumberPool {
         return new NumberPool(null, null, this.service.platform());
     }
+
+    subscription(): Subscription {
+        return new Subscription(null, null, this.service.platform());
+    }
+
 }
 
 const SERVER_PRODUCTION = "https://platform.ringcentral.com";
