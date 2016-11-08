@@ -3,6 +3,7 @@ import Client from "../src/Client";
 import { expect } from "chai";
 import { createReadStream } from "fs";
 import "../src/Client-test";
+import "./url-segments-test";
 
 let client: Client;
 const inNode = !!createReadStream;

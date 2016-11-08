@@ -8,11 +8,11 @@ testConfig.then(config => {
 });
 
 describe("client", function () {
-    it("covers all", runCoverage)
+    it("covers all", runCoverage);
 });
 
 function runCoverage() {
-    new Client({ appKey: "xx", appSecret: "xx" });// The default server
+    new Client({ appKey: "xx", appSecret: "xx" }); // The default server
     client.loginUrl({ redirectUri: "<<<redirectUri>>>" });
     client.getAuthCode("http://www.rc.com?code=fakeCode");
     try {

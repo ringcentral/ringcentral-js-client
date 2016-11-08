@@ -15,17 +15,29 @@ then
 fi
 
 git merge $base_branch --no-edit
+
+# clean all output
 rm -rf build
 rm -rf typings
+rm src/**/*.js
+rm src/**/*.js.map
+rm test/**/*.js
+rm test/**/*.js.map
 git checkout -- typings/ringcentral.d.ts
+
+# Build all output
 . ./envsetup.sh
 typings install
 npm run build
+
+# Commit output
 rm .gitignore
 git add build
 git add src
+git add test
 git add typings
-git commit -m "$1"
 git checkout -- .gitignore
-git push -f
+git commit -m "$1"
+
+git push
 git checkout $base_branch
