@@ -3,6 +3,9 @@
     "typescript.tsdk": "node_modules/typescript/lib",
     "files.exclude": {
         "src/**/*.js": true,
+        "src/**/*.js.map": true,
+        "test/**/*.js": true,
+        "test/**/*.js.map": true,
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
