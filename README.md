@@ -25,10 +25,37 @@ npm install https://github.com/zengfenfei/ringcentral-js-client#releases --save 
 npm install ringcentral     # Install the peerDependency
 ```
 
-### Used in Typescript or ES6 (Recommended)
+### Import the module
+
+#### In Typescript or ES6 (Recommended)
 ```typescript
 import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
+```
 
+#### In commonjs(node.js, webpack and browserify)
+```javascript
+var ringcentral = require("ringcentral-client");
+var RingCentralClient = ringcentral.Client;
+var SERVER_SANDBOX = ringcentral.SERVER_SANDBOX;
+```
+
+#### Used in browser through the prebuilt javascript bundle
+All APIs are exposed on the global variable `RingCentral`.
+```html
+<script type="text/javascript" src="node_modules/ringcentral-client/build/ringcentral-client.min.js"></script>
+<script type="text/javascript">
+    console.log("All api", RingCentral);
+    var RingCentralClient = RingCentral.Client;
+    var SERVER_SANDBOX = RingCentral.SERVER_SANDBOX;
+    // ...
+</script>
+```
+
+### Quick Start
+
+Login, logout, get account info.
+
+```typescript
 let client = new RingCentralClient({
 	server: SERVER_SANDBOX, // Optional, default is production server
 	appKey: "{yourAppKey}",
@@ -51,81 +78,6 @@ client.login({
 }).catch(e => {
 	console.error("Error occured", e);
 });
-```
-
-### Used in commonjs(node.js, webpack and browserify)
-```javascript
-var ringcentral = require("ringcentral-client");
-var RingCentralClient = ringcentral.Client;
-
-let client = new RingCentralClient({
-	server: ringcentral.SERVER_SANDBOX, // Optional, default is production server
-	appKey: "{yourAppKey}",
-	appSecret: "{yourAppSecret}"
-});
-
-// Log into RingCentral
-client.login({
-	"username": "{username}",
-	"extension": "{extension}",
-	"password": "{password}"
-}).then( function() {
-	console.log("Login success");
-	return client.account().get(); // Call RingCentral REST API
-}).then( function(accountInfo) {
-	console.log("Current account info", accountInfo);
-	return client.logout();	// Logout
-}).then( function() {
-	console.log("logout success");
-}).catch( function(e) {
-	console.error("Error occured", e);
-});
-```
-
-### Used in browser through the prebuilt javascript bundle
-All APIs are exposed on the global variable `ringcentral`.
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-	<title>Using the prebuilt RingCentralClient javascript bundle.</title>
-</head>
-
-<body>
-	<em>Please open the console to view results.</em>
-
-	<!-- Include the bundled version of RingCentralClient -->
-	<script type="text/javascript" src="node_modules/ringcentral-client/build/ringcentral-client.min.js"></script>
-	<script type="text/javascript">
-console.log("All api", ringcentral);
-
-let client = new ringcentral.Client({
-	server: ringcentral.SERVER_SANDBOX, // Optional, default is production server
-	appKey: "{yourAppKey}",
-	appSecret: "{yourAppSecret}"
-});
-
-// Log into RingCentral
-client.login({
-	"username": "{username}",
-	"extension": "{extension}",
-	"password": "{password}"
-}).then( function() {
-	console.log("Login success");
-	return client.account().get(); // Call RingCentral REST API
-}).then( function(accountInfo) {
-	console.log("Current account info", accountInfo);
-	return client.logout();	// Logout
-}).then( function() {
-	console.log("logout success");
-}).catch( function(e) {
-	console.error("Error occured", e);
-});
-</script>
-</body>
-
-</html>
 ```
 
 ## Authorization
