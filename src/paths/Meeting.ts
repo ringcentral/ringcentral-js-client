@@ -8,7 +8,7 @@ import PagingResult from "../PagingResult";
 
 export default class Meeting extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("meeting", id , prv, service);
+        super("meeting", id, prv, service);
     }
 
     /**
@@ -26,46 +26,71 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-        Create Meeting
-    */
+     *  Create Meeting
+     */
     post(body: PostBody): Promise<MeetingInfo> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "post",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Get Meetings List
-    */
+     *  Get Meetings List
+     */
     list(): Promise<PagingResult<MeetingInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Delete Meeting
-    */
+     *  Delete Meeting
+     */
     delete(): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "delete",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.response();
         });
     }
 
     /**
-        Get Meeting
-    */
+     *  Get Meeting
+     */
     get(): Promise<MeetingInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Update Meeting
-    */
+     *  Update Meeting
+     */
     put(body: PutBody): Promise<MeetingInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "put",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

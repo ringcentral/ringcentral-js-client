@@ -4,7 +4,7 @@ import Parse from "./Parse";
 
 export default class NumberParser extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("number-parser", id , prv, service);
+        super("number-parser", id, prv, service);
     }
 
     /**

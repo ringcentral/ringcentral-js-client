@@ -8,7 +8,7 @@ import Timezone from "./Timezone";
 
 export default class Dictionary extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("dictionary", id , prv, service);
+        super("dictionary", id, prv, service);
     }
 
     /**

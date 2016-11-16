@@ -5,14 +5,19 @@ import PagingResult from "../PagingResult";
 
 export default class ActiveCalls extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("active-calls", id , prv, service);
+        super("active-calls", id, prv, service);
     }
 
     /**
-        Get Account Active (Recent) Calls
-    */
-    list(query?:ListQuery): Promise<PagingResult<CallLogRecord>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
+     *  Get Account Active (Recent) Calls
+     */
+    list(query?: ListQuery): Promise<PagingResult<CallLogRecord>> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }

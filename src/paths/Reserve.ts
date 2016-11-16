@@ -5,14 +5,19 @@ import ReservePhoneNumberResponseReserveRecord from "../definitions/ReservePhone
 
 export default class Reserve extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("reserve", id , prv, service);
+        super("reserve", id, prv, service);
     }
 
     /**
-        Reserve Phone Number
-    */
+     *  Reserve Phone Number
+     */
     post(body: PostBody): Promise<PostResponse> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "post",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

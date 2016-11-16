@@ -5,50 +5,75 @@ import PagingResult from "../PagingResult";
 
 export default class Contact extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("contact", id , prv, service);
+        super("contact", id, prv, service);
     }
 
     /**
-        Create New Contact
-    */
+     *  Create New Contact
+     */
     post(body: PersonalContactInfo): Promise<PersonalContactInfo> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "post",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Get Contact List
-    */
-    list(query?:ListQuery): Promise<PagingResult<PersonalContactInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
+     *  Get Contact List
+     */
+    list(query?: ListQuery): Promise<PagingResult<PersonalContactInfo>> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Delete Contact by ID
-    */
+     *  Delete Contact by ID
+     */
     delete(): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "delete",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.response();
         });
     }
 
     /**
-        Get Contact by ID
-    */
+     *  Get Contact by ID
+     */
     get(): Promise<PersonalContactInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Update Contact by ID
-    */
+     *  Update Contact by ID
+     */
     put(body: PersonalContactInfo): Promise<PersonalContactInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "put",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

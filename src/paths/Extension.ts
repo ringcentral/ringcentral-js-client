@@ -34,7 +34,7 @@ import ExtensionInfoRequestProvision from "../definitions/ExtensionInfoRequestPr
 
 export default class Extension extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("extension", id  || "~" , prv, service);
+        super("extension", id || "~", prv, service);
     }
 
     /**
@@ -206,28 +206,43 @@ export default class Extension extends PathSegment {
     }
 
     /**
-        Get Extension List
-    */
-    list(query?:ListQuery): Promise<PagingResult<ExtensionInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
+     *  Get Extension List
+     */
+    list(query?: ListQuery): Promise<PagingResult<ExtensionInfo>> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Get Extension Info by ID
-    */
+     *  Get Extension Info by ID
+     */
     get(): Promise<ExtensionInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Update Extension by ID
-    */
+     *  Update Extension by ID
+     */
     put(body: PutBody): Promise<ExtensionInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "put",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

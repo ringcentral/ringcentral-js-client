@@ -4,23 +4,33 @@ import BusinessAddressInfo from "../definitions/BusinessAddressInfo";
 
 export default class BusinessAddress extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("business-address", id , prv, service);
+        super("business-address", id, prv, service);
     }
 
     /**
-        Get Company Business Address
-    */
+     *  Get Company Business Address
+     */
     get(): Promise<GetResponse> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Update Company Business Address
-    */
+     *  Update Company Business Address
+     */
     put(body: PutBody): Promise<PutResponse> {
-        return this.getService().send({method: "put", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "put",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

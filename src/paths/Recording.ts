@@ -4,7 +4,7 @@ import Content from "./Content";
 
 export default class Recording extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("recording", id , prv, service);
+        super("recording", id, prv, service);
     }
 
     /**
@@ -15,10 +15,15 @@ export default class Recording extends PathSegment {
     }
 
     /**
-        Get Call Recording Metadata
-    */
+     *  Get Call Recording Metadata
+     */
     get(): Promise<GetResponse> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

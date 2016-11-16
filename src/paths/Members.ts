@@ -5,14 +5,19 @@ import PagingResult from "../PagingResult";
 
 export default class Members extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("members", id , prv, service);
+        super("members", id, prv, service);
     }
 
     /**
-        Get Department Members
-    */
-    list(query?:ListQuery): Promise<PagingResult<DepartmentResponseExtensionInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
+     *  Get Department Members
+     */
+    list(query?: ListQuery): Promise<PagingResult<DepartmentResponseExtensionInfo>> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }

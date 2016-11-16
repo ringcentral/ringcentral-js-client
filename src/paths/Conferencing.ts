@@ -5,23 +5,33 @@ import ConferencingRequestPhoneNumber from "../definitions/ConferencingRequestPh
 
 export default class Conferencing extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("conferencing", id , prv, service);
+        super("conferencing", id, prv, service);
     }
 
     /**
-        Get Conferencing info
-    */
-    get(query?:GetQuery): Promise<ConferencingInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: query, body: undefined }).then(function (res) {
+     *  Get Conferencing info
+     */
+    get(query?: GetQuery): Promise<ConferencingInfo> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Update Conferencing info
-    */
+     *  Update Conferencing info
+     */
     put(body: PutBody): Promise<ConferencingInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "put",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

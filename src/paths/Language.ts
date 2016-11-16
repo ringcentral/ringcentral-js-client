@@ -5,23 +5,33 @@ import PagingResult from "../PagingResult";
 
 export default class Language extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("language", id , prv, service);
+        super("language", id, prv, service);
     }
 
     /**
-        Get Supported Language List
-    */
+     *  Get Supported Language List
+     */
     list(): Promise<PagingResult<LanguageInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Get Language by ID
-    */
+     *  Get Language by ID
+     */
     get(): Promise<LanguageInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

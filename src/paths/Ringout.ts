@@ -7,32 +7,47 @@ import RingOutRequestCountryInfo from "../definitions/RingOutRequestCountryInfo"
 
 export default class Ringout extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("ringout", id , prv, service);
+        super("ringout", id, prv, service);
     }
 
     /**
-        Initiate RingOut Call
-    */
+     *  Initiate RingOut Call
+     */
     post(body: PostBody): Promise<RingOutInfo> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "post",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Cancel RingOut Call
-    */
+     *  Cancel RingOut Call
+     */
     delete(): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "delete",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.response();
         });
     }
 
     /**
-        Get RingOut Call Status
-    */
+     *  Get RingOut Call Status
+     */
     get(): Promise<RingOutInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

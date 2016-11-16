@@ -5,23 +5,33 @@ import CustomGreetingInfoAnsweringRuleInfo from "../definitions/CustomGreetingIn
 
 export default class Greeting extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("greeting", id , prv, service);
+        super("greeting", id, prv, service);
     }
 
     /**
-        Create Custom Greeting
-    */
+     *  Create Custom Greeting
+     */
     post(body: PostBody): Promise<CustomGreetingInfo> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "post",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Get Custom Greeting by ID
-    */
+     *  Get Custom Greeting by ID
+     */
     get(): Promise<CustomGreetingInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

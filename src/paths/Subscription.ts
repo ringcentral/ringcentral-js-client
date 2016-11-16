@@ -5,41 +5,61 @@ import SubscriptionRequestDeliveryMode from "../definitions/SubscriptionRequestD
 
 export default class Subscription extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("subscription", id , prv, service);
+        super("subscription", id, prv, service);
     }
 
     /**
-        Create New Subscription
-    */
+     *  Create New Subscription
+     */
     post(body: PostBody): Promise<SubscriptionInfo> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "post",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Cancel Subscription by ID
-    */
+     *  Cancel Subscription by ID
+     */
     delete(): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "delete",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.response();
         });
     }
 
     /**
-        Get Subscription by ID
-    */
+     *  Get Subscription by ID
+     */
     get(): Promise<SubscriptionInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Update/Renew Subscription by ID
-    */
+     *  Update/Renew Subscription by ID
+     */
     put(body: PutBody): Promise<SubscriptionInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "put",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

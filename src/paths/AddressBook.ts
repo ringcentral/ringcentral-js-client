@@ -5,7 +5,7 @@ import Group from "./Group";
 
 export default class AddressBook extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("address-book", id , prv, service);
+        super("address-book", id, prv, service);
     }
 
     /**

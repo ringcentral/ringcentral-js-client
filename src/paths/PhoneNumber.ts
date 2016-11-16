@@ -5,23 +5,33 @@ import PagingResult from "../PagingResult";
 
 export default class PhoneNumber extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("phone-number", id , prv, service);
+        super("phone-number", id, prv, service);
     }
 
     /**
-        Get Extension Phone Numbers
-    */
-    list(query?:ListQuery): Promise<PagingResult<PhoneNumberInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
+     *  Get Extension Phone Numbers
+     */
+    list(query?: ListQuery): Promise<PagingResult<PhoneNumberInfo>> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Get Phone Number by ID
-    */
+     *  Get Phone Number by ID
+     */
     get(): Promise<PhoneNumberInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

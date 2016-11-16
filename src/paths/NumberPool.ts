@@ -5,7 +5,7 @@ import Reserve from "./Reserve";
 
 export default class NumberPool extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("number-pool", id , prv, service);
+        super("number-pool", id, prv, service);
     }
 
     /**

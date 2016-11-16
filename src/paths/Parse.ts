@@ -5,14 +5,19 @@ import ParsePhoneNumberPhoneNumberInfo from "../definitions/ParsePhoneNumberPhon
 
 export default class Parse extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("parse", id , prv, service);
+        super("parse", id, prv, service);
     }
 
     /**
-        Parse Phone Number
-    */
-    post(body: PostBody, query?:PostQuery): Promise<PostResponse> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: query, body: body }).then(function (res) {
+     *  Parse Phone Number
+     */
+    post(body: PostBody, query?: PostQuery): Promise<PostResponse> {
+        return this.getService().send({
+          body: body,
+          method: "post",
+          query: query,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

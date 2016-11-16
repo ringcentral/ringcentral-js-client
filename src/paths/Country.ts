@@ -5,23 +5,33 @@ import PagingResult from "../PagingResult";
 
 export default class Country extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("country", id , prv, service);
+        super("country", id, prv, service);
     }
 
     /**
-        Get Country List
-    */
-    list(query?:ListQuery): Promise<PagingResult<FullCountryInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
+     *  Get Country List
+     */
+    list(query?: ListQuery): Promise<PagingResult<FullCountryInfo>> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Get Country by ID
-    */
+     *  Get Country by ID
+     */
     get(): Promise<FullCountryInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

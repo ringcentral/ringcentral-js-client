@@ -7,28 +7,28 @@ import Binary from "../Binary";
 
 export default class Fax extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("fax", id , prv, service);
+        super("fax", id, prv, service);
     }
 
     /**
-        Create and Send Fax Message
-    */
+     *  Create and Send Fax Message
+     */
     post(body: PostBody, attachments: Binary[]): Promise<MessageInfo> {
         function inNode(): boolean {
-            return typeof process != "undefined" && !process["browser"];
+            return typeof process !== "undefined" && !process["browser"];
         }
 
         function browserSupportBlob(): boolean {
-            return typeof Blob == "function";
+            return typeof Blob === "function";
         }
         let meta = JSON.stringify(body);
         let form = new FormData();
         const jsonType = "application/json";
         if (inNode()) {
-            form.append("json", meta, { filename: 'request.json', contentType: jsonType });
+            form.append("json", meta, { contentType: jsonType, filename: "request.json" });
             for (let i = 0; i < attachments.length; i++) {
                 let atch = attachments[i];
-                if (typeof atch == "string") {
+                if (typeof atch === "string") {
                     form.append("attachment", atch, { contentType: "text/plain" });
                 } else {
                     form.append("attachment", atch);
@@ -38,7 +38,7 @@ export default class Fax extends PathSegment {
             form.append("json", new Blob([meta], { type: jsonType }));
             for (let i = 0; i < attachments.length; i++) {
                 let atch = attachments[i];
-                if (typeof atch == "string") {
+                if (typeof atch === "string") {
                     form.append("attachment", new Blob([atch], { type: "text/plain" }));
                 } else {
                     form.append("attachment", atch);

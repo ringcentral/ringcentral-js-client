@@ -6,7 +6,7 @@ import PagingResult from "../PagingResult";
 
 export default class MessageStore extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("message-store", id , prv, service);
+        super("message-store", id, prv, service);
     }
 
     /**
@@ -17,37 +17,57 @@ export default class MessageStore extends PathSegment {
     }
 
     /**
-        Get Message List
-    */
-    list(query?:ListQuery): Promise<PagingResult<MessageInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
+     *  Get Message List
+     */
+    list(query?: ListQuery): Promise<PagingResult<MessageInfo>> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Delete Message by ID
-    */
-    delete(query?:DeleteQuery): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: query, body: undefined }).then(function (res) {
+     *  Delete Message by ID
+     */
+    delete(query?: DeleteQuery): Promise<void> {
+        return this.getService().send({
+          body: undefined,
+          method: "delete",
+          query: query,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.response();
         });
     }
 
     /**
-        Get Message by ID
-    */
+     *  Get Message by ID
+     */
     get(): Promise<MessageInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Update Message by ID
-    */
+     *  Update Message by ID
+     */
     put(body: PutBody): Promise<MessageInfo> {
-        return this.getService().send({method: "put", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "put",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

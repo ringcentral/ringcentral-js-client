@@ -12,15 +12,20 @@ describe("client", function () {
 });
 
 function runCoverage() {
-    new Client({ appKey: "xx", appSecret: "xx" }); // The default server
+    let c2 = new Client({ appKey: "xx", appSecret: "xx" }); // The default server
+    c2.login({});
     client.loginUrl({ redirectUri: "<<<redirectUri>>>" });
     client.getAuthCode("http://www.rc.com?code=fakeCode");
     try {
         client.getAuthCode("http://www.rc.com?error=fail&error_description=auth-failed");
-    } catch (e) { }
+    } catch (e) {
+        console.error(e);
+    }
     client.getAuthCode("http://www.rc.com?");   // else branch
     client.logout();
-    client.on(EVENT_LOGIN_ERROR, () => { });
+    client.on(EVENT_LOGIN_ERROR, e => {
+        console.error("login error", e);
+    });
     client.createSubscription();
     client.ensureLoggedIn();
     client.clientInfo();

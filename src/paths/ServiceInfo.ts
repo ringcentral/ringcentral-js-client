@@ -4,14 +4,19 @@ import MeetingServiceInfo from "../definitions/MeetingServiceInfo";
 
 export default class ServiceInfo extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("service-info", id , prv, service);
+        super("service-info", id, prv, service);
     }
 
     /**
-        Get Meeting Service Info
-    */
+     *  Get Meeting Service Info
+     */
     get(): Promise<MeetingServiceInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

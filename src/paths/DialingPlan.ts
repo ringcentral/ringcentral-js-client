@@ -5,14 +5,19 @@ import PagingResult from "../PagingResult";
 
 export default class DialingPlan extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("dialing-plan", id , prv, service);
+        super("dialing-plan", id, prv, service);
     }
 
     /**
-        Get IBO Dialing Plans
-    */
-    list(query?:ListQuery): Promise<PagingResult<DialingPlanCountryInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
+     *  Get IBO Dialing Plans
+     */
+    list(query?: ListQuery): Promise<PagingResult<DialingPlanCountryInfo>> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }

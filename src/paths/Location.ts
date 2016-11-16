@@ -5,14 +5,19 @@ import PagingResult from "../PagingResult";
 
 export default class Location extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("location", id , prv, service);
+        super("location", id, prv, service);
     }
 
     /**
-        Get Location List
-    */
-    list(query?:ListQuery): Promise<PagingResult<LocationInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
+     *  Get Location List
+     */
+    list(query?: ListQuery): Promise<PagingResult<LocationInfo>> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }

@@ -5,14 +5,19 @@ import PagingResult from "../PagingResult";
 
 export default class Grant extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("grant", id , prv, service);
+        super("grant", id, prv, service);
     }
 
     /**
-        Get Extension Grants
-    */
-    list(query?:ListQuery): Promise<PagingResult<GrantInfo>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
+     *  Get Extension Grants
+     */
+    list(query?: ListQuery): Promise<PagingResult<GrantInfo>> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }

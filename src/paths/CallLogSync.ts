@@ -5,14 +5,19 @@ import SyncInfo from "../definitions/SyncInfo";
 
 export default class CallLogSync extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("call-log-sync", id , prv, service);
+        super("call-log-sync", id, prv, service);
     }
 
     /**
-        Call Log Synchronization
-    */
-    get(query?:GetQuery): Promise<GetResponse> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: query, body: undefined }).then(function (res) {
+     *  Call Log Synchronization
+     */
+    get(query?: GetQuery): Promise<GetResponse> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

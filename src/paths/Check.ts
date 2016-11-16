@@ -4,14 +4,19 @@ import PermissionDetailsInfo from "../definitions/PermissionDetailsInfo";
 
 export default class Check extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("check", id , prv, service);
+        super("check", id, prv, service);
     }
 
     /**
-        Check User Permissions
-    */
-    get(query?:GetQuery): Promise<GetResponse> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: query, body: undefined }).then(function (res) {
+     *  Check User Permissions
+     */
+    get(query?: GetQuery): Promise<GetResponse> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

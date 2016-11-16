@@ -3,14 +3,19 @@ import PathSegment from "../PathSegment";
 
 export default class Authorize extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("authorize", id , prv, service);
+        super("authorize", id, prv, service);
     }
 
     /**
-        OAuth2 Authorize
-    */
+     *  OAuth2 Authorize
+     */
     post(body: PostBody): Promise<PostResponse> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: undefined, body: body }).then(function (res) {
+        return this.getService().send({
+          body: body,
+          method: "post",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

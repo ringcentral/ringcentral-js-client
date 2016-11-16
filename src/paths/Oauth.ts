@@ -6,7 +6,7 @@ import Token from "./Token";
 
 export default class Oauth extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("oauth", id , prv, service);
+        super("oauth", id, prv, service);
     }
 
     /**

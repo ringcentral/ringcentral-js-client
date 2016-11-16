@@ -6,32 +6,47 @@ import CallLogInfo from "../definitions/CallLogInfo";
 
 export default class CallLog extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("call-log", id , prv, service);
+        super("call-log", id, prv, service);
     }
 
     /**
-        Get Account Call Log
-    */
-    list(query?:ListQuery): Promise<PagingResult<CallLogRecord>> {
-        return this.getService().send({method: "get", url: this.getEndpoint(false), query: query, body: undefined }).then(function (res) {
+     *  Get Account Call Log
+     */
+    list(query?: ListQuery): Promise<PagingResult<CallLogRecord>> {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: query,
+          url: this.getEndpoint(false),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Get Account Call Log Record by ID
-    */
+     *  Get Account Call Log Record by ID
+     */
     get(): Promise<CallLogInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
 
     /**
-        Delete Extension Call Log
-    */
-    delete(query?:DeleteQuery): Promise<void> {
-        return this.getService().send({method: "delete", url: this.getEndpoint(true), query: query, body: undefined }).then(function (res) {
+     *  Delete Extension Call Log
+     */
+    delete(query?: DeleteQuery): Promise<void> {
+        return this.getService().send({
+          body: undefined,
+          method: "delete",
+          query: query,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.response();
         });
     }

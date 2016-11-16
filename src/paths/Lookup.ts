@@ -4,14 +4,19 @@ import LookUpPhoneNumberPhoneNumberInfo from "../definitions/LookUpPhoneNumberPh
 
 export default class Lookup extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("lookup", id , prv, service);
+        super("lookup", id, prv, service);
     }
 
     /**
-        Look up Phone Number
-    */
-    post(query?:PostQuery): Promise<PostResponse> {
-        return this.getService().send({method: "post", url: this.getEndpoint(true), query: query, body: undefined }).then(function (res) {
+     *  Look up Phone Number
+     */
+    post(query?: PostQuery): Promise<PostResponse> {
+        return this.getService().send({
+          body: undefined,
+          method: "post",
+          query: query,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }

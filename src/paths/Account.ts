@@ -15,7 +15,7 @@ import AccountInfo from "../definitions/AccountInfo";
 
 export default class Account extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("account", id  || "~" , prv, service);
+        super("account", id || "~", prv, service);
     }
 
     /**
@@ -96,10 +96,15 @@ export default class Account extends PathSegment {
     }
 
     /**
-        Get Account Info by ID
-    */
+     *  Get Account Info by ID
+     */
     get(): Promise<AccountInfo> {
-        return this.getService().send({method: "get", url: this.getEndpoint(true), query: undefined, body: undefined }).then(function (res) {
+        return this.getService().send({
+          body: undefined,
+          method: "get",
+          query: undefined,
+          url: this.getEndpoint(true),
+        }).then(function (res) {
             return res.json();
         });
     }
