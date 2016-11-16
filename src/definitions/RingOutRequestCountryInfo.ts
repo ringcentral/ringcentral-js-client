@@ -1,9 +1,11 @@
 // Generated Source
 
-export interface RingOutRequestCountryInfo {
+interface RingOutRequestCountryInfo {
 
     /**
      * Dialing plan country identifier
      */
     id?: string;
 }
+
+export default RingOutRequestCountryInfo;

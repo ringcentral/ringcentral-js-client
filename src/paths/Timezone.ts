@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {TimezoneInfo} from "../TimezoneInfo";
-import PagingResult from "../../PagingResult";
+import PathSegment from "../PathSegment";
+import TimezoneInfo from "../definitions/TimezoneInfo";
+import PagingResult from "../PagingResult";
 
-export default class Timezone extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Timezone extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("timezone", id , prv, service);
     }
 

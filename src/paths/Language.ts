@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {LanguageInfo} from "../LanguageInfo";
-import PagingResult from "../../PagingResult";
+import PathSegment from "../PathSegment";
+import LanguageInfo from "../definitions/LanguageInfo";
+import PagingResult from "../PagingResult";
 
-export default class Language extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Language extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("language", id , prv, service);
     }
 

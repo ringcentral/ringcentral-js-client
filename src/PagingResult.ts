@@ -1,5 +1,5 @@
-import { NavigationInfo } from "./generated/NavigationInfo";
-import { PagingInfo } from "./generated/PagingInfo";
+import NavigationInfo from "./definitions/NavigationInfo";
+import PagingInfo from "./definitions/PagingInfo";
 
 /**
  * PagingResult

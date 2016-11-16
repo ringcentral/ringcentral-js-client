@@ -1,10 +1,10 @@
 // Generated Source
-import { ExtensionInfoRequestContactInfoRegionalSettingsTimezone } from "./ExtensionInfoRequestContactInfoRegionalSettingsTimezone";
-import { ExtensionInfoRequestContactInfoRegionalSettingsLanguage } from "./ExtensionInfoRequestContactInfoRegionalSettingsLanguage";
-import { ExtensionInfoRequestContactInfoRegionalSettingsGreetingLanguage } from "./ExtensionInfoRequestContactInfoRegionalSettingsGreetingLanguage";
-import { ExtensionInfoRequestContactInfoRegionalSettingsFormattingLocale } from "./ExtensionInfoRequestContactInfoRegionalSettingsFormattingLocale";
+import ExtensionInfoRequestContactInfoRegionalSettingsTimezone from "./ExtensionInfoRequestContactInfoRegionalSettingsTimezone";
+import ExtensionInfoRequestContactInfoRegionalSettingsLanguage from "./ExtensionInfoRequestContactInfoRegionalSettingsLanguage";
+import ExtensionInfoRequestContactInfoRegionalSettingsGreetingLanguage from "./ExtensionInfoRequestContactInfoRegionalSettingsGreetingLanguage";
+import ExtensionInfoRequestContactInfoRegionalSettingsFormattingLocale from "./ExtensionInfoRequestContactInfoRegionalSettingsFormattingLocale";
 
-export interface ExtensionInfoRequestContactInfoRegionalSettings {
+interface ExtensionInfoRequestContactInfoRegionalSettings {
 
     /**
      * Timezone data
@@ -26,3 +26,5 @@ export interface ExtensionInfoRequestContactInfoRegionalSettings {
      */
     formattingLocale?: ExtensionInfoRequestContactInfoRegionalSettingsFormattingLocale;
 }
+
+export default ExtensionInfoRequestContactInfoRegionalSettings;

@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface BusinessAddressInfo {
+interface BusinessAddressInfo {
 
     /**
      * Name of a country
@@ -27,3 +27,5 @@ export interface BusinessAddressInfo {
      */
     zip?: string;
 }
+
+export default BusinessAddressInfo;

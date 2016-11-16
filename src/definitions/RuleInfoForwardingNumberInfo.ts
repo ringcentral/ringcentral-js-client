@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface RuleInfoForwardingNumberInfo {
+interface RuleInfoForwardingNumberInfo {
 
     /**
      * Link to a forwarding number resource
@@ -22,3 +22,5 @@ export interface RuleInfoForwardingNumberInfo {
      */
     label?: string;
 }
+
+export default RuleInfoForwardingNumberInfo;

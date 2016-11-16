@@ -1,9 +1,9 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {PresenceInfo} from "../PresenceInfo";
+import PathSegment from "../PathSegment";
+import PresenceInfo from "../definitions/PresenceInfo";
 
-export default class Presence extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Presence extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("presence", id , prv, service);
     }
 

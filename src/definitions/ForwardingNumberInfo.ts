@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ForwardingNumberInfo {
+interface ForwardingNumberInfo {
 
     /**
      * Internal identifier of a forwarding/call flip phone number
@@ -32,3 +32,5 @@ export interface ForwardingNumberInfo {
      */
     flipNumber?: number;
 }
+
+export default ForwardingNumberInfo;

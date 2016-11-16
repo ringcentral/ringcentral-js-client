@@ -1,7 +1,7 @@
 // Generated Source
-import { ConferencingInfoPhoneNumberInfoCountryInfo } from "./ConferencingInfoPhoneNumberInfoCountryInfo";
+import ConferencingInfoPhoneNumberInfoCountryInfo from "./ConferencingInfoPhoneNumberInfoCountryInfo";
 
-export interface ConferencingInfoPhoneNumberInfo {
+interface ConferencingInfoPhoneNumberInfo {
 
     /**
      * Information on a home country of a conference phone number
@@ -28,3 +28,5 @@ export interface ConferencingInfoPhoneNumberInfo {
      */
     phoneNumber?: string;
 }
+
+export default ConferencingInfoPhoneNumberInfo;

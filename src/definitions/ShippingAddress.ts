@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ShippingAddress {
+interface ShippingAddress {
 
     /**
      * Name of a receiver
@@ -37,3 +37,5 @@ export interface ShippingAddress {
      */
     country?: string;
 }
+
+export default ShippingAddress;

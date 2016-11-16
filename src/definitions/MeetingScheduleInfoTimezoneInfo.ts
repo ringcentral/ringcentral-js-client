@@ -1,9 +1,11 @@
 // Generated Source
 
-export interface MeetingScheduleInfoTimezoneInfo {
+interface MeetingScheduleInfoTimezoneInfo {
 
     /**
      * Identifier of a timezone
      */
     id?: string;
 }
+
+export default MeetingScheduleInfoTimezoneInfo;

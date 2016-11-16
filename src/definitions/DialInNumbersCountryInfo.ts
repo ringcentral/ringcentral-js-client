@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface DialInNumbersCountryInfo {
+interface DialInNumbersCountryInfo {
 
     /**
      * Internal identifier of a country
@@ -27,3 +27,5 @@ export interface DialInNumbersCountryInfo {
      */
     name?: string;
 }
+
+export default DialInNumbersCountryInfo;

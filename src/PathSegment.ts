@@ -1,12 +1,12 @@
 /**
  * UrlParts
  */
-export default class UrlSection {
+export default class PathSegment {
     private name: string;
     private value: string;
-    private previous: UrlSection;
+    private previous: PathSegment;
     private _service: any;
-    constructor(name: string, value?: string, prv?: UrlSection, service?) {
+    constructor(name: string, value?: string, prv?: PathSegment, service?) {
         this._service = service;
         this.name = name;
         this.value = value || null;
@@ -30,7 +30,7 @@ export default class UrlSection {
     }
 
     protected getService() {
-        let sec: UrlSection = this;
+        let sec: PathSegment = this;
         while (sec) {
             if (sec._service) {
                 return sec._service;

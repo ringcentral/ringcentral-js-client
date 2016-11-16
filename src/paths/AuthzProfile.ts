@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
+import PathSegment from "../PathSegment";
 import Check from "./Check";
-import {UserPermission} from "../UserPermission";
+import UserPermission from "../definitions/UserPermission";
 
-export default class AuthzProfile extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class AuthzProfile extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("authz-profile", id , prv, service);
     }
 

@@ -1,8 +1,8 @@
 // Generated Source
-import { CountryInfo } from "./CountryInfo";
-import { PhoneNumberInfoExtensionInfo } from "./PhoneNumberInfoExtensionInfo";
+import CountryInfo from "./CountryInfo";
+import PhoneNumberInfoExtensionInfo from "./PhoneNumberInfoExtensionInfo";
 
-export interface PhoneNumberInfo {
+interface PhoneNumberInfo {
 
     /**
      * Internal identifier of a phone number
@@ -54,3 +54,5 @@ export interface PhoneNumberInfo {
      */
     usageType?: "MainCompanyNumber" | "AdditionalCompanyNumber" | "CompanyNumber" | "DirectNumber" | "CompanyFaxNumber" | "ForwardedNumber";
 }
+
+export default PhoneNumberInfo;

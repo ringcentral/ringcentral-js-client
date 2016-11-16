@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {GrantInfo} from "../GrantInfo";
-import PagingResult from "../../PagingResult";
+import PathSegment from "../PathSegment";
+import GrantInfo from "../definitions/GrantInfo";
+import PagingResult from "../PagingResult";
 
-export default class Grant extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Grant extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("grant", id , prv, service);
     }
 

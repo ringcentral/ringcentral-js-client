@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface MessageAttachmentInfo {
+interface MessageAttachmentInfo {
 
     /**
      * Internal identifier of a message attachment
@@ -27,3 +27,5 @@ export interface MessageAttachmentInfo {
      */
     vmDuration?: number;
 }
+
+export default MessageAttachmentInfo;

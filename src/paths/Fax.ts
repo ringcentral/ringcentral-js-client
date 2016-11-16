@@ -1,12 +1,12 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {MessageInfo} from "../MessageInfo";
-import {CallerInfo} from "../CallerInfo";
+import PathSegment from "../PathSegment";
+import MessageInfo from "../definitions/MessageInfo";
+import CallerInfo from "../definitions/CallerInfo";
 import * as FormData from "form-data";
-import Binary from "../../Binary";
+import Binary from "../Binary";
 
-export default class Fax extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Fax extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("fax", id , prv, service);
     }
 

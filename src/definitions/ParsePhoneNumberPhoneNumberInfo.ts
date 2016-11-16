@@ -1,7 +1,7 @@
 // Generated Source
-import { ParsePhoneNumberCountryInfo } from "./ParsePhoneNumberCountryInfo";
+import ParsePhoneNumberCountryInfo from "./ParsePhoneNumberCountryInfo";
 
-export interface ParsePhoneNumberPhoneNumberInfo {
+interface ParsePhoneNumberPhoneNumberInfo {
 
     /**
      * Area code of the location (3-digit usually), according to the NANP number format, that can be summarized as NPA-NXX-xxxx and covers Canada, the United States, parts of the Caribbean Sea, and some Atlantic and Pacific islands. See North American Numbering Plan for details
@@ -48,3 +48,5 @@ export interface ParsePhoneNumberPhoneNumberInfo {
      */
     normalized?: string;
 }
+
+export default ParsePhoneNumberPhoneNumberInfo;

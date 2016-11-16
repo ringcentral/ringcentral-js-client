@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface CallersInfo {
+interface CallersInfo {
 
     /**
      * Phone number of a caller
@@ -12,3 +12,5 @@ export interface CallersInfo {
      */
     name?: string;
 }
+
+export default CallersInfo;

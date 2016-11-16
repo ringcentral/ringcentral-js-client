@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface BillingPlanInfo {
+interface BillingPlanInfo {
 
     /**
      * Internal identifier of a billing plan
@@ -27,3 +27,5 @@ export interface BillingPlanInfo {
      */
     type?: "Initial" | "Regular" | "Suspended" | "Trial" | "TrialNoCC" | "Free";
 }
+
+export default BillingPlanInfo;

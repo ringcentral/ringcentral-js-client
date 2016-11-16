@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {BlockedNumberInfo} from "../BlockedNumberInfo";
-import PagingResult from "../../PagingResult";
+import PathSegment from "../PathSegment";
+import BlockedNumberInfo from "../definitions/BlockedNumberInfo";
+import PagingResult from "../PagingResult";
 
-export default class BlockedNumber extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class BlockedNumber extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("blocked-number", id , prv, service);
     }
 

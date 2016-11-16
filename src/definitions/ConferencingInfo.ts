@@ -1,7 +1,7 @@
 // Generated Source
-import { ConferencingInfoPhoneNumberInfo } from "./ConferencingInfoPhoneNumberInfo";
+import ConferencingInfoPhoneNumberInfo from "./ConferencingInfoPhoneNumberInfo";
 
-export interface ConferencingInfo {
+interface ConferencingInfo {
 
     /**
      * Canonical URI of a conferencing
@@ -43,3 +43,5 @@ export interface ConferencingInfo {
      */
     phoneNumbers?: ConferencingInfoPhoneNumberInfo[];
 }
+
+export default ConferencingInfo;

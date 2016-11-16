@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface GreetingLanguageInfo {
+interface GreetingLanguageInfo {
 
     /**
      * Internal identifier of a greeting language
@@ -17,3 +17,5 @@ export interface GreetingLanguageInfo {
      */
     name?: string;
 }
+
+export default GreetingLanguageInfo;

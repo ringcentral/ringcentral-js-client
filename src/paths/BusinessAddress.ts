@@ -1,9 +1,9 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {BusinessAddressInfo} from "../BusinessAddressInfo";
+import PathSegment from "../PathSegment";
+import BusinessAddressInfo from "../definitions/BusinessAddressInfo";
 
-export default class BusinessAddress extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class BusinessAddress extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("business-address", id , prv, service);
     }
 

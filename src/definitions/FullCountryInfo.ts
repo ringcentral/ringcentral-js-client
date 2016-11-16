@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface FullCountryInfo {
+interface FullCountryInfo {
 
     /**
      * Internal identifier of a country
@@ -42,3 +42,5 @@ export interface FullCountryInfo {
      */
     loginAllowed?: boolean;
 }
+
+export default FullCountryInfo;

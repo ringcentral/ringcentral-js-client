@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface AttachmentInfo {
+interface AttachmentInfo {
 
     /**
      * Link to custom data attachment
@@ -12,3 +12,5 @@ export interface AttachmentInfo {
      */
     contentType?: string;
 }
+
+export default AttachmentInfo;

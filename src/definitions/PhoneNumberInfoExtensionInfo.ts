@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface PhoneNumberInfoExtensionInfo {
+interface PhoneNumberInfoExtensionInfo {
 
     /**
      * Internal identifier of an extension
@@ -22,3 +22,5 @@ export interface PhoneNumberInfoExtensionInfo {
      */
     partnerId?: string;
 }
+
+export default PhoneNumberInfoExtensionInfo;

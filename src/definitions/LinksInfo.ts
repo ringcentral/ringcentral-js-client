@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface LinksInfo {
+interface LinksInfo {
 
     /**
      * Link to start a meeting
@@ -12,3 +12,5 @@ export interface LinksInfo {
      */
     joinUri?: string;
 }
+
+export default LinksInfo;

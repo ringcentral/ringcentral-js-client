@@ -1,7 +1,7 @@
 // Generated Source
-import { AddonInfo } from "./AddonInfo";
+import AddonInfo from "./AddonInfo";
 
-export interface ModelInfo {
+interface ModelInfo {
 
     /**
      * Device model identifier. Mandatory when ordering a HardPhone if boxBillingId is not used for ordering
@@ -18,3 +18,5 @@ export interface ModelInfo {
      */
     addons?: AddonInfo[];
 }
+
+export default ModelInfo;

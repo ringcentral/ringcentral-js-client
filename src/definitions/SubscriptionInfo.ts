@@ -1,7 +1,7 @@
 // Generated Source
-import { DeliveryMode } from "./DeliveryMode";
+import DeliveryMode from "./DeliveryMode";
 
-export interface SubscriptionInfo {
+interface SubscriptionInfo {
 
     /**
      * Internal identifier of a subscription
@@ -43,3 +43,5 @@ export interface SubscriptionInfo {
      */
     deliveryMode?: DeliveryMode;
 }
+
+export default SubscriptionInfo;

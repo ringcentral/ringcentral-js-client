@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface PresetInfo {
+interface PresetInfo {
 
     /**
      * Link to a greeting resource
@@ -17,3 +17,5 @@ export interface PresetInfo {
      */
     name?: string;
 }
+
+export default PresetInfo;

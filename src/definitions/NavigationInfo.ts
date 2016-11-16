@@ -1,7 +1,7 @@
 // Generated Source
-import { Page } from "./Page";
+import Page from "./Page";
 
-export interface NavigationInfo {
+interface NavigationInfo {
 
     /**
      * First page of the list
@@ -23,3 +23,5 @@ export interface NavigationInfo {
      */
     lastPage?: Page;
 }
+
+export default NavigationInfo;

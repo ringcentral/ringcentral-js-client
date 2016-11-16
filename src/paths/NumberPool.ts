@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
+import PathSegment from "../PathSegment";
 import Lookup from "./Lookup";
 import Reserve from "./Reserve";
 
-export default class NumberPool extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class NumberPool extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("number-pool", id , prv, service);
     }
 

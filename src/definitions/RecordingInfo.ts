@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface RecordingInfo {
+interface RecordingInfo {
 
     /**
      * Internal identifier of the call recording
@@ -22,3 +22,5 @@ export interface RecordingInfo {
      */
     contentUri?: string;
 }
+
+export default RecordingInfo;

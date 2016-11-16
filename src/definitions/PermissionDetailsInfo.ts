@@ -1,10 +1,12 @@
 // Generated Source
-import { UserPermissionInfo } from "./UserPermissionInfo";
+import UserPermissionInfo from "./UserPermissionInfo";
 
-export interface PermissionDetailsInfo {
+interface PermissionDetailsInfo {
 
     /**
      * Information on a permission checked
      */
     permission?: UserPermissionInfo;
 }
+
+export default PermissionDetailsInfo;

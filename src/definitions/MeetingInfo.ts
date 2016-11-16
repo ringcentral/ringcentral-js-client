@@ -1,8 +1,8 @@
 // Generated Source
-import { LinksInfo } from "./LinksInfo";
-import { MeetingScheduleInfo } from "./MeetingScheduleInfo";
+import LinksInfo from "./LinksInfo";
+import MeetingScheduleInfo from "./MeetingScheduleInfo";
 
-export interface MeetingInfo {
+interface MeetingInfo {
 
     /**
      * Canonical URI of a meeting resource
@@ -64,3 +64,5 @@ export interface MeetingInfo {
      */
     audioOptions?: string[];
 }
+
+export default MeetingInfo;

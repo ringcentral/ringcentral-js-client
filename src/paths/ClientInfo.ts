@@ -1,9 +1,9 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
+import PathSegment from "../PathSegment";
 import CustomData from "./CustomData";
 
-export default class ClientInfo extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class ClientInfo extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("client-info", id , prv, service);
     }
 

@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface CountryInfo {
+interface CountryInfo {
 
     /**
      * Internal identifier of a home country
@@ -17,3 +17,5 @@ export interface CountryInfo {
      */
     name?: string;
 }
+
+export default CountryInfo;

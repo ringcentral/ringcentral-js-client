@@ -1,14 +1,14 @@
 // Generated Source
-import { ContactInfo } from "./ContactInfo";
-import { DepartmentInfo } from "./DepartmentInfo";
-import { ExtensionPermissions } from "./ExtensionPermissions";
-import { ProfileImageInfo } from "./ProfileImageInfo";
-import { ReferenceInfo } from "./ReferenceInfo";
-import { RegionalSettings } from "./RegionalSettings";
-import { ExtensionServiceFeatureInfo } from "./ExtensionServiceFeatureInfo";
-import { StatusInfo } from "./StatusInfo";
+import ContactInfo from "./ContactInfo";
+import DepartmentInfo from "./DepartmentInfo";
+import ExtensionPermissions from "./ExtensionPermissions";
+import ProfileImageInfo from "./ProfileImageInfo";
+import ReferenceInfo from "./ReferenceInfo";
+import RegionalSettings from "./RegionalSettings";
+import ExtensionServiceFeatureInfo from "./ExtensionServiceFeatureInfo";
+import StatusInfo from "./StatusInfo";
 
-export interface ExtensionInfo {
+interface ExtensionInfo {
 
     /**
      * Internal identifier of an extension
@@ -90,3 +90,5 @@ export interface ExtensionInfo {
      */
     type?: "User" | "FaxUser" | "VirtualUser" | "DigitalUser" | "Department" | "Announcement" | "Voicemail" | "SharedLinesGroup" | "PagingOnlyGroup" | "IvrMenu" | "ApplicationExtension" | "ParkLocation";
 }
+
+export default ExtensionInfo;

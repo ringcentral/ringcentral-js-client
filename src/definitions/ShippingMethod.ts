@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ShippingMethod {
+interface ShippingMethod {
 
     /**
      * Method identifier. The default value is "1" (Ground)
@@ -12,3 +12,5 @@ export interface ShippingMethod {
      */
     name?: "Ground" | "2 Day" | "Overnight";
 }
+
+export default ShippingMethod;

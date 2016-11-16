@@ -1,13 +1,13 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
+import PathSegment from "../PathSegment";
 import ServiceInfo from "./ServiceInfo";
 import End from "./End";
-import {MeetingInfo} from "../MeetingInfo";
-import {MeetingScheduleInfo} from "../MeetingScheduleInfo";
-import PagingResult from "../../PagingResult";
+import MeetingInfo from "../definitions/MeetingInfo";
+import MeetingScheduleInfo from "../definitions/MeetingScheduleInfo";
+import PagingResult from "../PagingResult";
 
-export default class Meeting extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Meeting extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("meeting", id , prv, service);
     }
 

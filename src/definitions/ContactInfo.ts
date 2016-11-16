@@ -1,7 +1,7 @@
 // Generated Source
-import { ContactAddressInfo } from "./ContactAddressInfo";
+import ContactAddressInfo from "./ContactAddressInfo";
 
-export interface ContactInfo {
+interface ContactInfo {
 
     /**
      * For User extension type only. Extension user first name
@@ -33,3 +33,5 @@ export interface ContactInfo {
      */
     businessAddress?: ContactAddressInfo;
 }
+
+export default ContactInfo;

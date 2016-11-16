@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface DialingPlanCountryInfo {
+interface DialingPlanCountryInfo {
 
     /**
      * Internal identifier of a country
@@ -27,3 +27,5 @@ export interface DialingPlanCountryInfo {
      */
     name?: string;
 }
+
+export default DialingPlanCountryInfo;

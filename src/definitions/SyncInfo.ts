@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface SyncInfo {
+interface SyncInfo {
 
     /**
      * Type of synchronization
@@ -17,3 +17,5 @@ export interface SyncInfo {
      */
     syncTime?: string;
 }
+
+export default SyncInfo;

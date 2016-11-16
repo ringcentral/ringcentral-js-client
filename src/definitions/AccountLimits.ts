@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface AccountLimits {
+interface AccountLimits {
 
     /**
      * The maximum number of free softphone digital lines per user extension
@@ -17,3 +17,5 @@ export interface AccountLimits {
      */
     maxMonitoredExtensionsPerUser?: number;
 }
+
+export default AccountLimits;

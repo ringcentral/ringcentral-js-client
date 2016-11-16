@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ExtensionInfoRequestPasswordPin {
+interface ExtensionInfoRequestPasswordPin {
 
     /**
      * Password for extension
@@ -12,3 +12,5 @@ export interface ExtensionInfoRequestPasswordPin {
      */
     ivrPin?: string;
 }
+
+export default ExtensionInfoRequestPasswordPin;

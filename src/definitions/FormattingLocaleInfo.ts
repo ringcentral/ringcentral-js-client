@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface FormattingLocaleInfo {
+interface FormattingLocaleInfo {
 
     /**
      * Internal identifier of a formatting language
@@ -17,3 +17,5 @@ export interface FormattingLocaleInfo {
      */
     name?: string;
 }
+
+export default FormattingLocaleInfo;

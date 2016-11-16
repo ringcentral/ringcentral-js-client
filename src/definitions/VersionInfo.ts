@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface VersionInfo {
+interface VersionInfo {
 
     /**
      * Canonical URI of API versions
@@ -22,3 +22,5 @@ export interface VersionInfo {
      */
     uriString?: string;
 }
+
+export default VersionInfo;

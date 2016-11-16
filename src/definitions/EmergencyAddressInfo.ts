@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface EmergencyAddressInfo {
+interface EmergencyAddressInfo {
 
     /**
      * Name of a customer
@@ -37,3 +37,5 @@ export interface EmergencyAddressInfo {
      */
     country?: string;
 }
+
+export default EmergencyAddressInfo;

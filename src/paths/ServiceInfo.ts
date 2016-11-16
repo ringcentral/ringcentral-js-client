@@ -1,9 +1,9 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {MeetingServiceInfo} from "../MeetingServiceInfo";
+import PathSegment from "../PathSegment";
+import MeetingServiceInfo from "../definitions/MeetingServiceInfo";
 
-export default class ServiceInfo extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class ServiceInfo extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("service-info", id , prv, service);
     }
 

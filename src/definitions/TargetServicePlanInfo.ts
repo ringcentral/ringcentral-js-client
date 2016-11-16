@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface TargetServicePlanInfo {
+interface TargetServicePlanInfo {
 
     /**
      * Internal identifier of a target service plan
@@ -12,3 +12,5 @@ export interface TargetServicePlanInfo {
      */
     name?: string;
 }
+
+export default TargetServicePlanInfo;

@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface GrantInfoExtensionInfo {
+interface GrantInfoExtensionInfo {
 
     /**
      * Internal identifier of an extension
@@ -22,3 +22,5 @@ export interface GrantInfoExtensionInfo {
      */
     type?: "User" | "Fax User" | "VirtualUser" | "DigitalUser" | "Department" | "Announcement" | "Voicemail" | "SharedLinesGroup" | "PagingOnly" | "IvrMenu" | "ApplicationExtension" | "Park Location";
 }
+
+export default GrantInfoExtensionInfo;

@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface AnsweringRuleInfoCallerInfo {
+interface AnsweringRuleInfoCallerInfo {
 
     /**
      * Phone number of a caller
@@ -12,3 +12,5 @@ export interface AnsweringRuleInfoCallerInfo {
      */
     name?: string;
 }
+
+export default AnsweringRuleInfoCallerInfo;

@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface DeliveryMode {
+interface DeliveryMode {
 
     /**
      * Notifications transportation provider name. 'APNS' (Apple Push Notifications Service)
@@ -37,3 +37,5 @@ export interface DeliveryMode {
      */
     encryptionKey?: string;
 }
+
+export default DeliveryMode;

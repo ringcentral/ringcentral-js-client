@@ -1,7 +1,7 @@
 // Generated Source
-import { TimeInterval } from "./TimeInterval";
+import TimeInterval from "./TimeInterval";
 
-export interface WeeklyScheduleInfo {
+interface WeeklyScheduleInfo {
 
     /**
      * Time intervals for a particular day
@@ -38,3 +38,5 @@ export interface WeeklyScheduleInfo {
      */
     sunday?: TimeInterval[];
 }
+
+export default WeeklyScheduleInfo;

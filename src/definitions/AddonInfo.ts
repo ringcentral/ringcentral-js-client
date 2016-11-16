@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface AddonInfo {
+interface AddonInfo {
 
     /**
      * Addon identifier. For HardPhones of certain types, which are compatible with this addon identifier
@@ -12,3 +12,5 @@ export interface AddonInfo {
      */
     count?: number;
 }
+
+export default AddonInfo;

@@ -1,9 +1,11 @@
 // Generated Source
 
-export interface ImageUri {
+interface ImageUri {
 
     /**
      * Link to an image.
      */
     uri?: string;
 }
+
+export default ImageUri;

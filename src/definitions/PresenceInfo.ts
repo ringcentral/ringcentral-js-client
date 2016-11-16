@@ -1,7 +1,7 @@
 // Generated Source
-import { PresenceInfoExtensionInfo } from "./PresenceInfoExtensionInfo";
+import PresenceInfoExtensionInfo from "./PresenceInfoExtensionInfo";
 
-export interface PresenceInfo {
+interface PresenceInfo {
 
     /**
      * Canonical URI of a presence info resource
@@ -53,3 +53,5 @@ export interface PresenceInfo {
      */
     userStatus?: "Offline" | "Busy" | "Available";
 }
+
+export default PresenceInfo;

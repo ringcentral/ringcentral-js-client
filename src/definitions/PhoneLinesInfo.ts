@@ -1,7 +1,7 @@
 // Generated Source
-import { PhoneLinesInfoPhoneNumberInfo } from "./PhoneLinesInfoPhoneNumberInfo";
+import PhoneLinesInfoPhoneNumberInfo from "./PhoneLinesInfoPhoneNumberInfo";
 
-export interface PhoneLinesInfo {
+interface PhoneLinesInfo {
 
     /**
      * Type of phone line
@@ -13,3 +13,5 @@ export interface PhoneLinesInfo {
      */
     phoneInfo?: PhoneLinesInfoPhoneNumberInfo;
 }
+
+export default PhoneLinesInfo;

@@ -1,8 +1,8 @@
 // Generated Source
-import { WeeklyScheduleInfo } from "./WeeklyScheduleInfo";
-import { RangesInfo } from "./RangesInfo";
+import WeeklyScheduleInfo from "./WeeklyScheduleInfo";
+import RangesInfo from "./RangesInfo";
 
-export interface ScheduleInfo {
+interface ScheduleInfo {
 
     /**
      * Weekly schedule
@@ -19,3 +19,5 @@ export interface ScheduleInfo {
      */
     ref?: "BusinessHours" | "AfterHours";
 }
+
+export default ScheduleInfo;

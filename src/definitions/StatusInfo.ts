@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface StatusInfo {
+interface StatusInfo {
 
     /**
      * A free-form user comment, describing the status change reason
@@ -12,3 +12,5 @@ export interface StatusInfo {
      */
     reason?: "Voluntarily" | "Involuntarily";
 }
+
+export default StatusInfo;

@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface PresenceInfoExtensionInfo {
+interface PresenceInfoExtensionInfo {
 
     /**
      * Internal identifier of an extension
@@ -17,3 +17,5 @@ export interface PresenceInfoExtensionInfo {
      */
     extensionNumber?: string;
 }
+
+export default PresenceInfoExtensionInfo;

@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface LocationInfo {
+interface LocationInfo {
 
     /**
      * Canonical URI of a location
@@ -32,3 +32,5 @@ export interface LocationInfo {
      */
     state?: string;
 }
+
+export default LocationInfo;

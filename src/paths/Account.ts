@@ -1,5 +1,5 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
+import PathSegment from "../PathSegment";
 import ActiveCalls from "./ActiveCalls";
 import BusinessAddress from "./BusinessAddress";
 import CallLog from "./CallLog";
@@ -11,10 +11,10 @@ import Order from "./Order";
 import PhoneNumber from "./PhoneNumber";
 import Recording from "./Recording";
 import ServiceInfo from "./ServiceInfo";
-import {AccountInfo} from "../AccountInfo";
+import AccountInfo from "../definitions/AccountInfo";
 
-export default class Account extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Account extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("account", id  || "~" , prv, service);
     }
 

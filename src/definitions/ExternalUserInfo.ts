@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ExternalUserInfo {
+interface ExternalUserInfo {
 
     /**
      * User type of a meeting account
@@ -22,3 +22,5 @@ export interface ExternalUserInfo {
      */
     userType?: number;
 }
+
+export default ExternalUserInfo;

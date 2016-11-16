@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ExtensionServiceFeatureInfo {
+interface ExtensionServiceFeatureInfo {
 
     /**
      * Feature status; shows feature availability for an extension
@@ -17,3 +17,5 @@ export interface ExtensionServiceFeatureInfo {
      */
     reason?: string;
 }
+
+export default ExtensionServiceFeatureInfo;

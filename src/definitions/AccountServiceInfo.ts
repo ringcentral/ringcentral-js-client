@@ -1,11 +1,11 @@
 // Generated Source
-import { BrandInfo } from "./BrandInfo";
-import { ServicePlanInfo } from "./ServicePlanInfo";
-import { BillingPlanInfo } from "./BillingPlanInfo";
-import { ServiceFeatureInfo } from "./ServiceFeatureInfo";
-import { AccountLimits } from "./AccountLimits";
+import BrandInfo from "./BrandInfo";
+import ServicePlanInfo from "./ServicePlanInfo";
+import BillingPlanInfo from "./BillingPlanInfo";
+import ServiceFeatureInfo from "./ServiceFeatureInfo";
+import AccountLimits from "./AccountLimits";
 
-export interface AccountServiceInfo {
+interface AccountServiceInfo {
 
     /**
      * Canonical URI of the account Service Info resource
@@ -42,3 +42,5 @@ export interface AccountServiceInfo {
      */
     limits?: AccountLimits[];
 }
+
+export default AccountServiceInfo;

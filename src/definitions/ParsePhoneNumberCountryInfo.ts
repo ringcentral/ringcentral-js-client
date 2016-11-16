@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ParsePhoneNumberCountryInfo {
+interface ParsePhoneNumberCountryInfo {
 
     /**
      * Internal identifier of a country
@@ -32,3 +32,5 @@ export interface ParsePhoneNumberCountryInfo {
      */
     name?: string;
 }
+
+export default ParsePhoneNumberCountryInfo;

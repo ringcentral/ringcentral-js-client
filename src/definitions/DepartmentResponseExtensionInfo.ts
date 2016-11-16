@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface DepartmentResponseExtensionInfo {
+interface DepartmentResponseExtensionInfo {
 
     /**
      * Internal identifier of an extension
@@ -22,3 +22,5 @@ export interface DepartmentResponseExtensionInfo {
      */
     partnerId?: string;
 }
+
+export default DepartmentResponseExtensionInfo;

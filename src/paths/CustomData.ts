@@ -1,9 +1,9 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {AttachmentInfo} from "../AttachmentInfo";
+import PathSegment from "../PathSegment";
+import AttachmentInfo from "../definitions/AttachmentInfo";
 
-export default class CustomData extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class CustomData extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("custom-data", id , prv, service);
     }
 

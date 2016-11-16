@@ -1,9 +1,9 @@
 // Generated Source
-import { LegInfoExtensionInfo } from "./LegInfoExtensionInfo";
-import { CallerInfo } from "./CallerInfo";
-import { RecordingInfo } from "./RecordingInfo";
+import LegInfoExtensionInfo from "./LegInfoExtensionInfo";
+import CallerInfo from "./CallerInfo";
+import RecordingInfo from "./RecordingInfo";
 
-export interface LegInfo {
+interface LegInfo {
 
     /**
      * Action description of the call operation
@@ -65,3 +65,5 @@ export interface LegInfo {
      */
     recording?: RecordingInfo;
 }
+
+export default LegInfo;

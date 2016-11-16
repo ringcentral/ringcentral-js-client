@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {DialingPlanCountryInfo} from "../DialingPlanCountryInfo";
-import PagingResult from "../../PagingResult";
+import PathSegment from "../PathSegment";
+import DialingPlanCountryInfo from "../definitions/DialingPlanCountryInfo";
+import PagingResult from "../PagingResult";
 
-export default class DialingPlan extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class DialingPlan extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("dialing-plan", id , prv, service);
     }
 

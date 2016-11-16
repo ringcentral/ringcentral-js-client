@@ -1,9 +1,9 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {LookUpPhoneNumberPhoneNumberInfo} from "../LookUpPhoneNumberPhoneNumberInfo";
+import PathSegment from "../PathSegment";
+import LookUpPhoneNumberPhoneNumberInfo from "../definitions/LookUpPhoneNumberPhoneNumberInfo";
 
-export default class Lookup extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Lookup extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("lookup", id , prv, service);
     }
 

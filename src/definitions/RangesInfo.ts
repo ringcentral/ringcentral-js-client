@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface RangesInfo {
+interface RangesInfo {
 
     /**
      * Date and time in format YYYY-MM-DD hh:mm
@@ -12,3 +12,5 @@ export interface RangesInfo {
      */
     to?: string;
 }
+
+export default RangesInfo;

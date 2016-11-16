@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface TimeInterval {
+interface TimeInterval {
 
     /**
      * Time in format hh:mm
@@ -12,3 +12,5 @@ export interface TimeInterval {
      */
     to?: string;
 }
+
+export default TimeInterval;

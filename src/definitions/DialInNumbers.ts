@@ -1,7 +1,7 @@
 // Generated Source
-import { DialInNumbersCountryInfo } from "./DialInNumbersCountryInfo";
+import DialInNumbersCountryInfo from "./DialInNumbersCountryInfo";
 
-export interface DialInNumbers {
+interface DialInNumbers {
 
     /**
      * Phone number of the dial-in number for the meeting in e.164 format
@@ -23,3 +23,5 @@ export interface DialInNumbers {
      */
     country?: DialInNumbersCountryInfo;
 }
+
+export default DialInNumbers;

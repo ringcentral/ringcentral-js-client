@@ -1,8 +1,8 @@
 // Generated Source
-import { CallerInfo } from "./CallerInfo";
-import { RecordingInfo } from "./RecordingInfo";
+import CallerInfo from "./CallerInfo";
+import RecordingInfo from "./RecordingInfo";
 
-export interface CallLogInfo {
+interface CallLogInfo {
 
     /**
      * Internal identifier of a cal log record
@@ -64,3 +64,5 @@ export interface CallLogInfo {
      */
     recording?: RecordingInfo;
 }
+
+export default CallLogInfo;

@@ -1,10 +1,10 @@
 import { parse as parseUrl } from "url";
-import Account from "./generated/url-segments/Account";
-import ClientInfo from "./generated/url-segments/ClientInfo";
-import NumberPool from "./generated/url-segments/NumberPool";
-import NumberParser from "./generated/url-segments/NumberParser";
-import Dictionary from "./generated/url-segments/Dictionary";
-import Subscription from "./generated/url-segments/Subscription";
+import Account from "./paths/Account";
+import ClientInfo from "./paths/ClientInfo";
+import NumberPool from "./paths/NumberPool";
+import NumberParser from "./paths/NumberParser";
+import Dictionary from "./paths/Dictionary";
+import Subscription from "./paths/Subscription";
 import * as Ringcentral from "ringcentral";
 
 export default class Client {

@@ -1,7 +1,7 @@
 // Generated Source
-import { StatusInfo } from "./StatusInfo";
+import StatusInfo from "./StatusInfo";
 
-export interface ExtensionInfoRequestStatusInfo {
+interface ExtensionInfoRequestStatusInfo {
 
     /**
      * Required extension status
@@ -13,3 +13,5 @@ export interface ExtensionInfoRequestStatusInfo {
      */
     statusInfo?: StatusInfo;
 }
+
+export default ExtensionInfoRequestStatusInfo;

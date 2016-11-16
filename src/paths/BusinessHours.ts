@@ -1,9 +1,9 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {BusinessHourScheduleInfo} from "../BusinessHourScheduleInfo";
+import PathSegment from "../PathSegment";
+import BusinessHourScheduleInfo from "../definitions/BusinessHourScheduleInfo";
 
-export default class BusinessHours extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class BusinessHours extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("business-hours", id , prv, service);
     }
 

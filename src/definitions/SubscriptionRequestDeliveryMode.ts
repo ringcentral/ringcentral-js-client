@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface SubscriptionRequestDeliveryMode {
+interface SubscriptionRequestDeliveryMode {
 
     /**
      * Notifications transportation provider name. 'APNS' (Apple Push Notifications Service)
@@ -12,3 +12,5 @@ export interface SubscriptionRequestDeliveryMode {
      */
     encryption?: boolean;
 }
+
+export default SubscriptionRequestDeliveryMode;

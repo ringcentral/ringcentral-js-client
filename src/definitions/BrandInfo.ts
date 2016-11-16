@@ -1,7 +1,7 @@
 // Generated Source
-import { CountryInfo } from "./CountryInfo";
+import CountryInfo from "./CountryInfo";
 
-export interface BrandInfo {
+interface BrandInfo {
 
     /**
      * Internal identifier of a brand
@@ -18,3 +18,5 @@ export interface BrandInfo {
      */
     homeCountry?: CountryInfo;
 }
+
+export default BrandInfo;

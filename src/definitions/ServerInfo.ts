@@ -1,7 +1,7 @@
 // Generated Source
-import { VersionInfo } from "./VersionInfo";
+import VersionInfo from "./VersionInfo";
 
-export interface ServerInfo {
+interface ServerInfo {
 
     /**
      * Canonical URI of the API version
@@ -23,3 +23,5 @@ export interface ServerInfo {
      */
     serverRevision?: string;
 }
+
+export default ServerInfo;

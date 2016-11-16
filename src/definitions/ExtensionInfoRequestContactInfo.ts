@@ -1,8 +1,8 @@
 // Generated Source
-import { ContactInfo } from "./ContactInfo";
-import { ExtensionInfoRequestContactInfoRegionalSettings } from "./ExtensionInfoRequestContactInfoRegionalSettings";
+import ContactInfo from "./ContactInfo";
+import ExtensionInfoRequestContactInfoRegionalSettings from "./ExtensionInfoRequestContactInfoRegionalSettings";
 
-export interface ExtensionInfoRequestContactInfo {
+interface ExtensionInfoRequestContactInfo {
 
     /**
      * Contact information
@@ -24,3 +24,5 @@ export interface ExtensionInfoRequestContactInfo {
      */
     department?: string;
 }
+
+export default ExtensionInfoRequestContactInfo;

@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ReservePhoneNumberResponseReserveRecord {
+interface ReservePhoneNumberResponseReserveRecord {
 
     /**
      * Phone number in E.164 format without a '+'
@@ -32,3 +32,5 @@ export interface ReservePhoneNumberResponseReserveRecord {
      */
     error?: "NumberIsAlreadyProvisioned" | "NumberReserved" | "NumberNotAvailable";
 }
+
+export default ReservePhoneNumberResponseReserveRecord;

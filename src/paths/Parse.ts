@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {ParsePhoneNumberCountryInfo} from "../ParsePhoneNumberCountryInfo";
-import {ParsePhoneNumberPhoneNumberInfo} from "../ParsePhoneNumberPhoneNumberInfo";
+import PathSegment from "../PathSegment";
+import ParsePhoneNumberCountryInfo from "../definitions/ParsePhoneNumberCountryInfo";
+import ParsePhoneNumberPhoneNumberInfo from "../definitions/ParsePhoneNumberPhoneNumberInfo";
 
-export default class Parse extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Parse extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("parse", id , prv, service);
     }
 

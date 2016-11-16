@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {ConferencingInfo} from "../ConferencingInfo";
-import {ConferencingRequestPhoneNumber} from "../ConferencingRequestPhoneNumber";
+import PathSegment from "../PathSegment";
+import ConferencingInfo from "../definitions/ConferencingInfo";
+import ConferencingRequestPhoneNumber from "../definitions/ConferencingRequestPhoneNumber";
 
-export default class Conferencing extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Conferencing extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("conferencing", id , prv, service);
     }
 

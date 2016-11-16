@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ContactAddressInfo {
+interface ContactAddressInfo {
 
     /**
      * Country name of extension user company. Not returned for Address Book
@@ -27,3 +27,5 @@ export interface ContactAddressInfo {
      */
     zip?: string;
 }
+
+export default ContactAddressInfo;

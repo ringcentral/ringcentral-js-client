@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface LookUpPhoneNumberPhoneNumberInfo {
+interface LookUpPhoneNumberPhoneNumberInfo {
 
     /**
      * Phone number in E.164 format without a '+'
@@ -22,3 +22,5 @@ export interface LookUpPhoneNumberPhoneNumberInfo {
      */
     rank?: number;
 }
+
+export default LookUpPhoneNumberPhoneNumberInfo;

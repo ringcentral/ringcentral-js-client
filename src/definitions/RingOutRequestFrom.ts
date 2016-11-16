@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface RingOutRequestFrom {
+interface RingOutRequestFrom {
 
     /**
      * Phone number in E.164 format
@@ -12,3 +12,5 @@ export interface RingOutRequestFrom {
      */
     forwardingNumberId?: string;
 }
+
+export default RingOutRequestFrom;

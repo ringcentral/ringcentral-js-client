@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ExtensionInfoRequestProvisionContactInfo {
+interface ExtensionInfoRequestProvisionContactInfo {
 
     /**
      * Mandatory. Extension user first name
@@ -17,3 +17,5 @@ export interface ExtensionInfoRequestProvisionContactInfo {
      */
     email?: string;
 }
+
+export default ExtensionInfoRequestProvisionContactInfo;

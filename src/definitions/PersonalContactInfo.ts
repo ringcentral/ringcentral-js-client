@@ -1,7 +1,7 @@
 // Generated Source
-import { ContactAddressInfo } from "./ContactAddressInfo";
+import ContactAddressInfo from "./ContactAddressInfo";
 
-export interface PersonalContactInfo {
+interface PersonalContactInfo {
 
     /**
      * Standard resource properties ID
@@ -153,3 +153,5 @@ export interface PersonalContactInfo {
      */
     notes?: string;
 }
+
+export default PersonalContactInfo;

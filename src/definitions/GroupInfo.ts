@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface GroupInfo {
+interface GroupInfo {
 
     /**
      * Internal identifier of a group
@@ -27,3 +27,5 @@ export interface GroupInfo {
      */
     notes?: string;
 }
+
+export default GroupInfo;

@@ -1,7 +1,7 @@
 // Generated Source
-import { MeetingScheduleInfoTimezoneInfo } from "./MeetingScheduleInfoTimezoneInfo";
+import MeetingScheduleInfoTimezoneInfo from "./MeetingScheduleInfoTimezoneInfo";
 
-export interface MeetingScheduleInfo {
+interface MeetingScheduleInfo {
 
     /**
      * Start time of a meeting in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
@@ -18,3 +18,5 @@ export interface MeetingScheduleInfo {
      */
     timeZone?: MeetingScheduleInfoTimezoneInfo;
 }
+
+export default MeetingScheduleInfo;

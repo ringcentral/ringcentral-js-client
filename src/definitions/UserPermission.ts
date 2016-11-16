@@ -1,7 +1,7 @@
 // Generated Source
-import { UserPermissionInfo } from "./UserPermissionInfo";
+import UserPermissionInfo from "./UserPermissionInfo";
 
-export interface UserPermission {
+interface UserPermission {
 
     /**
      * Information on a permission granted
@@ -13,3 +13,5 @@ export interface UserPermission {
      */
     scopes?: string[];
 }
+
+export default UserPermission;

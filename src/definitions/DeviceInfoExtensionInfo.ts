@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface DeviceInfoExtensionInfo {
+interface DeviceInfoExtensionInfo {
 
     /**
      * Internal identifier of an extension
@@ -22,3 +22,5 @@ export interface DeviceInfoExtensionInfo {
      */
     partnerId?: string;
 }
+
+export default DeviceInfoExtensionInfo;

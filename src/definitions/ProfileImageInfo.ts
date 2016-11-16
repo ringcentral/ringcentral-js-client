@@ -1,7 +1,7 @@
 // Generated Source
-import { ImageUri } from "./ImageUri";
+import ImageUri from "./ImageUri";
 
-export interface ProfileImageInfo {
+interface ProfileImageInfo {
 
     /**
      * Link to a profile image. If an image is not uploaded for an extension, only uri is returned
@@ -28,3 +28,5 @@ export interface ProfileImageInfo {
      */
     scales?: ImageUri[];
 }
+
+export default ProfileImageInfo;

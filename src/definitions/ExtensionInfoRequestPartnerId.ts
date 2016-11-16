@@ -1,9 +1,11 @@
 // Generated Source
 
-export interface ExtensionInfoRequestPartnerId {
+interface ExtensionInfoRequestPartnerId {
 
     /**
      * Extension partner identifier
      */
     partnerId?: string;
 }
+
+export default ExtensionInfoRequestPartnerId;

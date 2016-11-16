@@ -1,17 +1,17 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {AnsweringRuleInfo} from "../AnsweringRuleInfo";
-import {CallersInfo} from "../CallersInfo";
-import {CalledNumberInfo} from "../CalledNumberInfo";
-import {AnsweringRuleScheduleInfo} from "../AnsweringRuleScheduleInfo";
-import {ForwardingInfo} from "../ForwardingInfo";
-import {UnconditionalForwardingInfo} from "../UnconditionalForwardingInfo";
-import {VoicemailInfo} from "../VoicemailInfo";
-import PagingResult from "../../PagingResult";
-import {GreetingInfo} from "../GreetingInfo";
+import PathSegment from "../PathSegment";
+import AnsweringRuleInfo from "../definitions/AnsweringRuleInfo";
+import CallersInfo from "../definitions/CallersInfo";
+import CalledNumberInfo from "../definitions/CalledNumberInfo";
+import AnsweringRuleScheduleInfo from "../definitions/AnsweringRuleScheduleInfo";
+import ForwardingInfo from "../definitions/ForwardingInfo";
+import UnconditionalForwardingInfo from "../definitions/UnconditionalForwardingInfo";
+import VoicemailInfo from "../definitions/VoicemailInfo";
+import PagingResult from "../PagingResult";
+import GreetingInfo from "../definitions/GreetingInfo";
 
-export default class AnsweringRule extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class AnsweringRule extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("answering-rule", id , prv, service);
     }
 

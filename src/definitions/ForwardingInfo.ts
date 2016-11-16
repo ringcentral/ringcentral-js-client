@@ -1,7 +1,7 @@
 // Generated Source
-import { RuleInfo } from "./RuleInfo";
+import RuleInfo from "./RuleInfo";
 
-export interface ForwardingInfo {
+interface ForwardingInfo {
 
     /**
      * Specifies if the user's softphone(s) are notified before forwarding the incoming call to desk phones and forwarding numbers
@@ -28,3 +28,5 @@ export interface ForwardingInfo {
      */
     rules?: RuleInfo[];
 }
+
+export default ForwardingInfo;

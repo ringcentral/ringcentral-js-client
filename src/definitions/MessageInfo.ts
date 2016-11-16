@@ -1,8 +1,8 @@
 // Generated Source
-import { MessageAttachmentInfo } from "./MessageAttachmentInfo";
-import { MessageInfoCallerInfo } from "./MessageInfoCallerInfo";
+import MessageAttachmentInfo from "./MessageAttachmentInfo";
+import MessageInfoCallerInfo from "./MessageInfoCallerInfo";
 
-export interface MessageInfo {
+interface MessageInfo {
 
     /**
      * Internal identifier of a message
@@ -114,3 +114,5 @@ export interface MessageInfo {
      */
     vmTranscriptionStatus?: "NotAvailable" | "InProgress" | "TimedOut" | "Completed" | "CompletedPartially" | "Failed";
 }
+
+export default MessageInfo;

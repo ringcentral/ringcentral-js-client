@@ -1,9 +1,9 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
+import PathSegment from "../PathSegment";
 import Content from "./Content";
 
-export default class Recording extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Recording extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("recording", id , prv, service);
     }
 

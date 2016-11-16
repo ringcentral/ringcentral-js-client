@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ServiceFeatureInfo {
+interface ServiceFeatureInfo {
 
     /**
      * Feature name, see all available values in Service Feature List
@@ -12,3 +12,5 @@ export interface ServiceFeatureInfo {
      */
     enabled?: boolean;
 }
+
+export default ServiceFeatureInfo;

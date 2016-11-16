@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface LanguageInfo {
+interface LanguageInfo {
 
     /**
      * Internal identifier of a language
@@ -37,3 +37,5 @@ export interface LanguageInfo {
      */
     ui?: boolean;
 }
+
+export default LanguageInfo;

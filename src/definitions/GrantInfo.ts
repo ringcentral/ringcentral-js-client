@@ -1,7 +1,7 @@
 // Generated Source
-import { GrantInfoExtensionInfo } from "./GrantInfoExtensionInfo";
+import GrantInfoExtensionInfo from "./GrantInfoExtensionInfo";
 
-export interface GrantInfo {
+interface GrantInfo {
 
     /**
      * Canonical URI of a grant
@@ -23,3 +23,5 @@ export interface GrantInfo {
      */
     callMonitoring?: boolean;
 }
+
+export default GrantInfo;

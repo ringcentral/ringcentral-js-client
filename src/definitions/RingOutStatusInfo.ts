@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface RingOutStatusInfo {
+interface RingOutStatusInfo {
 
     /**
      * Status of a call
@@ -17,3 +17,5 @@ export interface RingOutStatusInfo {
      */
     calleeStatus?: "Invalid" | "Success" | "InProgress" | "Busy" | "NoAnswer" | "Rejected" | "GenericError" | "Finished" | "InternationalDisabled" | "DestinationBlocked" | "NotEnoughFunds" | "NoSuchUser";
 }
+
+export default RingOutStatusInfo;

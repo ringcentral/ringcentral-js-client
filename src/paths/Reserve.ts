@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {ReservePhoneNumberRequestReserveRecord} from "../ReservePhoneNumberRequestReserveRecord";
-import {ReservePhoneNumberResponseReserveRecord} from "../ReservePhoneNumberResponseReserveRecord";
+import PathSegment from "../PathSegment";
+import ReservePhoneNumberRequestReserveRecord from "../definitions/ReservePhoneNumberRequestReserveRecord";
+import ReservePhoneNumberResponseReserveRecord from "../definitions/ReservePhoneNumberResponseReserveRecord";
 
-export default class Reserve extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Reserve extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("reserve", id , prv, service);
     }
 

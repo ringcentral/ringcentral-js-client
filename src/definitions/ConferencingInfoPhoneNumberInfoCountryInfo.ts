@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ConferencingInfoPhoneNumberInfoCountryInfo {
+interface ConferencingInfoPhoneNumberInfoCountryInfo {
 
     /**
      * Internal identifier of a country
@@ -32,3 +32,5 @@ export interface ConferencingInfoPhoneNumberInfoCountryInfo {
      */
     name?: string;
 }
+
+export default ConferencingInfoPhoneNumberInfoCountryInfo;

@@ -1,11 +1,11 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {CallLogRecord} from "../CallLogRecord";
-import PagingResult from "../../PagingResult";
-import {CallLogInfo} from "../CallLogInfo";
+import PathSegment from "../PathSegment";
+import CallLogRecord from "../definitions/CallLogRecord";
+import PagingResult from "../PagingResult";
+import CallLogInfo from "../definitions/CallLogInfo";
 
-export default class CallLog extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class CallLog extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("call-log", id , prv, service);
     }
 

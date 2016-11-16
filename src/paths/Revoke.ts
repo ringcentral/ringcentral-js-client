@@ -1,8 +1,8 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
+import PathSegment from "../PathSegment";
 
-export default class Revoke extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Revoke extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("revoke", id , prv, service);
     }
 

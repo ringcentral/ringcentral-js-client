@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {SubscriptionInfo} from "../SubscriptionInfo";
-import {SubscriptionRequestDeliveryMode} from "../SubscriptionRequestDeliveryMode";
+import PathSegment from "../PathSegment";
+import SubscriptionInfo from "../definitions/SubscriptionInfo";
+import SubscriptionRequestDeliveryMode from "../definitions/SubscriptionRequestDeliveryMode";
 
-export default class Subscription extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Subscription extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("subscription", id , prv, service);
     }
 

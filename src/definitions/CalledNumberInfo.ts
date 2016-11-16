@@ -1,9 +1,11 @@
 // Generated Source
 
-export interface CalledNumberInfo {
+interface CalledNumberInfo {
 
     /**
      * Called phone number
      */
     phoneNumber?: string;
 }
+
+export default CalledNumberInfo;

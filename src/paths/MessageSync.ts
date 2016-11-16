@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {MessageInfo} from "../MessageInfo";
-import {SyncInfo} from "../SyncInfo";
+import PathSegment from "../PathSegment";
+import MessageInfo from "../definitions/MessageInfo";
+import SyncInfo from "../definitions/SyncInfo";
 
-export default class MessageSync extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class MessageSync extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("message-sync", id , prv, service);
     }
 

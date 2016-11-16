@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {ForwardingNumberInfo} from "../ForwardingNumberInfo";
-import PagingResult from "../../PagingResult";
+import PathSegment from "../PathSegment";
+import ForwardingNumberInfo from "../definitions/ForwardingNumberInfo";
+import PagingResult from "../PagingResult";
 
-export default class ForwardingNumber extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class ForwardingNumber extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("forwarding-number", id , prv, service);
     }
 

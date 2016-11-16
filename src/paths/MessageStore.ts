@@ -1,11 +1,11 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
+import PathSegment from "../PathSegment";
 import Content from "./Content";
-import {MessageInfo} from "../MessageInfo";
-import PagingResult from "../../PagingResult";
+import MessageInfo from "../definitions/MessageInfo";
+import PagingResult from "../PagingResult";
 
-export default class MessageStore extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class MessageStore extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("message-store", id , prv, service);
     }
 

@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface RecipientInfo {
+interface RecipientInfo {
 
     /**
      * Link to a recipient extension resource
@@ -12,3 +12,5 @@ export interface RecipientInfo {
      */
     id?: string;
 }
+
+export default RecipientInfo;

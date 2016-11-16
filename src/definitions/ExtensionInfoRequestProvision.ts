@@ -1,7 +1,7 @@
 // Generated Source
-import { ExtensionInfoRequestProvisionContactInfo } from "./ExtensionInfoRequestProvisionContactInfo";
+import ExtensionInfoRequestProvisionContactInfo from "./ExtensionInfoRequestProvisionContactInfo";
 
-export interface ExtensionInfoRequestProvision {
+interface ExtensionInfoRequestProvision {
 
     /**
      * Mandatory. Resulting extension status
@@ -13,3 +13,5 @@ export interface ExtensionInfoRequestProvision {
      */
     contact?: ExtensionInfoRequestProvisionContactInfo;
 }
+
+export default ExtensionInfoRequestProvision;

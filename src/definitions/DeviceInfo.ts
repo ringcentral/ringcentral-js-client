@@ -1,11 +1,11 @@
 // Generated Source
-import { ModelInfo } from "./ModelInfo";
-import { DeviceInfoExtensionInfo } from "./DeviceInfoExtensionInfo";
-import { EmergencyAddressInfo } from "./EmergencyAddressInfo";
-import { PhoneLinesInfo } from "./PhoneLinesInfo";
-import { ShippingInfo } from "./ShippingInfo";
+import ModelInfo from "./ModelInfo";
+import DeviceInfoExtensionInfo from "./DeviceInfoExtensionInfo";
+import EmergencyAddressInfo from "./EmergencyAddressInfo";
+import PhoneLinesInfo from "./PhoneLinesInfo";
+import ShippingInfo from "./ShippingInfo";
 
-export interface DeviceInfo {
+interface DeviceInfo {
 
     /**
      * Internal identifier of a device
@@ -72,3 +72,5 @@ export interface DeviceInfo {
      */
     boxBillingId?: number;
 }
+
+export default DeviceInfo;

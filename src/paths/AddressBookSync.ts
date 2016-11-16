@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {PersonalContactInfo} from "../PersonalContactInfo";
-import {SyncInfo} from "../SyncInfo";
+import PathSegment from "../PathSegment";
+import PersonalContactInfo from "../definitions/PersonalContactInfo";
+import SyncInfo from "../definitions/SyncInfo";
 
-export default class AddressBookSync extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class AddressBookSync extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("address-book-sync", id , prv, service);
     }
 

@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface CustomGreetingInfo {
+interface CustomGreetingInfo {
 
     /**
      * Link to an extension custom greeting
@@ -27,3 +27,5 @@ export interface CustomGreetingInfo {
      */
     contentUri?: string;
 }
+
+export default CustomGreetingInfo;

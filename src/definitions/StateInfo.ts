@@ -1,7 +1,7 @@
 // Generated Source
-import { StateInfoCountryInfo } from "./StateInfoCountryInfo";
+import StateInfoCountryInfo from "./StateInfoCountryInfo";
 
-export interface StateInfo {
+interface StateInfo {
 
     /**
      * Internal identifier of a state
@@ -28,3 +28,5 @@ export interface StateInfo {
      */
     name?: string;
 }
+
+export default StateInfo;

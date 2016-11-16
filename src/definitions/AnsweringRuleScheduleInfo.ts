@@ -1,8 +1,8 @@
 // Generated Source
-import { WeeklyScheduleInfo } from "./WeeklyScheduleInfo";
-import { RangesInfo } from "./RangesInfo";
+import WeeklyScheduleInfo from "./WeeklyScheduleInfo";
+import RangesInfo from "./RangesInfo";
 
-export interface AnsweringRuleScheduleInfo {
+interface AnsweringRuleScheduleInfo {
 
     /**
      * Weekly schedule. If specified, ranges cannot be specified
@@ -14,3 +14,5 @@ export interface AnsweringRuleScheduleInfo {
      */
     ranges?: RangesInfo;
 }
+
+export default AnsweringRuleScheduleInfo;

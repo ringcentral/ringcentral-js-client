@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {DeviceInfo} from "../DeviceInfo";
-import PagingResult from "../../PagingResult";
+import PathSegment from "../PathSegment";
+import DeviceInfo from "../definitions/DeviceInfo";
+import PagingResult from "../PagingResult";
 
-export default class Device extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Device extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("device", id , prv, service);
     }
 

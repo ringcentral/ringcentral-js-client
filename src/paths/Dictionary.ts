@@ -1,13 +1,13 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
+import PathSegment from "../PathSegment";
 import Country from "./Country";
 import Language from "./Language";
 import Location from "./Location";
 import State from "./State";
 import Timezone from "./Timezone";
 
-export default class Dictionary extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Dictionary extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("dictionary", id , prv, service);
     }
 

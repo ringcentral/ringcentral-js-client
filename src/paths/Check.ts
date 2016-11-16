@@ -1,9 +1,9 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {PermissionDetailsInfo} from "../PermissionDetailsInfo";
+import PathSegment from "../PathSegment";
+import PermissionDetailsInfo from "../definitions/PermissionDetailsInfo";
 
-export default class Check extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Check extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("check", id , prv, service);
     }
 

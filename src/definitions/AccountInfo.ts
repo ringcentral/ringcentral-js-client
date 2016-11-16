@@ -1,9 +1,9 @@
 // Generated Source
-import { ExtensionInfo } from "./ExtensionInfo";
-import { AccountServiceInfo } from "./AccountServiceInfo";
-import { StatusInfo } from "./StatusInfo";
+import ExtensionInfo from "./ExtensionInfo";
+import AccountServiceInfo from "./AccountServiceInfo";
+import StatusInfo from "./StatusInfo";
 
-export interface AccountInfo {
+interface AccountInfo {
 
     /**
      * Internal identifier of an account
@@ -50,3 +50,5 @@ export interface AccountInfo {
      */
     statusInfo?: StatusInfo;
 }
+
+export default AccountInfo;

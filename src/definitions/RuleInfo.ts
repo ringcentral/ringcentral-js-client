@@ -1,7 +1,7 @@
 // Generated Source
-import { RuleInfoForwardingNumberInfo } from "./RuleInfoForwardingNumberInfo";
+import RuleInfoForwardingNumberInfo from "./RuleInfoForwardingNumberInfo";
 
-export interface RuleInfo {
+interface RuleInfo {
 
     /**
      * Forwarding number (or group) ordinal
@@ -18,3 +18,5 @@ export interface RuleInfo {
      */
     forwardingNumbers?: RuleInfoForwardingNumberInfo[];
 }
+
+export default RuleInfo;

@@ -1,9 +1,9 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import Binary from "../../Binary";
+import PathSegment from "../PathSegment";
+import Binary from "../Binary";
 
-export default class Content extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Content extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("content", id , prv, service);
     }
 

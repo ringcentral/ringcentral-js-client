@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {MessageInfo} from "../MessageInfo";
-import {CallerInfo} from "../CallerInfo";
+import PathSegment from "../PathSegment";
+import MessageInfo from "../definitions/MessageInfo";
+import CallerInfo from "../definitions/CallerInfo";
 
-export default class CompanyPager extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class CompanyPager extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("company-pager", id , prv, service);
     }
 

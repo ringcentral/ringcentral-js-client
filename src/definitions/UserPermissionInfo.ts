@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface UserPermissionInfo {
+interface UserPermissionInfo {
 
     /**
      * Internal identifier of a permission
@@ -12,3 +12,5 @@ export interface UserPermissionInfo {
      */
     uri?: string;
 }
+
+export default UserPermissionInfo;

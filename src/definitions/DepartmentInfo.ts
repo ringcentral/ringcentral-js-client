@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface DepartmentInfo {
+interface DepartmentInfo {
 
     /**
      * Internal identifier of a department extension
@@ -17,3 +17,5 @@ export interface DepartmentInfo {
      */
     extensionNumber?: string;
 }
+
+export default DepartmentInfo;

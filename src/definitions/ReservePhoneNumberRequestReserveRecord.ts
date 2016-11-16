@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ReservePhoneNumberRequestReserveRecord {
+interface ReservePhoneNumberRequestReserveRecord {
 
     /**
      * Phone number in E.164 format without a '+'
@@ -12,3 +12,5 @@ export interface ReservePhoneNumberRequestReserveRecord {
      */
     reservedTill?: string;
 }
+
+export default ReservePhoneNumberRequestReserveRecord;

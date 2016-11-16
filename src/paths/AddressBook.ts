@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
+import PathSegment from "../PathSegment";
 import Contact from "./Contact";
 import Group from "./Group";
 
-export default class AddressBook extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class AddressBook extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("address-book", id , prv, service);
     }
 

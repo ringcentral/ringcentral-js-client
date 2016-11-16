@@ -1,5 +1,5 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
+import PathSegment from "../PathSegment";
 import ActiveCalls from "./ActiveCalls";
 import AddressBookSync from "./AddressBookSync";
 import AddressBook from "./AddressBook";
@@ -24,16 +24,16 @@ import Presence from "./Presence";
 import ProfileImage from "./ProfileImage";
 import Ringout from "./Ringout";
 import Sms from "./Sms";
-import {ExtensionInfo} from "../ExtensionInfo";
-import PagingResult from "../../PagingResult";
-import {ExtensionInfoRequestStatusInfo} from "../ExtensionInfoRequestStatusInfo";
-import {ExtensionInfoRequestContactInfo} from "../ExtensionInfoRequestContactInfo";
-import {ExtensionInfoRequestPasswordPin} from "../ExtensionInfoRequestPasswordPin";
-import {ExtensionInfoRequestPartnerId} from "../ExtensionInfoRequestPartnerId";
-import {ExtensionInfoRequestProvision} from "../ExtensionInfoRequestProvision";
+import ExtensionInfo from "../definitions/ExtensionInfo";
+import PagingResult from "../PagingResult";
+import ExtensionInfoRequestStatusInfo from "../definitions/ExtensionInfoRequestStatusInfo";
+import ExtensionInfoRequestContactInfo from "../definitions/ExtensionInfoRequestContactInfo";
+import ExtensionInfoRequestPasswordPin from "../definitions/ExtensionInfoRequestPasswordPin";
+import ExtensionInfoRequestPartnerId from "../definitions/ExtensionInfoRequestPartnerId";
+import ExtensionInfoRequestProvision from "../definitions/ExtensionInfoRequestProvision";
 
-export default class Extension extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Extension extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("extension", id  || "~" , prv, service);
     }
 

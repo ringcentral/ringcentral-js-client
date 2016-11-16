@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface LegInfoExtensionInfo {
+interface LegInfoExtensionInfo {
 
     /**
      * Internal identifier of an extension
@@ -12,3 +12,5 @@ export interface LegInfoExtensionInfo {
      */
     uri?: string;
 }
+
+export default LegInfoExtensionInfo;

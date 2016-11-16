@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {PhoneNumberInfo} from "../PhoneNumberInfo";
-import PagingResult from "../../PagingResult";
+import PathSegment from "../PathSegment";
+import PhoneNumberInfo from "../definitions/PhoneNumberInfo";
+import PagingResult from "../PagingResult";
 
-export default class PhoneNumber extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class PhoneNumber extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("phone-number", id , prv, service);
     }
 

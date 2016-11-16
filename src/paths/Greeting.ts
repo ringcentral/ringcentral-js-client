@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {CustomGreetingInfo} from "../CustomGreetingInfo";
-import {CustomGreetingInfoAnsweringRuleInfo} from "../CustomGreetingInfoAnsweringRuleInfo";
+import PathSegment from "../PathSegment";
+import CustomGreetingInfo from "../definitions/CustomGreetingInfo";
+import CustomGreetingInfoAnsweringRuleInfo from "../definitions/CustomGreetingInfoAnsweringRuleInfo";
 
-export default class Greeting extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Greeting extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("greeting", id , prv, service);
     }
 

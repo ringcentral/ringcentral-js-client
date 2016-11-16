@@ -1,8 +1,8 @@
 // Generated Source
-import { ExternalUserInfo } from "./ExternalUserInfo";
-import { DialInNumbers } from "./DialInNumbers";
+import ExternalUserInfo from "./ExternalUserInfo";
+import DialInNumbers from "./DialInNumbers";
 
-export interface MeetingServiceInfo {
+interface MeetingServiceInfo {
 
     /**
      * Canonical URI of a meeting service info resource
@@ -29,3 +29,5 @@ export interface MeetingServiceInfo {
      */
     dialInNumbers?: DialInNumbers;
 }
+
+export default MeetingServiceInfo;

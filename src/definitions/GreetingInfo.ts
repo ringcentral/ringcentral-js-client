@@ -1,7 +1,7 @@
 // Generated Source
-import { PresetInfo } from "./PresetInfo";
+import PresetInfo from "./PresetInfo";
 
-export interface GreetingInfo {
+interface GreetingInfo {
 
     /**
      * Type of a greeting, specifying the case when the greeting is played. See also Greeting Types
@@ -13,3 +13,5 @@ export interface GreetingInfo {
      */
     preset?: PresetInfo;
 }
+
+export default GreetingInfo;

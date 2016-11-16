@@ -1,13 +1,13 @@
 // Generated Source
-import { ScheduleInfo } from "./ScheduleInfo";
-import { AnsweringRuleInfoCalleeInfo } from "./AnsweringRuleInfoCalleeInfo";
-import { AnsweringRuleInfoCallerInfo } from "./AnsweringRuleInfoCallerInfo";
-import { ForwardingInfo } from "./ForwardingInfo";
-import { UnconditionalForwardingInfo } from "./UnconditionalForwardingInfo";
-import { VoicemailInfo } from "./VoicemailInfo";
-import { GreetingInfo } from "./GreetingInfo";
+import ScheduleInfo from "./ScheduleInfo";
+import AnsweringRuleInfoCalleeInfo from "./AnsweringRuleInfoCalleeInfo";
+import AnsweringRuleInfoCallerInfo from "./AnsweringRuleInfoCallerInfo";
+import ForwardingInfo from "./ForwardingInfo";
+import UnconditionalForwardingInfo from "./UnconditionalForwardingInfo";
+import VoicemailInfo from "./VoicemailInfo";
+import GreetingInfo from "./GreetingInfo";
 
-export interface AnsweringRuleInfo {
+interface AnsweringRuleInfo {
 
     /**
      * Canonical URI to the answering rule resource
@@ -74,3 +74,5 @@ export interface AnsweringRuleInfo {
      */
     greetings?: GreetingInfo[];
 }
+
+export default AnsweringRuleInfo;

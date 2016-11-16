@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ReferenceInfo {
+interface ReferenceInfo {
 
     /**
      * Non-RC identifier of an extension
@@ -12,3 +12,5 @@ export interface ReferenceInfo {
      */
     type?: "PartnerId" | "CustomerDirectoryId";
 }
+
+export default ReferenceInfo;

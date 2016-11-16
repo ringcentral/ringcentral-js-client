@@ -1,10 +1,10 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {PersonalContactInfo} from "../PersonalContactInfo";
-import PagingResult from "../../PagingResult";
+import PathSegment from "../PathSegment";
+import PersonalContactInfo from "../definitions/PersonalContactInfo";
+import PagingResult from "../PagingResult";
 
-export default class Contact extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Contact extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("contact", id , prv, service);
     }
 

@@ -1,7 +1,7 @@
 // Generated Source
-import { RingOutStatusInfo } from "./RingOutStatusInfo";
+import RingOutStatusInfo from "./RingOutStatusInfo";
 
-export interface RingOutInfo {
+interface RingOutInfo {
 
     /**
      * Internal identifier of a RingOut call
@@ -13,3 +13,5 @@ export interface RingOutInfo {
      */
     status?: RingOutStatusInfo;
 }
+
+export default RingOutInfo;

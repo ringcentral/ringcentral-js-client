@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface StateInfoCountryInfo {
+interface StateInfoCountryInfo {
 
     /**
      * Internal identifier of a state
@@ -12,3 +12,5 @@ export interface StateInfoCountryInfo {
      */
     uri?: string;
 }
+
+export default StateInfoCountryInfo;

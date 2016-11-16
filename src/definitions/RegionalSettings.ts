@@ -1,11 +1,11 @@
 // Generated Source
-import { CountryInfo } from "./CountryInfo";
-import { TimezoneInfo } from "./TimezoneInfo";
-import { LanguageInfo } from "./LanguageInfo";
-import { GreetingLanguageInfo } from "./GreetingLanguageInfo";
-import { FormattingLocaleInfo } from "./FormattingLocaleInfo";
+import CountryInfo from "./CountryInfo";
+import TimezoneInfo from "./TimezoneInfo";
+import LanguageInfo from "./LanguageInfo";
+import GreetingLanguageInfo from "./GreetingLanguageInfo";
+import FormattingLocaleInfo from "./FormattingLocaleInfo";
 
-export interface RegionalSettings {
+interface RegionalSettings {
 
     /**
      * Extension country information
@@ -32,3 +32,5 @@ export interface RegionalSettings {
      */
     formattingLocale?: FormattingLocaleInfo;
 }
+
+export default RegionalSettings;

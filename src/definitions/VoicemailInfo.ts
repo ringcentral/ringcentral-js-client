@@ -1,7 +1,7 @@
 // Generated Source
-import { RecipientInfo } from "./RecipientInfo";
+import RecipientInfo from "./RecipientInfo";
 
-export interface VoicemailInfo {
+interface VoicemailInfo {
 
     /**
      * If 'True' then voicemails are allowed to be received
@@ -13,3 +13,5 @@ export interface VoicemailInfo {
      */
     recipient?: RecipientInfo;
 }
+
+export default VoicemailInfo;

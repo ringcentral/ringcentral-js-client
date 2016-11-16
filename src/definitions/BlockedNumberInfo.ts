@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface BlockedNumberInfo {
+interface BlockedNumberInfo {
 
     /**
      * Standard resource properties ID and canonical URI, see the section called “Resource Identification Properties”
@@ -22,3 +22,5 @@ export interface BlockedNumberInfo {
      */
     phoneNumber?: string;
 }
+
+export default BlockedNumberInfo;

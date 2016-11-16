@@ -1,12 +1,12 @@
 // This is Generated Source.
-import UrlSection from "../../UrlSection";
-import {RingOutInfo} from "../RingOutInfo";
-import {RingOutRequestFrom} from "../RingOutRequestFrom";
-import {RingOutRequestTo} from "../RingOutRequestTo";
-import {RingOutRequestCountryInfo} from "../RingOutRequestCountryInfo";
+import PathSegment from "../PathSegment";
+import RingOutInfo from "../definitions/RingOutInfo";
+import RingOutRequestFrom from "../definitions/RingOutRequestFrom";
+import RingOutRequestTo from "../definitions/RingOutRequestTo";
+import RingOutRequestCountryInfo from "../definitions/RingOutRequestCountryInfo";
 
-export default class Ringout extends UrlSection {
-    constructor(prv: UrlSection, id?: string, service?) {
+export default class Ringout extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
         super("ringout", id , prv, service);
     }
 

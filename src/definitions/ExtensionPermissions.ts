@@ -1,7 +1,7 @@
 // Generated Source
-import { PermissionInfo } from "./PermissionInfo";
+import PermissionInfo from "./PermissionInfo";
 
-export interface ExtensionPermissions {
+interface ExtensionPermissions {
 
     /**
      * Admin permission
@@ -13,3 +13,5 @@ export interface ExtensionPermissions {
      */
     internationalCalling?: PermissionInfo;
 }
+
+export default ExtensionPermissions;

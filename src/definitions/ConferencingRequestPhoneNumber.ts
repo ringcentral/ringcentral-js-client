@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface ConferencingRequestPhoneNumber {
+interface ConferencingRequestPhoneNumber {
 
     /**
      * Dial-in phone number to connect to a conference
@@ -12,3 +12,5 @@ export interface ConferencingRequestPhoneNumber {
      */
     default?: boolean;
 }
+
+export default ConferencingRequestPhoneNumber;

@@ -1,6 +1,6 @@
 // Generated Source
 
-export interface TimezoneInfo {
+interface TimezoneInfo {
 
     /**
      * Internal identifier of a timezone
@@ -22,3 +22,5 @@ export interface TimezoneInfo {
      */
     description?: string;
 }
+
+export default TimezoneInfo;
