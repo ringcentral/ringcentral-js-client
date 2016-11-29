@@ -40,7 +40,7 @@ interface AccountServiceInfo {
     /**
      * Limits which are effective for the account
      */
-    limits?: AccountLimits[];
+    limits?: AccountLimits;
 }
 
 export default AccountServiceInfo;
