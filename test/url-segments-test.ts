@@ -2,6 +2,7 @@ import testConfig from "./config";
 import Client from "../src/Client";
 import { expect } from "chai";
 import { createReadStream } from "fs";
+import * as RingCentral from "ringcentral";
 
 let client: Client;
 const inNode = !!createReadStream;
@@ -10,7 +11,7 @@ before(function () {
     // runs before all tests in this block
     return testConfig.then(conf => {
         let config = conf;
-        client = new Client(config.app);
+        client = new Client(new RingCentral(config.app));
         return client.login(config.user);
     });
 });

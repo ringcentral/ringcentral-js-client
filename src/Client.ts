@@ -11,17 +11,8 @@ export default class Client {
 
     service: Ringcentral;
 
-    constructor(opts: {
-        server?: string;
-        appKey: string;
-        appSecret: string;
-    } | Ringcentral) {
-        if (opts instanceof Ringcentral) {
-            this.service = opts;
-        } else {
-            opts.server = opts.server || SERVER_PRODUCTION;
-            this.service = new Ringcentral(opts);
-        }
+    constructor(sv: Ringcentral) {
+        this.service = sv;
     }
 
     /**

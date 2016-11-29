@@ -12,7 +12,7 @@ describe("client", function () {
 });
 
 function runCoverage() {
-    let c2 = new Client({ appKey: "xx", appSecret: "xx" }); // The default server
+    let c2 = new Client(new RingCentral({ appKey: "xx", appSecret: "xx" })); // The default server
     c2.login({});
     client.loginUrl({ redirectUri: "<<<redirectUri>>>" });
     client.getAuthCode("http://www.rc.com?code=fakeCode");
