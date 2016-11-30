@@ -31,6 +31,7 @@ npm install ringcentral     # Install the peerDependency
 #### In Typescript or ES6 (Recommended)
 ```typescript
 import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
+import * as SDK from "ringcentral";
 ```
 
 #### In commonjs(node.js, webpack and browserify)
@@ -38,6 +39,7 @@ import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
 var ringcentral = require("ringcentral-client");
 var RingCentralClient = ringcentral.Client;
 var SERVER_SANDBOX = ringcentral.SERVER_SANDBOX;
+var SDK = require("ringcentral");
 ```
 
 #### Used in browser through the prebuilt javascript bundle
@@ -48,6 +50,7 @@ All APIs are exposed on the global variable `RingCentral`.
     console.log("All api", RingCentral);
     var RingCentralClient = RingCentral.Client;
     var SERVER_SANDBOX = RingCentral.SERVER_SANDBOX;
+    var SDK = RingCentral.SDK;
     // ...
 </script>
 ```
@@ -57,11 +60,11 @@ All APIs are exposed on the global variable `RingCentral`.
 Login, logout, get account info.
 
 ```typescript
-let client = new RingCentralClient({
+let client = new RingCentralClient(new SDK({
 	server: SERVER_SANDBOX, // Optional, default is production server
 	appKey: "{yourAppKey}",
 	appSecret: "{yourAppSecret}"
-});
+}));
 
 // Log into RingCentral
 client.login({
@@ -94,14 +97,16 @@ Apps with 'Public' application type are not allowed to use Password Flow for sec
 3. Login with auth code: `client.login({ code: authCode, redirectUri: redirectUri })`
 
 Use webpack to pack the following complete sample and run in the browser.
+
 ```typescript
 import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
+import * as SDK from "ringcentral";
 
-let client = new RingCentralClient({
+let client = new RingCentralClient(new SDK({
     server: SERVER_SANDBOX, // Optional, default is production server
     appKey: "{yourAppKey}",
     appSecret: "{yourAppSecret}"
-});
+}));
 
 // To be simple, let redirectUri be the url of the current page without any parameters, and add this url to your apps 'OAuth Redirect URI' via the settings page of your app(https://developer.ringcentral.com/my-account.html#/applications).
 const redirectUri = "{currentPageUrlAsRedirectUri}";
@@ -130,14 +135,16 @@ function checkLogin() {
 ### Login by Password Flow
 
 Complete sample:
+
 ```typescript
 import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
+import * as SDK from "ringcentral";
 
-let client = new RingCentralClient({
+let client = new RingCentralClient(new SDK({
     server: SERVER_SANDBOX, // Optional, default is production server
     appKey: "{yourAppKey}",
     appSecret: "{yourAppSecret}"
-});
+}));
 
 client.login({ username: "{username}", password: "{password}" }).then(() => {
     console.log("Login success");
