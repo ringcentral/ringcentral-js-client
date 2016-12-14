@@ -1,1 +1,1 @@
-The code in `src/clients` and `src/models` is auto-generated, do not alter any files there.
+The code in `src/definitions` and `src/paths` is auto-generated, do not alter any files there.
