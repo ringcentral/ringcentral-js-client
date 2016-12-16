@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - '5'
 - '6'
+- '7'
 script:
 - npm run lint
 # - npm run docs # typedoc is not compatible with typescript 2.0 at the moment.

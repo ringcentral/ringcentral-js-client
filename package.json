@@ -58,7 +58,7 @@
     },
     "homepage": "https://github.com/ringcentral/ringcentral-js-client",
     "engines": {
-        "node": ">=4.0.0 <6.3.0"
+        "node": ">=4.0.0"
     },
     "license": "MIT"
 }
