@@ -1,64 +1,65 @@
 {
-    "name": "ringcentral-client",
-    "version": "2.3.3",
-    "scripts": {
-        "prepublish": ". ./envsetup.sh; typings install; npm run build",
-        "start": "node server.js",
-        "build": "tsc && webpack",
-        "watch": "npm run build -- watch",
-        "test": "_mocha",
-        "coverage": "istanbul cover --report json _mocha -- -R spec",
-        "coverage-badge": "remap-istanbul -i coverage/coverage.json -t lcovonly | coveralls",
-        "coverage-report": "remap-istanbul -i coverage/coverage.json -t html -o coverage/lcov-report/",
-        "docs": "typedoc --mode file --out ./build/api-docs/ src/ -m commonjs -t es2015 --exclude **/src/test/**/*.ts",
-        "lint": "tslint ./src/*.ts ./src/**/*.ts"
-    },
-    "dependencies": {
-        "form-data": "^1.0.0-rc4",
-        "isomorphic-fetch": "^2.2.1"
-    },
-    "devDependencies": {
-        "chai": "^3.0.0",
-        "coveralls": "^2.11.14",
-        "istanbul": "^0.4.0",
-        "mocha": "^2.5.3",
-        "remap-istanbul": "^0.7.0",
-        "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master",
-        "sinon": "^1.15.4",
-        "sinon-chai": "^2.8.0",
-        "source-map-loader": "^0.1.5",
-        "tslint": "^3.15.1",
-        "typedoc": "^0.5.0",
-        "typescript": "^2.0.0",
-        "typings": "^1.4.0",
-        "webpack": "^1.12.2"
-    },
-    "peerDependencies": {
-        "ringcentral": ">=3.0.0"
-    },
-    "preferGlobal": false,
-    "private": false,
-    "main": "./src/Client.js",
-    "typings": "./src/Client.ts",
-    "author": {
-        "name": "RingCentral, Inc.",
-        "email": "devsupport@ringcentral.com"
-    },
-    "contributors": [
-        {
-            "name": "Kirill Konshin"
-        }
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/ringcentral/ringcentral-js-client.git"
-    },
-    "bugs": {
-        "url": "https://github.com/ringcentral/ringcentral-js-client/issues"
-    },
-    "homepage": "https://github.com/ringcentral/ringcentral-js-client",
-    "engines": {
-        "node": ">=4.0.0"
-    },
-    "license": "MIT"
+  "name": "ringcentral-client",
+  "version": "2.3.3",
+  "scripts": {
+    "prepublish": ". ./envsetup.sh; typings install; npm run build",
+    "start": "node server.js",
+    "build": "tsc && webpack",
+    "watch": "npm run build -- watch",
+    "test": "_mocha",
+    "coverage": "istanbul cover --report json _mocha -- -R spec",
+    "coverage-badge": "remap-istanbul -i coverage/coverage.json -t lcovonly | coveralls",
+    "coverage-report": "remap-istanbul -i coverage/coverage.json -t html -o coverage/lcov-report/",
+    "docs": "typedoc --mode file --out ./build/api-docs/ src/ -m commonjs -t es2015 --exclude **/src/test/**/*.ts",
+    "lint": "tslint ./src/*.ts ./src/**/*.ts"
+  },
+  "dependencies": {
+    "form-data": "^1.0.0-rc4",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "coveralls": "^2.11.14",
+    "istanbul": "^0.4.0",
+    "json-loader": "^0.5.4",
+    "mocha": "^2.5.3",
+    "remap-istanbul": "^0.7.0",
+    "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master",
+    "sinon": "^1.15.4",
+    "sinon-chai": "^2.8.0",
+    "source-map-loader": "^0.1.5",
+    "tslint": "^3.15.1",
+    "typedoc": "^0.5.0",
+    "typescript": "^2.0.0",
+    "typings": "^1.4.0",
+    "webpack": "^1.12.2"
+  },
+  "peerDependencies": {
+    "ringcentral": ">=3.0.0"
+  },
+  "preferGlobal": false,
+  "private": false,
+  "main": "./src/Client.js",
+  "typings": "./src/Client.ts",
+  "author": {
+    "name": "RingCentral, Inc.",
+    "email": "devsupport@ringcentral.com"
+  },
+  "contributors": [
+    {
+      "name": "Kirill Konshin"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ringcentral/ringcentral-js-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ringcentral/ringcentral-js-client/issues"
+  },
+  "homepage": "https://github.com/ringcentral/ringcentral-js-client",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "license": "MIT"
 }

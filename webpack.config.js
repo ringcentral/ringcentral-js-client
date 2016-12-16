@@ -19,7 +19,8 @@ module.exports = [{
     ],
     module: {
         loaders: [
-            { test: /\.css$/, loader: "style!css" }
+            { test: /\.css$/, loader: "style!css" },
+            { test: /\.json$/, loader: "json" }
         ]
     }
 }, {
@@ -32,7 +33,10 @@ module.exports = [{
         preLoaders: [{
             test: /\.js$/,
             loader: "source-map-loader"
-        }]
+        }],
+        loaders: [
+            { test: /\.json$/, loader: "json" }
+        ]
     },
     devtool: 'source-map',
     node: {
