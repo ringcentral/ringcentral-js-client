@@ -7,7 +7,7 @@
         "build": "tsc && webpack",
         "watch": "npm run build -- watch",
         "test": "_mocha",
-        "coverage": "istanbul cover _mocha --report json -- -R spec",
+        "coverage": "istanbul cover --report json _mocha -- -R spec",
         "coverage-badge": "remap-istanbul -i coverage/coverage.json -t lcovonly | coveralls",
         "coverage-report": "remap-istanbul -i coverage/coverage.json -t html -o coverage/lcov-report/",
         "docs": "typedoc --mode file --out ./build/api-docs/ src/ -m commonjs -t es2015 --exclude **/src/test/**/*.ts",
