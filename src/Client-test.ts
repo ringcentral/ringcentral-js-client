@@ -1,6 +1,7 @@
 import Client, { EVENT_LOGIN_ERROR } from "./Client";
 import * as RingCentral from "ringcentral";
 import testConfig from "../test/config";
+import { expect } from "chai";
 
 let client: Client;
 testConfig.then(config => {
@@ -16,10 +17,13 @@ function runCoverage() {
     c2.login({});
     client.loginUrl({ redirectUri: "<<<redirectUri>>>" });
     client.getAuthCode("http://www.rc.com?code=fakeCode");
+
+    let errMsg = "auth-failed";
     try {
-        client.getAuthCode("http://www.rc.com?error=fail&error_description=auth-failed");
+        client.getAuthCode("http://www.rc.com?error=fail&error_description=" + errMsg);
     } catch (e) {
-        console.error(e);
+        //console.error(e);
+        expect(e.message).eql(errMsg);
     }
     client.getAuthCode("http://www.rc.com?");   // else branch
     client.logout();

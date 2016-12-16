@@ -148,7 +148,7 @@ describe("Call Log", () => {
 describe("post", () => {
     it("send sms, post plain object", () => {
         return client.account().extension().sms().post({
-            from: { phoneNumber: "+16507411615" },
+            from: { phoneNumber: "+17322764403" },
             text: "test sms text content.",
             to: [{ phoneNumber: "+16507411615" }],
         }).then(sms => {
