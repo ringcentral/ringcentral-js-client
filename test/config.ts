@@ -19,4 +19,4 @@ interface Config {
     };
 }
 
-export default <Promise<Config>> fetch(authDataUrl).then(res => res.json());
+export default fetch(authDataUrl).then(res => <Promise<Config>>res.json());
