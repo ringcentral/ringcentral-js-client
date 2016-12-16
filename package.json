@@ -1,6 +1,6 @@
 {
     "name": "ringcentral-client",
-    "version": "2.3.2",
+    "version": "2.3.3",
     "scripts": {
         "prepublish": ". ./envsetup.sh; typings install; npm run build",
         "start": "node server.js",
