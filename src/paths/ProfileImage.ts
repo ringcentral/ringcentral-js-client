@@ -2,24 +2,11 @@
 import PathSegment from "../PathSegment";
 import Binary from "../Binary";
 import * as FormData from "form-data";
+import ProfileImageBase from "./ProfileImageBase";
 
-export default class ProfileImage extends PathSegment {
+export default class ProfileImage extends ProfileImageBase {
     constructor(prv: PathSegment, id?: string, service?) {
-        super("profile-image", id, prv, service);
-    }
-
-    /**
-     *  Get Profile Image
-     */
-    get(): Promise<Response> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then(function (res) {
-            return res.response();
-        });
+        super(prv, id, service);
     }
 
     /**

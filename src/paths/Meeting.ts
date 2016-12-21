@@ -2,8 +2,8 @@
 import PathSegment from "../PathSegment";
 import ServiceInfo from "./ServiceInfo";
 import End from "./End";
-import MeetingInfo from "../definitions/MeetingInfo";
 import MeetingScheduleInfo from "../definitions/MeetingScheduleInfo";
+import MeetingInfo from "../definitions/MeetingInfo";
 import PagingResult from "../PagingResult";
 
 export default class Meeting extends PathSegment {

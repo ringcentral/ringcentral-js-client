@@ -1,9 +1,9 @@
 // This is Generated Source.
 import PathSegment from "../PathSegment";
-import RingOutInfo from "../definitions/RingOutInfo";
 import RingOutRequestFrom from "../definitions/RingOutRequestFrom";
 import RingOutRequestTo from "../definitions/RingOutRequestTo";
 import RingOutRequestCountryInfo from "../definitions/RingOutRequestCountryInfo";
+import RingOutInfo from "../definitions/RingOutInfo";
 
 export default class Ringout extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

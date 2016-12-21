@@ -1,7 +1,7 @@
 // This is Generated Source.
 import PathSegment from "../PathSegment";
-import MessageInfo from "../definitions/MessageInfo";
 import CallerInfo from "../definitions/CallerInfo";
+import MessageInfo from "../definitions/MessageInfo";
 
 export default class CompanyPager extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

@@ -1,7 +1,7 @@
 // This is Generated Source.
 import PathSegment from "../PathSegment";
-import SubscriptionInfo from "../definitions/SubscriptionInfo";
 import SubscriptionRequestDeliveryMode from "../definitions/SubscriptionRequestDeliveryMode";
+import SubscriptionInfo from "../definitions/SubscriptionInfo";
 
 export default class Subscription extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

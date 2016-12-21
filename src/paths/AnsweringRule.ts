@@ -1,12 +1,12 @@
 // This is Generated Source.
 import PathSegment from "../PathSegment";
-import AnsweringRuleInfo from "../definitions/AnsweringRuleInfo";
 import CallersInfo from "../definitions/CallersInfo";
 import CalledNumberInfo from "../definitions/CalledNumberInfo";
 import AnsweringRuleScheduleInfo from "../definitions/AnsweringRuleScheduleInfo";
 import ForwardingInfo from "../definitions/ForwardingInfo";
 import UnconditionalForwardingInfo from "../definitions/UnconditionalForwardingInfo";
 import VoicemailInfo from "../definitions/VoicemailInfo";
+import AnsweringRuleInfo from "../definitions/AnsweringRuleInfo";
 import PagingResult from "../PagingResult";
 import GreetingInfo from "../definitions/GreetingInfo";
 
