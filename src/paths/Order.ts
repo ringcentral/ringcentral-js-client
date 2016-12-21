@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import DeviceInfo from "../definitions/DeviceInfo";
+import PathSegment from "../PathSegment";
 
 export default class Order extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

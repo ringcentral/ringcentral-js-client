@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import GrantInfo from "../definitions/GrantInfo";
 import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 
 export default class Grant extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

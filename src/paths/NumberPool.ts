@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import Lookup from "./Lookup";
+import PathSegment from "../PathSegment";
 import Reserve from "./Reserve";
 
 export default class NumberPool extends PathSegment {

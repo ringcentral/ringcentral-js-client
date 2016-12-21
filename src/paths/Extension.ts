@@ -1,8 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import ActiveCalls from "./ActiveCalls";
-import AddressBookSync from "./AddressBookSync";
 import AddressBook from "./AddressBook";
+import AddressBookSync from "./AddressBookSync";
 import AnsweringRule from "./AnsweringRule";
 import AuthzProfile from "./AuthzProfile";
 import BlockedNumber from "./BlockedNumber";
@@ -12,6 +11,12 @@ import CallLogSync from "./CallLogSync";
 import CompanyPager from "./CompanyPager";
 import Conferencing from "./Conferencing";
 import Device from "./Device";
+import ExtensionInfo from "../definitions/ExtensionInfo";
+import ExtensionInfoRequestContactInfo from "../definitions/ExtensionInfoRequestContactInfo";
+import ExtensionInfoRequestPartnerId from "../definitions/ExtensionInfoRequestPartnerId";
+import ExtensionInfoRequestPasswordPin from "../definitions/ExtensionInfoRequestPasswordPin";
+import ExtensionInfoRequestProvision from "../definitions/ExtensionInfoRequestProvision";
+import ExtensionInfoRequestStatusInfo from "../definitions/ExtensionInfoRequestStatusInfo";
 import Fax from "./Fax";
 import ForwardingNumber from "./ForwardingNumber";
 import Grant from "./Grant";
@@ -19,18 +24,13 @@ import Greeting from "./Greeting";
 import Meeting from "./Meeting";
 import MessageStore from "./MessageStore";
 import MessageSync from "./MessageSync";
+import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 import PhoneNumber from "./PhoneNumber";
 import Presence from "./Presence";
 import ProfileImage from "./ProfileImage";
 import Ringout from "./Ringout";
 import Sms from "./Sms";
-import ExtensionInfo from "../definitions/ExtensionInfo";
-import PagingResult from "../PagingResult";
-import ExtensionInfoRequestStatusInfo from "../definitions/ExtensionInfoRequestStatusInfo";
-import ExtensionInfoRequestContactInfo from "../definitions/ExtensionInfoRequestContactInfo";
-import ExtensionInfoRequestPasswordPin from "../definitions/ExtensionInfoRequestPasswordPin";
-import ExtensionInfoRequestPartnerId from "../definitions/ExtensionInfoRequestPartnerId";
-import ExtensionInfoRequestProvision from "../definitions/ExtensionInfoRequestProvision";
 
 export default class Extension extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

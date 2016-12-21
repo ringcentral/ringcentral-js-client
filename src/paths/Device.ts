@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import DeviceInfo from "../definitions/DeviceInfo";
 import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 
 export default class Device extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

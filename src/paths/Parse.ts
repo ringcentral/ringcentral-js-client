@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import ParsePhoneNumberCountryInfo from "../definitions/ParsePhoneNumberCountryInfo";
 import ParsePhoneNumberPhoneNumberInfo from "../definitions/ParsePhoneNumberPhoneNumberInfo";
+import PathSegment from "../PathSegment";
 
 export default class Parse extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

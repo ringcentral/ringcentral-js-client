@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
-import CustomGreetingInfoAnsweringRuleInfo from "../definitions/CustomGreetingInfoAnsweringRuleInfo";
 import CustomGreetingInfo from "../definitions/CustomGreetingInfo";
+import CustomGreetingInfoAnsweringRuleInfo from "../definitions/CustomGreetingInfoAnsweringRuleInfo";
+import PathSegment from "../PathSegment";
 
 export default class Greeting extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

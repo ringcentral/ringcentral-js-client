@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import LocationInfo from "../definitions/LocationInfo";
 import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 
 export default class Location extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

@@ -1,8 +1,8 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import Content from "./Content";
 import MessageInfo from "../definitions/MessageInfo";
 import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 
 export default class MessageStore extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

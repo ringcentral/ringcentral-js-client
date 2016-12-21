@@ -1,10 +1,10 @@
 // This is Generated Source.
+import End from "./End";
+import MeetingInfo from "../definitions/MeetingInfo";
+import MeetingScheduleInfo from "../definitions/MeetingScheduleInfo";
+import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
 import ServiceInfo from "./ServiceInfo";
-import End from "./End";
-import MeetingScheduleInfo from "../definitions/MeetingScheduleInfo";
-import MeetingInfo from "../definitions/MeetingInfo";
-import PagingResult from "../PagingResult";
 
 export default class Meeting extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

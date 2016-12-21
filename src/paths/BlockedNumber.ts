@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import BlockedNumberInfo from "../definitions/BlockedNumberInfo";
 import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 
 export default class BlockedNumber extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

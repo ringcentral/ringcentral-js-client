@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import Contact from "./Contact";
 import Group from "./Group";
+import PathSegment from "../PathSegment";
 
 export default class AddressBook extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

@@ -1,7 +1,7 @@
 // This is Generated Source.
+import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
 import PhoneNumberInfo from "../definitions/PhoneNumberInfo";
-import PagingResult from "../PagingResult";
 
 export default class PhoneNumber extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

@@ -1,7 +1,7 @@
 // This is Generated Source.
+import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
 import TimezoneInfo from "../definitions/TimezoneInfo";
-import PagingResult from "../PagingResult";
 
 export default class Timezone extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

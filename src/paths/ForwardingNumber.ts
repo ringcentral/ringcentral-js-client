@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import ForwardingNumberInfo from "../definitions/ForwardingNumberInfo";
 import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 
 export default class ForwardingNumber extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

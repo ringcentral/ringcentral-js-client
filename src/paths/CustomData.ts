@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import AttachmentInfo from "../definitions/AttachmentInfo";
+import PathSegment from "../PathSegment";
 
 export default class CustomData extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

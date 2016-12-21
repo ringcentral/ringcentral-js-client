@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import LookUpPhoneNumberPhoneNumberInfo from "../definitions/LookUpPhoneNumberPhoneNumberInfo";
+import PathSegment from "../PathSegment";
 
 export default class Lookup extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

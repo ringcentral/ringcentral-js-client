@@ -1,5 +1,5 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
+import AccountInfo from "../definitions/AccountInfo";
 import ActiveCalls from "./ActiveCalls";
 import BusinessAddress from "./BusinessAddress";
 import CallLog from "./CallLog";
@@ -8,10 +8,10 @@ import Device from "./Device";
 import DialingPlan from "./DialingPlan";
 import Extension from "./Extension";
 import Order from "./Order";
+import PathSegment from "../PathSegment";
 import PhoneNumber from "./PhoneNumber";
 import Recording from "./Recording";
 import ServiceInfo from "./ServiceInfo";
-import AccountInfo from "../definitions/AccountInfo";
 
 export default class Account extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

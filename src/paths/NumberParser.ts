@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import Parse from "./Parse";
+import PathSegment from "../PathSegment";
 
 export default class NumberParser extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

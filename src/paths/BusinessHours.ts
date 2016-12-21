@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import BusinessHourScheduleInfo from "../definitions/BusinessHourScheduleInfo";
+import PathSegment from "../PathSegment";
 
 export default class BusinessHours extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

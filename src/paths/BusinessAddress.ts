@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import BusinessAddressInfo from "../definitions/BusinessAddressInfo";
+import PathSegment from "../PathSegment";
 
 export default class BusinessAddress extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

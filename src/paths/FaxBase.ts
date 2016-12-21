@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import CallerInfo from "../definitions/CallerInfo";
+import PathSegment from "../PathSegment";
 
 export default class Fax extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

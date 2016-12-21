@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import CallLogRecord from "../definitions/CallLogRecord";
+import PathSegment from "../PathSegment";
 import SyncInfo from "../definitions/SyncInfo";
 
 export default class CallLogSync extends PathSegment {

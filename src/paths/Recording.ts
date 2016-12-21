@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import Content from "./Content";
+import PathSegment from "../PathSegment";
 
 export default class Recording extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

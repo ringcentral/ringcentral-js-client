@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import Authorize from "./Authorize";
+import PathSegment from "../PathSegment";
 import Revoke from "./Revoke";
 import Token from "./Token";
 

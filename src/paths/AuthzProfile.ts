@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import Check from "./Check";
+import PathSegment from "../PathSegment";
 import UserPermission from "../definitions/UserPermission";
 
 export default class AuthzProfile extends PathSegment {

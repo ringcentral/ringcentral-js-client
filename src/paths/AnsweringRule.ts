@@ -1,14 +1,14 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
-import CallersInfo from "../definitions/CallersInfo";
-import CalledNumberInfo from "../definitions/CalledNumberInfo";
+import AnsweringRuleInfo from "../definitions/AnsweringRuleInfo";
 import AnsweringRuleScheduleInfo from "../definitions/AnsweringRuleScheduleInfo";
+import CalledNumberInfo from "../definitions/CalledNumberInfo";
+import CallersInfo from "../definitions/CallersInfo";
 import ForwardingInfo from "../definitions/ForwardingInfo";
+import GreetingInfo from "../definitions/GreetingInfo";
+import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 import UnconditionalForwardingInfo from "../definitions/UnconditionalForwardingInfo";
 import VoicemailInfo from "../definitions/VoicemailInfo";
-import AnsweringRuleInfo from "../definitions/AnsweringRuleInfo";
-import PagingResult from "../PagingResult";
-import GreetingInfo from "../definitions/GreetingInfo";
 
 export default class AnsweringRule extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

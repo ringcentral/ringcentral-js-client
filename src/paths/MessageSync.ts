@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import MessageInfo from "../definitions/MessageInfo";
+import PathSegment from "../PathSegment";
 import SyncInfo from "../definitions/SyncInfo";
 
 export default class MessageSync extends PathSegment {

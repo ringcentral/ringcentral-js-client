@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import Members from "./Members";
+import PathSegment from "../PathSegment";
 
 export default class Department extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

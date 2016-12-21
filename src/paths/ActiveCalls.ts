@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import CallLogRecord from "../definitions/CallLogRecord";
 import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 
 export default class ActiveCalls extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

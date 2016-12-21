@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import DepartmentResponseExtensionInfo from "../definitions/DepartmentResponseExtensionInfo";
 import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 
 export default class Members extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

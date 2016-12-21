@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import LanguageInfo from "../definitions/LanguageInfo";
 import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 
 export default class Language extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

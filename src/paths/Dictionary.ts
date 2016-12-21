@@ -1,8 +1,8 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import Country from "./Country";
 import Language from "./Language";
 import Location from "./Location";
+import PathSegment from "../PathSegment";
 import State from "./State";
 import Timezone from "./Timezone";
 

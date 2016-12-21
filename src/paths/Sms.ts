@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import CallerInfo from "../definitions/CallerInfo";
 import MessageInfo from "../definitions/MessageInfo";
+import PathSegment from "../PathSegment";
 
 export default class Sms extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

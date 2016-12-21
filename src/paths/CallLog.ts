@@ -1,8 +1,8 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
+import CallLogInfo from "../definitions/CallLogInfo";
 import CallLogRecord from "../definitions/CallLogRecord";
 import PagingResult from "../PagingResult";
-import CallLogInfo from "../definitions/CallLogInfo";
+import PathSegment from "../PathSegment";
 
 export default class CallLog extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {

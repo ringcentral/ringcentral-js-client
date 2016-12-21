@@ -1,7 +1,7 @@
 // This is Generated Source.
+import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
 import StateInfo from "../definitions/StateInfo";
-import PagingResult from "../PagingResult";
 
 export default class State extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
