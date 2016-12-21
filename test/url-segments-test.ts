@@ -12,7 +12,7 @@ before(function () {
     return testConfig.then(conf => {
         let config = conf;
         client = new Client(new RingCentral(config.app));
-        return client.login(config.user);
+        return client.service.platform().login(config.user);
     });
 });
 
