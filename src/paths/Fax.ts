@@ -1,8 +1,8 @@
-import FaxBase, { PostBody } from "./FaxBase";
-import PathSegment from "../PathSegment";
-import MessageInfo from "../definitions/MessageInfo";
 import * as FormData from "form-data";
 import Binary from "../Binary";
+import MessageInfo from "../definitions/MessageInfo";
+import PathSegment from "../PathSegment";
+import FaxBase, { PostBody } from "./FaxBase";
 
 export default class Fax extends FaxBase {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -18,8 +18,7 @@ export default class Fax extends FaxBase {
         const jsonType = "application/json";
         if (inNode()) {
             form.append("json", meta, { contentType: jsonType, filename: "request.json" });
-            for (let i = 0; i < attachments.length; i++) {
-                let atch = attachments[i];
+            for (let atch of attachments) {
                 if (typeof atch === "string") {
                     form.append("attachment", atch, { contentType: "text/plain" });
                 } else {
@@ -28,8 +27,7 @@ export default class Fax extends FaxBase {
             }
         } else if (browserSupportBlob()) {
             form.append("json", new Blob([meta], { type: jsonType }));
-            for (let i = 0; i < attachments.length; i++) {
-                let atch = attachments[i];
+            for (let atch of attachments) {
                 if (typeof atch === "string") {
                     form.append("attachment", new Blob([atch], { type: "text/plain" }));
                 } else {
@@ -39,7 +37,7 @@ export default class Fax extends FaxBase {
         } else {
             return Promise.reject("Your're not in node and your environment does not support Blob or File API.");
         }
-        return this.getService().post(this.getEndpoint(false), form).then(res => res.json());
+        return this.getService().post(this.getEndpoint(false), form).then((res) => res.json());
     }
 }
 

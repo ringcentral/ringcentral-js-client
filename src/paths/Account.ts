@@ -1,5 +1,6 @@
 // This is Generated Source.
 import AccountInfo from "../definitions/AccountInfo";
+import PathSegment from "../PathSegment";
 import ActiveCalls from "./ActiveCalls";
 import BusinessAddress from "./BusinessAddress";
 import CallLog from "./CallLog";
@@ -8,7 +9,6 @@ import Device from "./Device";
 import DialingPlan from "./DialingPlan";
 import Extension from "./Extension";
 import Order from "./Order";
-import PathSegment from "../PathSegment";
 import PhoneNumber from "./PhoneNumber";
 import Recording from "./Recording";
 import ServiceInfo from "./ServiceInfo";
@@ -104,7 +104,7 @@ export default class Account extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

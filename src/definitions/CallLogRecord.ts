@@ -1,7 +1,7 @@
 // Generated Source
 import CallerInfo from "./CallerInfo";
-import RecordingInfo from "./RecordingInfo";
 import LegInfo from "./LegInfo";
+import RecordingInfo from "./RecordingInfo";
 
 interface CallLogRecord {
 

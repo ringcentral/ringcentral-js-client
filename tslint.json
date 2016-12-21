@@ -15,6 +15,7 @@
         ],
         "member-access": false,
         "no-string-literal": false,
-        "no-reference": false
+        "no-reference": false,
+        "object-literal-shorthand": false
     }
 }

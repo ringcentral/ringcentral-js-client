@@ -1,8 +1,8 @@
 // This is Generated Source.
-import Content from "./Content";
 import MessageInfo from "../definitions/MessageInfo";
 import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
+import Content from "./Content";
 
 export default class MessageStore extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -25,7 +25,7 @@ export default class MessageStore extends PathSegment {
           method: "get",
           query: query,
           url: this.getEndpoint(false),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -39,7 +39,7 @@ export default class MessageStore extends PathSegment {
           method: "delete",
           query: query,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.response();
         });
     }
@@ -53,7 +53,7 @@ export default class MessageStore extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -67,7 +67,7 @@ export default class MessageStore extends PathSegment {
           method: "put",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

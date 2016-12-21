@@ -1,11 +1,11 @@
+import * as Ringcentral from "ringcentral";
 import { parse as parseUrl } from "url";
 import Account from "./paths/Account";
 import ClientInfo from "./paths/ClientInfo";
-import NumberPool from "./paths/NumberPool";
-import NumberParser from "./paths/NumberParser";
 import Dictionary from "./paths/Dictionary";
+import NumberParser from "./paths/NumberParser";
+import NumberPool from "./paths/NumberPool";
 import Subscription from "./paths/Subscription";
-import * as Ringcentral from "ringcentral";
 
 export default class Client {
 
@@ -20,7 +20,7 @@ export default class Client {
      */
     loginUrl(opts: {
         redirectUri: string,
-        state?: string
+        state?: string,
     }): string {
         return this.service.platform().loginUrl(opts);
     }

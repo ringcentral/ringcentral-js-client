@@ -1,6 +1,6 @@
 // Generated Source
-import WeeklyScheduleInfo from "./WeeklyScheduleInfo";
 import RangesInfo from "./RangesInfo";
+import WeeklyScheduleInfo from "./WeeklyScheduleInfo";
 
 interface AnsweringRuleScheduleInfo {
 

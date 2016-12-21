@@ -1,6 +1,6 @@
 // Generated Source
-import ShippingMethod from "./ShippingMethod";
 import ShippingAddress from "./ShippingAddress";
+import ShippingMethod from "./ShippingMethod";
 
 interface ShippingInfo {
 

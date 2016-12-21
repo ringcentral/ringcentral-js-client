@@ -2,10 +2,10 @@
 import ContactInfo from "./ContactInfo";
 import DepartmentInfo from "./DepartmentInfo";
 import ExtensionPermissions from "./ExtensionPermissions";
+import ExtensionServiceFeatureInfo from "./ExtensionServiceFeatureInfo";
 import ProfileImageInfo from "./ProfileImageInfo";
 import ReferenceInfo from "./ReferenceInfo";
 import RegionalSettings from "./RegionalSettings";
-import ExtensionServiceFeatureInfo from "./ExtensionServiceFeatureInfo";
 import StatusInfo from "./StatusInfo";
 
 interface ExtensionInfo {

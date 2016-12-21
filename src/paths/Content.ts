@@ -15,7 +15,7 @@ export default class Content extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.response();
         });
     }

@@ -1,7 +1,7 @@
 // Generated Source
-import ModelInfo from "./ModelInfo";
 import DeviceInfoExtensionInfo from "./DeviceInfoExtensionInfo";
 import EmergencyAddressInfo from "./EmergencyAddressInfo";
+import ModelInfo from "./ModelInfo";
 import PhoneLinesInfo from "./PhoneLinesInfo";
 import ShippingInfo from "./ShippingInfo";
 

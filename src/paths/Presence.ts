@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import PresenceInfo from "../definitions/PresenceInfo";
+import PathSegment from "../PathSegment";
 
 export default class Presence extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -16,7 +16,7 @@ export default class Presence extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

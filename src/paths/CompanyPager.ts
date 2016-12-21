@@ -17,7 +17,7 @@ export default class CompanyPager extends PathSegment {
           method: "post",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

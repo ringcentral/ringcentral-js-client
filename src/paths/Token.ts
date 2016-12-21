@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import TokenInfo from "../definitions/TokenInfo";
+import PathSegment from "../PathSegment";
 
 export default class Token extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -16,7 +16,7 @@ export default class Token extends PathSegment {
           method: "post",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

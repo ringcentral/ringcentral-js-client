@@ -1,6 +1,6 @@
 // Generated Source
-import ExtensionInfo from "./ExtensionInfo";
 import AccountServiceInfo from "./AccountServiceInfo";
+import ExtensionInfo from "./ExtensionInfo";
 import StatusInfo from "./StatusInfo";
 
 interface AccountInfo {

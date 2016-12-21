@@ -1,9 +1,9 @@
 // This is Generated Source.
-import End from "./End";
 import MeetingInfo from "../definitions/MeetingInfo";
 import MeetingScheduleInfo from "../definitions/MeetingScheduleInfo";
 import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
+import End from "./End";
 import ServiceInfo from "./ServiceInfo";
 
 export default class Meeting extends PathSegment {
@@ -34,7 +34,7 @@ export default class Meeting extends PathSegment {
           method: "post",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -48,7 +48,7 @@ export default class Meeting extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(false),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -62,7 +62,7 @@ export default class Meeting extends PathSegment {
           method: "delete",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.response();
         });
     }
@@ -76,7 +76,7 @@ export default class Meeting extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -90,7 +90,7 @@ export default class Meeting extends PathSegment {
           method: "put",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

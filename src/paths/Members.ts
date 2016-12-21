@@ -17,7 +17,7 @@ export default class Members extends PathSegment {
           method: "get",
           query: query,
           url: this.getEndpoint(false),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

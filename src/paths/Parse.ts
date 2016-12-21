@@ -17,7 +17,7 @@ export default class Parse extends PathSegment {
           method: "post",
           query: query,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

@@ -15,7 +15,7 @@ export default class Revoke extends PathSegment {
           method: "post",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.response();
         });
     }

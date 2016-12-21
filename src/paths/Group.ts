@@ -17,7 +17,7 @@ export default class Group extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(false),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -31,7 +31,7 @@ export default class Group extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

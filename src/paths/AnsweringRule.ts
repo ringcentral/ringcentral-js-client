@@ -5,10 +5,10 @@ import CalledNumberInfo from "../definitions/CalledNumberInfo";
 import CallersInfo from "../definitions/CallersInfo";
 import ForwardingInfo from "../definitions/ForwardingInfo";
 import GreetingInfo from "../definitions/GreetingInfo";
-import PagingResult from "../PagingResult";
-import PathSegment from "../PathSegment";
 import UnconditionalForwardingInfo from "../definitions/UnconditionalForwardingInfo";
 import VoicemailInfo from "../definitions/VoicemailInfo";
+import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 
 export default class AnsweringRule extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -24,7 +24,7 @@ export default class AnsweringRule extends PathSegment {
           method: "post",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -38,7 +38,7 @@ export default class AnsweringRule extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(false),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -52,7 +52,7 @@ export default class AnsweringRule extends PathSegment {
           method: "delete",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.response();
         });
     }
@@ -66,7 +66,7 @@ export default class AnsweringRule extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -80,7 +80,7 @@ export default class AnsweringRule extends PathSegment {
           method: "put",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

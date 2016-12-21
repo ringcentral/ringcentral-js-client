@@ -1,6 +1,6 @@
 // This is Generated Source.
-import Content from "./Content";
 import PathSegment from "../PathSegment";
+import Content from "./Content";
 
 export default class Recording extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -23,7 +23,7 @@ export default class Recording extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

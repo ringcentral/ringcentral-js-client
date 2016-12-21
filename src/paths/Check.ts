@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import PermissionDetailsInfo from "../definitions/PermissionDetailsInfo";
+import PathSegment from "../PathSegment";
 
 export default class Check extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -16,7 +16,7 @@ export default class Check extends PathSegment {
           method: "get",
           query: query,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

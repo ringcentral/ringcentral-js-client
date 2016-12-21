@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
 import PersonalContactInfo from "../definitions/PersonalContactInfo";
 import SyncInfo from "../definitions/SyncInfo";
+import PathSegment from "../PathSegment";
 
 export default class AddressBookSync extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -17,7 +17,7 @@ export default class AddressBookSync extends PathSegment {
           method: "get",
           query: query,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

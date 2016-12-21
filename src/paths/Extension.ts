@@ -1,4 +1,12 @@
 // This is Generated Source.
+import ExtensionInfo from "../definitions/ExtensionInfo";
+import ExtensionInfoRequestContactInfo from "../definitions/ExtensionInfoRequestContactInfo";
+import ExtensionInfoRequestPartnerId from "../definitions/ExtensionInfoRequestPartnerId";
+import ExtensionInfoRequestPasswordPin from "../definitions/ExtensionInfoRequestPasswordPin";
+import ExtensionInfoRequestProvision from "../definitions/ExtensionInfoRequestProvision";
+import ExtensionInfoRequestStatusInfo from "../definitions/ExtensionInfoRequestStatusInfo";
+import PagingResult from "../PagingResult";
+import PathSegment from "../PathSegment";
 import ActiveCalls from "./ActiveCalls";
 import AddressBook from "./AddressBook";
 import AddressBookSync from "./AddressBookSync";
@@ -11,12 +19,6 @@ import CallLogSync from "./CallLogSync";
 import CompanyPager from "./CompanyPager";
 import Conferencing from "./Conferencing";
 import Device from "./Device";
-import ExtensionInfo from "../definitions/ExtensionInfo";
-import ExtensionInfoRequestContactInfo from "../definitions/ExtensionInfoRequestContactInfo";
-import ExtensionInfoRequestPartnerId from "../definitions/ExtensionInfoRequestPartnerId";
-import ExtensionInfoRequestPasswordPin from "../definitions/ExtensionInfoRequestPasswordPin";
-import ExtensionInfoRequestProvision from "../definitions/ExtensionInfoRequestProvision";
-import ExtensionInfoRequestStatusInfo from "../definitions/ExtensionInfoRequestStatusInfo";
 import Fax from "./Fax";
 import ForwardingNumber from "./ForwardingNumber";
 import Grant from "./Grant";
@@ -24,8 +26,6 @@ import Greeting from "./Greeting";
 import Meeting from "./Meeting";
 import MessageStore from "./MessageStore";
 import MessageSync from "./MessageSync";
-import PagingResult from "../PagingResult";
-import PathSegment from "../PathSegment";
 import PhoneNumber from "./PhoneNumber";
 import Presence from "./Presence";
 import ProfileImage from "./ProfileImage";
@@ -214,7 +214,7 @@ export default class Extension extends PathSegment {
           method: "get",
           query: query,
           url: this.getEndpoint(false),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -228,7 +228,7 @@ export default class Extension extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -242,7 +242,7 @@ export default class Extension extends PathSegment {
           method: "put",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

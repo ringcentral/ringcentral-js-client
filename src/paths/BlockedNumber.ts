@@ -17,7 +17,7 @@ export default class BlockedNumber extends PathSegment {
           method: "post",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -31,7 +31,7 @@ export default class BlockedNumber extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(false),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -45,7 +45,7 @@ export default class BlockedNumber extends PathSegment {
           method: "delete",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.response();
         });
     }
@@ -59,7 +59,7 @@ export default class BlockedNumber extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -73,7 +73,7 @@ export default class BlockedNumber extends PathSegment {
           method: "put",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

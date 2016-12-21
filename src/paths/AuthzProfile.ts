@@ -1,7 +1,7 @@
 // This is Generated Source.
-import Check from "./Check";
-import PathSegment from "../PathSegment";
 import UserPermission from "../definitions/UserPermission";
+import PathSegment from "../PathSegment";
+import Check from "./Check";
 
 export default class AuthzProfile extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -24,7 +24,7 @@ export default class AuthzProfile extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

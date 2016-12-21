@@ -1,7 +1,7 @@
 // This is Generated Source.
-import PathSegment from "../PathSegment";
-import Binary from "../Binary";
 import * as FormData from "form-data";
+import Binary from "../Binary";
+import PathSegment from "../PathSegment";
 import ProfileImageBase from "./ProfileImageBase";
 
 export default class ProfileImage extends ProfileImageBase {

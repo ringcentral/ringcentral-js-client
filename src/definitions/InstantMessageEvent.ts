@@ -1,6 +1,6 @@
 // Generated Source
-import InstantMessageEventCallerInfo from "./InstantMessageEventCallerInfo";
 import InstantMessageAttachmentInfo from "./InstantMessageAttachmentInfo";
+import InstantMessageEventCallerInfo from "./InstantMessageEventCallerInfo";
 
 interface InstantMessageEvent {
 

@@ -1,7 +1,7 @@
 // This is Generated Source.
 import CallLogRecord from "../definitions/CallLogRecord";
-import PathSegment from "../PathSegment";
 import SyncInfo from "../definitions/SyncInfo";
+import PathSegment from "../PathSegment";
 
 export default class CallLogSync extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -17,7 +17,7 @@ export default class CallLogSync extends PathSegment {
           method: "get",
           query: query,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }

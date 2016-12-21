@@ -1,6 +1,6 @@
 // Generated Source
-import LegInfoExtensionInfo from "./LegInfoExtensionInfo";
 import CallerInfo from "./CallerInfo";
+import LegInfoExtensionInfo from "./LegInfoExtensionInfo";
 import RecordingInfo from "./RecordingInfo";
 
 interface LegInfo {

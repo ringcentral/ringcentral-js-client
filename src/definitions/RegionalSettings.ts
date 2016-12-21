@@ -1,9 +1,9 @@
 // Generated Source
 import CountryInfo from "./CountryInfo";
-import TimezoneInfo from "./TimezoneInfo";
-import LanguageInfo from "./LanguageInfo";
-import GreetingLanguageInfo from "./GreetingLanguageInfo";
 import FormattingLocaleInfo from "./FormattingLocaleInfo";
+import GreetingLanguageInfo from "./GreetingLanguageInfo";
+import LanguageInfo from "./LanguageInfo";
+import TimezoneInfo from "./TimezoneInfo";
 
 interface RegionalSettings {
 

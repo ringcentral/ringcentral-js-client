@@ -1,7 +1,7 @@
 // This is Generated Source.
+import PhoneNumberInfo from "../definitions/PhoneNumberInfo";
 import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
-import PhoneNumberInfo from "../definitions/PhoneNumberInfo";
 
 export default class PhoneNumber extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -17,7 +17,7 @@ export default class PhoneNumber extends PathSegment {
           method: "get",
           query: query,
           url: this.getEndpoint(false),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
@@ -31,7 +31,7 @@ export default class PhoneNumber extends PathSegment {
           method: "get",
           query: undefined,
           url: this.getEndpoint(true),
-        }).then(function (res) {
+        }).then((res) => {
             return res.json();
         });
     }
