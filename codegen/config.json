@@ -1,0 +1,15 @@
+{
+  "segmentsIgnored": [
+    "restapi",
+    "v1.0"
+  ],
+  "customOperations": {
+    "ProfileImage": [
+      "put",
+      "post"
+    ],
+    "Fax": [
+      "post"
+    ]
+  }
+}

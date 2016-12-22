@@ -1,0 +1,16 @@
+// Generated Source
+{% for imp in  imports %}
+import {{imp}} from "./{{imp}}";
+{% endfor %}
+
+interface {{name}} {
+{% for fld in fields %}
+
+    /**
+     * {{fld.comment}}
+     */
+    {{ fld.name }}?: {{fld.type}};
+{% endfor %}
+}
+
+export default {{name}};

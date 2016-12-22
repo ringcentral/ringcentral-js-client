@@ -1,0 +1,51 @@
+// This is Generated Source.
+{% for imp in imports %}
+import {{imp.defaultMember}} from "{{imp.moduleName}}";
+{% endfor %}
+
+export default class {{name}} extends PathSegment {
+    constructor(prv: PathSegment, id?: string, service?) {
+        super("{{urlName}}", id{% if defaultValue %} || "{{defaultValue}}"{% endif %}, prv, service);
+    }
+    {% for seg in children %}
+
+    /**
+     * {{seg.valueDesc}}
+     */
+    {{seg.methodName}}(id?: string) {
+        return new {{seg.name}}(this, id);
+    }
+    {% endfor %}
+    {% for op in operations %}
+
+    /**
+     *  {{op.description}}
+     */
+    {{op.method}}({{op.paramsDeclar}}): Promise<{{op.responseType}}> {
+        return this.getService().send({
+          body: {{op.bodyParamName}},
+          method: "{{op.httpMethod}}",
+          query: {{op.queryParamName}},
+          url: this.getEndpoint({% if op.method == 'list' %}false{% else %}true{% endif %}),
+        }).then((res) => {
+            return res.{% if op.responseType == 'Response' or op.responseType == 'void' %}response{% else %}json{% endif %}();
+        });
+    }
+    {% endfor %}
+}
+{% for def in definitions %}
+
+export interface {{def.name}} {
+{% for fld in def.fields %}
+
+    /**
+     * {{fld.comment}}
+     */
+    {{ fld.name }}?: {{fld.type}};
+{% endfor %}
+}
+{% endfor %}
+{% for e in enumTypes %}
+
+export type {{e.name}} = {{e.types | join(" | ") }};
+{% endfor %}
