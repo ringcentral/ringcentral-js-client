@@ -6,7 +6,7 @@ interface PhoneLinesInfoPhoneNumberInfo {
     /**
      * Internal identifier of a phone number
      */
-    id?: number;
+    id?: string;
 
     /**
      * Brief information on a phone number country

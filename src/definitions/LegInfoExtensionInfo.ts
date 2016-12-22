@@ -5,7 +5,7 @@ interface LegInfoExtensionInfo {
     /**
      * Internal identifier of an extension
      */
-    id?: number;
+    id?: string;
 
     /**
      * Canonical URI of an extension

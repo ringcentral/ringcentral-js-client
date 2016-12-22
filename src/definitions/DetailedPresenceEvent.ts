@@ -16,7 +16,7 @@ interface DetailedPresenceEvent {
     /**
      * Type of call termination. Supported for calls in 'NoCall' status. If the returned termination type is 'Intermediate' it means the call is not actually ended, the connection is established on one of the devices
      */
-    terminationType?: "Final" | "Intermediate";
+    terminationType?: "final" | "intermediate";
 
     /**
      * Collection of Active Call Info

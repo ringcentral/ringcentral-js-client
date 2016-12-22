@@ -6,7 +6,7 @@ interface PersonalContactInfo {
     /**
      * Standard resource properties ID
      */
-    id?: number;
+    id?: string;
 
     /**
      * Canonical URI

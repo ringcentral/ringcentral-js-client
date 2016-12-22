@@ -34,7 +34,7 @@ export interface GetResponse {
     /**
      * Internal identifier of the call recording
      */
-    id?: number;
+    id?: string;
 
     /**
      * Link to the call recording binary content
