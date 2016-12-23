@@ -273,7 +273,8 @@ subscription
     ```
 
 4. View the recent calls
-    ```javascript
+
+    ```typescript
     let dateFrom = new Date(Date.now() - 24 * 60 * 60 * 1000);  // A day ago
     client.account().extension().callLog().list({ dateFrom: dateFrom.toISOString() }).then(results => {
         console.log("Recent call logs", results.records);
@@ -302,6 +303,7 @@ client.account().extension().sms().post({
 ### Send Fax
 
 For all supported options and mediatype, please refer to https://developer.ringcentral.com/api-docs/latest/index.html#!#RefFaxMessages.html.
+
 ```typescript
 import * as fs from "fs";
 client.account().extension().fax().post({
@@ -317,6 +319,7 @@ client.account().extension().fax().post({
 ### Extension management
 
 Get detail information of an extension:
+
 ```typescript
 client.account().extension('theExtensionId').get().then(function (extInfo) {
     console.log("The extension info", extInfo);
@@ -326,6 +329,7 @@ client.account().extension('theExtensionId').get().then(function (extInfo) {
 ```
 
 List extensions of an account:
+
 ```typescript
 client.account("theAccountId").extension().list().then(function (extensions) {
     console.log("The list of extension info", extensions.records);
@@ -335,6 +339,7 @@ client.account("theAccountId").extension().list().then(function (extensions) {
 ```
 
 Update infomation of an extension:
+
 ```typescript
 client.account().extension().put({ status: "Enabled" }).then(function () {
     console.log("Success to update extension.");

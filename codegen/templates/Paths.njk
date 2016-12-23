@@ -22,12 +22,7 @@ export default class {{name}} extends PathSegment {
      *  {{op.description}}
      */
     {{op.method}}({{op.paramsDeclar}}): Promise<{{op.responseType}}> {
-        return this.getService().send({
-          body: {{op.bodyParamName}},
-          method: "{{op.httpMethod}}",
-          query: {{op.queryParamName}},
-          url: this.getEndpoint({% if op.method == 'list' %}false{% else %}true{% endif %}),
-        }).then((res) => {
+        return this._send("{{op.httpMethod}}", {% if op.method == 'list' %}false{% else %}true{% endif %}, {{op.bodyParamName}}, {{op.queryParamName}}).then((res) => {
             return res.{% if op.responseType == 'Response' or op.responseType == 'void' %}response{% else %}json{% endif %}();
         });
     }

@@ -96,4 +96,8 @@ describe("PathSegments", function () {
         });
     });
 
+    describe("Subscription", function () {
+
+    });
+
 });

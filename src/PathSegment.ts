@@ -40,4 +40,14 @@ export default class PathSegment {
             }
         }
     }
+
+    protected _send(method: string, ignoreId: boolean, body?, query?): Promise<any> {
+        return this.getService().send({
+            body,
+            method,
+            query,
+            url: this.getEndpoint(ignoreId),
+        });
+    }
 }
+

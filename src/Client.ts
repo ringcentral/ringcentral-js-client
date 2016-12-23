@@ -19,24 +19,24 @@ export default class Client {
         return new Account(null, id, this.service.platform());
     }
 
-    clientInfo(): ClientInfo {
-        return new ClientInfo(null, null, this.service.platform());
+    clientInfo(id?: string): ClientInfo {
+        return new ClientInfo(null, id, this.service.platform());
     }
 
-    dictionary(): Dictionary {
-        return new Dictionary(null, null, this.service.platform());
+    dictionary(id?: string): Dictionary {
+        return new Dictionary(null, id, this.service.platform());
     }
 
-    numberParser(): NumberParser {
-        return new NumberParser(null, null, this.service.platform());
+    numberParser(id?: string): NumberParser {
+        return new NumberParser(null, id, this.service.platform());
     }
 
-    numberPool(): NumberPool {
-        return new NumberPool(null, null, this.service.platform());
+    numberPool(id?: string): NumberPool {
+        return new NumberPool(null, id, this.service.platform());
     }
 
-    subscription(): Subscription {
-        return new Subscription(null, null, this.service.platform());
+    subscription(id?: string): Subscription {
+        return new Subscription(null, id, this.service.platform());
     }
 
 }
