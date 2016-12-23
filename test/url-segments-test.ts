@@ -16,7 +16,7 @@ before(function () {
     });
 });
 
-describe("Url segments coverage", function () {
+describe("PathSegments", function () {
 
     /**
      * AnsweringRule list:
@@ -50,7 +50,49 @@ describe("Url segments coverage", function () {
     it("AnsweringRule", function () {
         let answeringRule = client.account().extension().answeringRule();
         return answeringRule.list().then(res => {
-            console.log(">>> post", res.records[0].schedule);
+            //console.log(">>> post", res.records[0].schedule);
+        });
+    });
+
+    describe("BlockedNumber", function () {
+
+        it("covers all", function () {
+            let ext = client.account().extension();
+            let createdId: string;
+            let createdBlockedPhoneNumber = "+18989999";
+            let updatedBlockedPhoneNumber = "+12222898";
+            return ext.blockedNumber().post({ phoneNumber: createdBlockedPhoneNumber }).then(res => {
+                createdId = res.id;
+                expect(res.phoneNumber).to.eqls(createdBlockedPhoneNumber);
+                return ext.blockedNumber(createdId).get();
+            }).then(res => ext.blockedNumber().list())
+                .then(res => {
+                    // FIXME Report: Error: Parameter blockedNumberId value in request body doesn't match specified in path. Maybe server error.
+                    // /return ext.blockedNumber(createdId).put({ phoneNumber: updatedBlockedPhoneNumber });
+                }).then(res => {
+                    //expect(res.phoneNumber).eqls(updatedBlockedPhoneNumber);
+                }).then(res => {
+                    return ext.blockedNumber(createdId).delete();
+                });
+        });
+
+    });
+
+    describe("Contacts", function () {
+
+        it("covers all", function () {
+            let addressBook = client.account().extension().addressBook();
+            let createdId: string;
+            return addressBook.contact().post({ firstName: "Test" })
+                .then(res => {
+                    createdId = res.id;
+                })
+                .then(res => addressBook.contact(createdId).get())
+                .then(res => addressBook.contact().list())
+                .then(res => {
+                    return addressBook.contact(createdId).put({ firstName: "ModifiedFirstName" });
+                })
+                .then(res => addressBook.contact(createdId).delete());
         });
     });
 
