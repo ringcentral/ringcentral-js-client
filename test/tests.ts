@@ -111,6 +111,11 @@ describe("Binary request", function () {
     it("Post profile image, input binary, response is empty.", function () {
         return client.account().extension().profileImage().post(createReadStream(imgPath));
     });
+
+    it("gets current profile image", function () {
+        return client.account().extension().profileImage().get();
+    });
+
 });
 
 describe("Fax", function () {

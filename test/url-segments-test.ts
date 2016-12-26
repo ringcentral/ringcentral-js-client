@@ -62,6 +62,10 @@ describe("PathSegments", function () {
             .then(res => ext.answeringRule(id).delete());
     });
 
+    it("gets business hours rule", function () {
+        return client.account().extension().businessHours().get();
+    });
+
     describe("BlockedNumber", function () {
 
         it("covers all", function () {
@@ -129,6 +133,10 @@ describe("PathSegments", function () {
                 .then(res => ext.meeting(createdId).delete()).catch(e => console.log(e));
         });
 
+        it("service info", function () {
+            return client.account().extension().meeting().serviceInfo().get();
+        });
+
     });
 
     describe("Ringout", function () {
@@ -148,9 +156,242 @@ describe("PathSegments", function () {
     describe("ForwardingNumber", function () {
 
         it("covers all", function () {
+            return client.account().extension().forwardingNumber().list();
+            /* let id: string;
+             return client.account().extension().forwardingNumber().post({ label: "test", phoneNumber: "+16507411615" })
+                 .then(res => client.account().extension().forwardingNumber());*/
+        });
+
+    });
+
+    describe("Group", function () {
+
+        it("covers all", function () {
+            let addressBook = client.account().extension().addressBook();
+            return addressBook.group().list().then(res => {
+                if (res.records.length > 0) {
+                    return addressBook.group(res.records[0].id).get();
+                }
+            });
+        });
+
+    });
+
+    describe("Greeting", function () {
+
+        // TODO add delete and update methods
+        it("covers all", function () {
+
+        });
+
+    });
+
+    describe("Conferencing", function () {
+
+        it("covers all", function () {
+        });
+
+    });
+
+    describe("Country", function () {
+
+        it("covers all", function () {
+            return client.dictionary().country().list().then(res => {
+                if (res.records.length > 0) {
+                    return client.dictionary().country(res.records[0].id).get();
+                }
+            });
+        });
+
+    });
+
+    describe("State", function () {
+
+        it("covers all", function () {
+            return client.dictionary().state().list().then(res => {
+                if (res.records.length > 0) {
+                    return client.dictionary().state(res.records[0].id).get();
+                }
+            })
+        });
+
+    });
+
+    describe("Device", function () {
+
+        it("covers all", function () {
+            return client.account().device().list().then(res => {
+                if (res.records.length > 0) {
+                    return client.account().device(res.records[0].id).get();
+                }
+            })
+        });
+
+    });
+
+    describe("Timezone", function () {
+
+        it("covers all", function () {
+            return client.dictionary().timezone().list().then(res => {
+                if (res.records.length > 0) {
+                    return client.dictionary().timezone(res.records[0].id).get();
+                }
+            })
+        });
+
+    });
+
+    describe("PhoneNumber", function () {
+
+        it("covers all", function () {
+            return client.account().phoneNumber().list().then(res => {
+                if (res.records.length > 0) {
+                    return client.account().phoneNumber(res.records[0].id).get();
+                }
+            })
+        });
+
+    });
+
+    describe("Language", function () {
+
+        it("covers all", function () {
+            return client.dictionary().language().list().then(res => {
+                if (res.records.length > 0) {
+                    return client.dictionary().language(res.records[0].id).get();
+                }
+            })
+        });
+
+    });
+
+    describe("Message", function () {
+
+        it("covers all", function () {
             let id: string;
-            return client.account().extension().forwardingNumber().post({ label: "test", phoneNumber: "+16507411615" })
-                .then(res => client.account().extension().forwardingNumber());
+            return client.account().extension().companyPager().post({
+                to: [{ extensionNumber: "101" }],
+                text: "js-client unit test."
+            }).then(res => id = res.id)
+                .then(res => client.account().extension().messageStore().list())
+                .then(res => client.account().extension().messageStore(id).put({ readStatus: "Read" }))
+                .then(res => client.account().extension().messageStore(id).get())
+                .then(res => client.account().extension().messageStore(id).delete());
+        });
+
+        it("gets sync message", function () {
+            return client.account().extension().messageSync().get();
+        });
+
+    });
+
+    describe("AuthzProfile", function () {
+
+        it("covers all", function () {
+            return client.account().extension().authzProfile().get()
+                .then(res => client.account().extension().authzProfile().check().get());
+        });
+
+    });
+
+    describe("Clientinfo", function () {
+
+        it("covers all", function () {
+            return client.clientInfo().customData().put({})
+        });
+
+    });
+
+    describe("ActiveCalls", function () {
+
+        it("covers all", function () {
+            return client.account().extension().activeCalls().list();
+        });
+
+    });
+
+    describe("Grant", function () {
+
+        it("covers all", function () {
+            return client.account().extension().grant().list();
+        });
+
+    });
+
+    describe("Location", function () {
+
+        it("covers all", function () {
+            return client.dictionary().state().list()
+                .then(res => {
+                    if (res.records.length > 0) {
+                        return client.dictionary().location().list({ stateId: res.records[0].id });
+                    }
+                });
+        });
+
+    });
+
+    describe("NumberPool", function () {
+
+        it("covers all", function () {
+            return client.numberPool().lookup().post({ countryCode: "cn" });
+        });
+
+    });
+
+    describe("Department", function () {
+
+        it("covers all", function () {
+            return client.account().department().members().list();
+        });
+
+    });
+
+    describe("BusinessAddress", function () {
+
+        it("covers all", function () {
+            return client.account().businessAddress().get().then(res => {
+                return client.account().businessAddress().put({ email: "js-client-test@ringcentral.com" });
+            });
+        });
+
+    });
+
+    describe("DialingPlan", function () {
+
+        it("covers all", function () {
+            return client.account().dialingPlan().list();
+        });
+
+    });
+
+    describe("Presence", function () {
+
+        it("covers all", function () {
+            return client.account().extension().presence().get();
+        });
+
+    });
+
+    describe("CallLog", function () {
+
+        it("gets call log sync", function () {
+            return client.account().extension().callLogSync().get({ recordCount: 5 });
+        });
+
+    });
+
+    describe("AddressBook", function () {
+
+        it("gets address book sync", function () {
+            return client.account().extension().addressBookSync().get();
+        });
+    });
+
+    describe("NumberParser", function () {
+
+        it("parses number", function () {
+            return client.numberParser().parse().post({ originalStrings: ["+8618657118272"] })
         });
 
     });
