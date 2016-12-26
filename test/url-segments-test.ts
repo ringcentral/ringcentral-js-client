@@ -98,6 +98,16 @@ describe("PathSegments", function () {
 
     describe("Subscription", function () {
 
+        it("covers all", function () {
+            let createdId: string;
+            return client.subscription().post({
+                eventFilters: ["/restapi/v1.0/account/~/extension/~/presence?detailedTelephonyState=true"],
+                deliveryMode: { transportType: "PubNub", encryption: true }
+            }).then(res => createdId = res.id)
+                .then(res => client.subscription(createdId).get())
+                .then(res => client.subscription(createdId).put({ eventFilters: ["/restapi/v1.0/account/~/extension/~/message-store"] }))
+                .then(res => client.subscription(createdId).delete());
+        });
     });
 
 });
