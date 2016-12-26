@@ -145,4 +145,14 @@ describe("PathSegments", function () {
 
     });
 
+    describe("ForwardingNumber", function () {
+
+        it("covers all", function () {
+            let id: string;
+            return client.account().extension().forwardingNumber().post({ label: "test", phoneNumber: "+16507411615" })
+                .then(res => client.account().extension().forwardingNumber());
+        });
+
+    });
+
 });
