@@ -108,6 +108,19 @@ describe("PathSegments", function () {
                 .then(res => client.subscription(createdId).put({ eventFilters: ["/restapi/v1.0/account/~/extension/~/message-store"] }))
                 .then(res => client.subscription(createdId).delete());
         });
+
+    });
+
+    describe("Meeting", function () {
+
+        it.skip("covers all", function () {
+            let createdId: string;
+            let ext = client.account().extension();
+            return ext.meeting().post({ meetingType: "Instant" })   // Error reported, "errorCode" : "CMN-408",\n  "message" : "[Meetings] permission required", maybe sandbox doesn't support meetings API yet.
+                .then(res => createdId = res.id)
+                .then(res => ext.meeting(createdId).delete()).catch(e => console.log(e));
+        });
+
     });
 
 });
