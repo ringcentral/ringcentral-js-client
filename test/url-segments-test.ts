@@ -123,4 +123,18 @@ describe("PathSegments", function () {
 
     });
 
+    describe("Ringout", function () {
+
+        it("covers all", function () {
+            let id: string;
+            return client.account().extension().ringout().post({
+                from: { phoneNumber: "+16507411615" },
+                to: { phoneNumber: "+16507411615" }
+            }).then(res => id = res.id)
+                .then(res => client.account().extension().ringout(id).get())
+                .then(res => client.account().extension().ringout(id).delete());
+        });
+
+    });
+
 });
