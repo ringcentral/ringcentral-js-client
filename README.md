@@ -1,7 +1,7 @@
 # RingCentral Client
 
 [![Build Status](https://travis-ci.org/zengfenfei/ringcentral-js-client.svg?branch=master)](https://travis-ci.org/zengfenfei/ringcentral-js-client)
-[![Coverage Status](https://coveralls.io/repos/github/zengfenfei/ringcentral-js-client/badge.svg?branch=client-only)](https://coveralls.io/github/zengfenfei/ringcentral-js-client?branch=client-only)
+[![Coverage Status](https://coveralls.io/repos/github/zengfenfei/ringcentral-js-client/badge.svg?branch=master)](https://coveralls.io/github/zengfenfei/ringcentral-js-client?branch=master)
 
 This is a library implemented in typescript which provides convenient apis for typescript and javascript developers to access RingCentral webservice(https://developer.ringcentral.com/api-docs/latest/index.html).
 
