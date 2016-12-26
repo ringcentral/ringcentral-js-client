@@ -48,10 +48,18 @@ describe("PathSegments", function () {
 
      */
     it("AnsweringRule", function () {
-        let answeringRule = client.account().extension().answeringRule();
-        return answeringRule.list().then(res => {
-            //console.log(">>> post", res.records[0].schedule);
-        });
+        let ext = client.account().extension();
+        let id: string;
+        return ext.answeringRule().post({
+            enabled: false,
+            callers: [{
+                callerId: "+46843216868"
+            }]
+        }).then(res => id = res.id)
+            .then(res => ext.answeringRule(id).get())
+            .then(res => ext.answeringRule(id).put({ name: "updated." }))
+            .then(res => ext.answeringRule().list())
+            .then(res => ext.answeringRule(id).delete());
     });
 
     describe("BlockedNumber", function () {
