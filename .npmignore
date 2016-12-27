@@ -5,7 +5,4 @@ gulpfile.js
 index.html
 server.js
 test-utils
-typings
-tsconfig.json*
-tsd.json
 webpack.config.js

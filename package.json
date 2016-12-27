@@ -1,60 +1,65 @@
 {
-  "name": "ringcentral-client",
-  "version": "0.1.0",
-  "scripts": {
-    "start": "node server.js",
-    "build": "npm run swagger && ./node_modules/.bin/gulp",
-    "watch": "npm run build -- watch",
-    "test": "npm run build && npm run mocha",
-    "mocha": "./node_modules/.bin/mocha ./build/tests/specs.js",
-    "istanbul": "./node_modules/.bin/istanbul cover -x specs.js --dir=./build/coverage --report=lcov --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --reporter spec ./build/test/specs.js",
-    "swagger": "node codegen/generate.js"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "chai": "^3.0.0",
-    "express": "^4.13.1",
-    "glob": "^6.0.1",
-    "gulp": "^3.9.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.3",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^1.2.0",
-    "gulp-util": "^3.0.6",
-    "gulp-webpack-build": "^0.13.1",
-    "istanbul": "^0.4.0",
-    "js-beautify": "^1.5.10",
-    "mocha": "^2.2.5",
-    "ringcentral": "^2.*",
-    "sinon": "^1.15.4",
-    "sinon-chai": "^2.8.0",
-    "soap": "^0.11.0",
-    "ts-loader": "^0.7.1",
-    "typescript": "^1.6.2",
-    "webpack": "^1.12.2"
-  },
-  "preferGlobal": false,
-  "private": false,
-  "main": "./build/ringcentral.js",
-  "author": {
-    "name": "RingCentral, Inc.",
-    "email": "devsupport@ringcentral.com"
-  },
-  "contributors": [
-    {
-      "name": "Kirill Konshin"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ringcentral/ringcentral-js-client.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ringcentral/ringcentral-js-client/issues"
-  },
-  "homepage": "https://github.com/ringcentral/ringcentral-js-client",
-  "engines": {
-    "node": ">=0.10.36"
-  },
-  "license": "MIT"
+    "name": "ringcentral-client",
+    "version": "2.3.3",
+    "scripts": {
+        "prepublish": "typings install; npm run build",
+        "start": "node server.js",
+        "build": "tsc && webpack",
+        "watch": "npm run build -- watch",
+        "test": "_mocha",
+        "coverage": "istanbul cover --report json _mocha -- -R spec --no-timeouts",
+        "coverage-badge": "remap-istanbul -i coverage/coverage.json -t lcovonly | coveralls",
+        "coverage-report": "remap-istanbul -i coverage/coverage.json -t html -o coverage/lcov-report/",
+        "docs": "typedoc --mode file --out ./build/api-docs/ src/ -m commonjs -t es2015 --exclude **/src/test/**/*.ts",
+        "lint": "tslint ./src/*.ts ./src/**/*.ts"
+    },
+    "dependencies": {
+        "form-data": "^2.1.2",
+        "isomorphic-fetch": "^2.2.1"
+    },
+    "devDependencies": {
+        "chai": "^3.0.0",
+        "coveralls": "^2.11.15",
+        "istanbul": "^0.4.0",
+        "json-loader": "^0.5.4",
+        "mocha": "^3.2.0",
+        "remap-istanbul": "^0.8.2",
+        "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master",
+        "sinon": "^1.15.4",
+        "sinon-chai": "^2.8.0",
+        "source-map-loader": "^0.1.5",
+        "tslint": "^4.1.1",
+        "typedoc": "^0.5.0",
+        "typescript": "latest",
+        "typings": "^2.0.0",
+        "webpack": "^1.12.2"
+    },
+    "peerDependencies": {
+        "ringcentral": ">=3.0.0"
+    },
+    "preferGlobal": false,
+    "private": false,
+    "main": "./src/Client.js",
+    "typings": "./src/Client.ts",
+    "author": {
+        "name": "RingCentral, Inc.",
+        "email": "devsupport@ringcentral.com"
+    },
+    "contributors": [
+        {
+            "name": "Kirill Konshin"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ringcentral/ringcentral-js-client.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ringcentral/ringcentral-js-client/issues"
+    },
+    "homepage": "https://github.com/ringcentral/ringcentral-js-client",
+    "engines": {
+        "node": ">=4.0.0"
+    },
+    "license": "MIT"
 }

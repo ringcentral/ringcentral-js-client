@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "sourceMap": true
+    },
+    "files": [
+        "src/Client.ts",
+        "test/tests.ts",
+        "typings/index.d.ts",
+        "typings/ringcentral.d.ts"
+    ],
+    "compileOnSave": true
+}
