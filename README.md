@@ -8,8 +8,6 @@ This is a library implemented in typescript which provides convenient apis for t
 # Table of contents
 
 - [Getting Started](#getting-started)
-- [Authorization](#authorization)
-- [Subscriptions](#subscriptions)
 - [API Call Examples](#api-call-examples)
     - [Telephony Calls](#telephony-calls)
     - [Send SMS](#send-sms)
@@ -22,7 +20,7 @@ This is a library implemented in typescript which provides convenient apis for t
 ### Install
 
 ```shell
-npm install https://github.com/zengfenfei/ringcentral-js-client#releases --save # This version is for test only which will change soon.
+npm install ringcentral-client --save
 npm install ringcentral     # Install the peerDependency
 ```
 
@@ -60,14 +58,15 @@ All APIs are exposed on the global variable `RingCentral`.
 Login, logout, get account info.
 
 ```typescript
-let client = new RingCentralClient(new SDK({
+let sdk = new SDK({
 	server: SERVER_SANDBOX, // Optional, default is production server
 	appKey: "{yourAppKey}",
 	appSecret: "{yourAppSecret}"
-}));
+});
+let client = new RingCentralClient(sdk);
 
 // Log into RingCentral
-client.login({
+sdk.login({
 	"username": "{username}",
 	"extension": "{extension}",
 	"password": "{password}"
@@ -82,140 +81,6 @@ client.login({
 }).catch(e => {
 	console.error("Error occured", e);
 });
-```
-
-## Authorization
-
-You must get the access token through the **authorization flows** before calling any RingCentral APIs. There are several authorization flows you can use to get an authorized access to RingCentral API.
-
-Apps with 'Public' application type are not allowed to use Password Flow for security reasons, as well as 'Private' apps of 'Browser-Based' or 'Server/Web' platform type. Apps with no user interface are not allowed to use Authorization Code Flow.
-
-### Login by OAuth 2.0 Flows
-
-1. Call `client.loginUrl(...)` to get the **RingCentral OAuth login page url**, go to the login page and enter the credentials.
-2. If successfully logged in, the login page will redirect to the page of `redirectUri`, from the url parameters of that page you can get the **authorization code** by call `client.getAuthCode({redirectPageUrl})`.
-3. Login with auth code: `client.login({ code: authCode, redirectUri: redirectUri })`
-
-Use webpack to pack the following complete sample and run in the browser.
-
-```typescript
-import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
-import * as SDK from "ringcentral";
-
-let client = new RingCentralClient(new SDK({
-    server: SERVER_SANDBOX, // Optional, default is production server
-    appKey: "{yourAppKey}",
-    appSecret: "{yourAppSecret}"
-}));
-
-// To be simple, let redirectUri be the url of the current page without any parameters, and add this url to your apps 'OAuth Redirect URI' via the settings page of your app(https://developer.ringcentral.com/my-account.html#/applications).
-const redirectUri = "{currentPageUrlAsRedirectUri}";
-
-checkLogin();
-
-function checkLogin() {
-    // #2 Get the auth code from the query of the redirectUri page
-    let authCode = client.getAuthCode(location.href);
-    if (!authCode) {
-        // #1 Go to oauth login page
-        location.href = client.loginUrl({ redirectUri: redirectUri });
-        return;
-    }
-    // #3 login with auth code
-    client.login({ code: authCode, redirectUri: redirectUri }).then(() => {
-        console.log("Login success");
-        alert("Login success");
-    }).catch(e => {
-        console.error("Login fail ", e);
-        alert("Login fail." + e);
-    });
-}
-```
-
-### Login by Password Flow
-
-Complete sample:
-
-```typescript
-import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
-import * as SDK from "ringcentral";
-
-let client = new RingCentralClient(new SDK({
-    server: SERVER_SANDBOX, // Optional, default is production server
-    appKey: "{yourAppKey}",
-    appSecret: "{yourAppSecret}"
-}));
-
-client.login({ username: "{username}", password: "{password}" }).then(() => {
-    console.log("Login success");
-}).catch(e => {
-    console.error("Login fail ", e);
-});
-```
-
-### Logout
-
-Call `client.logout()` to revoke the access token.
-
-### Check Login Status
-
-By default, token is stored in `localStorage` of browser, so before you do the real login, you may want to check the existing access and refresh token and try to refresh the token if needed:
-
-```javascript
-client.ensureLoggedIn().then(() => {
-    console.log("Already login.");  // Existing token is valid or token refreshed successfully.
-}).catch(e => {
-    console.error("Not logged in.");    // No existing token or both access token and refresh toke have expired.
-});
-```
-
-### Authorization Events
-
-Supported events:
-
-* `EVENT_LOGIN_START`
-* `EVENT_LOGIN_SUCCESS`
-* `EVENT_LOGIN_ERROR`
-* `EVENT_REFRESH_START`
-* `EVENT_REFRESH_SUCCESS`
-* `EVENT_REFRESH_ERROR`
-* `EVENT_LOGOUT_START`
-* `EVENT_LOGOUT_SUCCESS`
-* `EVENT_LOGOUT_ERROR`
-
-```typescript
-import RingCentralClient, {EVENT_LOGIN_SUCCESS, EVENT_LOGOUT_SUCCESS} from "ringcentral-client";
-
-let client = new RingCentralClient({...});
-
-client.on(EVENT_LOGIN_SUCCESS, () => {
-    console.log("Login success event.");
-});
-
-client.on(EVENT_LOGOUT_SUCCESS, () => {
-    console.log("Logout sucess event.");
-});
-```
-
-## Subscriptions
-
-For more info, refer to https://github.com/ringcentral/ringcentral-js#server-side-subscriptions.
-
-```typescript
-var subscription = client.createSubscription();
-
-subscription.on(subscription.events.notification, function (msg) {
-    console.log(msg, msg.body);
-});
-
-subscription
-    .setEventFilters(['/account/~/extension/~/presence']) // a list of server-side events
-    .register()
-    .then((subscription) => {
-        console.log("Create subscription", subscription.json());
-    }, e => {
-        console.error("Fail to create subscription", e);
-    });
 ```
 
 ## API Call Examples
