@@ -185,7 +185,7 @@ export default class Extension extends PathSegment {
     }
 
     /**
-     * Dimensions of a profile image which will be returned in response.
+     * Dimensions of a profile image which will be returned in response
      */
     profileImage(id?: string) {
         return new ProfileImage(this, id);
