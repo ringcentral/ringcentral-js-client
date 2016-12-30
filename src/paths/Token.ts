@@ -11,12 +11,7 @@ export default class Token extends PathSegment {
      *  OAuth2 Get Token
      */
     post(body: PostBody): Promise<TokenInfo> {
-        return this.getService().send({
-          body: body,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("post", true, body, undefined).then((res) => {
             return res.json();
         });
     }

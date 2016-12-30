@@ -11,12 +11,7 @@ export default class Order extends PathSegment {
      *  Create New Order
      */
     post(body: PostBody): Promise<PostResponse> {
-        return this.getService().send({
-          body: body,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("post", true, body, undefined).then((res) => {
             return res.json();
         });
     }
@@ -25,12 +20,7 @@ export default class Order extends PathSegment {
      *  Get Order by ID
      */
     get(): Promise<GetResponse> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("get", true, undefined, undefined).then((res) => {
             return res.json();
         });
     }

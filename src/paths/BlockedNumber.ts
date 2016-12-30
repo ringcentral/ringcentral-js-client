@@ -12,12 +12,7 @@ export default class BlockedNumber extends PathSegment {
      *  Add New Blocked Number
      */
     post(body: BlockedNumberInfo): Promise<BlockedNumberInfo> {
-        return this.getService().send({
-          body: body,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("post", true, body, undefined).then((res) => {
             return res.json();
         });
     }
@@ -26,12 +21,7 @@ export default class BlockedNumber extends PathSegment {
      *  Get Blocked Number List
      */
     list(): Promise<PagingResult<BlockedNumberInfo>> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(false),
-        }).then((res) => {
+        return this._send("get", false, undefined, undefined).then((res) => {
             return res.json();
         });
     }
@@ -40,12 +30,7 @@ export default class BlockedNumber extends PathSegment {
      *  Delete Blocked Number by ID
      */
     delete(): Promise<void> {
-        return this.getService().send({
-          body: undefined,
-          method: "delete",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("delete", true, undefined, undefined).then((res) => {
             return res.response();
         });
     }
@@ -54,12 +39,7 @@ export default class BlockedNumber extends PathSegment {
      *  Get Blocked Number by ID
      */
     get(): Promise<BlockedNumberInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("get", true, undefined, undefined).then((res) => {
             return res.json();
         });
     }
@@ -68,12 +48,7 @@ export default class BlockedNumber extends PathSegment {
      *  Update Blocked Number Label
      */
     put(body: BlockedNumberInfo): Promise<BlockedNumberInfo> {
-        return this.getService().send({
-          body: body,
-          method: "put",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("put", true, body, undefined).then((res) => {
             return res.json();
         });
     }

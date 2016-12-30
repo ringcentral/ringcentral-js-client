@@ -10,12 +10,7 @@ export default class End extends PathSegment {
      *  End Current Meeting
      */
     post(): Promise<void> {
-        return this.getService().send({
-          body: undefined,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("post", true, undefined, undefined).then((res) => {
             return res.response();
         });
     }

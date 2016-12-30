@@ -11,12 +11,7 @@ export default class Presence extends PathSegment {
      *  Get Extension Presence
      */
     get(): Promise<PresenceInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("get", true, undefined, undefined).then((res) => {
             return res.json();
         });
     }

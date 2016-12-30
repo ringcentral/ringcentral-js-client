@@ -19,12 +19,7 @@ export default class AnsweringRule extends PathSegment {
      *  Create Custom Answering Rule
      */
     post(body: PostBody): Promise<AnsweringRuleInfo> {
-        return this.getService().send({
-          body: body,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("post", true, body, undefined).then((res) => {
             return res.json();
         });
     }
@@ -33,12 +28,7 @@ export default class AnsweringRule extends PathSegment {
      *  Get Answering Rules List
      */
     list(): Promise<PagingResult<AnsweringRuleInfo>> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(false),
-        }).then((res) => {
+        return this._send("get", false, undefined, undefined).then((res) => {
             return res.json();
         });
     }
@@ -47,12 +37,7 @@ export default class AnsweringRule extends PathSegment {
      *  Delete Answering Rule by ID
      */
     delete(): Promise<void> {
-        return this.getService().send({
-          body: undefined,
-          method: "delete",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("delete", true, undefined, undefined).then((res) => {
             return res.response();
         });
     }
@@ -61,12 +46,7 @@ export default class AnsweringRule extends PathSegment {
      *  Get Custom Answering Rule by ID
      */
     get(): Promise<AnsweringRuleInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("get", true, undefined, undefined).then((res) => {
             return res.json();
         });
     }
@@ -75,12 +55,7 @@ export default class AnsweringRule extends PathSegment {
      *  Update Answering Rule by ID
      */
     put(body: PutBody): Promise<AnsweringRuleInfo> {
-        return this.getService().send({
-          body: body,
-          method: "put",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("put", true, body, undefined).then((res) => {
             return res.json();
         });
     }

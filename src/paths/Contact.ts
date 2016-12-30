@@ -12,12 +12,7 @@ export default class Contact extends PathSegment {
      *  Create New Contact
      */
     post(body: PersonalContactInfo): Promise<PersonalContactInfo> {
-        return this.getService().send({
-          body: body,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("post", true, body, undefined).then((res) => {
             return res.json();
         });
     }
@@ -26,12 +21,7 @@ export default class Contact extends PathSegment {
      *  Get Contact List
      */
     list(query?: ListQuery): Promise<PagingResult<PersonalContactInfo>> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: query,
-          url: this.getEndpoint(false),
-        }).then((res) => {
+        return this._send("get", false, undefined, query).then((res) => {
             return res.json();
         });
     }
@@ -40,12 +30,7 @@ export default class Contact extends PathSegment {
      *  Delete Contact by ID
      */
     delete(): Promise<void> {
-        return this.getService().send({
-          body: undefined,
-          method: "delete",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("delete", true, undefined, undefined).then((res) => {
             return res.response();
         });
     }
@@ -54,12 +39,7 @@ export default class Contact extends PathSegment {
      *  Get Contact by ID
      */
     get(): Promise<PersonalContactInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("get", true, undefined, undefined).then((res) => {
             return res.json();
         });
     }
@@ -68,12 +48,7 @@ export default class Contact extends PathSegment {
      *  Update Contact by ID
      */
     put(body: PersonalContactInfo): Promise<PersonalContactInfo> {
-        return this.getService().send({
-          body: body,
-          method: "put",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("put", true, body, undefined).then((res) => {
             return res.json();
         });
     }

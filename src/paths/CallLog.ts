@@ -13,12 +13,7 @@ export default class CallLog extends PathSegment {
      *  Get Account Call Log
      */
     list(query?: ListQuery): Promise<PagingResult<CallLogRecord>> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: query,
-          url: this.getEndpoint(false),
-        }).then((res) => {
+        return this._send("get", false, undefined, query).then((res) => {
             return res.json();
         });
     }
@@ -27,12 +22,7 @@ export default class CallLog extends PathSegment {
      *  Get Account Call Log Record by ID
      */
     get(): Promise<CallLogInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("get", true, undefined, undefined).then((res) => {
             return res.json();
         });
     }
@@ -41,12 +31,7 @@ export default class CallLog extends PathSegment {
      *  Delete Extension Call Log
      */
     delete(query?: DeleteQuery): Promise<void> {
-        return this.getService().send({
-          body: undefined,
-          method: "delete",
-          query: query,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("delete", true, undefined, query).then((res) => {
             return res.response();
         });
     }

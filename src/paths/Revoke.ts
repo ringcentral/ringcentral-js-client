@@ -10,12 +10,7 @@ export default class Revoke extends PathSegment {
      *  OAuth2 Revoke Token
      */
     post(body: PostBody): Promise<void> {
-        return this.getService().send({
-          body: body,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("post", true, body, undefined).then((res) => {
             return res.response();
         });
     }

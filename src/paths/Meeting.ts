@@ -29,12 +29,7 @@ export default class Meeting extends PathSegment {
      *  Create Meeting
      */
     post(body: PostBody): Promise<MeetingInfo> {
-        return this.getService().send({
-          body: body,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("post", true, body, undefined).then((res) => {
             return res.json();
         });
     }
@@ -43,12 +38,7 @@ export default class Meeting extends PathSegment {
      *  Get Meetings List
      */
     list(): Promise<PagingResult<MeetingInfo>> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(false),
-        }).then((res) => {
+        return this._send("get", false, undefined, undefined).then((res) => {
             return res.json();
         });
     }
@@ -57,12 +47,7 @@ export default class Meeting extends PathSegment {
      *  Delete Meeting
      */
     delete(): Promise<void> {
-        return this.getService().send({
-          body: undefined,
-          method: "delete",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("delete", true, undefined, undefined).then((res) => {
             return res.response();
         });
     }
@@ -71,12 +56,7 @@ export default class Meeting extends PathSegment {
      *  Get Meeting
      */
     get(): Promise<MeetingInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("get", true, undefined, undefined).then((res) => {
             return res.json();
         });
     }
@@ -85,12 +65,7 @@ export default class Meeting extends PathSegment {
      *  Update Meeting
      */
     put(body: PutBody): Promise<MeetingInfo> {
-        return this.getService().send({
-          body: body,
-          method: "put",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("put", true, body, undefined).then((res) => {
             return res.json();
         });
     }

@@ -12,12 +12,7 @@ export default class CompanyPager extends PathSegment {
      *  Create and Send Pager Message
      */
     post(body: PostBody): Promise<MessageInfo> {
-        return this.getService().send({
-          body: body,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("post", true, body, undefined).then((res) => {
             return res.json();
         });
     }

@@ -20,12 +20,7 @@ export default class MessageStore extends PathSegment {
      *  Get Message List
      */
     list(query?: ListQuery): Promise<PagingResult<MessageInfo>> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: query,
-          url: this.getEndpoint(false),
-        }).then((res) => {
+        return this._send("get", false, undefined, query).then((res) => {
             return res.json();
         });
     }
@@ -34,12 +29,7 @@ export default class MessageStore extends PathSegment {
      *  Delete Message by ID
      */
     delete(query?: DeleteQuery): Promise<void> {
-        return this.getService().send({
-          body: undefined,
-          method: "delete",
-          query: query,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("delete", true, undefined, query).then((res) => {
             return res.response();
         });
     }
@@ -48,12 +38,7 @@ export default class MessageStore extends PathSegment {
      *  Get Message by ID
      */
     get(): Promise<MessageInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("get", true, undefined, undefined).then((res) => {
             return res.json();
         });
     }
@@ -62,12 +47,7 @@ export default class MessageStore extends PathSegment {
      *  Update Message by ID
      */
     put(body: PutBody): Promise<MessageInfo> {
-        return this.getService().send({
-          body: body,
-          method: "put",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("put", true, body, undefined).then((res) => {
             return res.json();
         });
     }

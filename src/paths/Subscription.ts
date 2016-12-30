@@ -12,12 +12,7 @@ export default class Subscription extends PathSegment {
      *  Create New Subscription
      */
     post(body: PostBody): Promise<SubscriptionInfo> {
-        return this.getService().send({
-          body: body,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("post", true, body, undefined).then((res) => {
             return res.json();
         });
     }
@@ -26,12 +21,7 @@ export default class Subscription extends PathSegment {
      *  Cancel Subscription by ID
      */
     delete(): Promise<void> {
-        return this.getService().send({
-          body: undefined,
-          method: "delete",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("delete", true, undefined, undefined).then((res) => {
             return res.response();
         });
     }
@@ -40,12 +30,7 @@ export default class Subscription extends PathSegment {
      *  Get Subscription by ID
      */
     get(): Promise<SubscriptionInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("get", true, undefined, undefined).then((res) => {
             return res.json();
         });
     }
@@ -54,12 +39,7 @@ export default class Subscription extends PathSegment {
      *  Update/Renew Subscription by ID
      */
     put(body: PutBody): Promise<SubscriptionInfo> {
-        return this.getService().send({
-          body: body,
-          method: "put",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("put", true, body, undefined).then((res) => {
             return res.json();
         });
     }

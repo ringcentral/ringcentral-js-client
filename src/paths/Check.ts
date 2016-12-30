@@ -11,12 +11,7 @@ export default class Check extends PathSegment {
      *  Check User Permissions
      */
     get(query?: GetQuery): Promise<GetResponse> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: query,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("get", true, undefined, query).then((res) => {
             return res.json();
         });
     }

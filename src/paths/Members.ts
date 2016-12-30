@@ -12,12 +12,7 @@ export default class Members extends PathSegment {
      *  Get Department Members
      */
     list(query?: ListQuery): Promise<PagingResult<DepartmentResponseExtensionInfo>> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: query,
-          url: this.getEndpoint(false),
-        }).then((res) => {
+        return this._send("get", false, undefined, query).then((res) => {
             return res.json();
         });
     }

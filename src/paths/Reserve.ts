@@ -12,12 +12,7 @@ export default class Reserve extends PathSegment {
      *  Reserve Phone Number
      */
     post(body: PostBody): Promise<PostResponse> {
-        return this.getService().send({
-          body: body,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
+        return this._send("post", true, body, undefined).then((res) => {
             return res.json();
         });
     }
