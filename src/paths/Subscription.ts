@@ -1,6 +1,7 @@
 // This is Generated Source.
 import SubscriptionInfo from "../definitions/SubscriptionInfo";
 import SubscriptionRequestDeliveryMode from "../definitions/SubscriptionRequestDeliveryMode";
+import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
 
 export default class Subscription extends PathSegment {
@@ -20,8 +21,8 @@ export default class Subscription extends PathSegment {
     /**
      *  Get Subscription List
      */
-    get(): Promise<GetResponse> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    list(): Promise<PagingResult<SubscriptionInfo>> {
+        return this._send("get", false, undefined, undefined).then((res) => {
             return res.json();
         });
     }
@@ -31,6 +32,15 @@ export default class Subscription extends PathSegment {
      */
     delete(): Promise<void> {
         return this._send("delete", true, undefined, undefined);
+    }
+
+    /**
+     *  Get Subscription by ID
+     */
+    get(): Promise<SubscriptionInfo> {
+        return this._send("get", true, undefined, undefined).then((res) => {
+            return res.json();
+        });
     }
 
     /**
@@ -54,19 +64,6 @@ export interface PostBody {
      * Notification delivery settings
      */
     deliveryMode?: SubscriptionRequestDeliveryMode;
-}
-
-export interface GetResponse {
-
-    /**
-     * Canonical URI of a subscription resource
-     */
-    uri?: string;
-
-    /**
-     * List of subscriptions for the current user and application
-     */
-    records?: SubscriptionInfo[];
 }
 
 export interface PutBody {

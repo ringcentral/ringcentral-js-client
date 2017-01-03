@@ -1,6 +1,6 @@
 // This is Generated Source.
 import MessageInfo from "../definitions/MessageInfo";
-import SyncInfo from "../definitions/SyncInfo";
+import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
 
 export default class MessageSync extends PathSegment {
@@ -11,14 +11,14 @@ export default class MessageSync extends PathSegment {
     /**
      *  Message Synchronization
      */
-    get(query?: GetQuery): Promise<GetResponse> {
-        return this._send("get", true, undefined, query).then((res) => {
+    list(query?: ListQuery): Promise<PagingResult<MessageInfo>> {
+        return this._send("get", false, undefined, query).then((res) => {
             return res.json();
         });
     }
 }
 
-export interface GetQuery {
+export interface ListQuery {
 
     /**
      * Conversation identifier for the resulting messages. Meaningful for SMS and Pager messages only.
@@ -64,17 +64,4 @@ export interface GetQuery {
      * Type of message synchronization
      */
     syncType?: "FSync" | "ISync";
-}
-
-export interface GetResponse {
-
-    /**
-     * List of message records with synchronization information
-     */
-    records?: MessageInfo[];
-
-    /**
-     * Sync type, token and time
-     */
-    syncInfo?: SyncInfo;
 }

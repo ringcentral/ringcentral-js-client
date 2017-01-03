@@ -1,6 +1,6 @@
 // This is Generated Source.
 import CallLogRecord from "../definitions/CallLogRecord";
-import SyncInfo from "../definitions/SyncInfo";
+import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
 
 export default class CallLogSync extends PathSegment {
@@ -11,14 +11,14 @@ export default class CallLogSync extends PathSegment {
     /**
      *  Call Log Synchronization
      */
-    get(query?: GetQuery): Promise<GetResponse> {
-        return this._send("get", true, undefined, query).then((res) => {
+    list(query?: ListQuery): Promise<PagingResult<CallLogRecord>> {
+        return this._send("get", false, undefined, query).then((res) => {
             return res.json();
         });
     }
 }
 
-export interface GetQuery {
+export interface ListQuery {
 
     /**
      * Type of synchronization. 'FSync' is a default value
@@ -44,17 +44,4 @@ export interface GetQuery {
      * Type of calls to be returned. The default value is 'All'
      */
     statusGroup?: "Missed" | "All";
-}
-
-export interface GetResponse {
-
-    /**
-     * List of call log records with synchronization information. For ISync the total number of returned records is limited to 250; this includes both new records and the old ones, specified by the recordCount parameter
-     */
-    records?: CallLogRecord[];
-
-    /**
-     * Sync type, token and time
-     */
-    syncInfo?: SyncInfo;
 }

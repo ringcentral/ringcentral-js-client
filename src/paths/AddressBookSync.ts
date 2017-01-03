@@ -1,6 +1,6 @@
 // This is Generated Source.
 import PersonalContactInfo from "../definitions/PersonalContactInfo";
-import SyncInfo from "../definitions/SyncInfo";
+import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
 
 export default class AddressBookSync extends PathSegment {
@@ -11,14 +11,14 @@ export default class AddressBookSync extends PathSegment {
     /**
      *  Contacts Synchronization
      */
-    get(query?: GetQuery): Promise<GetResponse> {
-        return this._send("get", true, undefined, query).then((res) => {
+    list(query?: ListQuery): Promise<PagingResult<PersonalContactInfo>> {
+        return this._send("get", false, undefined, query).then((res) => {
             return res.json();
         });
     }
 }
 
-export interface GetQuery {
+export interface ListQuery {
 
     /**
      * Type of synchronization. The default value is 'FSync'
@@ -39,27 +39,4 @@ export interface GetQuery {
      * Internal identifier of a page. It can be obtained from the 'nextPageId' parameter passed in response body
      */
     pageId?: number;
-}
-
-export interface GetResponse {
-
-    /**
-     * List of contacts with synchronization information
-     */
-    records?: PersonalContactInfo[];
-
-    /**
-     * Sync type, token and time
-     */
-    syncInfo?: SyncInfo;
-
-    /**
-     * Internal identifier of the next page, if any
-     */
-    nextPageId?: number;
-
-    /**
-     * URL of the next page, if any
-     */
-    nextPageUri?: string;
 }
