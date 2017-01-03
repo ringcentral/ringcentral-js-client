@@ -9,9 +9,7 @@ export default class Content extends PathSegment {
     /**
      *  Get Message Attachment
      */
-    get(): Promise<Response> {
-        return this._send("get", true, undefined, undefined).then((res) => {
-            return res.response();
-        });
+    get(): Promise<any> {
+        return this._send("get", true, undefined, undefined);
     }
 }

@@ -30,9 +30,7 @@ export default class BlockedNumber extends PathSegment {
      *  Delete Blocked Number by ID
      */
     delete(): Promise<void> {
-        return this._send("delete", true, undefined, undefined).then((res) => {
-            return res.response();
-        });
+        return this._send("delete", true, undefined, undefined);
     }
 
     /**

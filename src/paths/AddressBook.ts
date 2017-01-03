@@ -16,7 +16,7 @@ export default class AddressBook extends PathSegment {
     }
 
     /**
-     * Internal identifier of a group in an address book
+     * 
      */
     group(id?: string) {
         return new Group(this, id);

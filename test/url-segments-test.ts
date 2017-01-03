@@ -168,11 +168,7 @@ describe("PathSegments", function () {
 
         it("covers all", function () {
             let addressBook = client.account().extension().addressBook();
-            return addressBook.group().list().then(res => {
-                if (res.records.length > 0) {
-                    return addressBook.group(res.records[0].id).get();
-                }
-            });
+            return addressBook.group().list();
         });
 
     });

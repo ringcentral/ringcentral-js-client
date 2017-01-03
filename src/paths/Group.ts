@@ -16,13 +16,4 @@ export default class Group extends PathSegment {
             return res.json();
         });
     }
-
-    /**
-     *  Get Contact Group by ID
-     */
-    get(): Promise<GroupInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
-            return res.json();
-        });
-    }
 }

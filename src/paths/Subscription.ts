@@ -18,21 +18,19 @@ export default class Subscription extends PathSegment {
     }
 
     /**
-     *  Cancel Subscription by ID
+     *  Get Subscription List
      */
-    delete(): Promise<void> {
-        return this._send("delete", true, undefined, undefined).then((res) => {
-            return res.response();
+    get(): Promise<GetResponse> {
+        return this._send("get", true, undefined, undefined).then((res) => {
+            return res.json();
         });
     }
 
     /**
-     *  Get Subscription by ID
+     *  Cancel Subscription by ID
      */
-    get(): Promise<SubscriptionInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
-            return res.json();
-        });
+    delete(): Promise<void> {
+        return this._send("delete", true, undefined, undefined);
     }
 
     /**
@@ -56,6 +54,19 @@ export interface PostBody {
      * Notification delivery settings
      */
     deliveryMode?: SubscriptionRequestDeliveryMode;
+}
+
+export interface GetResponse {
+
+    /**
+     * Canonical URI of a subscription resource
+     */
+    uri?: string;
+
+    /**
+     * List of subscriptions for the current user and application
+     */
+    records?: SubscriptionInfo[];
 }
 
 export interface PutBody {

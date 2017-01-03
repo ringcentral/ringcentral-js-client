@@ -47,9 +47,7 @@ export default class Meeting extends PathSegment {
      *  Delete Meeting
      */
     delete(): Promise<void> {
-        return this._send("delete", true, undefined, undefined).then((res) => {
-            return res.response();
-        });
+        return this._send("delete", true, undefined, undefined);
     }
 
     /**

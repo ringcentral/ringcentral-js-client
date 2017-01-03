@@ -23,9 +23,7 @@ export default class Ringout extends PathSegment {
      *  Cancel RingOut Call
      */
     delete(): Promise<void> {
-        return this._send("delete", true, undefined, undefined).then((res) => {
-            return res.response();
-        });
+        return this._send("delete", true, undefined, undefined);
     }
 
     /**

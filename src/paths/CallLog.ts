@@ -31,9 +31,7 @@ export default class CallLog extends PathSegment {
      *  Delete Extension Call Log
      */
     delete(query?: DeleteQuery): Promise<void> {
-        return this._send("delete", true, undefined, query).then((res) => {
-            return res.response();
-        });
+        return this._send("delete", true, undefined, query);
     }
 }
 

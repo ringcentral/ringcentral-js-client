@@ -37,9 +37,7 @@ export default class AnsweringRule extends PathSegment {
      *  Delete Answering Rule by ID
      */
     delete(): Promise<void> {
-        return this._send("delete", true, undefined, undefined).then((res) => {
-            return res.response();
-        });
+        return this._send("delete", true, undefined, undefined);
     }
 
     /**
