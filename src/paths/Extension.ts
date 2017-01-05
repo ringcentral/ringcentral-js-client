@@ -209,13 +209,26 @@ export default class Extension extends PathSegment {
      *  Get Extension List
      */
     list(query?: ListQuery): Promise<PagingResult<ExtensionInfo>> {
-    return this._send({
-        body: undefined,
-        ignoreId: false,
-        method: "get",
-        query: query,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Extension List
+     *  return {ApiResponse}
+     */
+    listRaw(query?: ListQuery): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
         });
     }
 
@@ -223,13 +236,26 @@ export default class Extension extends PathSegment {
      *  Get Extension Info by ID
      */
     get(): Promise<ExtensionInfo> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Extension Info by ID
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -237,13 +263,26 @@ export default class Extension extends PathSegment {
      *  Update Extension by ID
      */
     put(body: PutBody): Promise<ExtensionInfo> {
-    return this._send({
-        body: body,
-        ignoreId: true,
-        method: "put",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Update Extension by ID
+     *  return {ApiResponse}
+     */
+    putRaw(body: PutBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
         });
     }
 }

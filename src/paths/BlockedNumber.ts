@@ -12,13 +12,26 @@ export default class BlockedNumber extends PathSegment {
      *  Add New Blocked Number
      */
     post(body: BlockedNumberInfo): Promise<BlockedNumberInfo> {
-    return this._send({
-        body: body,
-        ignoreId: true,
-        method: "post",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Add New Blocked Number
+     *  return {ApiResponse}
+     */
+    postRaw(body: BlockedNumberInfo): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
         });
     }
 
@@ -26,13 +39,26 @@ export default class BlockedNumber extends PathSegment {
      *  Get Blocked Number List
      */
     list(): Promise<PagingResult<BlockedNumberInfo>> {
-    return this._send({
-        body: undefined,
-        ignoreId: false,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Blocked Number List
+     *  return {ApiResponse}
+     */
+    listRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -40,25 +66,51 @@ export default class BlockedNumber extends PathSegment {
      *  Delete Blocked Number by ID
      */
     delete(): Promise<void> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "delete",
-        query: undefined,
-    });
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  Delete Blocked Number by ID
+     *  return {ApiResponse}
+     */
+    deleteRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
     }
 
     /**
      *  Get Blocked Number by ID
      */
     get(): Promise<BlockedNumberInfo> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Blocked Number by ID
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -66,13 +118,26 @@ export default class BlockedNumber extends PathSegment {
      *  Update Blocked Number Label
      */
     put(body: BlockedNumberInfo): Promise<BlockedNumberInfo> {
-    return this._send({
-        body: body,
-        ignoreId: true,
-        method: "put",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Update Blocked Number Label
+     *  return {ApiResponse}
+     */
+    putRaw(body: BlockedNumberInfo): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
         });
     }
 }

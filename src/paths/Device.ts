@@ -12,13 +12,26 @@ export default class Device extends PathSegment {
      *  Get Account Device List
      */
     list(): Promise<PagingResult<DeviceInfo>> {
-    return this._send({
-        body: undefined,
-        ignoreId: false,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Account Device List
+     *  return {ApiResponse}
+     */
+    listRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -26,13 +39,26 @@ export default class Device extends PathSegment {
      *  Get Device by ID
      */
     get(): Promise<DeviceInfo> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Device by ID
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 }

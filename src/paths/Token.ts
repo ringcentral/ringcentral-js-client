@@ -11,13 +11,26 @@ export default class Token extends PathSegment {
      *  OAuth2 Get Token
      */
     post(body: PostBody): Promise<TokenInfo> {
-    return this._send({
-        body: body,
-        ignoreId: true,
-        method: "post",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  OAuth2 Get Token
+     *  return {ApiResponse}
+     */
+    postRaw(body: PostBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
         });
     }
 }

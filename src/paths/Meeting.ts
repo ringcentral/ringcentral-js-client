@@ -29,13 +29,26 @@ export default class Meeting extends PathSegment {
      *  Create Meeting
      */
     post(body: PostBody): Promise<MeetingInfo> {
-    return this._send({
-        body: body,
-        ignoreId: true,
-        method: "post",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Create Meeting
+     *  return {ApiResponse}
+     */
+    postRaw(body: PostBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
         });
     }
 
@@ -43,13 +56,26 @@ export default class Meeting extends PathSegment {
      *  Get Meetings List
      */
     list(): Promise<PagingResult<MeetingInfo>> {
-    return this._send({
-        body: undefined,
-        ignoreId: false,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Meetings List
+     *  return {ApiResponse}
+     */
+    listRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -57,25 +83,51 @@ export default class Meeting extends PathSegment {
      *  Delete Meeting
      */
     delete(): Promise<void> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "delete",
-        query: undefined,
-    });
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  Delete Meeting
+     *  return {ApiResponse}
+     */
+    deleteRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
     }
 
     /**
      *  Get Meeting
      */
     get(): Promise<MeetingInfo> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Meeting
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -83,13 +135,26 @@ export default class Meeting extends PathSegment {
      *  Update Meeting
      */
     put(body: PutBody): Promise<MeetingInfo> {
-    return this._send({
-        body: body,
-        ignoreId: true,
-        method: "put",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Update Meeting
+     *  return {ApiResponse}
+     */
+    putRaw(body: PutBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
         });
     }
 }

@@ -12,13 +12,26 @@ export default class MessageSync extends PathSegment {
      *  Message Synchronization
      */
     list(query?: ListQuery): Promise<PagingResult<MessageInfo>> {
-    return this._send({
-        body: undefined,
-        ignoreId: false,
-        method: "get",
-        query: query,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Message Synchronization
+     *  return {ApiResponse}
+     */
+    listRaw(query?: ListQuery): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
         });
     }
 }

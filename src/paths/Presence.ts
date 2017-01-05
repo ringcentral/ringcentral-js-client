@@ -11,13 +11,26 @@ export default class Presence extends PathSegment {
      *  Get Extension Presence
      */
     get(): Promise<PresenceInfo> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Extension Presence
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 }

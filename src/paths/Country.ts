@@ -12,13 +12,26 @@ export default class Country extends PathSegment {
      *  Get Country List
      */
     list(query?: ListQuery): Promise<PagingResult<FullCountryInfo>> {
-    return this._send({
-        body: undefined,
-        ignoreId: false,
-        method: "get",
-        query: query,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Country List
+     *  return {ApiResponse}
+     */
+    listRaw(query?: ListQuery): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
         });
     }
 
@@ -26,13 +39,26 @@ export default class Country extends PathSegment {
      *  Get Country by ID
      */
     get(): Promise<FullCountryInfo> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Country by ID
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 }

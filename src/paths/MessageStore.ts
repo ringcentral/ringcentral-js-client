@@ -20,13 +20,26 @@ export default class MessageStore extends PathSegment {
      *  Get Message List
      */
     list(query?: ListQuery): Promise<PagingResult<MessageInfo>> {
-    return this._send({
-        body: undefined,
-        ignoreId: false,
-        method: "get",
-        query: query,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Message List
+     *  return {ApiResponse}
+     */
+    listRaw(query?: ListQuery): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
         });
     }
 
@@ -34,25 +47,51 @@ export default class MessageStore extends PathSegment {
      *  Delete Message by ID
      */
     delete(query?: DeleteQuery): Promise<void> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "delete",
-        query: query,
-    });
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: query,
+        });
+    }
+
+    /**
+     *  Delete Message by ID
+     *  return {ApiResponse}
+     */
+    deleteRaw(query?: DeleteQuery): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: query,
+        });
     }
 
     /**
      *  Get Message by ID
      */
     get(): Promise<MessageInfo> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Message by ID
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -60,13 +99,26 @@ export default class MessageStore extends PathSegment {
      *  Update Message by ID
      */
     put(body: PutBody): Promise<MessageInfo> {
-    return this._send({
-        body: body,
-        ignoreId: true,
-        method: "put",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Update Message by ID
+     *  return {ApiResponse}
+     */
+    putRaw(body: PutBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
         });
     }
 }

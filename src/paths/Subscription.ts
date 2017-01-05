@@ -13,13 +13,26 @@ export default class Subscription extends PathSegment {
      *  Create New Subscription
      */
     post(body: PostBody): Promise<SubscriptionInfo> {
-    return this._send({
-        body: body,
-        ignoreId: true,
-        method: "post",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Create New Subscription
+     *  return {ApiResponse}
+     */
+    postRaw(body: PostBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
         });
     }
 
@@ -27,13 +40,26 @@ export default class Subscription extends PathSegment {
      *  Get Subscription List
      */
     list(): Promise<PagingResult<SubscriptionInfo>> {
-    return this._send({
-        body: undefined,
-        ignoreId: false,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Subscription List
+     *  return {ApiResponse}
+     */
+    listRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -41,25 +67,51 @@ export default class Subscription extends PathSegment {
      *  Cancel Subscription by ID
      */
     delete(): Promise<void> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "delete",
-        query: undefined,
-    });
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  Cancel Subscription by ID
+     *  return {ApiResponse}
+     */
+    deleteRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
     }
 
     /**
      *  Get Subscription by ID
      */
     get(): Promise<SubscriptionInfo> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Subscription by ID
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -67,13 +119,26 @@ export default class Subscription extends PathSegment {
      *  Update/Renew Subscription by ID
      */
     put(body: PutBody): Promise<SubscriptionInfo> {
-    return this._send({
-        body: body,
-        ignoreId: true,
-        method: "put",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Update/Renew Subscription by ID
+     *  return {ApiResponse}
+     */
+    putRaw(body: PutBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
         });
     }
 }

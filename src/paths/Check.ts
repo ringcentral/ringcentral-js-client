@@ -11,13 +11,26 @@ export default class Check extends PathSegment {
      *  Check User Permissions
      */
     get(query?: GetQuery): Promise<GetResponse> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "get",
-        query: query,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: query,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Check User Permissions
+     *  return {ApiResponse}
+     */
+    getRaw(query?: GetQuery): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: query,
         });
     }
 }

@@ -14,13 +14,26 @@ export default class Ringout extends PathSegment {
      *  Initiate RingOut Call
      */
     post(body: PostBody): Promise<RingOutInfo> {
-    return this._send({
-        body: body,
-        ignoreId: true,
-        method: "post",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Initiate RingOut Call
+     *  return {ApiResponse}
+     */
+    postRaw(body: PostBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
         });
     }
 
@@ -28,25 +41,51 @@ export default class Ringout extends PathSegment {
      *  Cancel RingOut Call
      */
     delete(): Promise<void> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "delete",
-        query: undefined,
-    });
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  Cancel RingOut Call
+     *  return {ApiResponse}
+     */
+    deleteRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
     }
 
     /**
      *  Get RingOut Call Status
      */
     get(): Promise<RingOutInfo> {
-    return this._send({
-        body: undefined,
-        ignoreId: true,
-        method: "get",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get RingOut Call Status
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 }

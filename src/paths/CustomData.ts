@@ -11,13 +11,26 @@ export default class CustomData extends PathSegment {
      *  Update Custom Data by Key
      */
     put(body: PutBody): Promise<PutResponse> {
-    return this._send({
-        body: body,
-        ignoreId: true,
-        method: "put",
-        query: undefined,
-    }).then((res) => {
-            return res.json();
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Update Custom Data by Key
+     *  return {ApiResponse}
+     */
+    putRaw(body: PutBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
         });
     }
 }
