@@ -9,14 +9,25 @@ export default class Content extends PathSegment {
     /**
      *  Get Message Attachment
      */
-    get(): Promise<Response> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
-            return res.response();
+    get(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  Get Message Attachment
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 }

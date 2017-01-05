@@ -19,13 +19,26 @@ export default class AuthzProfile extends PathSegment {
      *  Get User Permissions
      */
     get(): Promise<GetResponse> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         }).then((res) => {
-            return res.json();
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get User Permissions
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 }

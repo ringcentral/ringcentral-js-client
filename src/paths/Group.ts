@@ -12,27 +12,26 @@ export default class Group extends PathSegment {
      *  Get Contact Group List
      */
     list(): Promise<PagingResult<GroupInfo>> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(false),
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
         }).then((res) => {
-            return res.json();
+                return res.json();
         });
     }
 
     /**
-     *  Get Contact Group by ID
+     *  Get Contact Group List
+     *  return {ApiResponse}
      */
-    get(): Promise<GroupInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
-            return res.json();
+    listRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
         });
     }
 }

@@ -1,6 +1,6 @@
 // This is Generated Source.
 import MessageInfo from "../definitions/MessageInfo";
-import SyncInfo from "../definitions/SyncInfo";
+import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
 
 export default class MessageSync extends PathSegment {
@@ -11,19 +11,32 @@ export default class MessageSync extends PathSegment {
     /**
      *  Message Synchronization
      */
-    get(query?: GetQuery): Promise<GetResponse> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: query,
-          url: this.getEndpoint(true),
+    list(query?: ListQuery): Promise<PagingResult<MessageInfo>> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
         }).then((res) => {
-            return res.json();
+                return res.json();
+        });
+    }
+
+    /**
+     *  Message Synchronization
+     *  return {ApiResponse}
+     */
+    listRaw(query?: ListQuery): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
         });
     }
 }
 
-export interface GetQuery {
+export interface ListQuery {
 
     /**
      * Conversation identifier for the resulting messages. Meaningful for SMS and Pager messages only.
@@ -69,17 +82,4 @@ export interface GetQuery {
      * Type of message synchronization
      */
     syncType?: "FSync" | "ISync";
-}
-
-export interface GetResponse {
-
-    /**
-     * List of message records with synchronization information
-     */
-    records?: MessageInfo[];
-
-    /**
-     * Sync type, token and time
-     */
-    syncInfo?: SyncInfo;
 }

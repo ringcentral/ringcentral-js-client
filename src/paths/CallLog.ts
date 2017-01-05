@@ -13,13 +13,26 @@ export default class CallLog extends PathSegment {
      *  Get Account Call Log
      */
     list(query?: ListQuery): Promise<PagingResult<CallLogRecord>> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: query,
-          url: this.getEndpoint(false),
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
         }).then((res) => {
-            return res.json();
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Account Call Log
+     *  return {ApiResponse}
+     */
+    listRaw(query?: ListQuery): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
         });
     }
 
@@ -27,13 +40,26 @@ export default class CallLog extends PathSegment {
      *  Get Account Call Log Record by ID
      */
     get(): Promise<CallLogInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         }).then((res) => {
-            return res.json();
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Account Call Log Record by ID
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -41,13 +67,24 @@ export default class CallLog extends PathSegment {
      *  Delete Extension Call Log
      */
     delete(query?: DeleteQuery): Promise<void> {
-        return this.getService().send({
-          body: undefined,
-          method: "delete",
-          query: query,
-          url: this.getEndpoint(true),
-        }).then((res) => {
-            return res.response();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: query,
+        });
+    }
+
+    /**
+     *  Delete Extension Call Log
+     *  return {ApiResponse}
+     */
+    deleteRaw(query?: DeleteQuery): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: query,
         });
     }
 }

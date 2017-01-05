@@ -1,6 +1,7 @@
 // This is Generated Source.
 import SubscriptionInfo from "../definitions/SubscriptionInfo";
 import SubscriptionRequestDeliveryMode from "../definitions/SubscriptionRequestDeliveryMode";
+import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
 
 export default class Subscription extends PathSegment {
@@ -12,13 +13,53 @@ export default class Subscription extends PathSegment {
      *  Create New Subscription
      */
     post(body: PostBody): Promise<SubscriptionInfo> {
-        return this.getService().send({
-          body: body,
-          method: "post",
-          query: undefined,
-          url: this.getEndpoint(true),
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
         }).then((res) => {
-            return res.json();
+                return res.json();
+        });
+    }
+
+    /**
+     *  Create New Subscription
+     *  return {ApiResponse}
+     */
+    postRaw(body: PostBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  Get Subscription List
+     */
+    list(): Promise<PagingResult<SubscriptionInfo>> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Subscription List
+     *  return {ApiResponse}
+     */
+    listRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -26,13 +67,24 @@ export default class Subscription extends PathSegment {
      *  Cancel Subscription by ID
      */
     delete(): Promise<void> {
-        return this.getService().send({
-          body: undefined,
-          method: "delete",
-          query: undefined,
-          url: this.getEndpoint(true),
-        }).then((res) => {
-            return res.response();
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  Cancel Subscription by ID
+     *  return {ApiResponse}
+     */
+    deleteRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
         });
     }
 
@@ -40,13 +92,26 @@ export default class Subscription extends PathSegment {
      *  Get Subscription by ID
      */
     get(): Promise<SubscriptionInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: undefined,
-          url: this.getEndpoint(true),
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         }).then((res) => {
-            return res.json();
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Subscription by ID
+     *  return {ApiResponse}
+     */
+    getRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
         });
     }
 
@@ -54,13 +119,26 @@ export default class Subscription extends PathSegment {
      *  Update/Renew Subscription by ID
      */
     put(body: PutBody): Promise<SubscriptionInfo> {
-        return this.getService().send({
-          body: body,
-          method: "put",
-          query: undefined,
-          url: this.getEndpoint(true),
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
         }).then((res) => {
-            return res.json();
+                return res.json();
+        });
+    }
+
+    /**
+     *  Update/Renew Subscription by ID
+     *  return {ApiResponse}
+     */
+    putRaw(body: PutBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
         });
     }
 }

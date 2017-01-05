@@ -12,13 +12,26 @@ export default class Conferencing extends PathSegment {
      *  Get Conferencing info
      */
     get(query?: GetQuery): Promise<ConferencingInfo> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: query,
-          url: this.getEndpoint(true),
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: query,
         }).then((res) => {
-            return res.json();
+                return res.json();
+        });
+    }
+
+    /**
+     *  Get Conferencing info
+     *  return {ApiResponse}
+     */
+    getRaw(query?: GetQuery): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: query,
         });
     }
 
@@ -26,13 +39,26 @@ export default class Conferencing extends PathSegment {
      *  Update Conferencing info
      */
     put(body: PutBody): Promise<ConferencingInfo> {
-        return this.getService().send({
-          body: body,
-          method: "put",
-          query: undefined,
-          url: this.getEndpoint(true),
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
         }).then((res) => {
-            return res.json();
+                return res.json();
+        });
+    }
+
+    /**
+     *  Update Conferencing info
+     *  return {ApiResponse}
+     */
+    putRaw(body: PutBody): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
         });
     }
 }

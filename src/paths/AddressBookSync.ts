@@ -1,6 +1,6 @@
 // This is Generated Source.
 import PersonalContactInfo from "../definitions/PersonalContactInfo";
-import SyncInfo from "../definitions/SyncInfo";
+import PagingResult from "../PagingResult";
 import PathSegment from "../PathSegment";
 
 export default class AddressBookSync extends PathSegment {
@@ -11,19 +11,32 @@ export default class AddressBookSync extends PathSegment {
     /**
      *  Contacts Synchronization
      */
-    get(query?: GetQuery): Promise<GetResponse> {
-        return this.getService().send({
-          body: undefined,
-          method: "get",
-          query: query,
-          url: this.getEndpoint(true),
+    list(query?: ListQuery): Promise<PagingResult<PersonalContactInfo>> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
         }).then((res) => {
-            return res.json();
+                return res.json();
+        });
+    }
+
+    /**
+     *  Contacts Synchronization
+     *  return {ApiResponse}
+     */
+    listRaw(query?: ListQuery): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
         });
     }
 }
 
-export interface GetQuery {
+export interface ListQuery {
 
     /**
      * Type of synchronization. The default value is 'FSync'
@@ -44,27 +57,4 @@ export interface GetQuery {
      * Internal identifier of a page. It can be obtained from the 'nextPageId' parameter passed in response body
      */
     pageId?: number;
-}
-
-export interface GetResponse {
-
-    /**
-     * List of contacts with synchronization information
-     */
-    records?: PersonalContactInfo[];
-
-    /**
-     * Sync type, token and time
-     */
-    syncInfo?: SyncInfo;
-
-    /**
-     * Internal identifier of the next page, if any
-     */
-    nextPageId?: number;
-
-    /**
-     * URL of the next page, if any
-     */
-    nextPageUri?: string;
 }

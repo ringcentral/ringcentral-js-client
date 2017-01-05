@@ -41,7 +41,7 @@ export default class PathSegment {
         }
     }
 
-    protected _send(method: string, ignoreId: boolean, body?, query?): Promise<any> {
+    protected _send({method, ignoreId, body, query}): Promise<any> {
         return this.getService().send({
             body,
             method,

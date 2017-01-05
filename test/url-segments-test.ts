@@ -168,11 +168,7 @@ describe("PathSegments", function () {
 
         it("covers all", function () {
             let addressBook = client.account().extension().addressBook();
-            return addressBook.group().list().then(res => {
-                if (res.records.length > 0) {
-                    return addressBook.group(res.records[0].id).get();
-                }
-            });
+            return addressBook.group().list();
         });
 
     });
@@ -280,7 +276,7 @@ describe("PathSegments", function () {
         });
 
         it("gets sync message", function () {
-            return client.account().extension().messageSync().get();
+            return client.account().extension().messageSync().list();
         });
 
     });
@@ -376,7 +372,7 @@ describe("PathSegments", function () {
     describe("CallLog", function () {
 
         it("gets call log sync", function () {
-            return client.account().extension().callLogSync().get({ recordCount: 5 });
+            return client.account().extension().callLogSync().list({ recordCount: 5 });
         });
 
     });
@@ -384,7 +380,7 @@ describe("PathSegments", function () {
     describe("AddressBook", function () {
 
         it("gets address book sync", function () {
-            return client.account().extension().addressBookSync().get();
+            return client.account().extension().addressBookSync().list();
         });
     });
 
