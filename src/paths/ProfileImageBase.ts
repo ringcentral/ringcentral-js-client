@@ -10,6 +10,11 @@ export default class ProfileImage extends PathSegment {
      *  Get Profile Image
      */
     get(): Promise<any> {
-        return this._send("get", true, undefined, undefined);
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    });
     }
 }

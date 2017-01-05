@@ -11,7 +11,12 @@ export default class Lookup extends PathSegment {
      *  Look up Phone Number
      */
     post(query?: PostQuery): Promise<PostResponse> {
-        return this._send("post", true, undefined, query).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "post",
+        query: query,
+    }).then((res) => {
             return res.json();
         });
     }

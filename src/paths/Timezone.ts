@@ -12,7 +12,12 @@ export default class Timezone extends PathSegment {
      *  Get Time Zone List
      */
     list(query?: ListQuery): Promise<PagingResult<TimezoneInfo>> {
-        return this._send("get", false, undefined, query).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: false,
+        method: "get",
+        query: query,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -21,7 +26,12 @@ export default class Timezone extends PathSegment {
      *  Get Time Zone by ID
      */
     get(): Promise<TimezoneInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

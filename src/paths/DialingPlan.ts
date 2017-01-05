@@ -12,7 +12,12 @@ export default class DialingPlan extends PathSegment {
      *  Get IBO Dialing Plans
      */
     list(query?: ListQuery): Promise<PagingResult<DialingPlanCountryInfo>> {
-        return this._send("get", false, undefined, query).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: false,
+        method: "get",
+        query: query,
+    }).then((res) => {
             return res.json();
         });
     }

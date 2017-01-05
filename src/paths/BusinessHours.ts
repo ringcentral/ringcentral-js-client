@@ -11,7 +11,12 @@ export default class BusinessHours extends PathSegment {
      *  Get User Hours Setting
      */
     get(): Promise<GetResponse> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

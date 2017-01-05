@@ -99,7 +99,12 @@ export default class Account extends PathSegment {
      *  Get Account Info by ID
      */
     get(): Promise<AccountInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

@@ -12,7 +12,12 @@ export default class BlockedNumber extends PathSegment {
      *  Add New Blocked Number
      */
     post(body: BlockedNumberInfo): Promise<BlockedNumberInfo> {
-        return this._send("post", true, body, undefined).then((res) => {
+    return this._send({
+        body: body,
+        ignoreId: true,
+        method: "post",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -21,7 +26,12 @@ export default class BlockedNumber extends PathSegment {
      *  Get Blocked Number List
      */
     list(): Promise<PagingResult<BlockedNumberInfo>> {
-        return this._send("get", false, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: false,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -30,14 +40,24 @@ export default class BlockedNumber extends PathSegment {
      *  Delete Blocked Number by ID
      */
     delete(): Promise<void> {
-        return this._send("delete", true, undefined, undefined);
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "delete",
+        query: undefined,
+    });
     }
 
     /**
      *  Get Blocked Number by ID
      */
     get(): Promise<BlockedNumberInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -46,7 +66,12 @@ export default class BlockedNumber extends PathSegment {
      *  Update Blocked Number Label
      */
     put(body: BlockedNumberInfo): Promise<BlockedNumberInfo> {
-        return this._send("put", true, body, undefined).then((res) => {
+    return this._send({
+        body: body,
+        ignoreId: true,
+        method: "put",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

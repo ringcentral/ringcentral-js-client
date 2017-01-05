@@ -19,7 +19,12 @@ export default class AnsweringRule extends PathSegment {
      *  Create Custom Answering Rule
      */
     post(body: PostBody): Promise<AnsweringRuleInfo> {
-        return this._send("post", true, body, undefined).then((res) => {
+    return this._send({
+        body: body,
+        ignoreId: true,
+        method: "post",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -28,7 +33,12 @@ export default class AnsweringRule extends PathSegment {
      *  Get Answering Rules List
      */
     list(): Promise<PagingResult<AnsweringRuleInfo>> {
-        return this._send("get", false, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: false,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -37,14 +47,24 @@ export default class AnsweringRule extends PathSegment {
      *  Delete Answering Rule by ID
      */
     delete(): Promise<void> {
-        return this._send("delete", true, undefined, undefined);
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "delete",
+        query: undefined,
+    });
     }
 
     /**
      *  Get Custom Answering Rule by ID
      */
     get(): Promise<AnsweringRuleInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -53,7 +73,12 @@ export default class AnsweringRule extends PathSegment {
      *  Update Answering Rule by ID
      */
     put(body: PutBody): Promise<AnsweringRuleInfo> {
-        return this._send("put", true, body, undefined).then((res) => {
+    return this._send({
+        body: body,
+        ignoreId: true,
+        method: "put",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

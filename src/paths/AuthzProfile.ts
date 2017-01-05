@@ -19,7 +19,12 @@ export default class AuthzProfile extends PathSegment {
      *  Get User Permissions
      */
     get(): Promise<GetResponse> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

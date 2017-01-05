@@ -12,7 +12,12 @@ export default class Device extends PathSegment {
      *  Get Account Device List
      */
     list(): Promise<PagingResult<DeviceInfo>> {
-        return this._send("get", false, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: false,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -21,7 +26,12 @@ export default class Device extends PathSegment {
      *  Get Device by ID
      */
     get(): Promise<DeviceInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

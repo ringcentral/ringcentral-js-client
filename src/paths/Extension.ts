@@ -209,7 +209,12 @@ export default class Extension extends PathSegment {
      *  Get Extension List
      */
     list(query?: ListQuery): Promise<PagingResult<ExtensionInfo>> {
-        return this._send("get", false, undefined, query).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: false,
+        method: "get",
+        query: query,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -218,7 +223,12 @@ export default class Extension extends PathSegment {
      *  Get Extension Info by ID
      */
     get(): Promise<ExtensionInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -227,7 +237,12 @@ export default class Extension extends PathSegment {
      *  Update Extension by ID
      */
     put(body: PutBody): Promise<ExtensionInfo> {
-        return this._send("put", true, body, undefined).then((res) => {
+    return this._send({
+        body: body,
+        ignoreId: true,
+        method: "put",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

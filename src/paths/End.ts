@@ -10,6 +10,11 @@ export default class End extends PathSegment {
      *  End Current Meeting
      */
     post(): Promise<void> {
-        return this._send("post", true, undefined, undefined);
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "post",
+        query: undefined,
+    });
     }
 }

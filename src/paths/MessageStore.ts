@@ -20,7 +20,12 @@ export default class MessageStore extends PathSegment {
      *  Get Message List
      */
     list(query?: ListQuery): Promise<PagingResult<MessageInfo>> {
-        return this._send("get", false, undefined, query).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: false,
+        method: "get",
+        query: query,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -29,14 +34,24 @@ export default class MessageStore extends PathSegment {
      *  Delete Message by ID
      */
     delete(query?: DeleteQuery): Promise<void> {
-        return this._send("delete", true, undefined, query);
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "delete",
+        query: query,
+    });
     }
 
     /**
      *  Get Message by ID
      */
     get(): Promise<MessageInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -45,7 +60,12 @@ export default class MessageStore extends PathSegment {
      *  Update Message by ID
      */
     put(body: PutBody): Promise<MessageInfo> {
-        return this._send("put", true, body, undefined).then((res) => {
+    return this._send({
+        body: body,
+        ignoreId: true,
+        method: "put",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

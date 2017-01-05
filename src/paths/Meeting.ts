@@ -29,7 +29,12 @@ export default class Meeting extends PathSegment {
      *  Create Meeting
      */
     post(body: PostBody): Promise<MeetingInfo> {
-        return this._send("post", true, body, undefined).then((res) => {
+    return this._send({
+        body: body,
+        ignoreId: true,
+        method: "post",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -38,7 +43,12 @@ export default class Meeting extends PathSegment {
      *  Get Meetings List
      */
     list(): Promise<PagingResult<MeetingInfo>> {
-        return this._send("get", false, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: false,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -47,14 +57,24 @@ export default class Meeting extends PathSegment {
      *  Delete Meeting
      */
     delete(): Promise<void> {
-        return this._send("delete", true, undefined, undefined);
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "delete",
+        query: undefined,
+    });
     }
 
     /**
      *  Get Meeting
      */
     get(): Promise<MeetingInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -63,7 +83,12 @@ export default class Meeting extends PathSegment {
      *  Update Meeting
      */
     put(body: PutBody): Promise<MeetingInfo> {
-        return this._send("put", true, body, undefined).then((res) => {
+    return this._send({
+        body: body,
+        ignoreId: true,
+        method: "put",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

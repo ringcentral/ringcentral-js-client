@@ -12,7 +12,12 @@ export default class Group extends PathSegment {
      *  Get Contact Group List
      */
     list(): Promise<PagingResult<GroupInfo>> {
-        return this._send("get", false, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: false,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

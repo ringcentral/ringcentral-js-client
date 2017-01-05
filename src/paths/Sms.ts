@@ -12,7 +12,12 @@ export default class Sms extends PathSegment {
      *  Create and Send SMS Message
      */
     post(body: PostBody): Promise<MessageInfo> {
-        return this._send("post", true, body, undefined).then((res) => {
+    return this._send({
+        body: body,
+        ignoreId: true,
+        method: "post",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

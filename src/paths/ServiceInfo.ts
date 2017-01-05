@@ -11,7 +11,12 @@ export default class ServiceInfo extends PathSegment {
      *  Get Meeting Service Info
      */
     get(): Promise<MeetingServiceInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

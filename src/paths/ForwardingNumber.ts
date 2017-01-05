@@ -12,7 +12,12 @@ export default class ForwardingNumber extends PathSegment {
      *  Add New Forwarding Number
      */
     post(body: PostBody): Promise<ForwardingNumberInfo> {
-        return this._send("post", true, body, undefined).then((res) => {
+    return this._send({
+        body: body,
+        ignoreId: true,
+        method: "post",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -21,7 +26,12 @@ export default class ForwardingNumber extends PathSegment {
      *  Get Forwarding Numbers
      */
     list(query?: ListQuery): Promise<PagingResult<ForwardingNumberInfo>> {
-        return this._send("get", false, undefined, query).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: false,
+        method: "get",
+        query: query,
+    }).then((res) => {
             return res.json();
         });
     }

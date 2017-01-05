@@ -12,7 +12,12 @@ export default class Conferencing extends PathSegment {
      *  Get Conferencing info
      */
     get(query?: GetQuery): Promise<ConferencingInfo> {
-        return this._send("get", true, undefined, query).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: query,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -21,7 +26,12 @@ export default class Conferencing extends PathSegment {
      *  Update Conferencing info
      */
     put(body: PutBody): Promise<ConferencingInfo> {
-        return this._send("put", true, body, undefined).then((res) => {
+    return this._send({
+        body: body,
+        ignoreId: true,
+        method: "put",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }

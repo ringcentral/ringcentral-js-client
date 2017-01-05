@@ -12,7 +12,12 @@ export default class Language extends PathSegment {
      *  Get Supported Language List
      */
     list(): Promise<PagingResult<LanguageInfo>> {
-        return this._send("get", false, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: false,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
@@ -21,7 +26,12 @@ export default class Language extends PathSegment {
      *  Get Language by ID
      */
     get(): Promise<LanguageInfo> {
-        return this._send("get", true, undefined, undefined).then((res) => {
+    return this._send({
+        body: undefined,
+        ignoreId: true,
+        method: "get",
+        query: undefined,
+    }).then((res) => {
             return res.json();
         });
     }
