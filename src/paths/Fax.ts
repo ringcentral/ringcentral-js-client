@@ -37,7 +37,7 @@ export default class Fax extends FaxBase {
         } else {
             return Promise.reject("Your're not in node and your environment does not support Blob or File API.");
         }
-        return this.getService().post(this.getEndpoint(false), form).then((res) => res.json());
+        return this._getService().post(this.getEndpoint(false), form).then((res) => res.json());
     }
 }
 
