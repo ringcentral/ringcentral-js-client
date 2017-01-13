@@ -22,12 +22,7 @@ export default class {{name}} extends PathSegment {
      *  {{op.description}}
      */
     {{op.method}}({{op.paramsDeclar}}): Promise<{{op.responseType}}> {
-        return this._send({
-            body: {{op.bodyParamName}},
-            ignoreId: {% if op.method == 'list' %}false{% else %}true{% endif %},
-            method: "{{op.httpMethod}}",
-            query: {{op.queryParamName}},
-        }){% if op.responseType != 'any' and op.responseType != 'void' %}.then((res) => {
+        return this.{{op.method}}Raw.apply(this, arguments){% if op.responseType != 'any' and op.responseType != 'void' %}.then((res) => {
                 return res.json();
         }){% endif %};
     }

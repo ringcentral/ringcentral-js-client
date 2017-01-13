@@ -11,12 +11,7 @@ export default class BusinessAddress extends PathSegment {
      *  Get Company Business Address
      */
     get(): Promise<GetResponse> {
-        return this._send({
-            body: undefined,
-            ignoreId: true,
-            method: "get",
-            query: undefined,
-        }).then((res) => {
+        return this.getRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }
@@ -38,12 +33,7 @@ export default class BusinessAddress extends PathSegment {
      *  Update Company Business Address
      */
     put(body: PutBody): Promise<PutResponse> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "put",
-            query: undefined,
-        }).then((res) => {
+        return this.putRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }

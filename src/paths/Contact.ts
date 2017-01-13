@@ -12,12 +12,7 @@ export default class Contact extends PathSegment {
      *  Create New Contact
      */
     post(body: PersonalContactInfo): Promise<PersonalContactInfo> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: undefined,
-        }).then((res) => {
+        return this.postRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }
@@ -39,12 +34,7 @@ export default class Contact extends PathSegment {
      *  Get Contact List
      */
     list(query?: ListQuery): Promise<PagingResult<PersonalContactInfo>> {
-        return this._send({
-            body: undefined,
-            ignoreId: false,
-            method: "get",
-            query: query,
-        }).then((res) => {
+        return this.listRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }
@@ -66,12 +56,7 @@ export default class Contact extends PathSegment {
      *  Delete Contact by ID
      */
     delete(): Promise<void> {
-        return this._send({
-            body: undefined,
-            ignoreId: true,
-            method: "delete",
-            query: undefined,
-        });
+        return this.deleteRaw.apply(this, arguments);
     }
 
     /**
@@ -91,12 +76,7 @@ export default class Contact extends PathSegment {
      *  Get Contact by ID
      */
     get(): Promise<PersonalContactInfo> {
-        return this._send({
-            body: undefined,
-            ignoreId: true,
-            method: "get",
-            query: undefined,
-        }).then((res) => {
+        return this.getRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }
@@ -118,12 +98,7 @@ export default class Contact extends PathSegment {
      *  Update Contact by ID
      */
     put(body: PersonalContactInfo): Promise<PersonalContactInfo> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "put",
-            query: undefined,
-        }).then((res) => {
+        return this.putRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }

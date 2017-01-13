@@ -15,7 +15,7 @@ export default class ProfileImage extends ProfileImageBase {
     put(imageData: Binary, contentType = "image/png"): Promise<void> {
         let form = new FormData();
         form.append("image", imageData, { contentType: contentType, filename: "profile." + contentType.split("/").pop() });
-        return this.getService().put(this.getEndpoint(), form);
+        return this._getService().put(this.getEndpoint(), form);
     }
 
     /**
@@ -24,6 +24,6 @@ export default class ProfileImage extends ProfileImageBase {
     post(imageData: Binary, contentType = "image/png"): Promise<void> {
         let form = new FormData();
         form.append("image", imageData, { contentType: contentType, filename: "profile." + contentType.split("/").pop() });
-        return this.getService().put(this.getEndpoint(), form);
+        return this._getService().put(this.getEndpoint(), form);
     }
 }

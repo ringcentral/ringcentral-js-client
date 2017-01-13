@@ -12,12 +12,7 @@ export default class Parse extends PathSegment {
      *  Parse Phone Number
      */
     post(body: PostBody, query?: PostQuery): Promise<PostResponse> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: query,
-        }).then((res) => {
+        return this.postRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }

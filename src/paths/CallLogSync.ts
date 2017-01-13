@@ -12,12 +12,7 @@ export default class CallLogSync extends PathSegment {
      *  Call Log Synchronization
      */
     list(query?: ListQuery): Promise<PagingResult<CallLogRecord>> {
-        return this._send({
-            body: undefined,
-            ignoreId: false,
-            method: "get",
-            query: query,
-        }).then((res) => {
+        return this.listRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }

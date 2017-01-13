@@ -14,12 +14,7 @@ export default class Ringout extends PathSegment {
      *  Initiate RingOut Call
      */
     post(body: PostBody): Promise<RingOutInfo> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: undefined,
-        }).then((res) => {
+        return this.postRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }
@@ -41,12 +36,7 @@ export default class Ringout extends PathSegment {
      *  Cancel RingOut Call
      */
     delete(): Promise<void> {
-        return this._send({
-            body: undefined,
-            ignoreId: true,
-            method: "delete",
-            query: undefined,
-        });
+        return this.deleteRaw.apply(this, arguments);
     }
 
     /**
@@ -66,12 +56,7 @@ export default class Ringout extends PathSegment {
      *  Get RingOut Call Status
      */
     get(): Promise<RingOutInfo> {
-        return this._send({
-            body: undefined,
-            ignoreId: true,
-            method: "get",
-            query: undefined,
-        }).then((res) => {
+        return this.getRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }

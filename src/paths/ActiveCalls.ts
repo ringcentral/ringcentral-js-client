@@ -12,12 +12,7 @@ export default class ActiveCalls extends PathSegment {
      *  Get Account Active (Recent) Calls
      */
     list(query?: ListQuery): Promise<PagingResult<CallLogRecord>> {
-        return this._send({
-            body: undefined,
-            ignoreId: false,
-            method: "get",
-            query: query,
-        }).then((res) => {
+        return this.listRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }

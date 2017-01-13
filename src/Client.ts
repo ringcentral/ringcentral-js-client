@@ -1,5 +1,4 @@
 import * as Ringcentral from "ringcentral";
-import { parse as parseUrl } from "url";
 import Account from "./paths/Account";
 import ClientInfo from "./paths/ClientInfo";
 import Dictionary from "./paths/Dictionary";
