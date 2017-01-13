@@ -12,12 +12,7 @@ export default class State extends PathSegment {
      *  Get State/Province List
      */
     list(query?: ListQuery): Promise<PagingResult<StateInfo>> {
-        return this._send({
-            body: undefined,
-            ignoreId: false,
-            method: "get",
-            query: query,
-        }).then((res) => {
+        return this.listRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }
@@ -39,12 +34,7 @@ export default class State extends PathSegment {
      *  Get State/Province by ID
      */
     get(): Promise<StateInfo> {
-        return this._send({
-            body: undefined,
-            ignoreId: true,
-            method: "get",
-            query: undefined,
-        }).then((res) => {
+        return this.getRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }

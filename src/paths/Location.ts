@@ -12,12 +12,7 @@ export default class Location extends PathSegment {
      *  Get Location List
      */
     list(query?: ListQuery): Promise<PagingResult<LocationInfo>> {
-        return this._send({
-            body: undefined,
-            ignoreId: false,
-            method: "get",
-            query: query,
-        }).then((res) => {
+        return this.listRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }

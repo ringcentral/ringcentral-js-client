@@ -19,12 +19,7 @@ export default class AnsweringRule extends PathSegment {
      *  Create Custom Answering Rule
      */
     post(body: PostBody): Promise<AnsweringRuleInfo> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: undefined,
-        }).then((res) => {
+        return this.postRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }
@@ -46,12 +41,7 @@ export default class AnsweringRule extends PathSegment {
      *  Get Answering Rules List
      */
     list(): Promise<PagingResult<AnsweringRuleInfo>> {
-        return this._send({
-            body: undefined,
-            ignoreId: false,
-            method: "get",
-            query: undefined,
-        }).then((res) => {
+        return this.listRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }
@@ -73,12 +63,7 @@ export default class AnsweringRule extends PathSegment {
      *  Delete Answering Rule by ID
      */
     delete(): Promise<void> {
-        return this._send({
-            body: undefined,
-            ignoreId: true,
-            method: "delete",
-            query: undefined,
-        });
+        return this.deleteRaw.apply(this, arguments);
     }
 
     /**
@@ -98,12 +83,7 @@ export default class AnsweringRule extends PathSegment {
      *  Get Custom Answering Rule by ID
      */
     get(): Promise<AnsweringRuleInfo> {
-        return this._send({
-            body: undefined,
-            ignoreId: true,
-            method: "get",
-            query: undefined,
-        }).then((res) => {
+        return this.getRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }
@@ -125,12 +105,7 @@ export default class AnsweringRule extends PathSegment {
      *  Update Answering Rule by ID
      */
     put(body: PutBody): Promise<AnsweringRuleInfo> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "put",
-            query: undefined,
-        }).then((res) => {
+        return this.putRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }

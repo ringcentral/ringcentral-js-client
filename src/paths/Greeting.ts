@@ -12,12 +12,7 @@ export default class Greeting extends PathSegment {
      *  Create Custom Greeting
      */
     post(body: PostBody): Promise<CustomGreetingInfo> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: undefined,
-        }).then((res) => {
+        return this.postRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }
@@ -39,12 +34,7 @@ export default class Greeting extends PathSegment {
      *  Get Custom Greeting by ID
      */
     get(): Promise<CustomGreetingInfo> {
-        return this._send({
-            body: undefined,
-            ignoreId: true,
-            method: "get",
-            query: undefined,
-        }).then((res) => {
+        return this.getRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }

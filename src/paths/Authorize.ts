@@ -10,12 +10,7 @@ export default class Authorize extends PathSegment {
      *  OAuth2 Authorize
      */
     post(body: PostBody): Promise<PostResponse> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: undefined,
-        }).then((res) => {
+        return this.postRaw.apply(this, arguments).then((res) => {
                 return res.json();
         });
     }

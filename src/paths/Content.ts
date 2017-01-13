@@ -10,12 +10,7 @@ export default class Content extends PathSegment {
      *  Get Message Attachment
      */
     get(): Promise<any> {
-        return this._send({
-            body: undefined,
-            ignoreId: true,
-            method: "get",
-            query: undefined,
-        });
+        return this.getRaw.apply(this, arguments);
     }
 
     /**
