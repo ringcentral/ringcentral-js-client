@@ -1,6 +1,5 @@
 {
   "name": "ringcentral-client",
-  "version": "0.1.0",
   "main": "./build/ringcentral-client.js",
   "ignore": [
     "**/*",
