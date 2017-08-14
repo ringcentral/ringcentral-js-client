@@ -18,21 +18,20 @@
         "isomorphic-fetch": "^2.2.1"
     },
     "devDependencies": {
-        "chai": "^3.0.0",
+        "chai": "^4.1.1",
         "coveralls": "^2.11.15",
         "istanbul": "^0.4.0",
         "json-loader": "^0.5.4",
         "mocha": "^3.2.0",
-        "remap-istanbul": "^0.8.2",
+        "remap-istanbul": "^0.9.5",
         "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master",
-        "sinon": "^1.15.4",
+        "sinon": "^3.2.0",
         "sinon-chai": "^2.8.0",
-        "source-map-loader": "^0.1.5",
-        "tslint": "^4.1.1",
-        "typedoc": "^0.5.0",
+        "source-map-loader": "^0.2.1 ",
+        "tslint": "^5.6.0",
+        "typedoc": "^0.8.0",
         "typescript": "latest",
-        "typings": "^2.0.0",
-        "webpack": "^1.12.2"
+        "webpack": "^3.5.4"
     },
     "peerDependencies": {
         "ringcentral": ">=3.0.0"
