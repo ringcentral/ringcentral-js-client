@@ -16,6 +16,10 @@
         "member-access": false,
         "no-string-literal": false,
         "no-reference": false,
-        "object-literal-shorthand": false
+        "object-literal-shorthand": false,
+        "no-trailing-whitespace": [
+            true,
+            "ignore-comments"
+        ]
     }
 }

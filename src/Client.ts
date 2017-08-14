@@ -51,5 +51,5 @@ const SERVER_SANDBOX = "https://platform.devtest.ringcentral.com";
 export {
     Client, // For commonjs
     SERVER_PRODUCTION,
-    SERVER_SANDBOX
+    SERVER_SANDBOX,
 };
