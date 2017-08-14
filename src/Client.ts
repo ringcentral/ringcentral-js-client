@@ -3,6 +3,7 @@ import { parse as parseUrl } from "url";
 import Account from "./paths/Account";
 import ClientInfo from "./paths/ClientInfo";
 import Dictionary from "./paths/Dictionary";
+import Glip from "./paths/Glip";
 import NumberParser from "./paths/NumberParser";
 import NumberPool from "./paths/NumberPool";
 import Subscription from "./paths/Subscription";
@@ -39,6 +40,9 @@ export default class Client {
         return new Subscription(null, id, this.service.platform());
     }
 
+    glip(id?: string) {
+        return new Glip(null, id, this.service.platform());
+    }
 }
 
 const SERVER_PRODUCTION = "https://platform.ringcentral.com";
