@@ -2,7 +2,7 @@
     "name": "ringcentral-client",
     "version": "2.3.3",
     "scripts": {
-        "prepublish": "typings install; npm run build",
+        "prepublish": "npm run build",
         "start": "node server.js",
         "build": "tsc && webpack",
         "watch": "npm run build -- watch",
@@ -31,7 +31,7 @@
         "tslint": "^5.6.0",
         "typedoc": "^0.8.0",
         "typescript": "latest",
-        "webpack": "^3.5.4"
+        "webpack": "^1.0.0"
     },
     "peerDependencies": {
         "ringcentral": ">=3.0.0"
