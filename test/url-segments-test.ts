@@ -387,3 +387,33 @@ describe("PathSegments", () => {
     });
 
 });
+
+describe("Glip", () => {
+
+    it("Get current company", () => {
+        return client.glip().companies("~").get().then((c) => {
+            expect(c).to.has.keys("id", "name", "domain", "creationTime", "lastModifiedTime");
+        });
+    });
+
+    it("List groups", () => {
+        return client.glip().groups().list().then((groups) => {
+            expect(groups.records[0]).has.keys("id", "name", "description", "type", "members", "isPublic", "creationTime", "lastModifiedTime");
+        });
+    });
+
+    it("Get current user", () => {
+        return client.glip().persons("~").get().then((person) => {
+            expect(person).to.has.keys("id", "firstName", "lastName", "email", "companyId", "creationTime", "lastModifiedTime");
+        });
+    });
+
+    it("Posts", () => {
+        return client.glip().groups().list().then((g) => {
+            return client.glip().posts().list({ groupId: g.records[0].id });
+        }).then((posts) => {
+            expect(posts.records[0]).to.has.keys("id", "groupId", "type", "text", "creatorId", "addedPersonIds", "creationTime", "lastModifiedTime", "attachments");
+        });
+    });
+
+});
