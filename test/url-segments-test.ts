@@ -145,7 +145,7 @@ describe("PathSegments", () => {
             let id: string;
             return client.account().extension().ringout().post({
                 from: { phoneNumber: "+16507411615" },
-                to: { phoneNumber: "+16507411615" },
+                to: { phoneNumber: "+13213042353" },
             }).then((res) => id = res.id)
                 .then((res) => client.account().extension().ringout(id).get())
                 .then((res) => client.account().extension().ringout(id).delete());
