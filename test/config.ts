@@ -1,11 +1,6 @@
 import "es6-promise";
 import * as fetch from "isomorphic-fetch";
 
-let authDataUrl = "/data/rc-auth.json";
-if (typeof process !== "undefined" && !process["browser"]) {
-    authDataUrl = "http://localhost" + authDataUrl;
-}
-
 interface Config {
     app: {
         server: string;
@@ -19,4 +14,13 @@ interface Config {
     };
 }
 
-export default fetch(authDataUrl).then(res => <Promise<Config>>res.json());
+export default getConfig();
+
+function getConfig(): Promise<Config> {
+    const authDataUrl = "/data/rc-auth.json";
+    if (typeof process !== "undefined" && !process["browser"]) { // Node
+        return Promise.resolve(require("../.." + authDataUrl));
+    } else { // Browser
+        return fetch(authDataUrl).then((res) => res.json());
+    }
+}

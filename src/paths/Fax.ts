@@ -13,12 +13,12 @@ export default class Fax extends FaxBase {
      *  Create and Send Fax Message
      */
     post(body: PostBody, attachments: Binary[]): Promise<MessageInfo> {
-        let meta = JSON.stringify(body);
-        let form = new FormData();
+        const meta = JSON.stringify(body);
+        const form = new FormData();
         const jsonType = "application/json";
         if (inNode()) {
             form.append("json", meta, { contentType: jsonType, filename: "request.json" });
-            for (let atch of attachments) {
+            for (const atch of attachments) {
                 if (typeof atch === "string") {
                     form.append("attachment", atch, { contentType: "text/plain" });
                 } else {
@@ -27,7 +27,7 @@ export default class Fax extends FaxBase {
             }
         } else if (browserSupportBlob()) {
             form.append("json", new Blob([meta], { type: jsonType }));
-            for (let atch of attachments) {
+            for (const atch of attachments) {
                 if (typeof atch === "string") {
                     form.append("attachment", new Blob([atch], { type: "text/plain" }));
                 } else {

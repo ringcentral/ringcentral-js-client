@@ -13,7 +13,7 @@ export default class ProfileImage extends ProfileImageBase {
      *  Update Profile Image
      */
     put(imageData: Binary, contentType = "image/png"): Promise<void> {
-        let form = new FormData();
+        const form = new FormData();
         form.append("image", imageData, { contentType: contentType, filename: "profile." + contentType.split("/").pop() });
         return this._getService().put(this.getEndpoint(), form);
     }
@@ -22,7 +22,7 @@ export default class ProfileImage extends ProfileImageBase {
      *  Update Profile Image (same as PUT)
      */
     post(imageData: Binary, contentType = "image/png"): Promise<void> {
-        let form = new FormData();
+        const form = new FormData();
         form.append("image", imageData, { contentType: contentType, filename: "profile." + contentType.split("/").pop() });
         return this._getService().put(this.getEndpoint(), form);
     }

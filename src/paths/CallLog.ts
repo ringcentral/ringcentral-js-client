@@ -82,19 +82,34 @@ export interface ListQuery {
     extensionNumber?: string;
 
     /**
+     * If 'True' then calls from/to blocked numbers are returned. The default value is 'True'
+     */
+    showBlocked?: boolean;
+
+    /**
      * Phone number of a caller/call recipient. If specified, returns all calls (both incoming and outcoming) with the mentioned phone number. Cannot be specified together with the extensionNumber filter
      */
     phoneNumber?: string;
 
     /**
-     * The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
+     * The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are supported
      */
     direction?: "Inbound" | "Outbound";
 
     /**
-     * Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
+     * Internal identifier of a call session. Cannot be specified along with parameters 'dateTo'/'dateFrom'
+     */
+    sessionId?: string;
+
+    /**
+     * Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are supported
      */
     type?: "Voice" | "Fax";
+
+    /**
+     * Call transport type. By default this filter is disabled
+     */
+    transport?: "PSTN" | "VoIP";
 
     /**
      * The default value is 'Simple' for both account and extension call log
@@ -102,7 +117,7 @@ export interface ListQuery {
     view?: "Simple" | "Detailed";
 
     /**
-     * 'True' if only recorded calls have to be returned
+     * 'True' if only recorded calls are returned. The default value is 'False'
      */
     withRecording?: boolean;
 

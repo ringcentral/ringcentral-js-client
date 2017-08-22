@@ -1,24 +1,24 @@
-import testConfig from "./config";
-import Client from "../src/Client";
 import { expect } from "chai";
 import { createReadStream } from "fs";
 import * as RingCentral from "ringcentral";
+import Client from "../src/Client";
+import testConfig from "./config";
 
 let client: Client;
 const inNode = !!createReadStream;
 
-before(function () {
+before(() => {
     // runs before all tests in this block
-    return testConfig.then(conf => {
-        let config = conf;
+    return testConfig.then((conf) => {
+        const config = conf;
         client = new Client(new RingCentral(config.app));
         return client.service.platform().login(config.user);
     });
 });
 
-describe("PathSegments", function () {
+describe("PathSegments", () => {
 
-    /**
+    /*
      * AnsweringRule list:
      { uri: 'https://platform.devtest.ringcentral.com/restapi/v1.0/account/130829004/extension/130829004/answering-rule?page=1&perPage=100',
   records:
@@ -47,115 +47,115 @@ describe("PathSegments", function () {
      lastPage: { uri: 'https://platform.devtest.ringcentral.com/restapi/v1.0/account/130829004/extension/130829004/answering-rule?page=1&perPage=100' } } }
 
      */
-    it("AnsweringRule", function () {
-        let ext = client.account().extension();
+    it("AnsweringRule", () => {
+        const ext = client.account().extension();
         let id: string;
         return ext.answeringRule().post({
-            enabled: false,
             callers: [{
-                callerId: "+46843216868"
-            }]
-        }).then(res => id = res.id)
-            .then(res => ext.answeringRule(id).get())
-            .then(res => ext.answeringRule(id).put({ name: "updated." }))
-            .then(res => ext.answeringRule().list())
-            .then(res => ext.answeringRule(id).delete());
+                callerId: "+46843216868",
+            }],
+            enabled: false,
+        }).then((res) => id = res.id)
+            .then((res) => ext.answeringRule(id).get())
+            .then((res) => ext.answeringRule(id).put({ name: "updated." }))
+            .then((res) => ext.answeringRule().list())
+            .then((res) => ext.answeringRule(id).delete());
     });
 
-    it("gets business hours rule", function () {
+    it("gets business hours rule", () => {
         return client.account().extension().businessHours().get();
     });
 
-    describe("BlockedNumber", function () {
+    describe("BlockedNumber", () => {
 
-        it("covers all", function () {
-            let ext = client.account().extension();
+        it("covers all", () => {
+            const ext = client.account().extension();
             let createdId: string;
-            let createdBlockedPhoneNumber = "+18989999";
-            let updatedBlockedPhoneNumber = "+12222898";
-            return ext.blockedNumber().post({ phoneNumber: createdBlockedPhoneNumber }).then(res => {
+            const createdBlockedPhoneNumber = "+18989999";
+            const updatedBlockedPhoneNumber = "+12222898";
+            return ext.blockedNumber().post({ phoneNumber: createdBlockedPhoneNumber }).then((res) => {
                 createdId = res.id;
                 expect(res.phoneNumber).to.eqls(createdBlockedPhoneNumber);
                 return ext.blockedNumber(createdId).get();
-            }).then(res => ext.blockedNumber().list())
-                .then(res => {
+            }).then((res) => ext.blockedNumber().list())
+                .then((res) => {
                     // FIXME Report: Error: Parameter blockedNumberId value in request body doesn't match specified in path. Maybe server error.
                     // /return ext.blockedNumber(createdId).put({ phoneNumber: updatedBlockedPhoneNumber });
-                }).then(res => {
-                    //expect(res.phoneNumber).eqls(updatedBlockedPhoneNumber);
-                }).then(res => {
+                }).then((res) => {
+                    // expect(res.phoneNumber).eqls(updatedBlockedPhoneNumber);
+                }).then((res) => {
                     return ext.blockedNumber(createdId).delete();
                 });
         });
 
     });
 
-    describe("Contacts", function () {
+    describe("Contacts", () => {
 
-        it("covers all", function () {
-            let addressBook = client.account().extension().addressBook();
+        it("covers all", () => {
+            const addressBook = client.account().extension().addressBook();
             let createdId: string;
             return addressBook.contact().post({ firstName: "Test" })
-                .then(res => {
+                .then((res) => {
                     createdId = res.id;
                 })
-                .then(res => addressBook.contact(createdId).get())
-                .then(res => addressBook.contact().list())
-                .then(res => {
+                .then((res) => addressBook.contact(createdId).get())
+                .then((res) => addressBook.contact().list())
+                .then((res) => {
                     return addressBook.contact(createdId).put({ firstName: "ModifiedFirstName" });
                 })
-                .then(res => addressBook.contact(createdId).delete());
+                .then((res) => addressBook.contact(createdId).delete());
         });
     });
 
-    describe("Subscription", function () {
+    describe("Subscription", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             let createdId: string;
             return client.subscription().post({
+                deliveryMode: { transportType: "PubNub", encryption: true },
                 eventFilters: ["/restapi/v1.0/account/~/extension/~/presence?detailedTelephonyState=true"],
-                deliveryMode: { transportType: "PubNub", encryption: true }
-            }).then(res => createdId = res.id)
-                .then(res => client.subscription(createdId).get())
-                .then(res => client.subscription(createdId).put({ eventFilters: ["/restapi/v1.0/account/~/extension/~/message-store"] }))
-                .then(res => client.subscription(createdId).delete());
+            }).then((res) => createdId = res.id)
+                .then((res) => client.subscription(createdId).get())
+                .then((res) => client.subscription(createdId).put({ eventFilters: ["/restapi/v1.0/account/~/extension/~/message-store"] }))
+                .then((res) => client.subscription(createdId).delete());
         });
 
     });
 
-    describe("Meeting", function () {
+    describe("Meeting", () => {
 
-        it.skip("covers all", function () {
+        it.skip("covers all", () => {
             let createdId: string;
-            let ext = client.account().extension();
+            const ext = client.account().extension();
             return ext.meeting().post({ meetingType: "Instant" })   // Error reported, "errorCode" : "CMN-408",\n  "message" : "[Meetings] permission required", maybe sandbox doesn't support meetings API yet.
-                .then(res => createdId = res.id)
-                .then(res => ext.meeting(createdId).delete()).catch(e => console.log(e));
+                .then((res) => createdId = res.id)
+                .then((res) => ext.meeting(createdId).delete()).catch((e) => expect(false, e));
         });
 
-        it("service info", function () {
+        it("service info", () => {
             return client.account().extension().meeting().serviceInfo().get();
         });
 
     });
 
-    describe("Ringout", function () {
+    describe("Ringout", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             let id: string;
             return client.account().extension().ringout().post({
                 from: { phoneNumber: "+16507411615" },
-                to: { phoneNumber: "+16507411615" }
-            }).then(res => id = res.id)
-                .then(res => client.account().extension().ringout(id).get())
-                .then(res => client.account().extension().ringout(id).delete());
+                to: { phoneNumber: "+13213042353" },
+            }).then((res) => id = res.id)
+                .then((res) => client.account().extension().ringout(id).get())
+                .then((res) => client.account().extension().ringout(id).delete());
         });
 
     });
 
-    describe("ForwardingNumber", function () {
+    describe("ForwardingNumber", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             return client.account().extension().forwardingNumber().list();
             /* let id: string;
              return client.account().extension().forwardingNumber().post({ label: "test", phoneNumber: "+16507411615" })
@@ -164,35 +164,29 @@ describe("PathSegments", function () {
 
     });
 
-    describe("Group", function () {
+    describe("Group", () => {
 
-        it("covers all", function () {
-            let addressBook = client.account().extension().addressBook();
+        it("covers all", () => {
+            const addressBook = client.account().extension().addressBook();
             return addressBook.group().list();
         });
 
     });
 
-    describe("Greeting", function () {
+    describe("Greeting", () => {
 
         // TODO add delete and update methods
-        it("covers all", function () {
-
-        });
 
     });
 
-    describe("Conferencing", function () {
-
-        it("covers all", function () {
-        });
-
+    describe("Conferencing", () => {
+        // TODO
     });
 
-    describe("Country", function () {
+    describe("Country", () => {
 
-        it("covers all", function () {
-            return client.dictionary().country().list().then(res => {
+        it("covers all", () => {
+            return client.dictionary().country().list().then((res) => {
                 if (res.records.length > 0) {
                     return client.dictionary().country(res.records[0].id).get();
                 }
@@ -201,124 +195,124 @@ describe("PathSegments", function () {
 
     });
 
-    describe("State", function () {
+    describe("State", () => {
 
-        it("covers all", function () {
-            return client.dictionary().state().list().then(res => {
+        it("covers all", () => {
+            return client.dictionary().state().list().then((res) => {
                 if (res.records.length > 0) {
                     return client.dictionary().state(res.records[0].id).get();
                 }
-            })
+            });
         });
 
     });
 
-    describe("Device", function () {
+    describe("Device", () => {
 
-        it("covers all", function () {
-            return client.account().device().list().then(res => {
+        it("covers all", () => {
+            return client.account().device().list().then((res) => {
                 if (res.records.length > 0) {
                     return client.account().device(res.records[0].id).get();
                 }
-            })
+            });
         });
 
     });
 
-    describe("Timezone", function () {
+    describe("Timezone", () => {
 
-        it("covers all", function () {
-            return client.dictionary().timezone().list().then(res => {
+        it("covers all", () => {
+            return client.dictionary().timezone().list().then((res) => {
                 if (res.records.length > 0) {
                     return client.dictionary().timezone(res.records[0].id).get();
                 }
-            })
+            });
         });
 
     });
 
-    describe("PhoneNumber", function () {
+    describe("PhoneNumber", () => {
 
-        it("covers all", function () {
-            return client.account().phoneNumber().list().then(res => {
+        it("covers all", () => {
+            return client.account().phoneNumber().list().then((res) => {
                 if (res.records.length > 0) {
                     return client.account().phoneNumber(res.records[0].id).get();
                 }
-            })
+            });
         });
 
     });
 
-    describe("Language", function () {
+    describe("Language", () => {
 
-        it("covers all", function () {
-            return client.dictionary().language().list().then(res => {
+        it("covers all", () => {
+            return client.dictionary().language().list().then((res) => {
                 if (res.records.length > 0) {
                     return client.dictionary().language(res.records[0].id).get();
                 }
-            })
+            });
         });
 
     });
 
-    describe("Message", function () {
+    describe("Message", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             let id: string;
             return client.account().extension().companyPager().post({
+                text: "js-client unit test.",
                 to: [{ extensionNumber: "101" }],
-                text: "js-client unit test."
-            }).then(res => id = res.id)
-                .then(res => client.account().extension().messageStore().list())
-                .then(res => client.account().extension().messageStore(id).put({ readStatus: "Read" }))
-                .then(res => client.account().extension().messageStore(id).get())
-                .then(res => client.account().extension().messageStore(id).delete());
+            }).then((res) => id = res.id)
+                .then((res) => client.account().extension().messageStore().list())
+                .then((res) => client.account().extension().messageStore(id).put({ readStatus: "Read" }))
+                .then((res) => client.account().extension().messageStore(id).get())
+                .then((res) => client.account().extension().messageStore(id).delete());
         });
 
-        it("gets sync message", function () {
+        it("gets sync message", () => {
             return client.account().extension().messageSync().list();
         });
 
     });
 
-    describe("AuthzProfile", function () {
+    describe("AuthzProfile", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             return client.account().extension().authzProfile().get()
-                .then(res => client.account().extension().authzProfile().check().get());
+                .then((res) => client.account().extension().authzProfile().check().get());
         });
 
     });
 
-    describe("Clientinfo", function () {
+    describe("Clientinfo", () => {
 
-        it("covers all", function () {
-            return client.clientInfo().customData().put({})
+        it("covers all", () => {
+            return client.clientInfo().customData().put({});
         });
 
     });
 
-    describe("ActiveCalls", function () {
+    describe("ActiveCalls", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             return client.account().extension().activeCalls().list();
         });
 
     });
 
-    describe("Grant", function () {
+    describe("Grant", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             return client.account().extension().grant().list();
         });
 
     });
 
-    describe("Location", function () {
+    describe("Location", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             return client.dictionary().state().list()
-                .then(res => {
+                .then((res) => {
                     if (res.records.length > 0) {
                         return client.dictionary().location().list({ stateId: res.records[0].id });
                     }
@@ -327,69 +321,99 @@ describe("PathSegments", function () {
 
     });
 
-    describe("NumberPool", function () {
+    describe("NumberPool", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             return client.numberPool().lookup().post({ countryCode: "cn" });
         });
 
     });
 
-    describe("Department", function () {
+    describe("Department", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             return client.account().department().members().list();
         });
 
     });
 
-    describe("BusinessAddress", function () {
+    describe("BusinessAddress", () => {
 
-        it("covers all", function () {
-            return client.account().businessAddress().get().then(res => {
+        it("covers all", () => {
+            return client.account().businessAddress().get().then((res) => {
                 return client.account().businessAddress().put({ email: "js-client-test@ringcentral.com" });
             });
         });
 
     });
 
-    describe("DialingPlan", function () {
+    describe("DialingPlan", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             return client.account().dialingPlan().list();
         });
 
     });
 
-    describe("Presence", function () {
+    describe("Presence", () => {
 
-        it("covers all", function () {
+        it("covers all", () => {
             return client.account().extension().presence().get();
         });
 
     });
 
-    describe("CallLog", function () {
+    describe("CallLog", () => {
 
-        it("gets call log sync", function () {
+        it("gets call log sync", () => {
             return client.account().extension().callLogSync().list({ recordCount: 5 });
         });
 
     });
 
-    describe("AddressBook", function () {
+    describe("AddressBook", () => {
 
-        it("gets address book sync", function () {
+        it("gets address book sync", () => {
             return client.account().extension().addressBookSync().list();
         });
     });
 
-    describe("NumberParser", function () {
+    describe("NumberParser", () => {
 
-        it("parses number", function () {
-            return client.numberParser().parse().post({ originalStrings: ["+8618657118272"] })
+        it("parses number", () => {
+            return client.numberParser().parse().post({ originalStrings: ["+8618657118272"] });
         });
 
+    });
+
+});
+
+describe("Glip", () => {
+
+    it("Get current company", () => {
+        return client.glip().companies("~").get().then((c) => {
+            expect(c).to.has.keys("id", "name", "domain", "creationTime", "lastModifiedTime");
+        });
+    });
+
+    it("List groups", () => {
+        return client.glip().groups().list().then((groups) => {
+            expect(groups.records[0]).has.keys("id", "name", "description", "type", "members", "isPublic", "creationTime", "lastModifiedTime");
+        });
+    });
+
+    it("Get current user", () => {
+        return client.glip().persons("~").get().then((person) => {
+            expect(person).to.has.keys("id", "firstName", "lastName", "email", "companyId", "creationTime", "lastModifiedTime");
+        });
+    });
+
+    it("Posts", () => {
+        return client.glip().groups().list().then((g) => {
+            return client.glip().posts().list({ groupId: g.records[0].id });
+        }).then((posts) => {
+            expect(posts.records[0]).to.has.keys("id", "groupId", "type", "text", "creatorId", "addedPersonIds", "creationTime", "lastModifiedTime", "attachments");
+        });
     });
 
 });
