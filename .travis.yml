@@ -11,8 +11,7 @@ script:
 deploy:
   provider: npm
   email: kirill.konshin@gmail.com
-  api_key:
-    secure: iWeUBpPf91pPT3JiUlxgxdX2Bft5U3S3ZgtMJ+c3d50vv2antczIjhfV8tdtxRA313akBWwEfVEitjuYL3cxbrxCcnuxpudZgvczngc8H9vgixBwYIzZALHRWyP6Ok8rkQzASDDnVj9C4E1KJTwhKeu/sRWuM1XGqrT8UrtQa4E=
+  api_key: $NPM_TOKEN
   skip_cleanup: true
   on:
     node: 6
