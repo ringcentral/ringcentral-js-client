@@ -10,7 +10,7 @@ export default class Persons extends PathSegment {
      *  Get Person by ID
      */
     get(): Promise<GetResponse> {
-        return this.getRaw.apply(this, arguments).then(res => {
+        return this.getRaw.apply(this, arguments).then((res) => {
             return res.json();
         });
     }

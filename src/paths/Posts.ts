@@ -12,7 +12,7 @@ export default class Posts extends PathSegment {
      *  Create Post
      */
     post(body: PostBody): Promise<GlipPostInfo> {
-        return this.postRaw.apply(this, arguments).then(res => {
+        return this.postRaw.apply(this, arguments).then((res) => {
             return res.json();
         });
     }
@@ -34,7 +34,7 @@ export default class Posts extends PathSegment {
      *  Get Posts
      */
     list(query?: ListQuery): Promise<PagingResult<GlipPostInfo>> {
-        return this.listRaw.apply(this, arguments).then(res => {
+        return this.listRaw.apply(this, arguments).then((res) => {
             return res.json();
         });
     }
