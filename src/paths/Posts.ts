@@ -12,13 +12,8 @@ export default class Posts extends PathSegment {
      *  Create Post
      */
     post(body: PostBody): Promise<GlipPostInfo> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: undefined,
-        }).then((res) => {
-                return res.json();
+        return this.postRaw.apply(this, arguments).then(res => {
+            return res.json();
         });
     }
 
@@ -39,13 +34,8 @@ export default class Posts extends PathSegment {
      *  Get Posts
      */
     list(query?: ListQuery): Promise<PagingResult<GlipPostInfo>> {
-        return this._send({
-            body: undefined,
-            ignoreId: false,
-            method: "get",
-            query: query,
-        }).then((res) => {
-                return res.json();
+        return this.listRaw.apply(this, arguments).then(res => {
+            return res.json();
         });
     }
 
@@ -64,7 +54,6 @@ export default class Posts extends PathSegment {
 }
 
 export interface PostBody {
-
     /**
      * Internal identifier of a group to send post to
      */
@@ -77,7 +66,6 @@ export interface PostBody {
 }
 
 export interface ListQuery {
-
     /**
      * Identifier of a group to filter posts
      */

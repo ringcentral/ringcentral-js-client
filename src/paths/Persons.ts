@@ -10,13 +10,8 @@ export default class Persons extends PathSegment {
      *  Get Person by ID
      */
     get(): Promise<GetResponse> {
-        return this._send({
-            body: undefined,
-            ignoreId: true,
-            method: "get",
-            query: undefined,
-        }).then((res) => {
-                return res.json();
+        return this.getRaw.apply(this, arguments).then(res => {
+            return res.json();
         });
     }
 
@@ -35,7 +30,6 @@ export default class Persons extends PathSegment {
 }
 
 export interface GetResponse {
-
     /**
      * Internal identifier of a user
      */
