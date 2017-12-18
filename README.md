@@ -22,6 +22,8 @@ This is a library implemented in typescript which provides convenient apis for t
 ```shell
 npm install ringcentral-client --save
 npm install ringcentral     # Install the peerDependency
+
+yarn add ringcentral-client ringcentral
 ```
 
 ### Import the module
