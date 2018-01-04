@@ -1,6 +1,6 @@
 // Generated Source
 import CountryInfo from "./CountryInfo";
-import PhoneNumberInfoExtensionInfo from "./PhoneNumberInfoExtensionInfo";
+import ExtensionInfo from "./ExtensionInfo";
 
 interface PhoneNumberInfo {
 
@@ -17,12 +17,12 @@ interface PhoneNumberInfo {
     /**
      * Information on the extension, to which the phone number is assigned. Returned only for the request of Account phone number list
      */
-    extension?: PhoneNumberInfoExtensionInfo;
+    extension?: ExtensionInfo;
 
     /**
-     * Indicates if this phone number is enabled to appear as CallerId and/or to send outbound SMS from it. Returned only for the request of Extension phone number list
+     * Custom user name of a phone number, if any. Supported for numbers assigned to Auto-Receptionist, with usage type 'CompanyNumber'
      */
-    features?: string[];
+    label?: string;
 
     /**
      * Location (City, State). Filled for local US numbers
@@ -52,7 +52,7 @@ interface PhoneNumberInfo {
     /**
      * Usage type of the phone number
      */
-    usageType?: "MainCompanyNumber" | "AdditionalCompanyNumber" | "CompanyNumber" | "DirectNumber" | "CompanyFaxNumber" | "ForwardedNumber";
+    usageType?: "MainCompanyNumber" | "AdditionalCompanyNumber" | "CompanyNumber" | "DirectNumber" | "CompanyFaxNumber" | "ForwardedNumber" | "ForwardedCompanyNumber" | "ContactCenterNumber";
 }
 
 export default PhoneNumberInfo;

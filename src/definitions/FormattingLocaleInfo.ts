@@ -13,7 +13,7 @@ interface FormattingLocaleInfo {
     localeCode?: string;
 
     /**
-     * Official name of a formatting language
+     * 
      */
     name?: string;
 }

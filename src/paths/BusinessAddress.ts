@@ -1,5 +1,7 @@
 // This is Generated Source.
-import BusinessAddressInfo from "../definitions/BusinessAddressInfo";
+import AccountBusinessAddressResource from "../definitions/AccountBusinessAddressResource";
+import GetAccountInfoResponse from "../definitions/GetAccountInfoResponse";
+import ModifyAccountBusinessAddressRequest from "../definitions/ModifyAccountBusinessAddressRequest";
 import PathSegment from "../PathSegment";
 
 export default class BusinessAddress extends PathSegment {
@@ -8,16 +10,21 @@ export default class BusinessAddress extends PathSegment {
     }
 
     /**
-     *  Get Company Business Address
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
      */
-    get(): Promise<GetResponse> {
-        return this.getRaw.apply(this, arguments).then((res) => {
+    get(): Promise<GetAccountInfoResponse> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Company Business Address
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -30,19 +37,24 @@ export default class BusinessAddress extends PathSegment {
     }
 
     /**
-     *  Update Company Business Address
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
      */
-    put(body: PutBody): Promise<PutResponse> {
-        return this.putRaw.apply(this, arguments).then((res) => {
+    put(body: ModifyAccountBusinessAddressRequest): Promise<AccountBusinessAddressResource> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Update Company Business Address
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
      *  return {ApiResponse}
      */
-    putRaw(body: PutBody): Promise<any> {
+    putRaw(body: ModifyAccountBusinessAddressRequest): Promise<any> {
         return this._send({
             body: body,
             ignoreId: true,
@@ -50,68 +62,4 @@ export default class BusinessAddress extends PathSegment {
             query: undefined,
         });
     }
-}
-
-export interface GetResponse {
-
-    /**
-     * Canonical URI of the business address resource
-     */
-    uri?: string;
-
-    /**
-     * Company business name
-     */
-    company?: string;
-
-    /**
-     * Company business email address
-     */
-    email?: string;
-
-    /**
-     * Company business address
-     */
-    businessAddress?: BusinessAddressInfo;
-}
-
-export interface PutBody {
-
-    /**
-     * Company business name
-     */
-    company?: string;
-
-    /**
-     * Company business email address
-     */
-    email?: string;
-
-    /**
-     * Company business address
-     */
-    businessAddress?: BusinessAddressInfo;
-}
-
-export interface PutResponse {
-
-    /**
-     * Canonical URI of the business address resource
-     */
-    uri?: string;
-
-    /**
-     * Company business name
-     */
-    company?: string;
-
-    /**
-     * Company business email address
-     */
-    email?: string;
-
-    /**
-     * Company business address
-     */
-    businessAddress?: BusinessAddressInfo;
 }

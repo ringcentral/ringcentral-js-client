@@ -1,6 +1,6 @@
 // This is Generated Source.
 import LanguageInfo from "../definitions/LanguageInfo";
-import PagingResult from "../PagingResult";
+import LanguageList from "../definitions/LanguageList";
 import PathSegment from "../PathSegment";
 
 export default class Language extends PathSegment {
@@ -9,16 +9,21 @@ export default class Language extends PathSegment {
     }
 
     /**
-     *  Get Supported Language List
+     *  <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns the information about supported languages.</p><h4>Usage Plan Group</h4><p>Light</p>
      */
-    list(): Promise<PagingResult<LanguageInfo>> {
-        return this.listRaw.apply(this, arguments).then((res) => {
+    list(): Promise<LanguageList> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Supported Language List
+     *  <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns the information about supported languages.</p><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     listRaw(): Promise<any> {
@@ -31,16 +36,21 @@ export default class Language extends PathSegment {
     }
 
     /**
-     *  Get Language by ID
+     *  <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns language by its respective ID.</p><h4>Usage Plan Group</h4><p>Light</p>
      */
     get(): Promise<LanguageInfo> {
-        return this.getRaw.apply(this, arguments).then((res) => {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Language by ID
+     *  <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns language by its respective ID.</p><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

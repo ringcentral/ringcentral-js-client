@@ -7,14 +7,19 @@ export default class End extends PathSegment {
     }
 
     /**
-     *  End Current Meeting
+     *  
      */
     post(): Promise<void> {
-        return this.postRaw.apply(this, arguments);
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        });
     }
 
     /**
-     *  End Current Meeting
+     *  
      *  return {ApiResponse}
      */
     postRaw(): Promise<any> {

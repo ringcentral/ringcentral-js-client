@@ -1,5 +1,5 @@
 // Generated Source
-import PhoneLinesInfoPhoneNumberInfo from "./PhoneLinesInfoPhoneNumberInfo";
+import PhoneNumberInfo from "./PhoneNumberInfo";
 
 interface PhoneLinesInfo {
 
@@ -11,7 +11,7 @@ interface PhoneLinesInfo {
     /**
      * Phone number information
      */
-    phoneInfo?: PhoneLinesInfoPhoneNumberInfo;
+    phoneInfo?: PhoneNumberInfo;
 }
 
 export default PhoneLinesInfo;

@@ -1,6 +1,7 @@
 // This is Generated Source.
+import GlipCreatePost from "../definitions/GlipCreatePost";
 import GlipPostInfo from "../definitions/GlipPostInfo";
-import PagingResult from "../PagingResult";
+import GlipPosts from "../definitions/GlipPosts";
 import PathSegment from "../PathSegment";
 
 export default class Posts extends PathSegment {
@@ -9,36 +10,9 @@ export default class Posts extends PathSegment {
     }
 
     /**
-     *  Create Post
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns list of posts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
      */
-    post(body: PostBody): Promise<GlipPostInfo> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: undefined,
-        }).then((res) => {
-                return res.json();
-        });
-    }
-
-    /**
-     *  Create Post
-     *  return {ApiResponse}
-     */
-    postRaw(body: PostBody): Promise<any> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: undefined,
-        });
-    }
-
-    /**
-     *  Get Posts
-     */
-    list(query?: ListQuery): Promise<PagingResult<GlipPostInfo>> {
+    list(query?: ListQuery): Promise<GlipPosts> {
         return this._send({
             body: undefined,
             ignoreId: false,
@@ -50,7 +24,7 @@ export default class Posts extends PathSegment {
     }
 
     /**
-     *  Get Posts
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns list of posts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -61,19 +35,33 @@ export default class Posts extends PathSegment {
             query: query,
         });
     }
-}
-
-export interface PostBody {
 
     /**
-     * Internal identifier of a group to send post to
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a post.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
      */
-    groupId?: string;
+    post(body: GlipCreatePost): Promise<GlipPostInfo> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
 
     /**
-     * Text of a post, the maximum is 10000 characters
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a post.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+     *  return {ApiResponse}
      */
-    text?: string;
+    postRaw(body: GlipCreatePost): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        });
+    }
 }
 
 export interface ListQuery {

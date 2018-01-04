@@ -3,7 +3,7 @@
 interface AccountLimits {
 
     /**
-     * The maximum number of free softphone digital lines per user extension
+     * The maximum number of free softphone phone lines per user extension
      */
     freeSoftPhoneLinesPerExtension?: number;
 
@@ -16,6 +16,11 @@ interface AccountLimits {
      * The maximum number of extensions which can be included in the list of users monitored for Presence
      */
     maxMonitoredExtensionsPerUser?: number;
+
+    /**
+     * Maximum length for extension numbers of an account; depends on account type. The default value is 5
+     */
+    maxExtensionNumberLength?: number;
 }
 
 export default AccountLimits;

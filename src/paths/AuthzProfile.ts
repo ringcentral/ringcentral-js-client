@@ -1,5 +1,5 @@
 // This is Generated Source.
-import UserPermission from "../definitions/UserPermission";
+import AuthProfileResource from "../definitions/AuthProfileResource";
 import PathSegment from "../PathSegment";
 import Check from "./Check";
 
@@ -16,16 +16,21 @@ export default class AuthzProfile extends PathSegment {
     }
 
     /**
-     *  Get User Permissions
+     *  
      */
-    get(): Promise<GetResponse> {
-        return this.getRaw.apply(this, arguments).then((res) => {
+    get(): Promise<AuthProfileResource> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get User Permissions
+     *  
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -36,17 +41,4 @@ export default class AuthzProfile extends PathSegment {
             query: undefined,
         });
     }
-}
-
-export interface GetResponse {
-
-    /**
-     * Canonical URI of an authorization profile resource
-     */
-    uri?: string;
-
-    /**
-     * List of user permissions granted
-     */
-    permissions?: UserPermission[];
 }
