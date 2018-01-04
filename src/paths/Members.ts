@@ -1,6 +1,5 @@
 // This is Generated Source.
-import DepartmentResponseExtensionInfo from "../definitions/DepartmentResponseExtensionInfo";
-import PagingResult from "../PagingResult";
+import DepartmentMemberList from "../definitions/DepartmentMemberList";
 import PathSegment from "../PathSegment";
 
 export default class Members extends PathSegment {
@@ -9,16 +8,21 @@ export default class Members extends PathSegment {
     }
 
     /**
-     *  Get Department Members
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
      */
-    list(query?: ListQuery): Promise<PagingResult<DepartmentResponseExtensionInfo>> {
-        return this.listRaw.apply(this, arguments).then((res) => {
+    list(query?: ListQuery): Promise<DepartmentMemberList> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Department Members
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {

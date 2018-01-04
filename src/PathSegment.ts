@@ -2,47 +2,47 @@
  * UrlParts
  */
 export default class PathSegment {
-    private _name: string;
-    private _value: string;
-    private _previous: PathSegment;
+    private name: string;
+    private value: string;
+    private previous: PathSegment;
     private _service: any;
     constructor(name: string, value?: string, prv?: PathSegment, service?) {
         this._service = service;
-        this._name = name;
-        this._value = value || null;
-        this._previous = prv;
+        this.name = name;
+        this.value = value || null;
+        this.previous = prv;
     }
 
     toString(withValue = true): string {
-        let str = "/" + this._name;
-        if (withValue && this._value) {
-            str += "/" + this._value;
+        let str = "/" + this.name;
+        if (withValue && this.value) {
+            str += "/" + this.value;
         }
         return str;
     }
 
     getEndpoint(withValue = true): string {
         let end: string = "";
-        if (this._previous) {
-            end = this._previous.getEndpoint();
+        if (this.previous) {
+            end = this.previous.getEndpoint();
         }
         return end + this.toString(withValue);
     }
 
-    protected _getService() {
+    protected getService() {
         let sec: PathSegment = this;
         while (sec) {
             if (sec._service) {
                 return sec._service;
             }
-            if (sec._previous) {
-                sec = sec._previous;
+            if (sec.previous) {
+                sec = sec.previous;
             }
         }
     }
 
     protected _send({method, ignoreId, body, query}): Promise<any> {
-        return this._getService().send({
+        return this.getService().send({
             body,
             method,
             query,

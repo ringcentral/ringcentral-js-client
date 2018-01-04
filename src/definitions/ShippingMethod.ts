@@ -3,14 +3,14 @@
 interface ShippingMethod {
 
     /**
-     * Method identifier. The default value is "1" (Ground)
+     * Internal identifier of the shipping method
      */
-    id?: "1" | "2" | "3";
+    id?: string;
 
     /**
-     * Method name, corresponding to the identifier
+     * Name/description of the shipping method
      */
-    name?: "Ground" | "2 Day" | "Overnight";
+    name?: string;
 }
 
 export default ShippingMethod;

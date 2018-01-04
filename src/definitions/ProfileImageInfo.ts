@@ -1,5 +1,5 @@
 // Generated Source
-import ImageUri from "./ImageUri";
+import ProfileImageInfoUri from "./ProfileImageInfoUri";
 
 interface ProfileImageInfo {
 
@@ -26,7 +26,7 @@ interface ProfileImageInfo {
     /**
      * List of URIs to profile images in different dimensions
      */
-    scales?: ImageUri[];
+    scales?: ProfileImageInfoUri[];
 }
 
 export default ProfileImageInfo;

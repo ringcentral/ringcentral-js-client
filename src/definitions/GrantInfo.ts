@@ -1,5 +1,5 @@
 // Generated Source
-import GrantInfoExtensionInfo from "./GrantInfoExtensionInfo";
+import ExtensionInfoGrants from "./ExtensionInfoGrants";
 
 interface GrantInfo {
 
@@ -11,7 +11,7 @@ interface GrantInfo {
     /**
      * Extension information
      */
-    extension?: GrantInfoExtensionInfo;
+    extension?: ExtensionInfoGrants;
 
     /**
      * Specifies if picking up of other extensions' calls is allowed for the extension. If 'Presence' feature is disabled for the given extension, the flag is not returned

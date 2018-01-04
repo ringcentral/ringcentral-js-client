@@ -1,4 +1,5 @@
 // This is Generated Source.
+import GlipCompany from "../definitions/GlipCompany";
 import PathSegment from "../PathSegment";
 
 export default class Companies extends PathSegment {
@@ -7,9 +8,9 @@ export default class Companies extends PathSegment {
     }
 
     /**
-     *  Get Company by ID
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns a company by ID.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
      */
-    get(): Promise<GetResponse> {
+    get(): Promise<GlipCompany> {
         return this._send({
             body: undefined,
             ignoreId: true,
@@ -21,7 +22,7 @@ export default class Companies extends PathSegment {
     }
 
     /**
-     *  Get Company by ID
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns a company by ID.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -32,32 +33,4 @@ export default class Companies extends PathSegment {
             query: undefined,
         });
     }
-}
-
-export interface GetResponse {
-
-    /**
-     * Internal identifier of an RC account/Glip company, or tilde (~) to indicate a company the current user belongs to
-     */
-    id?: string;
-
-    /**
-     * Name of a company
-     */
-    name?: string;
-
-    /**
-     * Domain name of a company
-     */
-    domain?: string;
-
-    /**
-     * Datetime of creation in ISO 8601 format
-     */
-    creationTime?: string;
-
-    /**
-     * Datetime of last modification in ISO 8601 format
-     */
-    lastModifiedTime?: string;
 }

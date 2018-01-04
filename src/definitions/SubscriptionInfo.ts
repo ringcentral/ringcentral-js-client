@@ -1,5 +1,5 @@
 // Generated Source
-import DeliveryMode from "./DeliveryMode";
+import NotificationDeliveryMode from "./NotificationDeliveryMode";
 
 interface SubscriptionInfo {
 
@@ -41,7 +41,7 @@ interface SubscriptionInfo {
     /**
      * Delivery mode data
      */
-    deliveryMode?: DeliveryMode;
+    deliveryMode?: NotificationDeliveryMode;
 }
 
 export default SubscriptionInfo;

@@ -1,6 +1,6 @@
 // Generated Source
-import ShippingAddress from "./ShippingAddress";
-import ShippingMethod from "./ShippingMethod";
+import MethodInfo from "./MethodInfo";
+import ShippingAddressInfo from "./ShippingAddressInfo";
 
 interface ShippingInfo {
 
@@ -10,24 +10,24 @@ interface ShippingInfo {
     status?: "Initial" | "Accepted" | "Shipped";
 
     /**
-     * Shipping carrier name. Appears only if the device status is "Shipped"
+     * Shipping carrier name. Appears only if the device status is  Shipped
      */
     carrier?: string;
 
     /**
-     * Carrier-specific tracking number. Appears only if the device status is "Shipped"
+     * Carrier-specific tracking number. Appears only if the device status is  Shipped
      */
     trackingNumber?: string;
 
     /**
      * Shipping method information
      */
-    method?: ShippingMethod[];
+    method?: MethodInfo;
 
     /**
      * Shipping address for the order. If it coincides with the Emergency Service Address, then can be omitted. By default the same value as the emergencyServiceAddress. Multiple addresses can be specified; in case an order contains several devices, they can be delivered to different addresses
      */
-    address?: ShippingAddress[];
+    address?: ShippingAddressInfo;
 }
 
 export default ShippingInfo;

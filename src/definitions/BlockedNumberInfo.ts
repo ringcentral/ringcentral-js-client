@@ -3,12 +3,12 @@
 interface BlockedNumberInfo {
 
     /**
-     * Standard resource properties ID and canonical URI, see the section called “Resource Identification Properties”
+     * Internal identifier of a blocked number
      */
     id?: string;
 
     /**
-     * Canonical URI of a blocked number resource
+     * Canonical URI of a blocked number
      */
     uri?: string;
 

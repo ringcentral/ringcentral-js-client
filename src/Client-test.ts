@@ -14,5 +14,4 @@ describe("client", () => {
 
 function runCoverage() {
     client.clientInfo();
-    client.numberPool();
 }
