@@ -4,7 +4,7 @@ import AddonInfo from "./AddonInfo";
 interface ModelInfo {
 
     /**
-     * Device model identifier. Mandatory when ordering a HardPhone if boxBillingId is not used for ordering
+     * Addon identifier. For HardPhones of certain types, which are compatible with this addon identifier
      */
     id?: string;
 
@@ -16,7 +16,7 @@ interface ModelInfo {
     /**
      * Addons description
      */
-    addons?: AddonInfo[];
+    addons?: AddonInfo;
 }
 
 export default ModelInfo;

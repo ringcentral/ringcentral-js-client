@@ -1,6 +1,6 @@
 // This is Generated Source.
-import FullCountryInfo from "../definitions/FullCountryInfo";
-import PagingResult from "../PagingResult";
+import GetCountryInfoDictionaryResponse from "../definitions/GetCountryInfoDictionaryResponse";
+import GetCountryListResponse from "../definitions/GetCountryListResponse";
 import PathSegment from "../PathSegment";
 
 export default class Country extends PathSegment {
@@ -9,16 +9,21 @@ export default class Country extends PathSegment {
     }
 
     /**
-     *  Get Country List
+     *  <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the countries available for calling.</p><h4>Usage Plan Group</h4><p>Light</p>
      */
-    list(query?: ListQuery): Promise<PagingResult<FullCountryInfo>> {
-        return this.listRaw.apply(this, arguments).then((res) => {
+    list(query?: ListQuery): Promise<GetCountryListResponse> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Country List
+     *  <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the countries available for calling.</p><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -31,16 +36,21 @@ export default class Country extends PathSegment {
     }
 
     /**
-     *  Get Country by ID
+     *  <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns the information on the required country.</p><h4>Usage Plan Group</h4><p>Light</p>
      */
-    get(): Promise<FullCountryInfo> {
-        return this.getRaw.apply(this, arguments).then((res) => {
+    get(): Promise<GetCountryInfoDictionaryResponse> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Country by ID
+     *  <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns the information on the required country.</p><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -61,6 +71,11 @@ export interface ListQuery {
     loginAllowed?: boolean;
 
     /**
+     * Indicates whether signup/billing is allowed for a country. If not specified all countries are returned (according to other filters specified if any)
+     */
+    signupAllowed?: boolean;
+
+    /**
      * Specifies if RingCentral sells phone numbers of this country
      */
     numberSelling?: boolean;
@@ -74,4 +89,9 @@ export interface ListQuery {
      * Indicates the page size (number of items). If not specified, the value is '100' by default
      */
     perPage?: number;
+
+    /**
+     * Specifies if free phone line for softphone is available for a country or not
+     */
+    freeSoftphoneLine?: boolean;
 }

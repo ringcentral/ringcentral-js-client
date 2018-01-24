@@ -1,7 +1,7 @@
 // This is Generated Source.
-import MeetingInfo from "../definitions/MeetingInfo";
-import MeetingScheduleInfo from "../definitions/MeetingScheduleInfo";
-import PagingResult from "../PagingResult";
+import MeetingRequestResource from "../definitions/MeetingRequestResource";
+import MeetingResponseResource from "../definitions/MeetingResponseResource";
+import MeetingsResource from "../definitions/MeetingsResource";
 import PathSegment from "../PathSegment";
 import End from "./End";
 import ServiceInfo from "./ServiceInfo";
@@ -14,50 +14,33 @@ export default class Meeting extends PathSegment {
     /**
      * 
      */
-    serviceInfo(id?: string) {
-        return new ServiceInfo(this, id);
-    }
-
-    /**
-     * 
-     */
     end(id?: string) {
         return new End(this, id);
     }
 
     /**
-     *  Create Meeting
+     * 
      */
-    post(body: PostBody): Promise<MeetingInfo> {
-        return this.postRaw.apply(this, arguments).then((res) => {
-                return res.json();
-        });
+    serviceInfo(id?: string) {
+        return new ServiceInfo(this, id);
     }
 
     /**
-     *  Create Meeting
-     *  return {ApiResponse}
+     *  
      */
-    postRaw(body: PostBody): Promise<any> {
+    list(): Promise<MeetingsResource> {
         return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
+            body: undefined,
+            ignoreId: false,
+            method: "get",
             query: undefined,
-        });
-    }
-
-    /**
-     *  Get Meetings List
-     */
-    list(): Promise<PagingResult<MeetingInfo>> {
-        return this.listRaw.apply(this, arguments).then((res) => {
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Meetings List
+     *  
      *  return {ApiResponse}
      */
     listRaw(): Promise<any> {
@@ -70,36 +53,48 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  Delete Meeting
+     *  
      */
-    delete(): Promise<void> {
-        return this.deleteRaw.apply(this, arguments);
-    }
-
-    /**
-     *  Delete Meeting
-     *  return {ApiResponse}
-     */
-    deleteRaw(): Promise<any> {
+    post(body: MeetingRequestResource): Promise<MeetingResponseResource> {
         return this._send({
-            body: undefined,
+            body: body,
             ignoreId: true,
-            method: "delete",
+            method: "post",
             query: undefined,
-        });
-    }
-
-    /**
-     *  Get Meeting
-     */
-    get(): Promise<MeetingInfo> {
-        return this.getRaw.apply(this, arguments).then((res) => {
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Meeting
+     *  
+     *  return {ApiResponse}
+     */
+    postRaw(body: MeetingRequestResource): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  
+     */
+    get(): Promise<MeetingResponseResource> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -112,19 +107,24 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  Update Meeting
+     *  
      */
-    put(body: PutBody): Promise<MeetingInfo> {
-        return this.putRaw.apply(this, arguments).then((res) => {
+    put(body: MeetingRequestResource): Promise<MeetingResponseResource> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Update Meeting
+     *  
      *  return {ApiResponse}
      */
-    putRaw(body: PutBody): Promise<any> {
+    putRaw(body: MeetingRequestResource): Promise<any> {
         return this._send({
             body: body,
             ignoreId: true,
@@ -132,90 +132,29 @@ export default class Meeting extends PathSegment {
             query: undefined,
         });
     }
-}
-
-export interface PostBody {
 
     /**
-     * Topic of a meeting
+     *  
      */
-    topic?: string;
+    delete(): Promise<void> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
+    }
 
     /**
-     * Type of a meeting. 'Instant' - meeting that is instantly started as soon as the host creates it; 'Scheduled' - common scheduled meeting; 'Recurring' - a recurring meeting. If the specified meeting type is 'Scheduled' then schedule property is mandatory for request
+     *  
+     *  return {ApiResponse}
      */
-    meetingType?: "Scheduled" | "Instant" | "Recurring";
-
-    /**
-     * Password required to join a meeting. Max number of characters is 10
-     */
-    password?: string;
-
-    /**
-     * Schedule of a meeting
-     */
-    schedule?: MeetingScheduleInfo;
-
-    /**
-     * If 'True' then the meeting can be joined and started by any participant (not host only). Supported for the meetings of 'Scheduled' and 'Recurring' type.
-     */
-    allowJoinBeforeHost?: boolean;
-
-    /**
-     * Enables starting video when host joins the meeting
-     */
-    startHostVideo?: boolean;
-
-    /**
-     * Enables starting video when participants join the meeting
-     */
-    startParticipantsVideo?: boolean;
-
-    /**
-     * Meeting audio options. Possible values are 'Phone', 'ComputerAudio'
-     */
-    audioOptions?: string[];
-}
-
-export interface PutBody {
-
-    /**
-     * Topic of a meeting
-     */
-    topic?: string;
-
-    /**
-     * Type of a meeting. 'Instant' - meeting that is instantly started as soon as the host creates it; 'Scheduled' - common scheduled meeting; 'Recurring' - a recurring meeting. If the specified meeting type is 'Scheduled' then schedule property is mandatory for request
-     */
-    meetingType?: "Scheduled" | "Instant" | "Recurring";
-
-    /**
-     * Password required to join a meeting. Max number of characters is 10
-     */
-    password?: string;
-
-    /**
-     * Schedule of a meeting
-     */
-    schedule?: MeetingScheduleInfo;
-
-    /**
-     * If 'True' then the meeting can be joined and started by any participant (not host only). Supported for the meetings of 'Scheduled' and 'Recurring' type.
-     */
-    allowJoinBeforeHost?: boolean;
-
-    /**
-     * Enables starting video when host joins the meeting
-     */
-    startHostVideo?: boolean;
-
-    /**
-     * Enables starting video when participants join the meeting
-     */
-    startParticipantsVideo?: boolean;
-
-    /**
-     * Meeting audio options. Possible values are 'Phone', 'ComputerAudio'
-     */
-    audioOptions?: string[];
+    deleteRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
+    }
 }

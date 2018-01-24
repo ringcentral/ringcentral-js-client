@@ -31,6 +31,11 @@ interface RegionalSettings {
      * Formatting language preferences for numbers, dates and currencies
      */
     formattingLocale?: FormattingLocaleInfo;
+
+    /**
+     * Time format setting. The default value is '12h' = ['12h', '24h']
+     */
+    timeFormat?: "12h" | "24h";
 }
 
 export default RegionalSettings;

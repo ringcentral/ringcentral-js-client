@@ -1,6 +1,6 @@
 // This is Generated Source.
 import BlockedNumberInfo from "../definitions/BlockedNumberInfo";
-import PagingResult from "../PagingResult";
+import BlockedNumbersList from "../definitions/BlockedNumbersList";
 import PathSegment from "../PathSegment";
 
 export default class BlockedNumber extends PathSegment {
@@ -9,38 +9,21 @@ export default class BlockedNumber extends PathSegment {
     }
 
     /**
-     *  Add New Blocked Number
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
      */
-    post(body: BlockedNumberInfo): Promise<BlockedNumberInfo> {
-        return this.postRaw.apply(this, arguments).then((res) => {
-                return res.json();
-        });
-    }
-
-    /**
-     *  Add New Blocked Number
-     *  return {ApiResponse}
-     */
-    postRaw(body: BlockedNumberInfo): Promise<any> {
+    list(): Promise<BlockedNumbersList> {
         return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
+            body: undefined,
+            ignoreId: false,
+            method: "get",
             query: undefined,
-        });
-    }
-
-    /**
-     *  Get Blocked Number List
-     */
-    list(): Promise<PagingResult<BlockedNumberInfo>> {
-        return this.listRaw.apply(this, arguments).then((res) => {
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Blocked Number List
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     listRaw(): Promise<any> {
@@ -53,36 +36,48 @@ export default class BlockedNumber extends PathSegment {
     }
 
     /**
-     *  Delete Blocked Number by ID
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
      */
-    delete(): Promise<void> {
-        return this.deleteRaw.apply(this, arguments);
-    }
-
-    /**
-     *  Delete Blocked Number by ID
-     *  return {ApiResponse}
-     */
-    deleteRaw(): Promise<any> {
+    post(body: BlockedNumberInfo): Promise<BlockedNumberInfo> {
         return this._send({
-            body: undefined,
+            body: body,
             ignoreId: true,
-            method: "delete",
+            method: "post",
             query: undefined,
-        });
-    }
-
-    /**
-     *  Get Blocked Number by ID
-     */
-    get(): Promise<BlockedNumberInfo> {
-        return this.getRaw.apply(this, arguments).then((res) => {
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Blocked Number by ID
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+     *  return {ApiResponse}
+     */
+    postRaw(body: BlockedNumberInfo): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+     */
+    get(): Promise<BlockedNumberInfo> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -95,16 +90,21 @@ export default class BlockedNumber extends PathSegment {
     }
 
     /**
-     *  Update Blocked Number Label
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
      */
     put(body: BlockedNumberInfo): Promise<BlockedNumberInfo> {
-        return this.putRaw.apply(this, arguments).then((res) => {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Update Blocked Number Label
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
      *  return {ApiResponse}
      */
     putRaw(body: BlockedNumberInfo): Promise<any> {
@@ -112,6 +112,31 @@ export default class BlockedNumber extends PathSegment {
             body: body,
             ignoreId: true,
             method: "put",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+     */
+    delete(): Promise<void> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+     *  return {ApiResponse}
+     */
+    deleteRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
             query: undefined,
         });
     }

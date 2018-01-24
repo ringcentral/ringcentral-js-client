@@ -1,6 +1,6 @@
 // This is Generated Source.
-import PersonalContactInfo from "../definitions/PersonalContactInfo";
-import PagingResult from "../PagingResult";
+import ContactList from "../definitions/ContactList";
+import PersonalContactResource from "../definitions/PersonalContactResource";
 import PathSegment from "../PathSegment";
 
 export default class Contact extends PathSegment {
@@ -9,38 +9,21 @@ export default class Contact extends PathSegment {
     }
 
     /**
-     *  Create New Contact
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
      */
-    post(body: PersonalContactInfo): Promise<PersonalContactInfo> {
-        return this.postRaw.apply(this, arguments).then((res) => {
-                return res.json();
-        });
-    }
-
-    /**
-     *  Create New Contact
-     *  return {ApiResponse}
-     */
-    postRaw(body: PersonalContactInfo): Promise<any> {
+    list(query?: ListQuery): Promise<ContactList> {
         return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: undefined,
-        });
-    }
-
-    /**
-     *  Get Contact List
-     */
-    list(query?: ListQuery): Promise<PagingResult<PersonalContactInfo>> {
-        return this.listRaw.apply(this, arguments).then((res) => {
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Contact List
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -53,36 +36,48 @@ export default class Contact extends PathSegment {
     }
 
     /**
-     *  Delete Contact by ID
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
      */
-    delete(): Promise<void> {
-        return this.deleteRaw.apply(this, arguments);
-    }
-
-    /**
-     *  Delete Contact by ID
-     *  return {ApiResponse}
-     */
-    deleteRaw(): Promise<any> {
+    post(body: PersonalContactResource): Promise<PersonalContactResource> {
         return this._send({
-            body: undefined,
+            body: body,
             ignoreId: true,
-            method: "delete",
+            method: "post",
             query: undefined,
-        });
-    }
-
-    /**
-     *  Get Contact by ID
-     */
-    get(): Promise<PersonalContactInfo> {
-        return this.getRaw.apply(this, arguments).then((res) => {
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get Contact by ID
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  return {ApiResponse}
+     */
+    postRaw(body: PersonalContactResource): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     */
+    get(): Promise<PersonalContactResource> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -95,19 +90,24 @@ export default class Contact extends PathSegment {
     }
 
     /**
-     *  Update Contact by ID
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
      */
-    put(body: PersonalContactInfo): Promise<PersonalContactInfo> {
-        return this.putRaw.apply(this, arguments).then((res) => {
+    put(body: PersonalContactResource): Promise<PersonalContactResource> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Update Contact by ID
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
      *  return {ApiResponse}
      */
-    putRaw(body: PersonalContactInfo): Promise<any> {
+    putRaw(body: PersonalContactResource): Promise<any> {
         return this._send({
             body: body,
             ignoreId: true,
@@ -115,14 +115,34 @@ export default class Contact extends PathSegment {
             query: undefined,
         });
     }
+
+    /**
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     */
+    delete(): Promise<void> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  return {ApiResponse}
+     */
+    deleteRaw(): Promise<any> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "delete",
+            query: undefined,
+        });
+    }
 }
 
 export interface ListQuery {
-
-    /**
-     * Phone number in E.164 (11-digits) format with or without plus '+'. Multiple values are supported
-     */
-    phoneNumber?: string;
 
     /**
      * If specified, only contacts whose First name or Last name start with the mentioned substring are returned. Case-insensitive
@@ -132,7 +152,7 @@ export interface ListQuery {
     /**
      * Sorts results by the specified property. The default is 'First Name'
      */
-    sortBy?: "FirstName" | "LastName" | "Company";
+    sortBy?: ("FirstName" | "LastName" | "Company")[];
 
     /**
      * Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'
@@ -143,4 +163,9 @@ export interface ListQuery {
      * Indicates the page size (number of items). If not specified, the value is '100' by default
      */
     perPage?: number;
+
+    /**
+     * 
+     */
+    phoneNumber?: string[];
 }

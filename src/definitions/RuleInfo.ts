@@ -1,5 +1,5 @@
 // Generated Source
-import RuleInfoForwardingNumberInfo from "./RuleInfoForwardingNumberInfo";
+import ForwardingNumberInfoRules from "./ForwardingNumberInfoRules";
 
 interface RuleInfo {
 
@@ -16,7 +16,7 @@ interface RuleInfo {
     /**
      * Forwarding number (or group) data
      */
-    forwardingNumbers?: RuleInfoForwardingNumberInfo[];
+    forwardingNumbers?: ForwardingNumberInfoRules[];
 }
 
 export default RuleInfo;

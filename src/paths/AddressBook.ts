@@ -1,7 +1,6 @@
 // This is Generated Source.
 import PathSegment from "../PathSegment";
 import Contact from "./Contact";
-import Group from "./Group";
 
 export default class AddressBook extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -9,16 +8,9 @@ export default class AddressBook extends PathSegment {
     }
 
     /**
-     * Internal identifier of a contact record in the RingCentral database
+     * Internal identifier of an extension
      */
     contact(id?: string) {
         return new Contact(this, id);
-    }
-
-    /**
-     * 
-     */
-    group(id?: string) {
-        return new Group(this, id);
     }
 }

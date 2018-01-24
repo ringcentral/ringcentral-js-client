@@ -1,6 +1,6 @@
 // This is Generated Source.
-import StateInfo from "../definitions/StateInfo";
-import PagingResult from "../PagingResult";
+import GetStateInfoResponse from "../definitions/GetStateInfoResponse";
+import GetStateListResponse from "../definitions/GetStateListResponse";
 import PathSegment from "../PathSegment";
 
 export default class State extends PathSegment {
@@ -9,16 +9,21 @@ export default class State extends PathSegment {
     }
 
     /**
-     *  Get State/Province List
+     *  <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the states for a certain country.</p><h4>Usage Plan Group</h4><p>Light</p>
      */
-    list(query?: ListQuery): Promise<PagingResult<StateInfo>> {
-        return this.listRaw.apply(this, arguments).then((res) => {
+    list(query?: ListQuery): Promise<GetStateListResponse> {
+        return this._send({
+            body: undefined,
+            ignoreId: false,
+            method: "get",
+            query: query,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get State/Province List
+     *  <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the states for a certain country.</p><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -31,16 +36,21 @@ export default class State extends PathSegment {
     }
 
     /**
-     *  Get State/Province by ID
+     *  <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns the information on the required state.</p><h4>Usage Plan Group</h4><p>Light</p>
      */
-    get(): Promise<StateInfo> {
-        return this.getRaw.apply(this, arguments).then((res) => {
+    get(): Promise<GetStateInfoResponse> {
+        return this._send({
+            body: undefined,
+            ignoreId: true,
+            method: "get",
+            query: undefined,
+        }).then((res) => {
                 return res.json();
         });
     }
 
     /**
-     *  Get State/Province by ID
+     *  <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns the information on the required state.</p><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

@@ -20,6 +20,8 @@
         "no-trailing-whitespace": [
             true,
             "ignore-comments"
-        ]
+        ],
+        "array-type": false,
+        "ordered-imports": false
     }
 }

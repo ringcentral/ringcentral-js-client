@@ -3,7 +3,7 @@
 interface Binary {
 
     /**
-     * Required. Binary data.
+     * Required Binary Data
      */
     data?: ArrayBuffer;
 }

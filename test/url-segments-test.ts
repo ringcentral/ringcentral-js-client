@@ -143,12 +143,12 @@ describe("PathSegments", () => {
 
         it("covers all", () => {
             let id: string;
-            return client.account().extension().ringout().post({
+            return client.account().extension().ringOut().post({
                 from: { phoneNumber: "+16507411615" },
                 to: { phoneNumber: "+13213042353" },
             }).then((res) => id = res.id)
-                .then((res) => client.account().extension().ringout(id).get())
-                .then((res) => client.account().extension().ringout(id).delete());
+                .then((res) => client.account().extension().ringOut(id).get())
+                .then((res) => client.account().extension().ringOut(id).delete());
         });
 
     });
@@ -164,14 +164,14 @@ describe("PathSegments", () => {
 
     });
 
-    describe("Group", () => {
+    /*describe("Group", () => {
 
         it("covers all", () => {
             const addressBook = client.account().extension().addressBook();
             return addressBook.group().list();
         });
 
-    });
+    });*/
 
     describe("Greeting", () => {
 
@@ -284,13 +284,13 @@ describe("PathSegments", () => {
 
     });
 
-    describe("Clientinfo", () => {
+    /*describe("Clientinfo", () => {
 
         it("covers all", () => {
             return client.clientInfo().customData().put({});
         });
 
-    });
+    });*/
 
     describe("ActiveCalls", () => {
 
@@ -321,13 +321,13 @@ describe("PathSegments", () => {
 
     });
 
-    describe("NumberPool", () => {
+    /*describe("NumberPool", () => {
 
         it("covers all", () => {
             return client.numberPool().lookup().post({ countryCode: "cn" });
         });
 
-    });
+    });*/
 
     describe("Department", () => {
 
@@ -347,13 +347,13 @@ describe("PathSegments", () => {
 
     });
 
-    describe("DialingPlan", () => {
+    /*describe("DialingPlan", () => {
 
         it("covers all", () => {
             return client.account().dialingPlan().list();
         });
 
-    });
+    });*/
 
     describe("Presence", () => {
 
@@ -381,7 +381,7 @@ describe("PathSegments", () => {
     describe("NumberParser", () => {
 
         it("parses number", () => {
-            return client.numberParser().parse().post({ originalStrings: ["+8618657118272"] });
+            return client.numberParser().parse().post({ originalStrings: "+8618657118272" });
         });
 
     });
@@ -410,9 +410,9 @@ describe("Glip", () => {
 
     it("Posts", () => {
         return client.glip().groups().list().then((g) => {
-            return client.glip().posts().list({ groupId: g.records[0].id });
+            return client.glip().groups(g.records[0].id).posts().list();
         }).then((posts) => {
-            expect(posts.records[0]).to.has.keys("id", "groupId", "type", "text", "creatorId", "addedPersonIds", "creationTime", "lastModifiedTime", "attachments");
+            expect(posts.records[0]).to.has.keys("id", "groupId", "type", "text", "creatorId", "addedPersonIds", "creationTime", "lastModifiedTime", "attachments", "activity", "title", "iconUri", "iconEmoji", "mentions");
         });
     });
 

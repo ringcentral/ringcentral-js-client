@@ -3,7 +3,8 @@ import PathSegment from "../PathSegment";
 import Companies from "./Companies";
 import Groups from "./Groups";
 import Persons from "./Persons";
-import Posts from "./Posts";
+import Files from "./Files";
+import Profile from "./Profile";
 
 export default class Glip extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -18,7 +19,7 @@ export default class Glip extends PathSegment {
     }
 
     /**
-     * Internal identifier of a group in an address book
+     * Id of a group to send post
      */
     groups(id?: string) {
         return new Groups(this, id);
@@ -32,9 +33,16 @@ export default class Glip extends PathSegment {
     }
 
     /**
+     * Internal identifier of file.
+     */
+    files(id?: string) {
+        return new Files(this, id);
+    }
+
+    /**
      * 
      */
-    posts(id?: string) {
-        return new Posts(this, id);
+    profile(id?: string) {
+        return new Profile(this, id);
     }
 }

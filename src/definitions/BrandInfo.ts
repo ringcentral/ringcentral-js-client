@@ -9,7 +9,7 @@ interface BrandInfo {
     id?: string;
 
     /**
-     * Brand name, for example "RingCentral UK", "ClearFax"
+     * Brand name, for example  RingCentral UK ,  ClearFax
      */
     name?: string;
 

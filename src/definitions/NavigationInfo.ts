@@ -1,27 +1,27 @@
 // Generated Source
-import Page from "./Page";
+import NavigationInfoUri from "./NavigationInfoUri";
 
 interface NavigationInfo {
 
     /**
-     * First page of the list
+     * Canonical URI for the first page of the list
      */
-    firstPage?: Page;
+    firstPage?: NavigationInfoUri;
 
     /**
-     * Next page of the list
+     * Canonical URI for the next page of the list
      */
-    nextPage?: Page;
+    nextPage?: NavigationInfoUri;
 
     /**
-     * Previous page of the list
+     * Canonical URI for the previous page of the list
      */
-    previousPage?: Page;
+    previousPage?: NavigationInfoUri;
 
     /**
-     * Last page of the list
+     * Canonical URI for the last page of the list
      */
-    lastPage?: Page;
+    lastPage?: NavigationInfoUri;
 }
 
 export default NavigationInfo;

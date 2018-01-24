@@ -1,8 +1,10 @@
 // This is Generated Source.
+import GlipCreateGroup from "../definitions/GlipCreateGroup";
 import GlipGroupInfo from "../definitions/GlipGroupInfo";
-import PagingResult from "../PagingResult";
+import GlipGroupList from "../definitions/GlipGroupList";
 import PathSegment from "../PathSegment";
 import BulkAssign from "./BulkAssign";
+import Posts from "./Posts";
 
 export default class Groups extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -17,36 +19,16 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  Create Group
+     * 
      */
-    post(body: PostBody): Promise<GlipGroupInfo> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: undefined,
-        }).then((res) => {
-                return res.json();
-        });
+    posts(id?: string) {
+        return new Posts(this, id);
     }
 
     /**
-     *  Create Group
-     *  return {ApiResponse}
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns the list of groups associated with the user.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
      */
-    postRaw(body: PostBody): Promise<any> {
-        return this._send({
-            body: body,
-            ignoreId: true,
-            method: "post",
-            query: undefined,
-        });
-    }
-
-    /**
-     *  Get Group List
-     */
-    list(query?: ListQuery): Promise<PagingResult<GlipGroupInfo>> {
+    list(query?: ListQuery): Promise<GlipGroupList> {
         return this._send({
             body: undefined,
             ignoreId: false,
@@ -58,7 +40,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  Get Group List
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns the list of groups associated with the user.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -71,7 +53,34 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  Get Group by ID
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a group.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     */
+    post(body: GlipCreateGroup): Promise<GlipGroupInfo> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        }).then((res) => {
+                return res.json();
+        });
+    }
+
+    /**
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a group.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  return {ApiResponse}
+     */
+    postRaw(body: GlipCreateGroup): Promise<any> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "post",
+            query: undefined,
+        });
+    }
+
+    /**
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns a group or few groups by ID(s). Batch request is supported.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
      */
     get(): Promise<GlipGroupInfo> {
         return this._send({
@@ -85,7 +94,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  Get Group by ID
+     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns a group or few groups by ID(s). Batch request is supported.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -98,40 +107,12 @@ export default class Groups extends PathSegment {
     }
 }
 
-export interface PostBody {
-
-    /**
-     * Type of a group to be created. 'PrivateChat' is a group of 2 members. 'Team' is a chat of 1 and more participants, the membership can be modified in future
-     */
-    type?: "PrivateChat" | "Team";
-
-    /**
-     * For 'Team' group type only. Team access level
-     */
-    isPublic?: boolean;
-
-    /**
-     * For 'Team' group type only. Team name
-     */
-    name?: string;
-
-    /**
-     * For 'Team' group type only. Team description
-     */
-    description?: string;
-
-    /**
-     * Identifier(s) of group members. For 'PrivateChat' group type 2 members only are supported
-     */
-    members?: string[];
-}
-
 export interface ListQuery {
 
     /**
      * Type of a group. 'PrivateChat' is a group of 2 members. 'Group' is a chat of 2 and more participants, the membership cannot be changed after group creation. 'Team' is a chat of 1 and more participants, the membership can be modified in future
      */
-    type?: "PrivateChat" | "Group" | "Team";
+    type?: ("PrivateChat" | "Group" | "Team")[];
 
     /**
      * Token of a page to be returned, see Glip Navigation Info
