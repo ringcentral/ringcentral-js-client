@@ -392,7 +392,6 @@ describe("Glip", () => {
 
     it("Get current company", () => {
         return client.glip().companies("~").get().then((c) => {
-            console.log('>>', c)
             expect(c).to.has.keys("id", "name", "domain", "creationTime", "lastModifiedTime");
         });
     });
@@ -411,9 +410,9 @@ describe("Glip", () => {
 
     it("Posts", () => {
         return client.glip().groups().list().then((g) => {
-            return client.glip().posts().list({ groupId: g.records[0].id });
+            return client.glip().groups(g.records[0].id).posts().list();
         }).then((posts) => {
-            expect(posts.records[0]).to.has.keys("id", "groupId", "type", "text", "creatorId", "addedPersonIds", "creationTime", "lastModifiedTime", "attachments");
+            expect(posts.records[0]).to.has.keys("id", "groupId", "type", "text", "creatorId", "addedPersonIds", "creationTime", "lastModifiedTime", "attachments", "activity", "title", "iconUri", "iconEmoji", "mentions");
         });
     });
 

@@ -28,7 +28,7 @@ interface GetDeviceInfoResponse {
     type?: "SoftPhone" | "OtherPhone" | "HardPhone";
 
     /**
-     * Device name. Mandatory if ordering  SoftPhone  or  OtherPhone . Optional for  HardPhone . If not specified for HardPhone, then device  model  name is used as device  name
+     * Device name. Mandatory if ordering  SoftPhone  or  OtherPhone . Optional for  HardPhone . If not specified for HardPhone, then device model  name is used as device  name
      */
     name?: string;
 
@@ -63,7 +63,7 @@ interface GetDeviceInfoResponse {
     phoneLines?: PhoneLinesInfo;
 
     /**
-     * Shipping information, according to which devices (in case of  HardPhone ) or e911 stickers (in case of  SoftPhone  and  OtherPhone ) will be delivered to the customer
+     * Shipping information, according to which devices (in case of HardPhone ) or e911 stickers (in case of  SoftPhone  and  OtherPhone ) will be delivered to the customer
      */
     shipping?: ShippingInfo;
 

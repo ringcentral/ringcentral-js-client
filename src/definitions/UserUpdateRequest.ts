@@ -1,30 +1,11 @@
 // Generated Source
-import AddressInfoRequest from "./AddressInfoRequest";
-import EmailInfoRequest from "./EmailInfoRequest";
-import NameInfoRequest from "./NameInfoRequest";
+import AddressInfo from "./AddressInfo";
+import EmailInfo from "./EmailInfo";
+import NameInfo from "./NameInfo";
 import PhoneNumberInfoRequest from "./PhoneNumberInfoRequest";
+import PhotoInfo from "./PhotoInfo";
 
 interface UserUpdateRequest {
-
-    /**
-     * Specification links
-     */
-    schemas?: string[];
-
-    /**
-     * User name
-     */
-    name?: NameInfoRequest;
-
-    /**
-     * User mailbox
-     */
-    userName?: string;
-
-    /**
-     * User email addresses
-     */
-    emails?: EmailInfoRequest[];
 
     /**
      * Status of a user
@@ -32,9 +13,14 @@ interface UserUpdateRequest {
     active?: boolean;
 
     /**
-     * User phone numbers
+     * User addresses
      */
-    phoneNumbers?: PhoneNumberInfoRequest[];
+    addresses?: AddressInfo[];
+
+    /**
+     * User email addresses
+     */
+    emails?: EmailInfo[];
 
     /**
      * External identifier of a user
@@ -42,14 +28,34 @@ interface UserUpdateRequest {
     externalId?: string;
 
     /**
-     * User addresses
-     */
-    addresses?: AddressInfoRequest;
-
-    /**
      * Internal identifier of a user
      */
     id?: string;
+
+    /**
+     * User name
+     */
+    name?: NameInfo;
+
+    /**
+     * User phone numbers
+     */
+    phoneNumbers?: PhoneNumberInfoRequest[];
+
+    /**
+     * 
+     */
+    photos?: PhotoInfo[];
+
+    /**
+     * Specification links
+     */
+    schemas?: ("urn:ietf:params:scim:schemas:core:2.0:User")[];
+
+    /**
+     * User mailbox. Must be same as work type email address
+     */
+    userName?: string;
 }
 
 export default UserUpdateRequest;

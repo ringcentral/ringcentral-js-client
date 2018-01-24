@@ -67,11 +67,6 @@ export default class Posts extends PathSegment {
 export interface ListQuery {
 
     /**
-     * Identifier of a group to filter posts
-     */
-    groupId?: string;
-
-    /**
      * Token of a page to be returned, see Glip Navigation Info
      */
     pageToken?: string;

@@ -3,39 +3,10 @@ import AddressInfo from "./AddressInfo";
 import EmailInfo from "./EmailInfo";
 import MetaInfo from "./MetaInfo";
 import NameInfo from "./NameInfo";
-import PhoneNumberInfo from "./PhoneNumberInfo";
+import PhoneNumberInfoRequest from "./PhoneNumberInfoRequest";
+import PhotoInfo from "./PhotoInfo";
 
 interface UserInfo {
-
-    /**
-     * Specification links
-     */
-    schemas?: string[];
-
-    /**
-     * Internal identifier of a user
-     */
-    id?: string;
-
-    /**
-     * External identifier of a user
-     */
-    externalId?: string;
-
-    /**
-     * User metadata
-     */
-    meta?: MetaInfo;
-
-    /**
-     * User mailbox
-     */
-    userName?: string;
-
-    /**
-     * User name
-     */
-    name?: NameInfo;
 
     /**
      * Status of a user
@@ -43,19 +14,54 @@ interface UserInfo {
     active?: boolean;
 
     /**
+     * User addresses
+     */
+    addresses?: AddressInfo[];
+
+    /**
      * User email addresses
      */
     emails?: EmailInfo[];
 
     /**
-     * User phone numbers
+     * External identifier of a user
      */
-    phoneNumbers?: PhoneNumberInfo[];
+    externalId?: string;
 
     /**
-     * User addresses
+     * Internal identifier of a user
      */
-    addresses?: AddressInfo[];
+    id?: string;
+
+    /**
+     * User name
+     */
+    name?: NameInfo;
+
+    /**
+     * User phone numbers
+     */
+    phoneNumbers?: PhoneNumberInfoRequest[];
+
+    /**
+     * 
+     */
+    photos?: PhotoInfo[];
+
+    /**
+     * Specification links
+     */
+    schemas?: ("urn:ietf:params:scim:schemas:core:2.0:User")[];
+
+    /**
+     * User mailbox. Must be same as work type email address
+     */
+    userName?: string;
+
+    /**
+     * User metadata
+     */
+    meta?: MetaInfo;
 }
 
 export default UserInfo;

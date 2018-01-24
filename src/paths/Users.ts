@@ -65,7 +65,7 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Updating User using SCIM</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
      */
     put(body: UserUpdateRequest): Promise<UserInfo> {
         return this._send({
@@ -79,7 +79,7 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Updating User using SCIM</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
      *  return {ApiResponse}
      */
     putRaw(body: UserUpdateRequest): Promise<any> {
@@ -92,7 +92,7 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Deleting User using scim</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
      */
     delete(): Promise<void> {
         return this._send({
@@ -104,7 +104,7 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Deleting User using scim</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
      *  return {ApiResponse}
      */
     deleteRaw(): Promise<any> {
@@ -120,17 +120,17 @@ export default class Users extends PathSegment {
 export interface GetQuery {
 
     /**
-     * User name or email
+     * only support 'userName' or 'email' filter expressions for now
      */
-    filter?: ("userName" | "email")[];
+    filter?: "userName" | "email";
 
     /**
-     * Page
+     * page size
      */
     count?: number;
 
     /**
-     * 1-based index of the query result
+     * start index (1-based)
      */
     startIndex?: number;
 }

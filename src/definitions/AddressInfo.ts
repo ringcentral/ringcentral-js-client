@@ -3,11 +3,6 @@
 interface AddressInfo {
 
     /**
-     * Specifies if this is the main user address
-     */
-    primary?: boolean;
-
-    /**
      * User street address
      */
     streetAddress?: string;
@@ -35,7 +30,7 @@ interface AddressInfo {
     /**
      * Address type
      */
-    type?: string;
+    type?: "work";
 }
 
 export default AddressInfo;

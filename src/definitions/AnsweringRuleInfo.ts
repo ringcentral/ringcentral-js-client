@@ -17,7 +17,7 @@ interface AnsweringRuleInfo {
     uri?: string;
 
     /**
-     * Internal identifier of an asnwering rule
+     * Internal identifier of an answering rule
      */
     id?: string;
 

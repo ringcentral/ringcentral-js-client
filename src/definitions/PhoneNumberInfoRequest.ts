@@ -10,7 +10,7 @@ interface PhoneNumberInfoRequest {
     /**
      * Phone number type
      */
-    type?: string;
+    type?: "work" | "mobile" | "other";
 }
 
 export default PhoneNumberInfoRequest;

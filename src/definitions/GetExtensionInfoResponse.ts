@@ -14,7 +14,7 @@ interface GetExtensionInfoResponse {
     /**
      * Internal identifier of an extension
      */
-    id?: string;
+    id?: number;
 
     /**
      * Canonical URI of an extension

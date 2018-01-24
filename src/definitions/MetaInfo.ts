@@ -3,14 +3,9 @@
 interface MetaInfo {
 
     /**
-     * Specification links
-     */
-    schemas?: string[];
-
-    /**
      * User type
      */
-    resourceType?: string;
+    resourceType?: "User" | "Group";
 
     /**
      * Datetime of user creation in ISO 8601 format, for example 2016-03-10T18:07:52.534Z
@@ -23,7 +18,7 @@ interface MetaInfo {
     lastModified?: string;
 
     /**
-     * User location
+     * resource location URI
      */
     location?: string;
 }

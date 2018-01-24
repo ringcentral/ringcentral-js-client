@@ -1,22 +1,17 @@
 // Generated Source
-import GlipAttachmentInfoRequest from "./GlipAttachmentInfoRequest";
+import GlipMessageAttachmentInfoRequest from "./GlipMessageAttachmentInfoRequest";
 
 interface GlipCreatePost {
 
     /**
-     * Internal identifier of a group to send post to
-     */
-    groupId?: string;
-
-    /**
-     * Text of a post, the maximum is 10000 characters
+     * Text of a post, the maximum is 10000 unicode characters
      */
     text?: string;
 
     /**
      * List of attachments to be posted
      */
-    attachments?: GlipAttachmentInfoRequest[];
+    attachments?: GlipMessageAttachmentInfoRequest[];
 }
 
 export default GlipCreatePost;

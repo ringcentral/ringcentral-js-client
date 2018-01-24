@@ -4,6 +4,7 @@ import GlipGroupInfo from "../definitions/GlipGroupInfo";
 import GlipGroupList from "../definitions/GlipGroupList";
 import PathSegment from "../PathSegment";
 import BulkAssign from "./BulkAssign";
+import Posts from "./Posts";
 
 export default class Groups extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -15,6 +16,13 @@ export default class Groups extends PathSegment {
      */
     bulkAssign(id?: string) {
         return new BulkAssign(this, id);
+    }
+
+    /**
+     * 
+     */
+    posts(id?: string) {
+        return new Posts(this, id);
     }
 
     /**

@@ -73,7 +73,7 @@ interface DeviceResource {
     shipping?: ShippingResource;
 
     /**
-     * Box billing identifier of a device. Applicable only for HardPhones. It is an alternative way to identify the device to be ordered. Either  model structure, or boxBillingId must be specified for HardPhone
+     * Box billing identifier of a device. Applicable only for HardPhones. It is an alternative way to identify the device to be ordered. Either model structure, or boxBillingId must be specified for HardPhone
      */
     boxBillingId?: number;
 

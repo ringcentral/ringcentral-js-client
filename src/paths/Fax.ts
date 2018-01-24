@@ -1,7 +1,7 @@
 import * as FormData from "form-data";
 import Binary from "../Binary";
 import CallerInfo from "../definitions/CallerInfo";
-import MessageInfo from "../definitions/MessageInfo";
+import MessageInfo from "../definitions/GetMessageInfoResponse";
 import PathSegment from "../PathSegment";
 import FaxBase from "./FaxBase";
 

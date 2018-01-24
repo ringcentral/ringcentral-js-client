@@ -18,7 +18,7 @@ export default class CallLog extends PathSegment {
             method: "get",
             query: query,
         }).then((res) => {
-            return res.json();
+                return res.json();
         });
     }
 
@@ -61,7 +61,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *
+     *  
      */
     get(query?: GetQuery): Promise<UserCallLogRecord> {
         return this._send({
@@ -70,12 +70,12 @@ export default class CallLog extends PathSegment {
             method: "get",
             query: query,
         }).then((res) => {
-            return res.json();
+                return res.json();
         });
     }
 
     /**
-     *
+     *  
      *  return {ApiResponse}
      */
     getRaw(query?: GetQuery): Promise<any> {
@@ -111,7 +111,7 @@ export interface ListQuery {
     direction?: ("Inbound" | "Outbound")[];
 
     /**
-     *
+     * 
      */
     sessionId?: string;
 
@@ -164,27 +164,27 @@ export interface DeleteQuery {
     dateTo?: string;
 
     /**
-     *
+     * 
      */
     phoneNumber?: string;
 
     /**
-     *
+     * 
      */
     extensionNumber?: string;
 
     /**
-     *
+     * 
      */
-    type?: ("Voice" | "Fax")[];
+    type?: "Voice" | "Fax"[];
 
     /**
-     *
+     * 
      */
-    direction?: ("Inbound" | "Outbound")[];
+    direction?: "Inbound" | "Outbound"[];
 
     /**
-     *
+     * 
      */
     dateFrom?: string;
 }
@@ -192,7 +192,7 @@ export interface DeleteQuery {
 export interface GetQuery {
 
     /**
-     *
+     * 
      */
     view?: "Simple" | "Detailed";
 }

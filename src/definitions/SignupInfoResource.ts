@@ -10,7 +10,7 @@ interface SignupInfoResource {
     /**
      * 
      */
-    signupState?: ("AccountCreated" | "BillingEntered" | "CreditCardApproved" | "AccountConfirmed" | "PhoneVerificationRequired" | "PhoneVerificationPassed")[];
+    signupState?: "AccountCreated" | "BillingEntered" | "CreditCardApproved" | "AccountConfirmed" | "PhoneVerificationRequired" | "PhoneVerificationPassed"[];
 
     /**
      * 

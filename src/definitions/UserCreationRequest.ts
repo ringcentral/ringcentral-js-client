@@ -1,35 +1,26 @@
 // Generated Source
-import AddressInfoRequest from "./AddressInfoRequest";
-import EmailInfoRequest from "./EmailInfoRequest";
-import NameInfoRequest from "./NameInfoRequest";
+import AddressInfo from "./AddressInfo";
+import EmailInfo from "./EmailInfo";
+import NameInfo from "./NameInfo";
 import PhoneNumberInfoRequest from "./PhoneNumberInfoRequest";
+import PhotoInfo from "./PhotoInfo";
 
 interface UserCreationRequest {
 
     /**
-     * Specification links
+     * Status of a user
      */
-    schemas?: string[];
+    active?: boolean;
 
     /**
-     * User name
+     * User addresses
      */
-    name?: NameInfoRequest;
-
-    /**
-     * User mailbox
-     */
-    userName?: string;
+    addresses?: AddressInfo[];
 
     /**
      * User email addresses
      */
-    emails?: EmailInfoRequest[];
-
-    /**
-     * User phone numbers
-     */
-    phoneNumbers?: PhoneNumberInfoRequest[];
+    emails?: EmailInfo[];
 
     /**
      * External identifier of a user
@@ -37,9 +28,34 @@ interface UserCreationRequest {
     externalId?: string;
 
     /**
-     * User addresses
+     * Internal identifier of a user
      */
-    addresses?: AddressInfoRequest;
+    id?: string;
+
+    /**
+     * User name
+     */
+    name?: NameInfo;
+
+    /**
+     * User phone numbers
+     */
+    phoneNumbers?: PhoneNumberInfoRequest[];
+
+    /**
+     * 
+     */
+    photos?: PhotoInfo[];
+
+    /**
+     * Specification links
+     */
+    schemas?: ("urn:ietf:params:scim:schemas:core:2.0:User")[];
+
+    /**
+     * User mailbox. Must be same as work type email address
+     */
+    userName?: string;
 }
 
 export default UserCreationRequest;
