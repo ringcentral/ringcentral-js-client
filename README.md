@@ -60,24 +60,25 @@ All APIs are exposed on the global variable `RingCentral`.
 Login, logout, get account info.
 
 ```typescript
-let sdk = new SDK({
-	server: SERVER_SANDBOX, // Optional, default is production server
-	appKey: "{yourAppKey}",
-	appSecret: "{yourAppSecret}"
+const sdk = new SDK({
+	server: SERVER_PRODUCTION, // Optional, default is production server
+	appKey: process.env.APP_KEY,
+	appSecret: process.env.APP_SECRET
 });
-let client = new RingCentralClient(sdk);
+const client = new RingCentralClient(sdk);
+
 
 // Log into RingCentral
-sdk.login({
-	"username": "{username}",
-	"extension": "{extension}",
-	"password": "{password}"
+sdk.platform().login({
+	"username": process.env.USERNAME,
+	"extension": process.env.EXTENSION,
+	"password": process.env.PASSWORD
 }).then(() => {
 	console.log("Login success");
 	return client.account().get(); // Call RingCentral REST API
 }).then((accountInfo) => {
 	console.log("Current account info", accountInfo);
-	return client.logout();	// Logout
+	return sdk.platform().logout();	// Logout
 }).then(() => {
 	console.log("logout success");
 }).catch(e => {
