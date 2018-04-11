@@ -31,7 +31,7 @@ yarn add ringcentral-client ringcentral
 #### In Typescript or ES6 (Recommended)
 ```typescript
 import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
-import * as SDK from "ringcentral";
+import SDK from "ringcentral";
 ```
 
 #### In commonjs(node.js, webpack and browserify)
