@@ -1,7 +1,7 @@
 *.js
 *.js.map
 *.d.ts
-build/
+
 coverage/
 node_modules/
 typings/

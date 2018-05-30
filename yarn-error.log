@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn build -f
+  /usr/local/bin/node /usr/local/bin/yarn generate
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
@@ -89,9 +89,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 2
+  Exit code: 1
   Command: sh
-  Arguments: -c tsc && webpack -f
+  Arguments: -c node ../rc-codegen/ -l typescript -o src/ -t codegen/templates/ -c codegen/config.json
   Directory: /Users/erica.kirshner/Desktop/ringcentral-js-client
   Output:
   
