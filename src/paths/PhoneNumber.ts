@@ -2,6 +2,7 @@
 import GetExtensionPhoneNumbersResponse from "../definitions/GetExtensionPhoneNumbersResponse";
 import PhoneNumberInfo from "../definitions/PhoneNumberInfo";
 import PathSegment from "../PathSegment";
+import PhoneNumberUpdateRequest from '../definitions/PhoneNumberUpdateRequest'
 
 export default class PhoneNumber extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -18,7 +19,7 @@ export default class PhoneNumber extends PathSegment {
             method: "get",
             query: query,
         }).then((res) => {
-                return res.json();
+            return res.json();
         });
     }
 
@@ -45,7 +46,21 @@ export default class PhoneNumber extends PathSegment {
             method: "get",
             query: undefined,
         }).then((res) => {
-                return res.json();
+            return res.json();
+        });
+    }
+
+    /** 
+     * <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+    */
+    put(body: PhoneNumberUpdateRequest): Promise<PhoneNumberInfo> {
+        return this._send({
+            body: body,
+            ignoreId: true,
+            method: "put",
+            query: undefined,
+        }).then((res) => {
+            return res.json();
         });
     }
 
