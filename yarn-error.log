@@ -1,0 +1,103 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn build -f
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  9.6.1
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+      "name": "ringcentral-client",
+      "version": "1.0.0-beta.1",
+      "scripts": {
+          "prepublish": "npm run build",
+          "start": "node server.js",
+          "build": "tsc && webpack",
+          "watch": "npm run build -- watch",
+          "test": "_mocha --no-timeouts",
+          "generate": "node ../rc-codegen/ -l typescript -o src/ -t codegen/templates/ -c codegen/config.json",
+          "coverage": "istanbul cover --report json _mocha -- -R spec --no-timeouts",
+          "coverage-badge": "remap-istanbul -i coverage/coverage.json -t lcovonly | coveralls",
+          "coverage-report": "remap-istanbul -i coverage/coverage.json -t html -o coverage/lcov-report/",
+          "docs": "typedoc --mode file --out ./build/api-docs/ src/ -m commonjs -t es2015 --exclude **/src/test/**/*.ts",
+          "lint": "tslint ./src/*.ts ./src/**/*.ts"
+      },
+      "dependencies": {
+          "form-data": "^2.1.2",
+          "isomorphic-fetch": "^2.2.1"
+      },
+      "devDependencies": {
+          "@types/mocha": "^2.2.41",
+          "chai": "^4.1.1",
+          "coveralls": "^2.11.15",
+          "istanbul": "^0.4.0",
+          "json-loader": "^0.5.4",
+          "mocha": "^3.2.0",
+          "remap-istanbul": "^0.9.5",
+          "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master",
+          "sinon": "^3.2.0",
+          "sinon-chai": "^2.8.0",
+          "source-map-loader": "^0.2.1 ",
+          "tslint": "^5.6.0",
+          "typedoc": "^0.8.0",
+          "typescript": "latest",
+          "webpack": "^1.0.0"
+      },
+      "peerDependencies": {
+          "ringcentral": ">=3.0.0"
+      },
+      "preferGlobal": false,
+      "private": false,
+      "main": "./src/Client.js",
+      "typings": "./src/Client.ts",
+      "author": {
+          "name": "RingCentral, Inc.",
+          "email": "devsupport@ringcentral.com"
+      },
+      "contributors": [
+          {
+              "name": "Kirill Konshin"
+          }
+      ],
+      "repository": {
+          "type": "git",
+          "url": "git://github.com/ringcentral/ringcentral-js-client.git"
+      },
+      "bugs": {
+          "url": "https://github.com/ringcentral/ringcentral-js-client/issues"
+      },
+      "homepage": "https://github.com/ringcentral/ringcentral-js-client",
+      "engines": {
+          "node": ">=4.0.0"
+      },
+      "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 2
+  Command: sh
+  Arguments: -c tsc && webpack -f
+  Directory: /Users/erica.kirshner/Desktop/ringcentral-js-client
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
+      at ChildProcess.emit (events.js:127:13)
+      at maybeClose (internal/child_process.js:933:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
