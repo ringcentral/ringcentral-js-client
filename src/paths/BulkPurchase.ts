@@ -16,6 +16,7 @@ export default class BulkPurchase extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -29,6 +30,7 @@ export default class BulkPurchase extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 }

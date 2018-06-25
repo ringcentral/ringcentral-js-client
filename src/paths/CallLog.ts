@@ -17,6 +17,7 @@ export default class CallLog extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -32,6 +33,7 @@ export default class CallLog extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -44,6 +46,7 @@ export default class CallLog extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -57,6 +60,7 @@ export default class CallLog extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -69,6 +73,7 @@ export default class CallLog extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -84,6 +89,7 @@ export default class CallLog extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 }
@@ -108,7 +114,7 @@ export interface ListQuery {
     /**
      * The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
      */
-    direction?: ("Inbound" | "Outbound")[];
+    direction?: ('Inbound' | 'Outbound')[];
 
     /**
      * 
@@ -118,17 +124,17 @@ export interface ListQuery {
     /**
      * Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
      */
-    type?: ("Voice" | "Fax")[];
+    type?: ('Voice' | 'Fax')[];
 
     /**
      * Call transport type. 'PSTN' specifies that a call leg is initiated from the PSTN network provider; 'VoIP' - from an RC phone. By default this filter is disabled
      */
-    transport?: ("PSTN" | "VoIP")[];
+    transport?: ('PSTN' | 'VoIP')[];
 
     /**
      * The default value is 'Simple' for both account and extension call log
      */
-    view?: ("Simple" | "Detailed")[];
+    view?: ('Simple' | 'Detailed')[];
 
     /**
      * 'True' if only recorded calls have to be returned
@@ -176,12 +182,12 @@ export interface DeleteQuery {
     /**
      * 
      */
-    type?: "Voice" | "Fax"[];
+    type?: 'Voice' | 'Fax'[];
 
     /**
      * 
      */
-    direction?: "Inbound" | "Outbound"[];
+    direction?: 'Inbound' | 'Outbound'[];
 
     /**
      * 
@@ -194,5 +200,5 @@ export interface GetQuery {
     /**
      * 
      */
-    view?: "Simple" | "Detailed";
+    view?: 'Simple' | 'Detailed';
 }

@@ -10,7 +10,7 @@ interface EmailInfo {
     /**
      * Email address type
      */
-    type?: "work";
+    type?: 'work';
 }
 
 export default EmailInfo;

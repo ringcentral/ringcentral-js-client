@@ -16,6 +16,7 @@ export default class CallLogSync extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -31,6 +32,7 @@ export default class CallLogSync extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 }
@@ -40,7 +42,7 @@ export interface ListQuery {
     /**
      * Type of synchronization. 'FSync' is a default value
      */
-    syncType?: ("FSync" | "ISync")[];
+    syncType?: ('FSync' | 'ISync')[];
 
     /**
      * Value of syncToken property of last sync request response
@@ -60,5 +62,5 @@ export interface ListQuery {
     /**
      * Type of calls to be returned. The default value is 'All'
      */
-    statusGroup?: ("Missed" | "All")[];
+    statusGroup?: ('Missed' | 'All')[];
 }

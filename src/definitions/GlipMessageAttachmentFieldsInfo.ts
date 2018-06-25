@@ -15,7 +15,7 @@ interface GlipMessageAttachmentFieldsInfo {
     /**
      * A style used to flag fields that should span the width of the message, Defaults to 'Short' (Not full width)
      */
-    style?: "Short" | "Long";
+    style?: 'Short' | 'Long';
 }
 
 export default GlipMessageAttachmentFieldsInfo;

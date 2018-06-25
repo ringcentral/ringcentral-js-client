@@ -5,7 +5,7 @@ interface PatchOperationInfo {
     /**
      * 
      */
-    op?: "add" | "replace" | "remove";
+    op?: 'add' | 'replace' | 'remove';
 
     /**
      * 
@@ -15,7 +15,7 @@ interface PatchOperationInfo {
     /**
      * corresponding 'value' of that field specified by 'path'
      */
-    value?: any;
+    value?: Value;
 }
 
 export default PatchOperationInfo;

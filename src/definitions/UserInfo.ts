@@ -51,7 +51,7 @@ interface UserInfo {
     /**
      * Specification links
      */
-    schemas?: ("urn:ietf:params:scim:schemas:core:2.0:User")[];
+    schemas?: ('urn:ietf:params:scim:schemas:core:2.0:User')[];
 
     /**
      * User mailbox. Must be same as work type email address

@@ -16,6 +16,7 @@ export default class CallerId extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -31,6 +32,7 @@ export default class CallerId extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         });
     }
 
@@ -43,6 +45,7 @@ export default class CallerId extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -58,6 +61,7 @@ export default class CallerId extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 }

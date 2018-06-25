@@ -236,6 +236,7 @@ export default class Extension extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -251,6 +252,7 @@ export default class Extension extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -263,6 +265,7 @@ export default class Extension extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -278,6 +281,7 @@ export default class Extension extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -290,6 +294,7 @@ export default class Extension extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -305,6 +310,7 @@ export default class Extension extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         });
     }
 
@@ -317,6 +323,7 @@ export default class Extension extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -332,6 +339,7 @@ export default class Extension extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -344,6 +352,7 @@ export default class Extension extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -357,6 +366,7 @@ export default class Extension extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 }
@@ -376,10 +386,10 @@ export interface ListQuery {
     /**
      * Extension current state. Multiple values are supported. If 'Unassigned' is specified, then extensions without extensionNumber are returned. If not specified, then all extensions are returned
      */
-    status?: ("Enabled" | "Disabled" | "NotActivated" | "Unassigned")[];
+    status?: ('Enabled' | 'Disabled' | 'NotActivated' | 'Unassigned')[];
 
     /**
      * Extension type. Multiple values are supported
      */
-    type?: ("User" | "FaxUser" | "VirtualUser" | "DigitalUser" | "Department" | "Announcement" | "Voicemail" | "SharedLinesGroup" | "PagingOnly" | "IvrMenu" | "ApplicationExtension" | "ParkLocation" | "Limited" | "Bot")[];
+    type?: ('User' | 'FaxUser' | 'VirtualUser' | 'DigitalUser' | 'Department' | 'Announcement' | 'Voicemail' | 'SharedLinesGroup' | 'PagingOnly' | 'IvrMenu' | 'ApplicationExtension' | 'ParkLocation' | 'Limited' | 'Bot')[];
 }

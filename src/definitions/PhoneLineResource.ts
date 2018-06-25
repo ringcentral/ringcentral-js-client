@@ -1,18 +1,18 @@
 // Generated Source
 import EmergencyAddress from "./EmergencyAddress";
-import PhoneNumberResource from "./PhoneNumberResource";
+import PhoneNumberResourceIntId from "./PhoneNumberResourceIntId";
 
 interface PhoneLineResource {
 
     /**
      * 
      */
-    lineType?: "Unknown" | "Standalone" | "BlaPrimary" | "BlaSecondary" | "BLF" | "StandaloneFree";
+    lineType?: 'Unknown' | 'Standalone' | 'BlaPrimary' | 'BlaSecondary' | 'BLF' | 'StandaloneFree';
 
     /**
      * 
      */
-    phoneInfo?: PhoneNumberResource;
+    phoneInfo?: PhoneNumberResourceIntId;
 
     /**
      * 

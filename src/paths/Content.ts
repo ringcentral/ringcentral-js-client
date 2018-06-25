@@ -15,6 +15,7 @@ export default class Content extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -28,6 +29,7 @@ export default class Content extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 }

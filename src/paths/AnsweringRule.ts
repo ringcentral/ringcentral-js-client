@@ -19,6 +19,7 @@ export default class AnsweringRule extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -32,6 +33,7 @@ export default class AnsweringRule extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -44,6 +46,7 @@ export default class AnsweringRule extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -59,6 +62,7 @@ export default class AnsweringRule extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -71,6 +75,7 @@ export default class AnsweringRule extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -86,6 +91,7 @@ export default class AnsweringRule extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -98,6 +104,7 @@ export default class AnsweringRule extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -111,6 +118,7 @@ export default class AnsweringRule extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -123,6 +131,7 @@ export default class AnsweringRule extends PathSegment {
             ignoreId: false,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -138,6 +147,7 @@ export default class AnsweringRule extends PathSegment {
             ignoreId: false,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 }

@@ -11,7 +11,7 @@ interface ScimUserPatch {
     /**
      * 
      */
-    schemas?: "urn:ietf:params:scim:api:messages:2.0:PatchOp"[];
+    schemas?: 'urn:ietf:params:scim:api:messages:2.0:PatchOp'[];
 }
 
 export default ScimUserPatch;

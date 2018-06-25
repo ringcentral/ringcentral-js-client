@@ -15,6 +15,7 @@ export default class End extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -28,6 +29,7 @@ export default class End extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 }

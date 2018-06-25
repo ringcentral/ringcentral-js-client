@@ -10,7 +10,7 @@ interface GlipGroupInfo {
     /**
      * Type of a group. 'PrivateChat' is a group of 2 members. 'Group' is a chat of 2 and more participants, the membership cannot be changed after group creation. 'Team' is a chat of 1 and more participants, the membership can be modified in future
      */
-    type?: "PrivateChat" | "Group" | "Team";
+    type?: 'PrivateChat' | 'Group' | 'Team';
 
     /**
      * For 'Team' group type only. Team access level

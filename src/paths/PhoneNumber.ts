@@ -17,6 +17,7 @@ export default class PhoneNumber extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -32,6 +33,7 @@ export default class PhoneNumber extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         });
     }
 
@@ -44,6 +46,7 @@ export default class PhoneNumber extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -59,6 +62,7 @@ export default class PhoneNumber extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         });
     }
 }
@@ -68,7 +72,7 @@ export interface ListQuery {
     /**
      * Usage type of the phone number
      */
-    usageType?: ("MainCompanyNumber" | "AdditionalCompanyNumber" | "CompanyNumber" | "DirectNumber" | "CompanyFaxNumber" | "ForwardedNumber")[];
+    usageType?: ('MainCompanyNumber' | 'AdditionalCompanyNumber' | 'CompanyNumber' | 'DirectNumber' | 'CompanyFaxNumber' | 'ForwardedNumber')[];
 
     /**
      * Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'

@@ -30,7 +30,7 @@ interface AddressInfo {
     /**
      * Address type
      */
-    type?: "work";
+    type?: 'work';
 }
 
 export default AddressInfo;

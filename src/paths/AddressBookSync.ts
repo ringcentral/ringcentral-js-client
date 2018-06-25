@@ -16,6 +16,7 @@ export default class AddressBookSync extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -31,6 +32,7 @@ export default class AddressBookSync extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 }
@@ -40,7 +42,7 @@ export interface ListQuery {
     /**
      * Type of synchronization. The default value is 'FSync'
      */
-    syncType?: ("FSync" | "ISync")[];
+    syncType?: ('FSync' | 'ISync')[];
 
     /**
      * Value of syncToken property of the last sync request response

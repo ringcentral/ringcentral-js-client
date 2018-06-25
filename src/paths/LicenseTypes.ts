@@ -16,6 +16,7 @@ export default class LicenseTypes extends PathSegment {
             ignoreId: false,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -31,6 +32,7 @@ export default class LicenseTypes extends PathSegment {
             ignoreId: false,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         });
     }
 }

@@ -19,6 +19,7 @@ export default class Greeting extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -34,6 +35,7 @@ export default class Greeting extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -46,6 +48,7 @@ export default class Greeting extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -61,6 +64,7 @@ export default class Greeting extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -73,6 +77,7 @@ export default class Greeting extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -88,6 +93,7 @@ export default class Greeting extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 }
@@ -107,10 +113,10 @@ export interface ListQuery {
     /**
      * Type of a greeting, specifying the case when the greeting is played
      */
-    type?: "Introductory" | "Announcement" | "ConnectingMessage" | "ConnectingAudio" | "Voicemail" | "Unavailable" | "HoldMusic" | "Company";
+    type?: 'Introductory' | 'Announcement' | 'ConnectingMessage' | 'ConnectingAudio' | 'Voicemail' | 'Unavailable' | 'HoldMusic' | 'Company';
 
     /**
      * Usage type of a greeting, specifying if the greeting is applied for user extension or department extension
      */
-    usageType?: "UserExtensionAnsweringRule" | "ExtensionAnsweringRule" | "DepartmentExtensionAnsweringRule" | "CompanyAnsweringRule" | "CompanyAfterHoursAnsweringRule";
+    usageType?: 'UserExtensionAnsweringRule' | 'ExtensionAnsweringRule' | 'DepartmentExtensionAnsweringRule' | 'CompanyAnsweringRule' | 'CompanyAfterHoursAnsweringRule';
 }

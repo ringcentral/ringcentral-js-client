@@ -15,7 +15,7 @@ interface BillingPlanInfo {
     /**
      * Duration period
      */
-    durationUnit?: "Month" | "Day";
+    durationUnit?: 'Month' | 'Day';
 
     /**
      * Number of duration units
@@ -25,7 +25,7 @@ interface BillingPlanInfo {
     /**
      * Billing plan type
      */
-    type?: "Initial" | "Regular" | "Suspended" | "Trial" | "TrialNoCC" | "Free";
+    type?: 'Initial' | 'Regular' | 'Suspended' | 'Trial' | 'TrialNoCC' | 'Free';
 }
 
 export default BillingPlanInfo;

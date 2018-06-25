@@ -15,7 +15,7 @@ interface ScimSearchRequestInfo {
     /**
      * 
      */
-    schemas?: "urn:ietf:params:scim:api:messages:2.0:SearchRequest"[];
+    schemas?: 'urn:ietf:params:scim:api:messages:2.0:SearchRequest'[];
 
     /**
      * start index (1-based)

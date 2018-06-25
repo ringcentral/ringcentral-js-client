@@ -19,6 +19,7 @@ export default class Users extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -34,6 +35,7 @@ export default class Users extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -46,6 +48,7 @@ export default class Users extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -61,6 +64,7 @@ export default class Users extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -73,6 +77,7 @@ export default class Users extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -88,6 +93,7 @@ export default class Users extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -100,6 +106,7 @@ export default class Users extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -113,6 +120,7 @@ export default class Users extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 }
@@ -122,7 +130,7 @@ export interface GetQuery {
     /**
      * only support 'userName' or 'email' filter expressions for now
      */
-    filter?: "userName" | "email";
+    filter?: 'userName' | 'email';
 
     /**
      * page size

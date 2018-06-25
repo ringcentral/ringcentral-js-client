@@ -16,6 +16,7 @@ export default class Location extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -31,6 +32,7 @@ export default class Location extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         });
     }
 }
@@ -40,7 +42,7 @@ export interface ListQuery {
     /**
      * Sorts results by the specified property. The default value is 'City'
      */
-    orderBy?: ("Npa" | "City")[];
+    orderBy?: ('Npa' | 'City')[];
 
     /**
      * Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'.

@@ -25,7 +25,7 @@ interface ForwardingNumberInfo {
     /**
      * Type of option this phone number is used for. Multiple values are accepted
      */
-    features?: "CallFlip" | "CallForwarding";
+    features?: 'CallFlip' | 'CallForwarding';
 
     /**
      * Number assigned to the call flip phone number, corresponds to the shortcut dial number

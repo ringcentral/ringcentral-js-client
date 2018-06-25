@@ -17,6 +17,7 @@ export default class Contact extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -32,6 +33,7 @@ export default class Contact extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -44,6 +46,7 @@ export default class Contact extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -59,6 +62,7 @@ export default class Contact extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -71,6 +75,7 @@ export default class Contact extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -86,6 +91,7 @@ export default class Contact extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -98,6 +104,7 @@ export default class Contact extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -113,6 +120,7 @@ export default class Contact extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -125,6 +133,7 @@ export default class Contact extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -138,6 +147,7 @@ export default class Contact extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 }
@@ -152,7 +162,7 @@ export interface ListQuery {
     /**
      * Sorts results by the specified property. The default is 'First Name'
      */
-    sortBy?: ("FirstName" | "LastName" | "Company")[];
+    sortBy?: ('FirstName' | 'LastName' | 'Company')[];
 
     /**
      * Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'

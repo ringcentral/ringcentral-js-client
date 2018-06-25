@@ -17,7 +17,7 @@ interface ScheduleInfo {
     /**
      * The user's schedule specified for business hours or after hours; it can also be set/retrieved calling the corresponding method
      */
-    ref?: "BusinessHours" | "AfterHours";
+    ref?: 'BusinessHours' | 'AfterHours';
 }
 
 export default ScheduleInfo;

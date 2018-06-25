@@ -1,7 +1,7 @@
 // Generated Source
 import DeviceModelResource from "./DeviceModelResource";
 import EmergencyServiceAddressResource from "./EmergencyServiceAddressResource";
-import ExtensionResource from "./ExtensionResource";
+import ExtensionResourceIntId from "./ExtensionResourceIntId";
 import PhoneLineResource from "./PhoneLineResource";
 import ShippingResource from "./ShippingResource";
 
@@ -25,12 +25,12 @@ interface DeviceResource {
     /**
      * Device type. The default value is 'HardPhone'
      */
-    type?: "HardPhone" | "SoftPhone" | "OtherPhone";
+    type?: 'HardPhone' | 'SoftPhone' | 'OtherPhone';
 
     /**
      * Status of a device = ['Online', 'Offline']
      */
-    status?: "Online" | "Offline";
+    status?: 'Online' | 'Offline';
 
     /**
      * Device name. Mandatory if ordering SoftPhone or OtherPhone . Optional for HardPhone . If not specified for HardPhone, then device model name is used as device name
@@ -55,12 +55,12 @@ interface DeviceResource {
     /**
      * This attribute can be omitted for unassigned devices
      */
-    extension?: ExtensionResource;
+    extension?: ExtensionResourceIntId;
 
     /**
      * Phone lines information
      */
-    phoneLines?: PhoneLineResource;
+    phoneLines?: PhoneLineResource[];
 
     /**
      * Address for emergency cases. The same emergency address is assigned to all numbers of a single device ,
@@ -80,7 +80,7 @@ interface DeviceResource {
     /**
      * Pooling type of a deviceHost - device with standalone paid phone line which can be linked to Glip/Softphone instanceGuest - device with a linked phone lineNone - device without a phone line or with specific line (free, BLA, etc.) = ['Host', 'Guest', 'None']
      */
-    linePooling?: "Host" | "Guest" | "None";
+    linePooling?: 'Host' | 'Guest' | 'None';
 }
 
 export default DeviceResource;

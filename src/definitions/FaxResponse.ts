@@ -1,14 +1,14 @@
 // Generated Source
 import CallerInfoFrom from "./CallerInfoFrom";
 import CallerInfoTo from "./CallerInfoTo";
-import MessageAttachmentInfo from "./MessageAttachmentInfo";
+import MessageAttachmentInfoIntId from "./MessageAttachmentInfoIntId";
 
 interface FaxResponse {
 
     /**
      * Internal identifier of a message
      */
-    id?: string;
+    id?: number;
 
     /**
      * Canonical URI of a message
@@ -38,37 +38,37 @@ interface FaxResponse {
     /**
      * Message read status
      */
-    readStatus?: "Read" | "Unread";
+    readStatus?: 'Read' | 'Unread';
 
     /**
      * Message priority
      */
-    priority?: "Normal" | "High";
+    priority?: 'Normal' | 'High';
 
     /**
      * The list of message attachments
      */
-    attachments?: MessageAttachmentInfo[];
+    attachments?: MessageAttachmentInfoIntId[];
 
     /**
      * Message direction
      */
-    direction?: "Inbound" | "Outbound";
+    direction?: 'Inbound' | 'Outbound';
 
     /**
      * Message availability status. Message in 'Deleted' state is still preserved with all its attachments and can be restored. 'Purged' means that all attachments are already deleted and the message itself is about to be physically deleted shortly
      */
-    availability?: "Alive" | "Deleted" | "Purged";
+    availability?: 'Alive' | 'Deleted' | 'Purged';
 
     /**
      * Message status. 'Queued' - the message is queued for sending; 'Sent' - a message is successfully sent; 'SendingFailed' - a message sending attempt has failed; 'Received' - a message is received (inbound messages have this status by default)
      */
-    messageStatus?: "Queued" | "Sent" | "SendingFailed" | "Received";
+    messageStatus?: 'Queued' | 'Sent' | 'SendingFailed' | 'Received';
 
     /**
      * Resolution of a fax message. ('High' for black and white image scanned at 200 dpi, 'Low' for black and white image scanned at 100 dpi)
      */
-    faxResolution?: "High" | "Low";
+    faxResolution?: 'High' | 'Low';
 
     /**
      * Page count in a fax message

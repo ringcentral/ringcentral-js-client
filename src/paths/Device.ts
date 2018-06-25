@@ -19,6 +19,7 @@ export default class Device extends PathSegment {
             ignoreId: false,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -34,6 +35,7 @@ export default class Device extends PathSegment {
             ignoreId: false,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -46,6 +48,7 @@ export default class Device extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -61,6 +64,7 @@ export default class Device extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         });
     }
 
@@ -73,6 +77,7 @@ export default class Device extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -88,6 +93,7 @@ export default class Device extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 }

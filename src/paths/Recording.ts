@@ -24,6 +24,7 @@ export default class Recording extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -39,6 +40,7 @@ export default class Recording extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 }

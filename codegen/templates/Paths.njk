@@ -27,6 +27,7 @@ export default class {{name}} extends PathSegment {
             ignoreId: {% if op.method == 'list' %}false{% else %}true{% endif %},
             method: "{{op.httpMethod}}",
             query: {{op.queryParamName}},
+            throttlingGroup: "{{op.throttlingGroup}}",
         }){% if op.responseType != 'any' and op.responseType != 'void' %}.then((res) => {
                 return res.json();
         }){% endif %};
@@ -42,6 +43,7 @@ export default class {{name}} extends PathSegment {
             ignoreId: {% if op.method == 'list' %}false{% else %}true{% endif %},
             method: "{{op.httpMethod}}",
             query: {{op.queryParamName}},
+            throttlingGroup: "{{op.throttlingGroup}}",
         });
     }
     {% endfor %}

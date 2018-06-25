@@ -15,6 +15,7 @@ export default class Status extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "NoThrottling",
         });
     }
 
@@ -28,6 +29,7 @@ export default class Status extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "NoThrottling",
         });
     }
 }
