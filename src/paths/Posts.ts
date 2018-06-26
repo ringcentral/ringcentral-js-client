@@ -18,6 +18,7 @@ export default class Posts extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -33,6 +34,7 @@ export default class Posts extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         });
     }
 
@@ -45,6 +47,7 @@ export default class Posts extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -60,6 +63,7 @@ export default class Posts extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Light",
         });
     }
 }

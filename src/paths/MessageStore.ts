@@ -26,6 +26,7 @@ export default class MessageStore extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -41,6 +42,7 @@ export default class MessageStore extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         });
     }
 
@@ -53,6 +55,7 @@ export default class MessageStore extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: query,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -66,6 +69,7 @@ export default class MessageStore extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: query,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -78,6 +82,7 @@ export default class MessageStore extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -93,6 +98,7 @@ export default class MessageStore extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         });
     }
 
@@ -105,6 +111,7 @@ export default class MessageStore extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -120,6 +127,7 @@ export default class MessageStore extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 }

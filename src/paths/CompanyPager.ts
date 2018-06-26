@@ -17,6 +17,7 @@ export default class CompanyPager extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -32,6 +33,7 @@ export default class CompanyPager extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 }

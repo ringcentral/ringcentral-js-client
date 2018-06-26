@@ -16,6 +16,7 @@ export default class Files extends PathSegment {
             ignoreId: true,
             method: "post",
             query: query,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -31,6 +32,7 @@ export default class Files extends PathSegment {
             ignoreId: true,
             method: "post",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -43,6 +45,7 @@ export default class Files extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -58,6 +61,7 @@ export default class Files extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 }

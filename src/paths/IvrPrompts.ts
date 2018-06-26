@@ -25,6 +25,7 @@ export default class IvrPrompts extends PathSegment {
             ignoreId: false,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -40,6 +41,7 @@ export default class IvrPrompts extends PathSegment {
             ignoreId: false,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -52,6 +54,7 @@ export default class IvrPrompts extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -67,6 +70,7 @@ export default class IvrPrompts extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -79,6 +83,7 @@ export default class IvrPrompts extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -92,6 +97,7 @@ export default class IvrPrompts extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 }

@@ -16,7 +16,7 @@ interface ModelInfo {
     /**
      * Addons description
      */
-    addons?: AddonInfo;
+    addons?: AddonInfo[];
 }
 
 export default ModelInfo;

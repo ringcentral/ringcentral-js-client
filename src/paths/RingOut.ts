@@ -17,6 +17,7 @@ export default class RingOut extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -32,6 +33,7 @@ export default class RingOut extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -44,6 +46,7 @@ export default class RingOut extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -59,6 +62,7 @@ export default class RingOut extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Light",
         });
     }
 
@@ -71,6 +75,7 @@ export default class RingOut extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -84,6 +89,7 @@ export default class RingOut extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+            throttlingGroup: "Heavy",
         });
     }
 }

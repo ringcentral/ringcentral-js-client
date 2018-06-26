@@ -1,6 +1,6 @@
 // Generated Source
 import EmergencyAddressInfo from "./EmergencyAddressInfo";
-import ExtensionInfo from "./ExtensionInfo";
+import ExtensionInfoIntId from "./ExtensionInfoIntId";
 import ModelInfo from "./ModelInfo";
 import PhoneLinesInfo from "./PhoneLinesInfo";
 import ShippingInfo from "./ShippingInfo";
@@ -50,7 +50,7 @@ interface GetDeviceInfoResponse {
     /**
      * This attribute can be omitted for unassigned devices
      */
-    extension?: ExtensionInfo;
+    extension?: ExtensionInfoIntId;
 
     /**
      * Address for emergency cases. The same emergency address is assigned to all the numbers of one device
@@ -60,7 +60,7 @@ interface GetDeviceInfoResponse {
     /**
      * Phone lines information
      */
-    phoneLines?: PhoneLinesInfo;
+    phoneLines?: PhoneLinesInfo[];
 
     /**
      * Shipping information, according to which devices (in case of HardPhone ) or e911 stickers (in case of  SoftPhone  and  OtherPhone ) will be delivered to the customer

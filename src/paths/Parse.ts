@@ -17,6 +17,7 @@ export default class Parse extends PathSegment {
             ignoreId: true,
             method: "post",
             query: query,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -32,6 +33,7 @@ export default class Parse extends PathSegment {
             ignoreId: true,
             method: "post",
             query: query,
+            throttlingGroup: "Light",
         });
     }
 }

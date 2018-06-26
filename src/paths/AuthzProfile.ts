@@ -24,6 +24,7 @@ export default class AuthzProfile extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -39,6 +40,7 @@ export default class AuthzProfile extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 }

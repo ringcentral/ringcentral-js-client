@@ -17,6 +17,7 @@ export default class Contacts extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -32,6 +33,7 @@ export default class Contacts extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         });
     }
 
@@ -44,6 +46,7 @@ export default class Contacts extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -59,6 +62,7 @@ export default class Contacts extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+            throttlingGroup: "Medium",
         });
     }
 }

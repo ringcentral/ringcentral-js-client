@@ -16,6 +16,7 @@ export default class CallLogSync extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -31,6 +32,7 @@ export default class CallLogSync extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 }

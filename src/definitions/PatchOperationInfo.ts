@@ -15,7 +15,7 @@ interface PatchOperationInfo {
     /**
      * corresponding 'value' of that field specified by 'path'
      */
-    value?: any;
+    value?: Value;
 }
 
 export default PatchOperationInfo;

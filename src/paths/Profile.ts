@@ -16,6 +16,7 @@ export default class Profile extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         }).then((res) => {
                 return res.json();
         });
@@ -31,6 +32,7 @@ export default class Profile extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Medium",
         });
     }
 }

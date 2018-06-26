@@ -1,14 +1,14 @@
 // Generated Source
 import CallerInfoFrom from "./CallerInfoFrom";
 import CallerInfoTo from "./CallerInfoTo";
-import MessageAttachmentInfo from "./MessageAttachmentInfo";
+import MessageAttachmentInfoIntId from "./MessageAttachmentInfoIntId";
 
 interface FaxResponse {
 
     /**
      * Internal identifier of a message
      */
-    id?: string;
+    id?: number;
 
     /**
      * Canonical URI of a message
@@ -48,7 +48,7 @@ interface FaxResponse {
     /**
      * The list of message attachments
      */
-    attachments?: MessageAttachmentInfo[];
+    attachments?: MessageAttachmentInfoIntId[];
 
     /**
      * Message direction

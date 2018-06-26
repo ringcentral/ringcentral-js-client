@@ -16,6 +16,7 @@ export default class Check extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         }).then((res) => {
                 return res.json();
         });
@@ -31,6 +32,7 @@ export default class Check extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         });
     }
 }

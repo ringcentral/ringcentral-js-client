@@ -1,6 +1,6 @@
 // Generated Source
 import EmergencyAddress from "./EmergencyAddress";
-import PhoneNumberResource from "./PhoneNumberResource";
+import PhoneNumberResourceIntId from "./PhoneNumberResourceIntId";
 
 interface PhoneLineResource {
 
@@ -12,7 +12,7 @@ interface PhoneLineResource {
     /**
      * 
      */
-    phoneInfo?: PhoneNumberResource;
+    phoneInfo?: PhoneNumberResourceIntId;
 
     /**
      * 

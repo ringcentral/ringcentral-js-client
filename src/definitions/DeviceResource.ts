@@ -1,7 +1,7 @@
 // Generated Source
 import DeviceModelResource from "./DeviceModelResource";
 import EmergencyServiceAddressResource from "./EmergencyServiceAddressResource";
-import ExtensionResource from "./ExtensionResource";
+import ExtensionResourceIntId from "./ExtensionResourceIntId";
 import PhoneLineResource from "./PhoneLineResource";
 import ShippingResource from "./ShippingResource";
 
@@ -55,12 +55,12 @@ interface DeviceResource {
     /**
      * This attribute can be omitted for unassigned devices
      */
-    extension?: ExtensionResource;
+    extension?: ExtensionResourceIntId;
 
     /**
      * Phone lines information
      */
-    phoneLines?: PhoneLineResource;
+    phoneLines?: PhoneLineResource[];
 
     /**
      * Address for emergency cases. The same emergency address is assigned to all numbers of a single device ,

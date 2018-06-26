@@ -15,6 +15,7 @@ export default class FaxCoverPage extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         });
     }
 
@@ -28,6 +29,7 @@ export default class FaxCoverPage extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Light",
         });
     }
 }

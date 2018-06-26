@@ -17,6 +17,7 @@ export default class CallLog extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -32,6 +33,7 @@ export default class CallLog extends PathSegment {
             ignoreId: false,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -44,6 +46,7 @@ export default class CallLog extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -57,6 +60,7 @@ export default class CallLog extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 
@@ -69,6 +73,7 @@ export default class CallLog extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         }).then((res) => {
                 return res.json();
         });
@@ -84,6 +89,7 @@ export default class CallLog extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+            throttlingGroup: "Heavy",
         });
     }
 }
