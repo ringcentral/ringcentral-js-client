@@ -11,7 +11,7 @@ interface CreateFaxMessageRequest {
     /**
      * Fax resolution
      */
-    resolution?: 'High' | 'Low';
+    resolution?: "High" | "Low";
 
     /**
      * The datetime to send fax at, in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. If time is not specified, the fax will be send immediately

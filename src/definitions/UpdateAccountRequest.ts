@@ -10,7 +10,7 @@ interface UpdateAccountRequest {
     /**
      * Target account status. For account activation - 'Unconfirmed'. For account confirmation - 'Confirmed'. For changing account status - 'Confirmed' or 'Disabled' = ['Unconfirmed', 'Confirmed', 'Disabled'],
      */
-    status?: 'Unconfirmed' | 'Confirmed' | 'Disabled';
+    status?: "Unconfirmed" | "Confirmed" | "Disabled";
 
     /**
      * Status information (reason, comment, lifetime). Returned for 'Disabled' status only

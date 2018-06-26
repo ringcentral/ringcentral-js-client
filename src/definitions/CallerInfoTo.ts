@@ -20,12 +20,12 @@ interface CallerInfoTo {
     /**
      * 
      */
-    messageStatus?: 'Sent' | 'SendingFailed' | 'Queued';
+    messageStatus?: "Sent" | "SendingFailed" | "Queued";
 
     /**
      * 
      */
-    faxErrorCode?: 'Undefined' | 'NoFaxSendPermission' | 'NoInternationalPermission' | 'NoFaxMachine' | 'OutgoingCallError' | 'RenderingFailed' | 'TooManyPages' | 'ReturnToDBQueue' | 'NoCallTime' | 'WrongNumber' | 'ProhibitedNumber' | 'InternalError' | 'FaxSendingProhibited' | 'ThePhoneIsBlacklisted' | 'UserNotFound' | 'ConvertError' | 'DBGeneralError' | 'SkypeBillingFailed' | 'AccountSuspended' | 'ProhibitedDestination' | 'InternationalDisabled';
+    faxErrorCode?: "Undefined" | "NoFaxSendPermission" | "NoInternationalPermission" | "NoFaxMachine" | "OutgoingCallError" | "RenderingFailed" | "TooManyPages" | "ReturnToDBQueue" | "NoCallTime" | "WrongNumber" | "ProhibitedNumber" | "InternalError" | "FaxSendingProhibited" | "ThePhoneIsBlacklisted" | "UserNotFound" | "ConvertError" | "DBGeneralError" | "SkypeBillingFailed" | "AccountSuspended" | "ProhibitedDestination" | "InternationalDisabled";
 }
 
 export default CallerInfoTo;

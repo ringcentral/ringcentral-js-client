@@ -15,7 +15,7 @@ interface TaskInfo {
     /**
      * Device order status
      */
-    status?: 'Accepted' | 'Failed';
+    status?: "Accepted" | "Failed";
 
     /**
      * Task creation time

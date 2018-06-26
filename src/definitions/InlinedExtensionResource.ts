@@ -20,7 +20,7 @@ interface InlinedExtensionResource {
     /**
      * 
      */
-    type?: 'Unknown' | 'User' | 'Department' | 'Announcement' | 'Voicemail' | 'DigitalUser' | 'VirtualUser' | 'FaxUser' | 'PagingOnly' | 'SharedLinesGroup' | 'IvrMenu' | 'ApplicationExtension' | 'ParkLocation';
+    type?: "Unknown" | "User" | "Department" | "Announcement" | "Voicemail" | "DigitalUser" | "VirtualUser" | "FaxUser" | "PagingOnly" | "SharedLinesGroup" | "IvrMenu" | "ApplicationExtension" | "ParkLocation";
 }
 
 export default InlinedExtensionResource;

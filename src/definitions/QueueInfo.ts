@@ -6,7 +6,7 @@ interface QueueInfo {
     /**
      * Specifies how calls are transferred to group members
      */
-    transferMode?: 'Rotating' | 'Simultaneous' | 'FixedOrder';
+    transferMode?: "Rotating" | "Simultaneous" | "FixedOrder";
 
     /**
      * Information on a call forwarding rule
@@ -16,7 +16,7 @@ interface QueueInfo {
     /**
      * Connecting audio interruption mode
      */
-    holdAudioInterruptionMode?: 'Never' | 'WhenMusicEnds' | 'Periodically';
+    holdAudioInterruptionMode?: "Never" | "WhenMusicEnds" | "Periodically";
 
     /**
      * Connecting audio interruption message period in seconds
@@ -46,7 +46,7 @@ interface QueueInfo {
     /**
      * Action which should be taken if count of callers on hold exceeds the maximum
      */
-    maxCallersAction?: 'Voicemail' | 'Announcement';
+    maxCallersAction?: "Voicemail" | "Announcement";
 }
 
 export default QueueInfo;

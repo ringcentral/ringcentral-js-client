@@ -15,7 +15,7 @@ interface ServiceFeatureValue {
     /**
      * 
      */
-    reason?: 'Available' | 'AccountTypeLimitation' | 'ExtensionTypeLimitation' | 'AccountLimitation' | 'ExtensionLimitation' | 'InsufficientPermissions' | 'ApplicationLimitation';
+    reason?: "Available" | "AccountTypeLimitation" | "ExtensionTypeLimitation" | "AccountLimitation" | "ExtensionLimitation" | "InsufficientPermissions" | "ApplicationLimitation";
 }
 
 export default ServiceFeatureValue;

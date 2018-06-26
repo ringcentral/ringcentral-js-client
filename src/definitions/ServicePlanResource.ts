@@ -23,7 +23,7 @@ interface ServicePlanResource {
     /**
      * 
      */
-    edition?: 'Unknown' | 'Standard' | 'Premium' | 'Enterprise' | 'Unlimited' | 'HighUsage';
+    edition?: "Unknown" | "Standard" | "Premium" | "Enterprise" | "Unlimited" | "HighUsage";
 
     /**
      * 
@@ -33,7 +33,7 @@ interface ServicePlanResource {
     /**
      * 
      */
-    type?: 'Regular' | 'UserBased' | 'Unknown';
+    type?: "Regular" | "UserBased" | "Unknown";
 
     /**
      * 

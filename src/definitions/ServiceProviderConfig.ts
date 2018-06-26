@@ -39,7 +39,7 @@ interface ServiceProviderConfig {
     /**
      * 
      */
-    schemas?: 'urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig'[];
+    schemas?: "urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig"[];
 
     /**
      * 

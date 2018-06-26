@@ -15,22 +15,22 @@ interface AdbPresenceInfoResource {
     /**
      * 
      */
-    extensionType?: 'Unknown' | 'User' | 'Department' | 'Announcement' | 'Voicemail' | 'DigitalUser' | 'VirtualUser' | 'FaxUser' | 'PagingOnly' | 'SharedLinesGroup' | 'ParkLocation' | 'IvrMenu' | 'ApplicationExtension';
+    extensionType?: "Unknown" | "User" | "Department" | "Announcement" | "Voicemail" | "DigitalUser" | "VirtualUser" | "FaxUser" | "PagingOnly" | "SharedLinesGroup" | "ParkLocation" | "IvrMenu" | "ApplicationExtension";
 
     /**
      * 
      */
-    extensionStatus?: 'Enabled' | 'Disabled' | 'Frozen' | 'NotActivated';
+    extensionStatus?: "Enabled" | "Disabled" | "Frozen" | "NotActivated";
 
     /**
      * 
      */
-    dndStatus?: 'TakeAllCalls' | 'DoNotAcceptDepartmentCalls' | 'TakeDepartmentCallsOnly' | 'DoNotAcceptAnyCalls';
+    dndStatus?: "TakeAllCalls" | "DoNotAcceptDepartmentCalls" | "TakeDepartmentCallsOnly" | "DoNotAcceptAnyCalls";
 
     /**
      * 
      */
-    userStatus?: 'Available' | 'Busy' | 'Offline';
+    userStatus?: "Available" | "Busy" | "Offline";
 
     /**
      * 
@@ -40,7 +40,7 @@ interface AdbPresenceInfoResource {
     /**
      * 
      */
-    agentStatus?: 'Offline' | 'Online' | 'Unknown';
+    agentStatus?: "Offline" | "Online" | "Unknown";
 
     /**
      * 

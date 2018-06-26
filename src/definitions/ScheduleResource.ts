@@ -11,7 +11,7 @@ interface ScheduleResource {
     /**
      * 
      */
-    ref?: 'BusinessHours' | 'AfterHours';
+    ref?: "BusinessHours" | "AfterHours";
 }
 
 export default ScheduleResource;

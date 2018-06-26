@@ -15,7 +15,7 @@ interface RecordingInfo {
     /**
      * Indicates recording mode used
      */
-    type?: 'Automatic' | 'OnDemand';
+    type?: "Automatic" | "OnDemand";
 
     /**
      * Link to the call recording binary content

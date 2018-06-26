@@ -25,7 +25,7 @@ interface GetDeviceInfoResponse {
     /**
      * Device type. The default value is 'HardPhone'
      */
-    type?: 'SoftPhone' | 'OtherPhone' | 'HardPhone';
+    type?: "SoftPhone" | "OtherPhone" | "HardPhone";
 
     /**
      * Device name. Mandatory if ordering  SoftPhone  or  OtherPhone . Optional for  HardPhone . If not specified for HardPhone, then device model  name is used as device  name

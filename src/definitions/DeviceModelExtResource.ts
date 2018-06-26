@@ -11,7 +11,7 @@ interface DeviceModelExtResource {
     /**
      * Device type. The default value is 'HardPhone'
      */
-    type?: 'SoftPhone' | 'HardPhone' | 'OtherPhone';
+    type?: "SoftPhone" | "HardPhone" | "OtherPhone";
 
     /**
      * HardPhone model information

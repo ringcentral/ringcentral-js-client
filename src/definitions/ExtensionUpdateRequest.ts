@@ -9,7 +9,7 @@ interface ExtensionUpdateRequest {
     /**
      * 
      */
-    status?: 'Disabled' | 'Enabled' | 'NotActivated';
+    status?: "Disabled" | "Enabled" | "NotActivated";
 
     /**
      * 
@@ -44,7 +44,7 @@ interface ExtensionUpdateRequest {
     /**
      * 
      */
-    setupWizardState?: 'NotStarted' | 'Incomplete' | 'Completed';
+    setupWizardState?: "NotStarted" | "Incomplete" | "Completed";
 
     /**
      * Extension partner identifier

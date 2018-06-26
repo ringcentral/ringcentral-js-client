@@ -10,7 +10,7 @@ interface ExtensionListEvent {
     /**
      * Type of extension info change
      */
-    eventType?: 'Create' | 'Update' | 'Delete';
+    eventType?: "Create" | "Update" | "Delete";
 }
 
 export default ExtensionListEvent;

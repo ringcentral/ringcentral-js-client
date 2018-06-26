@@ -16,17 +16,17 @@ interface PhoneNumberForProvisioningResource {
     /**
      * 
      */
-    source?: 'Internal' | 'External';
+    source?: "Internal" | "External";
 
     /**
      * 
      */
-    type?: 'VoiceOnly' | 'FaxOnly' | 'VoiceFax';
+    type?: "VoiceOnly" | "FaxOnly" | "VoiceFax";
 
     /**
      * 
      */
-    usageType?: 'MainCompanyNumber' | 'AdditionalCompanyNumber' | 'CompanyFaxNumber' | 'CompanyNumber' | 'DirectNumber';
+    usageType?: "MainCompanyNumber" | "AdditionalCompanyNumber" | "CompanyFaxNumber" | "CompanyNumber" | "DirectNumber";
 
     /**
      * 

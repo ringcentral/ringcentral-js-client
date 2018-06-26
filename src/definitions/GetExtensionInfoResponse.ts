@@ -74,12 +74,12 @@ interface GetExtensionInfoResponse {
     /**
      * Specifies extension configuration wizard state (web service setup). The default value is 'NotStarted'
      */
-    setupWizardState?: 'NotStarted' | 'Incomplete' | 'Completed';
+    setupWizardState?: "NotStarted" | "Incomplete" | "Completed";
 
     /**
      * Extension current state. If the status is 'Unassigned'. Returned for all extensions
      */
-    status?: 'Enabled' | 'Disabled' | 'NotActivated' | 'Unassigned';
+    status?: "Enabled" | "Disabled" | "NotActivated" | "Unassigned";
 
     /**
      * Status information (reason, comment). Returned for 'Disabled' status only
@@ -89,7 +89,7 @@ interface GetExtensionInfoResponse {
     /**
      * Extension type
      */
-    type?: 'User' | 'FaxUser' | 'VirtualUser' | 'DigitalUser' | 'Department' | 'Announcement' | 'Voicemail' | 'SharedLinesGroup' | 'PagingOnlyGroup' | 'IvrMenu' | 'ApplicationExtension' | 'ParkLocation';
+    type?: "User" | "FaxUser" | "VirtualUser" | "DigitalUser" | "Department" | "Announcement" | "Voicemail" | "SharedLinesGroup" | "PagingOnlyGroup" | "IvrMenu" | "ApplicationExtension" | "ParkLocation";
 
     /**
      * For Department extension type only. Call queue settings

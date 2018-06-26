@@ -42,7 +42,7 @@ export interface ListQuery {
     /**
      * Type of synchronization. The default value is 'FSync'
      */
-    syncType?: ('FSync' | 'ISync')[];
+    syncType?: ("FSync" | "ISync")[];
 
     /**
      * Value of syncToken property of the last sync request response

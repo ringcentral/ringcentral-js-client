@@ -24,7 +24,7 @@ interface ContactDirectoryEvent {
     /**
      * Status of an extension
      */
-    status?: 'Disabled' | 'Enabled' | 'NotActivated';
+    status?: "Disabled" | "Enabled" | "NotActivated";
 
     /**
      * First name of an extension user

@@ -34,7 +34,7 @@ interface CompanyAnsweringRuleUpdate {
     /**
      * Specifies how incoming calls are forwarded. The default value is 'Operator' 'Operator' - play company greeting and forward to operator extension 'Disconnect' - play company greeting and disconnect 'Bypass' - bypass greeting to go to selected extension = ['Operator', 'Disconnect', 'Bypass']
      */
-    callHandlingAction?: 'Operator' | 'Disconnect' | 'Bypass';
+    callHandlingAction?: "Operator" | "Disconnect" | "Bypass";
 
     /**
      * Extension to which the call is forwarded in 'Bypass' mode

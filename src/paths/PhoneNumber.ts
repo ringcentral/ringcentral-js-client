@@ -72,7 +72,7 @@ export interface ListQuery {
     /**
      * Usage type of the phone number
      */
-    usageType?: ('MainCompanyNumber' | 'AdditionalCompanyNumber' | 'CompanyNumber' | 'DirectNumber' | 'CompanyFaxNumber' | 'ForwardedNumber')[];
+    usageType?: ("MainCompanyNumber" | "AdditionalCompanyNumber" | "CompanyNumber" | "DirectNumber" | "CompanyFaxNumber" | "ForwardedNumber")[];
 
     /**
      * Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'

@@ -32,7 +32,7 @@ interface PhoneNumberInfo {
     /**
      * Payment type. 'External' is returned for forwarded numbers which are not terminated in the RingCentral phone system
      */
-    paymentType?: 'External' | 'TollFree' | 'Local';
+    paymentType?: "External" | "TollFree" | "Local";
 
     /**
      * Phone number
@@ -47,12 +47,12 @@ interface PhoneNumberInfo {
     /**
      * Phone number type
      */
-    type?: 'VoiceFax' | 'FaxOnly' | 'VoiceOnly';
+    type?: "VoiceFax" | "FaxOnly" | "VoiceOnly";
 
     /**
      * Usage type of the phone number
      */
-    usageType?: 'MainCompanyNumber' | 'AdditionalCompanyNumber' | 'CompanyNumber' | 'DirectNumber' | 'CompanyFaxNumber' | 'ForwardedNumber' | 'ForwardedCompanyNumber' | 'ContactCenterNumber';
+    usageType?: "MainCompanyNumber" | "AdditionalCompanyNumber" | "CompanyNumber" | "DirectNumber" | "CompanyFaxNumber" | "ForwardedNumber" | "ForwardedCompanyNumber" | "ContactCenterNumber";
 }
 
 export default PhoneNumberInfo;

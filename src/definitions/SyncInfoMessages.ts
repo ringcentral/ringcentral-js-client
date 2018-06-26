@@ -5,7 +5,7 @@ interface SyncInfoMessages {
     /**
      * Type of synchronization
      */
-    syncType?: 'FSync' | 'ISync';
+    syncType?: "FSync" | "ISync";
 
     /**
      * Synchronization token

@@ -28,7 +28,7 @@ interface MessageInfoResource {
     /**
      * 
      */
-    type?: 'EMail' | 'VoiceMail' | 'Fax' | 'Text' | 'SMS' | 'Pager' | 'Unknown';
+    type?: "EMail" | "VoiceMail" | "Fax" | "Text" | "SMS" | "Pager" | "Unknown";
 
     /**
      * 
@@ -38,12 +38,12 @@ interface MessageInfoResource {
     /**
      * 
      */
-    readStatus?: 'Read' | 'Unread';
+    readStatus?: "Read" | "Unread";
 
     /**
      * 
      */
-    priority?: 'Normal' | 'High';
+    priority?: "Normal" | "High";
 
     /**
      * 
@@ -53,12 +53,12 @@ interface MessageInfoResource {
     /**
      * 
      */
-    direction?: 'Inbound' | 'Outbound';
+    direction?: "Inbound" | "Outbound";
 
     /**
      * 
      */
-    availability?: 'Alive' | 'Deleted' | 'Purged';
+    availability?: "Alive" | "Deleted" | "Purged";
 
     /**
      * 
@@ -68,12 +68,12 @@ interface MessageInfoResource {
     /**
      * 
      */
-    messageStatus?: 'Queued' | 'Sent' | 'Delivered' | 'DeliveryFailed' | 'SendingFailed' | 'Received';
+    messageStatus?: "Queued" | "Sent" | "Delivered" | "DeliveryFailed" | "SendingFailed" | "Received";
 
     /**
      * 
      */
-    faxResolution?: 'Undefined' | 'High' | 'Low';
+    faxResolution?: "Undefined" | "High" | "Low";
 
     /**
      * 
@@ -118,7 +118,7 @@ interface MessageInfoResource {
     /**
      * 
      */
-    vmTranscriptionStatus?: 'InProgress' | 'CompletedPartially' | 'Completed' | 'TimedOut' | 'Failed' | 'NotAvailable' | 'Unknown';
+    vmTranscriptionStatus?: "InProgress" | "CompletedPartially" | "Completed" | "TimedOut" | "Failed" | "NotAvailable" | "Unknown";
 
     /**
      * 

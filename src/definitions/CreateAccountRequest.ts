@@ -38,7 +38,7 @@ interface CreateAccountRequest {
     /**
      * The status with which an account is created. The default value is 'Initial'
      */
-    status?: 'Initial' | 'Unconfirmed' | 'Confirmed';
+    status?: "Initial" | "Unconfirmed" | "Confirmed";
 
     /**
      * Account sign up data

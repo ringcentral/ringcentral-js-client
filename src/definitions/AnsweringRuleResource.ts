@@ -21,7 +21,7 @@ interface AnsweringRuleResource {
     /**
      * 
      */
-    type?: 'BusinessHours' | 'AfterHours' | 'Custom';
+    type?: "BusinessHours" | "AfterHours" | "Custom";
 
     /**
      * 
@@ -51,7 +51,7 @@ interface AnsweringRuleResource {
     /**
      * 
      */
-    callHandlingAction?: 'ForwardCalls' | 'TakeMessagesOnly' | 'PlayAnnouncementOnly' | 'UnconditionalForwarding' | 'AgentQueue' | 'Unknown';
+    callHandlingAction?: "ForwardCalls" | "TakeMessagesOnly" | "PlayAnnouncementOnly" | "UnconditionalForwarding" | "AgentQueue" | "Unknown";
 
     /**
      * 

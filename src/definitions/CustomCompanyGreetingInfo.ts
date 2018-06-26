@@ -16,12 +16,12 @@ interface CustomCompanyGreetingInfo {
     /**
      * Internal identifier of an answering rule
      */
-    type?: 'Company';
+    type?: "Company";
 
     /**
      * Content media type in WAV/MP3 format
      */
-    contentType?: 'WAV' | 'MP3';
+    contentType?: "WAV" | "MP3";
 
     /**
      * Link to a greeting content (audio file)

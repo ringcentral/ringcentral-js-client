@@ -10,7 +10,7 @@ interface GlipPostEvent {
     /**
      * Type of a post event
      */
-    eventType?: 'PostAdded' | 'PostChanged' | 'PostRemoved';
+    eventType?: "PostAdded" | "PostChanged" | "PostRemoved";
 
     /**
      * Internal identifier of a group a post belongs to
@@ -20,7 +20,7 @@ interface GlipPostEvent {
     /**
      * Type of a post. 'TextMessage' - an incoming text message; 'PersonJoined' - a message notifying that person has joined a conversation; 'PersonsAdded' - a message notifying that a person(s) were added to a conversation
      */
-    type?: 'TextMessage' | 'PersonJoined' | 'PersonsAdded' | 'Card';
+    type?: "TextMessage" | "PersonJoined" | "PersonsAdded" | "Card";
 
     /**
      * For 'TextMessage' post type only. Message text

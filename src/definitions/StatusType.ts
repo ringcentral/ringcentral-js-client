@@ -5,7 +5,7 @@ interface StatusType {
     /**
      * 
      */
-    family?: 'INFORMATIONAL' | 'SUCCESSFUL' | 'REDIRECTION' | 'CLIENT_ERROR' | 'SERVER_ERROR' | 'OTHER';
+    family?: "INFORMATIONAL" | "SUCCESSFUL" | "REDIRECTION" | "CLIENT_ERROR" | "SERVER_ERROR" | "OTHER";
 
     /**
      * 

@@ -35,7 +35,7 @@ interface RegionalSettings {
     /**
      * Time format setting. The default value is '12h' = ['12h', '24h']
      */
-    timeFormat?: '12h' | '24h';
+    timeFormat?: "12h" | "24h";
 }
 
 export default RegionalSettings;

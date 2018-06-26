@@ -17,7 +17,7 @@ interface SchedulesInfoReporting {
     /**
      * Type of report. Detailed reports include tables with data. Simple reports only include charts
      */
-    viewType?: 'Detailed' | 'Simple';
+    viewType?: "Detailed" | "Simple";
 
     /**
      * Set of optional attachments. Basically, every report email is in HTML format. Optionally, it can contain PDF or CSV files

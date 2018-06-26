@@ -10,7 +10,7 @@ interface GlipMentionsInfo {
     /**
      * Type of mentions
      */
-    type?: 'Person' | 'Team' | 'File' | 'Link' | 'Event' | 'Task' | 'Note' | 'Card';
+    type?: "Person" | "Team" | "File" | "Link" | "Event" | "Task" | "Note" | "Card";
 
     /**
      * Name of the user

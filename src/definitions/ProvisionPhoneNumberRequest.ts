@@ -26,12 +26,12 @@ interface ProvisionPhoneNumberRequest {
     /**
      * Usage type of a phone number. The default value is 'DirectNumber'
      */
-    usageType?: 'CompanyNumber' | 'MainCompanyNumber' | 'AdditionalCompanyNumber' | 'DirectNumber' | 'CompanyFaxNumber' | 'ForwardedNumber' | 'ForwardedCompanyNumber';
+    usageType?: "CompanyNumber" | "MainCompanyNumber" | "AdditionalCompanyNumber" | "DirectNumber" | "CompanyFaxNumber" | "ForwardedNumber" | "ForwardedCompanyNumber";
 
     /**
      * Type of a phone number
      */
-    type?: 'VoiceFax' | 'VoiceOnly' | 'FaxOnly';
+    type?: "VoiceFax" | "VoiceOnly" | "FaxOnly";
 
     /**
      * Vanity pattern that was used to find this number. It should be passed as if it was returned from the Number Lookup call

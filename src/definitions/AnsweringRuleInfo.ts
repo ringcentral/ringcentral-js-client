@@ -24,7 +24,7 @@ interface AnsweringRuleInfo {
     /**
      * Type of an answering rule
      */
-    type?: 'BusinessHours' | 'AfterHours' | 'Custom';
+    type?: "BusinessHours" | "AfterHours" | "Custom";
 
     /**
      * Name of an answering rule specified by user
@@ -54,7 +54,7 @@ interface AnsweringRuleInfo {
     /**
      * Specifies how incoming calls are forwarded
      */
-    callHandlingAction?: 'ForwardCalls' | 'UnconditionalForwarding' | 'AgentQueue' | 'TransferToExtension' | 'TakeMessagesOnly' | 'PlayAnnouncementOnly';
+    callHandlingAction?: "ForwardCalls" | "UnconditionalForwarding" | "AgentQueue" | "TransferToExtension" | "TakeMessagesOnly" | "PlayAnnouncementOnly";
 
     /**
      * Forwarding parameters. Returned if 'ForwardCalls' is specified in 'callHandlingAction'. These settings determine the forwarding numbers to which the call will be forwarded

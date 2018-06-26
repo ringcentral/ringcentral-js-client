@@ -32,12 +32,12 @@ interface CallLogRecordResource {
     /**
      * 
      */
-    type?: 'Voice' | 'Fax';
+    type?: "Voice" | "Fax";
 
     /**
      * 
      */
-    direction?: 'Inbound' | 'Outbound';
+    direction?: "Inbound" | "Outbound";
 
     /**
      * 

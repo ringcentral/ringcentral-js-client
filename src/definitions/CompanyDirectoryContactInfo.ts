@@ -13,12 +13,12 @@ interface CompanyDirectoryContactInfo {
     /**
      * Type of an extension
      */
-    type?: 'User' | 'Department' | 'Announcement' | 'Voicemail' | 'SharedLinesGroup' | 'PagingOnly' | 'IvrMenu' | 'ParkLocation' | 'Limited';
+    type?: "User" | "Department" | "Announcement" | "Voicemail" | "SharedLinesGroup" | "PagingOnly" | "IvrMenu" | "ParkLocation" | "Limited";
 
     /**
      * Status of an extension
      */
-    status?: 'Enabled' | 'Disabled' | 'NotActivated';
+    status?: "Enabled" | "Disabled" | "NotActivated";
 
     /**
      * User extension first name

@@ -10,7 +10,7 @@ interface PhotoInfo {
     /**
      * 
      */
-    type?: 'photo';
+    type?: "photo";
 }
 
 export default PhotoInfo;

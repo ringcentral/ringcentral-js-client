@@ -20,7 +20,7 @@ interface ExtensionInfoGrants {
     /**
      * Extension type
      */
-    type?: 'User' | 'Fax User' | 'VirtualUser' | 'DigitalUser' | 'Department' | 'Announcement' | 'Voicemail' | 'SharedLinesGroup' | 'PagingOnly' | 'IvrMenu' | 'ApplicationExtension' | 'Park Location';
+    type?: "User" | "Fax User" | "VirtualUser" | "DigitalUser" | "Department" | "Announcement" | "Voicemail" | "SharedLinesGroup" | "PagingOnly" | "IvrMenu" | "ApplicationExtension" | "Park Location";
 }
 
 export default ExtensionInfoGrants;

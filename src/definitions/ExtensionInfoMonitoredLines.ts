@@ -20,7 +20,7 @@ interface ExtensionInfoMonitoredLines {
     /**
      * Type of a monitored extension
      */
-    type?: 'User' | 'FaxUser' | 'VirtualUser' | 'DigitalUser' | 'Department' | 'ApplicationExtension' | 'ParkLocation';
+    type?: "User" | "FaxUser" | "VirtualUser" | "DigitalUser" | "Department" | "ApplicationExtension" | "ParkLocation";
 }
 
 export default ExtensionInfoMonitoredLines;

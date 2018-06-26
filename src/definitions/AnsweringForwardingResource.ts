@@ -21,7 +21,7 @@ interface AnsweringForwardingResource {
     /**
      * 
      */
-    ringingMode?: 'Sequentially' | 'Simultaneously';
+    ringingMode?: "Sequentially" | "Simultaneously";
 
     /**
      * 

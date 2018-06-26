@@ -5,7 +5,7 @@ interface GlipCreateGroup {
     /**
      * Type of a group to be created. 'PrivateChat' is a group of 2 members. 'Team' is a chat of 1 and more participants, the membership can be modified in future
      */
-    type?: 'PrivateChat' | 'Team';
+    type?: "PrivateChat" | "Team";
 
     /**
      * For 'Team' group type only. Team access level

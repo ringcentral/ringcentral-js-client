@@ -39,12 +39,12 @@ interface GetAccountInfoResponse {
     /**
      * Specifies account configuration wizard state (web service setup). The default value is 'NotStarted'
      */
-    setupWizardState?: 'NotStarted' | 'Incomplete' | 'Completed';
+    setupWizardState?: "NotStarted" | "Incomplete" | "Completed";
 
     /**
      * Status of the current account
      */
-    status?: 'Confirmed' | 'Disabled';
+    status?: "Confirmed" | "Disabled";
 
     /**
      * Status information (reason, comment, lifetime). Returned for 'Disabled' status only

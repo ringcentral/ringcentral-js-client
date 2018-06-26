@@ -17,7 +17,7 @@ interface CompanyAnsweringRuleScheduleInfo {
     /**
      * Reference to Business Hours or After Hours schedule = ['BusinessHours', 'AfterHours']
      */
-    ref?: 'BusinessHours' | 'AfterHours';
+    ref?: "BusinessHours" | "AfterHours";
 }
 
 export default CompanyAnsweringRuleScheduleInfo;

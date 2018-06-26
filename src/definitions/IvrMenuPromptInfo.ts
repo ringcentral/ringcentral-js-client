@@ -7,7 +7,7 @@ interface IvrMenuPromptInfo {
     /**
      * Prompt mode: custom media or text = ['Audio', 'TextToSpeech']
      */
-    mode?: 'Audio' | 'TextToSpeech';
+    mode?: "Audio" | "TextToSpeech";
 
     /**
      * For 'Audio' mode only. Prompt media reference

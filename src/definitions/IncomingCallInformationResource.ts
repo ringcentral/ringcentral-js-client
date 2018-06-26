@@ -10,12 +10,12 @@ interface IncomingCallInformationResource {
     /**
      * 
      */
-    announcementWhenDirectCalls?: 'Never' | 'Always' | 'NonRingCentral';
+    announcementWhenDirectCalls?: "Never" | "Always" | "NonRingCentral";
 
     /**
      * 
      */
-    announcementWhenDepartmentCalls?: 'Always' | 'NonRingCentral';
+    announcementWhenDepartmentCalls?: "Always" | "NonRingCentral";
 }
 
 export default IncomingCallInformationResource;

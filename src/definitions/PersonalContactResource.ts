@@ -11,7 +11,7 @@ interface PersonalContactResource {
     /**
      * 
      */
-    availability?: 'Alive' | 'Deleted' | 'Purged';
+    availability?: "Alive" | "Deleted" | "Purged";
 
     /**
      * 

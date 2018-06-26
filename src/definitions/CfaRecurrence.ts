@@ -5,7 +5,7 @@ interface CfaRecurrence {
     /**
      * 
      */
-    pattern?: 'Daily' | 'Weekly' | 'Monthly';
+    pattern?: "Daily" | "Weekly" | "Monthly";
 
     /**
      * 

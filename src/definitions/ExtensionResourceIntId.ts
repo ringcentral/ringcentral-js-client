@@ -53,12 +53,12 @@ interface ExtensionResourceIntId {
     /**
      * 
      */
-    type?: 'Unknown' | 'User' | 'Department' | 'Announcement' | 'Voicemail' | 'DigitalUser' | 'VirtualUser' | 'FaxUser' | 'PagingOnly' | 'SharedLinesGroup' | 'IvrMenu' | 'ApplicationExtension' | 'ParkLocation';
+    type?: "Unknown" | "User" | "Department" | "Announcement" | "Voicemail" | "DigitalUser" | "VirtualUser" | "FaxUser" | "PagingOnly" | "SharedLinesGroup" | "IvrMenu" | "ApplicationExtension" | "ParkLocation";
 
     /**
      * 
      */
-    status?: 'Enabled' | 'Disabled' | 'Frozen' | 'NotActivated' | 'Unassigned';
+    status?: "Enabled" | "Disabled" | "Frozen" | "NotActivated" | "Unassigned";
 
     /**
      * 
@@ -83,7 +83,7 @@ interface ExtensionResourceIntId {
     /**
      * 
      */
-    setupWizardState?: 'NotStarted' | 'Incomplete' | 'Completed' | 'Unknown';
+    setupWizardState?: "NotStarted" | "Incomplete" | "Completed" | "Unknown";
 
     /**
      * 

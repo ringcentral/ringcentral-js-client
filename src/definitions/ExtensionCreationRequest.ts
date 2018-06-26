@@ -34,12 +34,12 @@ interface ExtensionCreationRequest {
     /**
      * Specifies extension configuration wizard state (web service setup). The default value is 'NotStarted' = ['NotStarted', 'Incomplete', 'Completed']
      */
-    setupWizardState?: 'NotStarted' | 'Incomplete' | 'Completed';
+    setupWizardState?: "NotStarted" | "Incomplete" | "Completed";
 
     /**
      * Extension current state = ['Enabled', 'Disabled', 'NotActivated', 'Unassigned']
      */
-    status?: 'Enabled' | 'Disabled' | 'NotActivated' | 'Unassigned';
+    status?: "Enabled" | "Disabled" | "NotActivated" | "Unassigned";
 
     /**
      * Status information (reason, comment). For 'Disabled' status only
@@ -49,7 +49,7 @@ interface ExtensionCreationRequest {
     /**
      * Extension type = ['User', 'VirtualUser', 'DigitalUser', 'Department']
      */
-    type?: 'User' | 'VirtualUser' | 'DigitalUser' | 'Department';
+    type?: "User" | "VirtualUser" | "DigitalUser" | "Department";
 }
 
 export default ExtensionCreationRequest;

@@ -25,7 +25,7 @@ interface ForwardingNumberResource {
     /**
      * 
      */
-    features?: 'CallFlip' | 'CallForwarding'[];
+    features?: "CallFlip" | "CallForwarding"[];
 
     /**
      * 

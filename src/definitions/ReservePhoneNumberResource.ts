@@ -25,12 +25,12 @@ interface ReservePhoneNumberResource {
     /**
      * Phone number status = ['Enabled', 'Pending', 'Disabled'],
      */
-    status?: 'Enabled' | 'Pending' | 'Disabled';
+    status?: "Enabled" | "Pending" | "Disabled";
 
     /**
      * The error code in case of reservation/un-reservation failure = ['NumberIsAlreadyProvisioned', 'NumberReserved', 'NumberNotAvailable']
      */
-    error?: 'NumberIsAlreadyProvisioned' | 'NumberReserved' | 'NumberNotAvailable';
+    error?: "NumberIsAlreadyProvisioned" | "NumberReserved" | "NumberNotAvailable";
 }
 
 export default ReservePhoneNumberResource;

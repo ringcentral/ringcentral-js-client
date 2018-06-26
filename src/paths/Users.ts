@@ -130,7 +130,7 @@ export interface GetQuery {
     /**
      * only support 'userName' or 'email' filter expressions for now
      */
-    filter?: 'userName' | 'email';
+    filter?: "userName" | "email";
 
     /**
      * page size

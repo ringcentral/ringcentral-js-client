@@ -6,7 +6,7 @@ interface CallerIdByFeature {
     /**
      * 
      */
-    feature?: 'RingOut' | 'RingMe' | 'CallFlip' | 'FaxNumber' | 'AdditionalSoftphone' | 'Alternate' | 'CommonPhone';
+    feature?: "RingOut" | "RingMe" | "CallFlip" | "FaxNumber" | "AdditionalSoftphone" | "Alternate" | "CommonPhone";
 
     /**
      * 

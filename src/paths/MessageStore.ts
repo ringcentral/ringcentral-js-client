@@ -137,7 +137,7 @@ export interface ListQuery {
     /**
      * Specifies the availability status for the resulting messages. Default value is 'Alive'. Multiple values are accepted
      */
-    availability?: ('Alive' | 'Deleted' | 'Purged')[];
+    availability?: ("Alive" | "Deleted" | "Purged")[];
 
     /**
      * Specifies the conversation identifier for the resulting messages
@@ -157,7 +157,7 @@ export interface ListQuery {
     /**
      * The direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted
      */
-    direction?: ('Inbound' | 'Outbound')[];
+    direction?: ("Inbound" | "Outbound")[];
 
     /**
      * If 'True', then the latest messages per every conversation ID are returned
@@ -167,12 +167,12 @@ export interface ListQuery {
     /**
      * The type of the resulting messages. If not specified, all messages without message type filtering are returned. Multiple values are accepted
      */
-    messageType?: ('Fax' | 'SMS' | 'VoiceMail' | 'Pager' | 'Text')[];
+    messageType?: ("Fax" | "SMS" | "VoiceMail" | "Pager" | "Text")[];
 
     /**
      * The read status for the resulting messages. Multiple values are accepted
      */
-    readStatus?: ('Read' | 'Unread')[];
+    readStatus?: ("Read" | "Unread")[];
 
     /**
      * Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'

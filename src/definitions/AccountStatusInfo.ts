@@ -10,7 +10,7 @@ interface AccountStatusInfo {
     /**
      * Type of suspension
      */
-    reason?: 'Voluntarily' | 'Involuntarily';
+    reason?: "Voluntarily" | "Involuntarily";
 
     /**
      * Date until which the account will get deleted. The default value is 30 days since current date

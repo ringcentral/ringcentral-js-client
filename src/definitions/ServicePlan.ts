@@ -15,7 +15,7 @@ interface ServicePlan {
     /**
      * 
      */
-    edition?: 'Unknown' | 'Standard' | 'Premium' | 'Enterprise' | 'Unlimited' | 'HighUsage';
+    edition?: "Unknown" | "Standard" | "Premium" | "Enterprise" | "Unlimited" | "HighUsage";
 }
 
 export default ServicePlan;

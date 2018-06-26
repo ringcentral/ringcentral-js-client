@@ -11,7 +11,7 @@ interface IvrMenuActionsInfo {
     /**
      * Internal identifier of an answering rule
      */
-    action?: 'Connect' | 'Voicemail' | 'DialByName' | 'Transfer' | 'Repeat' | 'ReturnToRoot' | 'ReturnToPrevious' | 'Disconnect';
+    action?: "Connect" | "Voicemail" | "DialByName" | "Transfer" | "Repeat" | "ReturnToRoot" | "ReturnToPrevious" | "Disconnect";
 
     /**
      * For 'Connect' or 'Voicemail' actions only. Extension reference

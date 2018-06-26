@@ -10,7 +10,7 @@ interface ExtensionStatusInfo {
     /**
      * Type of suspension
      */
-    reason?: 'Voluntarily' | 'Involuntarily';
+    reason?: "Voluntarily" | "Involuntarily";
 }
 
 export default ExtensionStatusInfo;

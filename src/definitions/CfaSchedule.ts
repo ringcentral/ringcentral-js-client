@@ -17,7 +17,7 @@ interface CfaSchedule {
     /**
      * 
      */
-    viewType?: 'Detailed' | 'Simple';
+    viewType?: "Detailed" | "Simple";
 
     /**
      * 

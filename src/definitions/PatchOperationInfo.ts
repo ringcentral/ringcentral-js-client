@@ -5,7 +5,7 @@ interface PatchOperationInfo {
     /**
      * 
      */
-    op?: 'add' | 'replace' | 'remove';
+    op?: "add" | "replace" | "remove";
 
     /**
      * 

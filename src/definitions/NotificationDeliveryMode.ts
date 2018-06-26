@@ -5,7 +5,7 @@ interface NotificationDeliveryMode {
     /**
      * Notifications transportation provider name. 'APNS' (Apple Push Notifications Service)
      */
-    transportType?: 'PubNub' | 'APNS' | 'PubNub/APNS/VoIP';
+    transportType?: "PubNub" | "APNS" | "PubNub/APNS/VoIP";
 
     /**
      * Optional parameter. Specifies if the message will be encrypted or not. For APNS transport type the value is always  false

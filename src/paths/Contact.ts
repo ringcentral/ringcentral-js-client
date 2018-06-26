@@ -162,7 +162,7 @@ export interface ListQuery {
     /**
      * Sorts results by the specified property. The default is 'First Name'
      */
-    sortBy?: ('FirstName' | 'LastName' | 'Company')[];
+    sortBy?: ("FirstName" | "LastName" | "Company")[];
 
     /**
      * Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'

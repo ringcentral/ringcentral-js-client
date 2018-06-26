@@ -5,7 +5,7 @@ interface DeliveryModeResource {
     /**
      * 
      */
-    transportType?: 'PUBNUB' | 'APNS' | 'PUBNUB_TO_APNS' | 'PUBNUB_TO_APNS_VOIP' | 'PUBNUB_TO_GCM' | 'PUBNUB_TO_GCM_VOIP' | 'WEB_HOOK';
+    transportType?: "PUBNUB" | "APNS" | "PUBNUB_TO_APNS" | "PUBNUB_TO_APNS_VOIP" | "PUBNUB_TO_GCM" | "PUBNUB_TO_GCM_VOIP" | "WEB_HOOK";
 
     /**
      * 

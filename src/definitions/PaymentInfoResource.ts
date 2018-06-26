@@ -12,7 +12,7 @@ interface PaymentInfoResource {
     /**
      * 
      */
-    paymentType?: 'Card' | 'Invoice';
+    paymentType?: "Card" | "Invoice";
 
     /**
      * 

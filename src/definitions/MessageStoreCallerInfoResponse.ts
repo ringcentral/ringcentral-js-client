@@ -15,12 +15,12 @@ interface MessageStoreCallerInfoResponse {
     /**
      * Status of a message. Returned for outbound fax messages only
      */
-    messageStatus?: 'Queued' | 'Sent' | 'Delivered' | 'DeliveryFailed' | 'SendingFailed' | 'Received';
+    messageStatus?: "Queued" | "Sent" | "Delivered" | "DeliveryFailed" | "SendingFailed" | "Received";
 
     /**
      * Fax only. Error code returned in case of fax sending failure. Returned if messageStatus value is 'SendingFailed'
      */
-    faxErrorCode?: 'Undefined' | 'NoFaxSendPermission' | 'NoInternationalPermission' | 'NoFaxMachine' | 'OutgoingCallError' | 'RenderingFailed' | 'TooManyPages' | 'ReturnToDBQueue' | 'NoCallTime' | 'WrongNumber' | 'ProhibitedNumber' | 'InternalError' | 'FaxSendingProhibited' | 'ThePhoneIsBlacklisted' | 'UserNotFound' | 'ConvertError' | 'DBGeneralError' | 'SkypeBillingFailed' | 'AccountSuspended' | 'ProhibitedDestination' | 'InternationalDisabled';
+    faxErrorCode?: "Undefined" | "NoFaxSendPermission" | "NoInternationalPermission" | "NoFaxMachine" | "OutgoingCallError" | "RenderingFailed" | "TooManyPages" | "ReturnToDBQueue" | "NoCallTime" | "WrongNumber" | "ProhibitedNumber" | "InternalError" | "FaxSendingProhibited" | "ThePhoneIsBlacklisted" | "UserNotFound" | "ConvertError" | "DBGeneralError" | "SkypeBillingFailed" | "AccountSuspended" | "ProhibitedDestination" | "InternationalDisabled";
 
     /**
      * Symbolic name associated with a party. If the phone does not belong to the known extension, only the location is returned, the name is not determined then

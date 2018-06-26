@@ -10,7 +10,7 @@ interface ActiveCallInfoWithoutSip {
     /**
      * Call direction
      */
-    direction?: 'Inbound' | 'Outbound';
+    direction?: "Inbound" | "Outbound";
 
     /**
      * Phone number or extension number of a caller
@@ -25,7 +25,7 @@ interface ActiveCallInfoWithoutSip {
     /**
      * Telephony call status
      */
-    telephonyStatus?: 'NoCall' | 'CallConnected' | 'Ringing' | 'OnHold' | 'ParkedCall';
+    telephonyStatus?: "NoCall" | "CallConnected" | "Ringing" | "OnHold" | "ParkedCall";
 
     /**
      * Internal identifier of a call session
@@ -35,7 +35,7 @@ interface ActiveCallInfoWithoutSip {
     /**
      * Type of call termination. Supported for calls in 'NoCall' status. If the returned termination type is 'intermediate' it means the call is not actually ended, the connection is established on one of the devices
      */
-    terminationType?: 'final' | 'intermediate';
+    terminationType?: "final" | "intermediate";
 }
 
 export default ActiveCallInfoWithoutSip;

@@ -41,7 +41,7 @@ interface ConferencingInfoResource {
     /**
      * 
      */
-    mode?: 'FCC' | 'RCC';
+    mode?: "FCC" | "RCC";
 
     /**
      * 

@@ -16,7 +16,7 @@ interface ReassignPhoneNumberResource {
     /**
      * 
      */
-    usageType?: 'CompanyNumber' | 'MainCompanyNumber' | 'AdditionalCompanyNumber' | 'DirectNumber' | 'CompanyFaxNumber' | 'ForwardedNumber';
+    usageType?: "CompanyNumber" | "MainCompanyNumber" | "AdditionalCompanyNumber" | "DirectNumber" | "CompanyFaxNumber" | "ForwardedNumber";
 
     /**
      * 

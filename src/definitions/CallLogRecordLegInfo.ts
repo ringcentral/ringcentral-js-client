@@ -8,12 +8,12 @@ interface CallLogRecordLegInfo {
     /**
      * Action description of the call operation
      */
-    action?: 'Unknown' | 'Phone Call' | 'Phone Login' | 'Incoming Fax' | 'Accept Call' | 'FindMe' | 'FollowMe' | 'Outgoing Fax' | 'Call Return' | 'Calling Card' | 'Ring Directly' | 'RingOut Web' | 'VoIP Call' | 'RingOut PC' | 'RingMe' | 'Transfer' | '411 Info' | 'Emergency' | 'E911 Update' | 'Support' | 'RingOut Mobile';
+    action?: "Unknown" | "Phone Call" | "Phone Login" | "Incoming Fax" | "Accept Call" | "FindMe" | "FollowMe" | "Outgoing Fax" | "Call Return" | "Calling Card" | "Ring Directly" | "RingOut Web" | "VoIP Call" | "RingOut PC" | "RingMe" | "Transfer" | "411 Info" | "Emergency" | "E911 Update" | "Support" | "RingOut Mobile";
 
     /**
      * Call direction
      */
-    direction?: 'Inbound' | 'Outbound';
+    direction?: "Inbound" | "Outbound";
 
     /**
      * Call duration in seconds
@@ -38,12 +38,12 @@ interface CallLogRecordLegInfo {
     /**
      * Call type
      */
-    type?: 'Voice' | 'Fax';
+    type?: "Voice" | "Fax";
 
     /**
      * Status description of the call operation
      */
-    result?: 'Unknown' | 'ResultInProgress' | 'Missed' | 'Call accepted' | 'Voicemail' | 'Rejected' | 'Reply' | 'Received' | 'Receive Error' | 'Fax on Demand' | 'Partial Receive' | 'Blocked' | 'Call connected' | 'No Answer' | 'International Disabled' | 'Busy' | 'Send Error' | 'Sent' | 'No fax machine' | 'ResultEmpty' | 'Account' | 'Suspended' | 'Call Failed' | 'Call Failure' | 'Internal Error' | 'IP Phone offline' | 'Restricted Number' | 'Wrong Number' | 'Stopped' | 'Hang up' | 'Poor Line Quality' | 'Partially Sent' | 'International Restriction' | 'Abandoned' | 'Declined' | 'Fax Receipt Error' | 'Fax Send Error';
+    result?: "Unknown" | "ResultInProgress" | "Missed" | "Call accepted" | "Voicemail" | "Rejected" | "Reply" | "Received" | "Receive Error" | "Fax on Demand" | "Partial Receive" | "Blocked" | "Call connected" | "No Answer" | "International Disabled" | "Busy" | "Send Error" | "Sent" | "No fax machine" | "ResultEmpty" | "Account" | "Suspended" | "Call Failed" | "Call Failure" | "Internal Error" | "IP Phone offline" | "Restricted Number" | "Wrong Number" | "Stopped" | "Hang up" | "Poor Line Quality" | "Partially Sent" | "International Restriction" | "Abandoned" | "Declined" | "Fax Receipt Error" | "Fax Send Error";
 
     /**
      * Caller information
@@ -58,7 +58,7 @@ interface CallLogRecordLegInfo {
     /**
      * Call transport
      */
-    transport?: 'PSTN' | 'VoIP';
+    transport?: "PSTN" | "VoIP";
 
     /**
      * Call recording data. Returned if the call is recorded

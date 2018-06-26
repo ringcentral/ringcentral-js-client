@@ -5,7 +5,7 @@ interface PutPresenceResource {
     /**
      * 
      */
-    userStatus?: 'Offline' | 'Busy' | 'Available';
+    userStatus?: "Offline" | "Busy" | "Available";
 
     /**
      * 
@@ -15,7 +15,7 @@ interface PutPresenceResource {
     /**
      * 
      */
-    dndStatus?: 'TakeAllCalls' | 'DoNotAcceptDepartmentCalls' | 'TakeDepartmentCallsOnly' | 'DoNotAcceptAnyCalls' | 'Unknown';
+    dndStatus?: "TakeAllCalls" | "DoNotAcceptDepartmentCalls" | "TakeDepartmentCallsOnly" | "DoNotAcceptAnyCalls" | "Unknown";
 
     /**
      * 

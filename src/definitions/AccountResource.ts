@@ -49,7 +49,7 @@ interface AccountResource {
     /**
      * 
      */
-    status?: 'Initial' | 'Unconfirmed' | 'Confirmed' | 'Disabled';
+    status?: "Initial" | "Unconfirmed" | "Confirmed" | "Disabled";
 
     /**
      * 
@@ -64,7 +64,7 @@ interface AccountResource {
     /**
      * 
      */
-    setupWizardState?: 'NotStarted' | 'Incomplete' | 'Completed' | 'Unknown';
+    setupWizardState?: "NotStarted" | "Incomplete" | "Completed" | "Unknown";
 
     /**
      * 

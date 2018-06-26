@@ -5,7 +5,7 @@ interface Reference {
     /**
      * 
      */
-    type?: 'PartnerId' | 'CustomerDirectoryId';
+    type?: "PartnerId" | "CustomerDirectoryId";
 
     /**
      * 
