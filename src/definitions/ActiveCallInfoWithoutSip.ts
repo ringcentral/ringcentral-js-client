@@ -1,7 +1,6 @@
 // Generated Source
-import DetailedCallInfo from "./DetailedCallInfo";
 
-interface ActiveCallInfo {
+interface ActiveCallInfoWithoutSip {
 
     /**
      * Internal identifier of a call
@@ -29,11 +28,6 @@ interface ActiveCallInfo {
     telephonyStatus?: "NoCall" | "CallConnected" | "Ringing" | "OnHold" | "ParkedCall";
 
     /**
-     * 
-     */
-    sipData?: DetailedCallInfo;
-
-    /**
      * Internal identifier of a call session
      */
     sessionId?: string;
@@ -44,4 +38,4 @@ interface ActiveCallInfo {
     terminationType?: "final" | "intermediate";
 }
 
-export default ActiveCallInfo;
+export default ActiveCallInfoWithoutSip;
