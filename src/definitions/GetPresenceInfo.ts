@@ -55,6 +55,11 @@ interface GetPresenceInfo {
     userStatus?: "Offline" | "Busy" | "Available";
 
     /**
+     * Zoom Meetings presence
+     */
+    meetingsStatus?: "Connected" | "Disconnected";
+
+    /**
      * Information on active calls
      */
     activeCalls?: ActiveCallInfo[];

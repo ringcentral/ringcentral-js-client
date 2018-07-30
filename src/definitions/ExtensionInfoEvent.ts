@@ -1,21 +1,32 @@
 // Generated Source
+import ExtensionInfoEventBody from "./ExtensionInfoEventBody";
 
 interface ExtensionInfoEvent {
 
     /**
-     * Internal identifier of an extension
+     * Universally unique identifier of a notification
      */
-    extensionId?: string;
+    uuid?: string;
 
     /**
-     * Type of extension info change
+     * Event filter URI
      */
-    eventType?: "Update" | "Delete";
+    event?: string;
 
     /**
-     * Returned for 'Update' event type only. The possible values are: /nAccountInfo - change of account parameters/nExtensionInfo - change of contact info, service features, departments, status/nPhoneNumber - change of phone numbers/nRole - change of permissions/nProfileImage - change of profile image
+     * Datetime of sending a notification in [ISO 8601](shttps://en.wikipedia.org/wiki/ISO_8601) format including timezone, for example *2016-03-10T18:07:52.534Z*
      */
-    hints?: string[];
+    timestamp?: string;
+
+    /**
+     * Internal identifier of a subscription
+     */
+    subscriptionId?: string;
+
+    /**
+     * Notification payload body
+     */
+    body?: ExtensionInfoEventBody;
 }
 
 export default ExtensionInfoEvent;

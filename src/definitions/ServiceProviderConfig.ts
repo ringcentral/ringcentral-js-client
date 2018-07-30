@@ -45,6 +45,11 @@ interface ServiceProviderConfig {
      * 
      */
     sort?: Supported;
+
+    /**
+     * 
+     */
+    xmlDataFormat?: Supported;
 }
 
 export default ServiceProviderConfig;

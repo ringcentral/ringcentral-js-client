@@ -8,7 +8,7 @@ interface MakeRingOutCallerInfoRequestFrom {
     phoneNumber?: string;
 
     /**
-     * Internal identifier of a forwarding number; returned in response in the id field. Can be specified instead of the phoneNumber attribute
+     * Internal identifier of a forwarding number; returned in response as an 'id' field value. Can be specified instead of the phoneNumber attribute
      */
     forwardingNumberId?: string;
 }

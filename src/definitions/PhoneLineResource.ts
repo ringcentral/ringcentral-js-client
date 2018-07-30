@@ -7,7 +7,7 @@ interface PhoneLineResource {
     /**
      * 
      */
-    lineType?: "Unknown" | "Standalone" | "BlaPrimary" | "BlaSecondary" | "BLF" | "StandaloneFree";
+    lineType?: "Unknown" | "Standalone" | "StandaloneFree" | "BlaPrimary" | "BlaSecondary" | "BLF";
 
     /**
      * 

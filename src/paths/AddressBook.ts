@@ -8,7 +8,7 @@ export default class AddressBook extends PathSegment {
     }
 
     /**
-     * Internal identifier of an extension
+     * Internal identifier of an extension to read information for
      */
     contact(id?: string) {
         return new Contact(this, id);

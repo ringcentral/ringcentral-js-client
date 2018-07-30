@@ -1,7 +1,7 @@
 // Generated Source
-import DeviceModelResource from "./DeviceModelResource";
 import EmergencyServiceAddressResource from "./EmergencyServiceAddressResource";
 import ExtensionResourceIntId from "./ExtensionResourceIntId";
+import ModelInfo from "./ModelInfo";
 import PhoneLineResource from "./PhoneLineResource";
 import ShippingResource from "./ShippingResource";
 
@@ -23,12 +23,12 @@ interface DeviceResource {
     sku?: string;
 
     /**
-     * Device type. The default value is 'HardPhone'
+     * Device type
      */
-    type?: "HardPhone" | "SoftPhone" | "OtherPhone";
+    type?: "HardPhone" | "SoftPhone" | "OtherPhone" | "Paging" | "WebPhone";
 
     /**
-     * Status of a device = ['Online', 'Offline']
+     * Status of a device
      */
     status?: "Online" | "Offline";
 
@@ -50,7 +50,7 @@ interface DeviceResource {
     /**
      * HardPhone model information
      */
-    model?: DeviceModelResource;
+    model?: ModelInfo;
 
     /**
      * This attribute can be omitted for unassigned devices
@@ -73,7 +73,7 @@ interface DeviceResource {
     shipping?: ShippingResource;
 
     /**
-     * Box billing identifier of a device. Applicable only for HardPhones. It is an alternative way to identify the device to be ordered. Either model structure, or boxBillingId must be specified for HardPhone
+     * Box billing identifier of a device. Applicable only for HardPhones. It is an alternative way to identify the device to be ordered. Either  model structure, or boxBillingId must be specified for HardPhone
      */
     boxBillingId?: number;
 

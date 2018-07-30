@@ -10,7 +10,7 @@ interface GlipPosts {
     records?: GlipPostInfo[];
 
     /**
-     * Information on navigation
+     * 
      */
     navigation?: GlipNavigationInfo;
 }

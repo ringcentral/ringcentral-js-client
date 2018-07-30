@@ -10,22 +10,27 @@ interface Address {
     /**
      * 
      */
-    state?: string;
+    locality?: string;
 
     /**
      * 
      */
-    city?: string;
+    postalCode?: string;
 
     /**
      * 
      */
-    street?: string;
+    region?: string;
 
     /**
      * 
      */
-    zip?: string;
+    streetAddress?: string;
+
+    /**
+     * 
+     */
+    type?: "work";
 }
 
 export default Address;

@@ -5,7 +5,7 @@ interface NotificationDeliveryModeRequest {
     /**
      * Notifications transportation provider name. 'APNS' (Apple Push Notifications Service)
      */
-    transportType?: "PubNub" | "Webhook" | "APNS" | "PubNub/APNS" | "PubNub/GCM";
+    transportType?: "PubNub" | "WebHook" | "APNS" | "PubNub/APNS" | "PubNub/GCM";
 
     /**
      * Mandatory for 'APNS' and 'WebHook' transport types. For 'APNS' - internal identifier of a device 'device_token' for 'WebHook' - URL of a consumer service (cannot be changed during subscription update)
@@ -26,6 +26,11 @@ interface NotificationDeliveryModeRequest {
      * For 'PubNub/APNS' and 'PubNub/GCM' transport types. Identifier of a registration
      */
     registrationId?: string;
+
+    /**
+     * For 'Webhook' transport type. Subscription verification key ensuring data security
+     */
+    verificationToken?: string;
 }
 
 export default NotificationDeliveryModeRequest;

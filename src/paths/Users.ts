@@ -1,8 +1,7 @@
 // This is Generated Source.
-import GetUserListResponse from "../definitions/GetUserListResponse";
-import UserCreationRequest from "../definitions/UserCreationRequest";
-import UserInfo from "../definitions/UserInfo";
-import UserUpdateRequest from "../definitions/UserUpdateRequest";
+import User from "../definitions/User";
+import UserResponse from "../definitions/UserResponse";
+import UserSearchResponse from "../definitions/UserSearchResponse";
 import PathSegment from "../PathSegment";
 
 export default class Users extends PathSegment {
@@ -11,9 +10,9 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p>Returns the list of users requested.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  
      */
-    get(query?: GetQuery): Promise<GetUserListResponse> {
+    get(query?: GetQuery): Promise<UserSearchResponse> {
         return this._send({
             body: undefined,
             ignoreId: true,
@@ -25,7 +24,7 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p>Returns the list of users requested.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  
      *  return {ApiResponse}
      */
     getRaw(query?: GetQuery): Promise<any> {
@@ -38,9 +37,9 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p>Creates a user.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  
      */
-    post(body: UserCreationRequest): Promise<UserInfo> {
+    post(body: User): Promise<UserResponse> {
         return this._send({
             body: body,
             ignoreId: true,
@@ -52,10 +51,10 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p>Creates a user.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  
      *  return {ApiResponse}
      */
-    postRaw(body: UserCreationRequest): Promise<any> {
+    postRaw(body: User): Promise<any> {
         return this._send({
             body: body,
             ignoreId: true,
@@ -65,9 +64,9 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Updating User using SCIM</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  
      */
-    put(body: UserUpdateRequest): Promise<UserInfo> {
+    put(body: User): Promise<UserResponse> {
         return this._send({
             body: body,
             ignoreId: true,
@@ -79,10 +78,10 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Updating User using SCIM</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  
      *  return {ApiResponse}
      */
-    putRaw(body: UserUpdateRequest): Promise<any> {
+    putRaw(body: User): Promise<any> {
         return this._send({
             body: body,
             ignoreId: true,
@@ -92,7 +91,7 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Deleting User using scim</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  
      */
     delete(): Promise<void> {
         return this._send({
@@ -104,7 +103,7 @@ export default class Users extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Deleting User using scim</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  
      *  return {ApiResponse}
      */
     deleteRaw(): Promise<any> {
@@ -122,15 +121,15 @@ export interface GetQuery {
     /**
      * only support 'userName' or 'email' filter expressions for now
      */
-    filter?: "userName" | "email";
-
-    /**
-     * page size
-     */
-    count?: number;
+    filter?: string;
 
     /**
      * start index (1-based)
      */
     startIndex?: number;
+
+    /**
+     * page size
+     */
+    count?: number;
 }

@@ -20,7 +20,7 @@ interface MessageStoreCallerInfoResponse {
     /**
      * Fax only. Error code returned in case of fax sending failure. Returned if messageStatus value is 'SendingFailed'
      */
-    faxErrorCode?: "Undefined" | "NoFaxSendPermission" | "NoInternationalPermission" | "NoFaxMachine" | "OutgoingCallError" | "RenderingFailed" | "TooManyPages" | "ReturnToDBQueue" | "NoCallTime" | "WrongNumber" | "ProhibitedNumber" | "InternalError" | "FaxSendingProhibited" | "ThePhoneIsBlacklisted" | "UserNotFound" | "ConvertError" | "DBGeneralError" | "SkypeBillingFailed" | "AccountSuspended" | "ProhibitedDestination" | "InternationalDisabled";
+    faxErrorCode?: "InternationalCallingDisabled" | "DestinationCountryDisabled" | "NoAnswer" | "LineBusy" | "CallerHungUp" | "UnknownCountryCode" | "InvalidNumber" | "NotAccepted" | "CallDeclined" | "TooManyCallsPerLine" | "NotEnoughCredits" | "SentPartially" | "CallFailed";
 
     /**
      * Symbolic name associated with a party. If the phone does not belong to the known extension, only the location is returned, the name is not determined then

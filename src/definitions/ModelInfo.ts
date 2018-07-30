@@ -17,6 +17,11 @@ interface ModelInfo {
      * Addons description
      */
     addons?: AddonInfo[];
+
+    /**
+     * Device feature or multiple features supported
+     */
+    features?: "BLA" | "Intercom" | "Paging"[];
 }
 
 export default ModelInfo;

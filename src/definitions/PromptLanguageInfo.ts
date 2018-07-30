@@ -3,12 +3,12 @@
 interface PromptLanguageInfo {
 
     /**
-     * Link to prompt language
+     * Link to a prompt language
      */
     uri?: string;
 
     /**
-     * Internal identifier of an language
+     * Internal identifier of a language
      */
     id?: string;
 

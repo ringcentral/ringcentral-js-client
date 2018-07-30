@@ -6,7 +6,7 @@ import PagingInfo from "./PagingInfo";
 interface GetExtensionGrantListResponse {
 
     /**
-     * List of extension grants with the data
+     * List of extension grants with details
      */
     records?: GrantInfo[];
 

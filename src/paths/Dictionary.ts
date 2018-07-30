@@ -7,7 +7,6 @@ import Country from "./Country";
 import Location from "./Location";
 import State from "./State";
 import Timezone from "./Timezone";
-import Device from "./Device";
 import LicenseTypes from "./LicenseTypes";
 
 export default class Dictionary extends PathSegment {
@@ -62,13 +61,6 @@ export default class Dictionary extends PathSegment {
      */
     timezone(id?: string) {
         return new Timezone(this, id);
-    }
-
-    /**
-     * 
-     */
-    device(id?: string) {
-        return new Device(this, id);
     }
 
     /**

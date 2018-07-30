@@ -5,7 +5,7 @@ import PromptLanguageInfo from "./PromptLanguageInfo";
 interface IvrMenuPromptInfo {
 
     /**
-     * Prompt mode: custom media or text = ['Audio', 'TextToSpeech']
+     * Prompt mode: custom media or text
      */
     mode?: "Audio" | "TextToSpeech";
 

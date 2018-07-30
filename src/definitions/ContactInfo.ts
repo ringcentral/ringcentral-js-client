@@ -1,5 +1,6 @@
 // Generated Source
-import ContactAddressInfo from "./ContactAddressInfo";
+import ContactBusinessAddressInfo from "./ContactBusinessAddressInfo";
+import PronouncedNameInfo from "./PronouncedNameInfo";
 
 interface ContactInfo {
 
@@ -19,19 +20,44 @@ interface ContactInfo {
     company?: string;
 
     /**
+     * 
+     */
+    jobTitle?: string;
+
+    /**
      * Email of extension user
      */
     email?: string;
 
     /**
-     * Extension user contact phone number
+     * Extension user contact phone number in [E.164](https://www.itu.int/rec/T-REC-E.164-201011-I) (with '+' sign) format
      */
     businessPhone?: string;
 
     /**
+     * Extension user mobile phone number in [E.164](https://www.itu.int/rec/T-REC-E.164-201011-I) (with '+' sign) format. For extension bulk assignment it should be a valid **non** Toll Free number
+     */
+    mobilePhone?: string;
+
+    /**
      * Business address of extension user company
      */
-    businessAddress?: ContactAddressInfo;
+    businessAddress?: ContactBusinessAddressInfo;
+
+    /**
+     * If 'True' then contact email is enabled as login name for this user. Please note that email should be unique in this case. The default value is 'False'
+     */
+    emailAsLoginName?: boolean;
+
+    /**
+     * 
+     */
+    pronouncedName?: PronouncedNameInfo;
+
+    /**
+     * Extension user department, if any
+     */
+    department?: string;
 }
 
 export default ContactInfo;

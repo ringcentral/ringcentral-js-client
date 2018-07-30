@@ -9,7 +9,7 @@ interface InboundMessageEvent {
     aps?: NotificationInfo;
 
     /**
-     * Internal identifier of an message
+     * Internal identifier of a message
      */
     messageId?: string;
 
@@ -27,6 +27,11 @@ interface InboundMessageEvent {
      * Receiver phone number
      */
     to?: string;
+
+    /**
+     * Internal identifier of a subscription owner extension
+     */
+    ownerId?: string;
 }
 
 export default InboundMessageEvent;

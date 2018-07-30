@@ -9,6 +9,11 @@ interface GetRingOutStatusResponse {
     id?: string;
 
     /**
+     * 
+     */
+    uri?: string;
+
+    /**
      * RingOut status information
      */
     status?: RingOutStatusInfo;

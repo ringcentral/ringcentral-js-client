@@ -3,6 +3,7 @@ import ContactInfoUpdateRequest from "./ContactInfoUpdateRequest";
 import ExtensionStatusInfo from "./ExtensionStatusInfo";
 import ReferenceInfo from "./ReferenceInfo";
 import RegionalSettings from "./RegionalSettings";
+import Roles from "./Roles";
 
 interface ExtensionCreationRequest {
 
@@ -27,17 +28,22 @@ interface ExtensionCreationRequest {
     references?: ReferenceInfo[];
 
     /**
+     * 
+     */
+    roles?: Roles[];
+
+    /**
      * Extension region data (timezone, home country, language)
      */
     regionalSettings?: RegionalSettings;
 
     /**
-     * Specifies extension configuration wizard state (web service setup). The default value is 'NotStarted' = ['NotStarted', 'Incomplete', 'Completed']
+     * Specifies extension configuration wizard state (web service setup).
      */
     setupWizardState?: "NotStarted" | "Incomplete" | "Completed";
 
     /**
-     * Extension current state = ['Enabled', 'Disabled', 'NotActivated', 'Unassigned']
+     * Extension current state
      */
     status?: "Enabled" | "Disabled" | "NotActivated" | "Unassigned";
 
@@ -47,9 +53,14 @@ interface ExtensionCreationRequest {
     statusInfo?: ExtensionStatusInfo;
 
     /**
-     * Extension type = ['User', 'VirtualUser', 'DigitalUser', 'Department']
+     * Extension type
      */
-    type?: "User" | "VirtualUser" | "DigitalUser" | "Department";
+    type?: "User" | "VirtualUser" | "DigitalUser" | "Department" | "Announcement" | "Voicemail" | "SharedLinesGroup" | "PagingOnlyGroup" | "ParkLocation";
+
+    /**
+     * Hides extension from showing in company directory. Supported for extensions of User type only. For unassigned extensions the value is set to 'True' by default. For assigned extensions the value is set to 'False' by default
+     */
+    hidden?: boolean;
 }
 
 export default ExtensionCreationRequest;

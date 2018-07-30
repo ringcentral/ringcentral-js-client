@@ -9,7 +9,7 @@ export default class RingOut extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Makes a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  <p>Makes a 2-leg RingOut call.</p><h4>App Permission</h4><p>RingOut</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [phoneNumber] value is invalid</td></tr><tr><td>400</td><td>TEL-107</td><td>Caller ID: [+18609411729] is not allowed</td></tr><tr><td>400</td><td>TEL-108</td><td>phoneNumber specified in the from field is empty or invalid</td></tr><tr><td>400</td><td>TEL-109</td><td>phoneNumber specified in the to field is empty or invalid</td></tr><tr><td>403</td><td>BIL-103</td><td>Feature [RingOut] is not available for current account</td></tr><tr><td>403</td><td>CMN-112</td><td>Feature [RingOut] is not available for current extension type</td></tr><tr><td>403</td><td>CMN-113</td><td>Feature [DomesticCalls] is not available for current extension</td></tr><tr><td>403</td><td>RNG-102</td><td>Caller ID should be one of company direct numbers</td></tr><tr><td>403</td><td>TEL-101</td><td>phoneNumber specified in the to field: [17176704078] is in blocked list</td></tr><tr><td>403</td><td>TEL-102</td><td>phoneNumber specified in the from field: [17176704078] is in blocked list</td></tr><tr><td>403</td><td>TEL-107</td><td>Caller ID: [+12094441763] is not allowed</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [forwardingNumberId] is not found</td></tr> </tbody></table>								
      */
     post(body: MakeRingOutRequest): Promise<GetRingOutStatusResponse> {
         return this._send({
@@ -23,7 +23,7 @@ export default class RingOut extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Makes a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  <p>Makes a 2-leg RingOut call.</p><h4>App Permission</h4><p>RingOut</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [phoneNumber] value is invalid</td></tr><tr><td>400</td><td>TEL-107</td><td>Caller ID: [+18609411729] is not allowed</td></tr><tr><td>400</td><td>TEL-108</td><td>phoneNumber specified in the from field is empty or invalid</td></tr><tr><td>400</td><td>TEL-109</td><td>phoneNumber specified in the to field is empty or invalid</td></tr><tr><td>403</td><td>BIL-103</td><td>Feature [RingOut] is not available for current account</td></tr><tr><td>403</td><td>CMN-112</td><td>Feature [RingOut] is not available for current extension type</td></tr><tr><td>403</td><td>CMN-113</td><td>Feature [DomesticCalls] is not available for current extension</td></tr><tr><td>403</td><td>RNG-102</td><td>Caller ID should be one of company direct numbers</td></tr><tr><td>403</td><td>TEL-101</td><td>phoneNumber specified in the to field: [17176704078] is in blocked list</td></tr><tr><td>403</td><td>TEL-102</td><td>phoneNumber specified in the from field: [17176704078] is in blocked list</td></tr><tr><td>403</td><td>TEL-107</td><td>Caller ID: [+12094441763] is not allowed</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [forwardingNumberId] is not found</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     postRaw(body: MakeRingOutRequest): Promise<any> {
@@ -36,7 +36,7 @@ export default class RingOut extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Returns the status of a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns the status of a 2-leg RingOut call.</p><h4>App Permission</h4><p>RingOut</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>503</td><td>CMN-201</td><td>Service Temporary Unavailable</td></tr> </tbody></table>								
      */
     get(): Promise<GetRingOutStatusResponse> {
         return this._send({
@@ -50,7 +50,7 @@ export default class RingOut extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Returns the status of a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns the status of a 2-leg RingOut call.</p><h4>App Permission</h4><p>RingOut</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>503</td><td>CMN-201</td><td>Service Temporary Unavailable</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -63,7 +63,7 @@ export default class RingOut extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'></p><p>Cancels the 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  <p>Cancels a 2-leg RingOut call.</p><h4>App Permission</h4><p>RingOut</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [ringOutId] is not found</td></tr> </tbody></table>								
      */
     delete(): Promise<void> {
         return this._send({
@@ -75,7 +75,7 @@ export default class RingOut extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'></p><p>Cancels the 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  <p>Cancels a 2-leg RingOut call.</p><h4>App Permission</h4><p>RingOut</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [ringOutId] is not found</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     deleteRaw(): Promise<any> {

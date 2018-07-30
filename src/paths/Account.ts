@@ -3,25 +3,27 @@ import GetAccountInfoResponse from "../definitions/GetAccountInfoResponse";
 import PathSegment from "../PathSegment";
 import Extension from "./Extension";
 import CallLog from "./CallLog";
-import CallLogSync from "./CallLogSync";
 import ActiveCalls from "./ActiveCalls";
 import Recording from "./Recording";
 import Directory from "./Directory";
-import Bot from "./Bot";
 import Presence from "./Presence";
 import BusinessHours from "./BusinessHours";
-import Greeting from "./Greeting";
 import AnsweringRule from "./AnsweringRule";
-import IvrMenus from "./IvrMenus";
+import Greeting from "./Greeting";
 import IvrPrompts from "./IvrPrompts";
+import IvrMenus from "./IvrMenus";
+import CallRecording from "./CallRecording";
 import BusinessAddress from "./BusinessAddress";
 import ServiceInfo from "./ServiceInfo";
 import PhoneNumber from "./PhoneNumber";
-import Device from "./Device";
-import Licenses from "./Licenses";
+import Templates from "./Templates";
+import Bots from "./Bots";
 import Department from "./Department";
 import PagingOnlyGroups from "./PagingOnlyGroups";
-import ParkLocations from "./ParkLocations";
+import Licenses from "./Licenses";
+import CallQueues from "./CallQueues";
+import CallMonitoringGroups from "./CallMonitoringGroups";
+import Device from "./Device";
 
 export default class Account extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -40,13 +42,6 @@ export default class Account extends PathSegment {
      */
     callLog(id?: string) {
         return new CallLog(this, id);
-    }
-
-    /**
-     * 
-     */
-    callLogSync(id?: string) {
-        return new CallLogSync(this, id);
     }
 
     /**
@@ -73,13 +68,6 @@ export default class Account extends PathSegment {
     /**
      * 
      */
-    bot(id?: string) {
-        return new Bot(this, id);
-    }
-
-    /**
-     * 
-     */
     presence(id?: string) {
         return new Presence(this, id);
     }
@@ -92,6 +80,13 @@ export default class Account extends PathSegment {
     }
 
     /**
+     * Internal identifier of an answering rule
+     */
+    answeringRule(id?: string) {
+        return new AnsweringRule(this, id);
+    }
+
+    /**
      * 
      */
     greeting(id?: string) {
@@ -99,10 +94,10 @@ export default class Account extends PathSegment {
     }
 
     /**
-     * Internal identifier of an answering rule. The value can be standard digital ID or specific ID - either business-hours-rule or after-hours-rule
+     * 
      */
-    answeringRule(id?: string) {
-        return new AnsweringRule(this, id);
+    ivrPrompts(id?: string) {
+        return new IvrPrompts(this, id);
     }
 
     /**
@@ -115,8 +110,8 @@ export default class Account extends PathSegment {
     /**
      * 
      */
-    ivrPrompts(id?: string) {
-        return new IvrPrompts(this, id);
+    callRecording(id?: string) {
+        return new CallRecording(this, id);
     }
 
     /**
@@ -134,7 +129,7 @@ export default class Account extends PathSegment {
     }
 
     /**
-     * 
+     * Internal identifier of a phone number
      */
     phoneNumber(id?: string) {
         return new PhoneNumber(this, id);
@@ -143,15 +138,15 @@ export default class Account extends PathSegment {
     /**
      * 
      */
-    device(id?: string) {
-        return new Device(this, id);
+    templates(id?: string) {
+        return new Templates(this, id);
     }
 
     /**
-     * Internal identifier of a license
+     * 
      */
-    licenses(id?: string) {
-        return new Licenses(this, id);
+    bots(id?: string) {
+        return new Bots(this, id);
     }
 
     /**
@@ -169,14 +164,35 @@ export default class Account extends PathSegment {
     }
 
     /**
-     * 
+     * Internal identifier of a license
      */
-    parkLocations(id?: string) {
-        return new ParkLocations(this, id);
+    licenses(id?: string) {
+        return new Licenses(this, id);
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.0</p><p>Returns basic information about a particular RingCentral customer account.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+     * 
+     */
+    callQueues(id?: string) {
+        return new CallQueues(this, id);
+    }
+
+    /**
+     * 
+     */
+    callMonitoringGroups(id?: string) {
+        return new CallMonitoringGroups(this, id);
+    }
+
+    /**
+     * 
+     */
+    device(id?: string) {
+        return new Device(this, id);
+    }
+
+    /**
+     *  <p>Returns basic information about a particular RingCentral customer account.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>401</td><td>OAU-213</td><td>Token not found</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadAccounts] permission</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [accountId] is not found</td></tr> </tbody></table>								
      */
     get(): Promise<GetAccountInfoResponse> {
         return this._send({
@@ -190,7 +206,7 @@ export default class Account extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.0</p><p>Returns basic information about a particular RingCentral customer account.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns basic information about a particular RingCentral customer account.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>401</td><td>OAU-213</td><td>Token not found</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadAccounts] permission</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [accountId] is not found</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

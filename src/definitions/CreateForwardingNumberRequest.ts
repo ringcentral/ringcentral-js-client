@@ -1,4 +1,5 @@
 // Generated Source
+import CreateForwardingNumberDeviceInfo from "./CreateForwardingNumberDeviceInfo";
 
 interface CreateForwardingNumberRequest {
 
@@ -11,6 +12,16 @@ interface CreateForwardingNumberRequest {
      * Forwarding/Call flip number title
      */
     label?: string;
+
+    /**
+     * Forwarding/Call flip phone type. If specified, 'label' attribute value is ignored. The default value is 'Other'
+     */
+    type?: "PhoneLine" | "Home" | "Mobile" | "Work" | "Other";
+
+    /**
+     * Reference to the other extension device. Applicable for 'PhoneLine' type only. Cannot be specified together with 'phoneNumber' parameter.
+     */
+    device?: CreateForwardingNumberDeviceInfo;
 }
 
 export default CreateForwardingNumberRequest;

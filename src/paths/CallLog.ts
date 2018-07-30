@@ -9,7 +9,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.3 (Release 5.11)</p><p>Returns call log records filtered by the specified parameters.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  <p>Returns call log records filtered by parameters specified.</p><h4>App Permission</h4><p>ReadCallLog</p><h4>User Permission</h4><p>ReadCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CLG-110</td><td>Parameter [sessionId] is not allowed for usage along with parameter [extensionNumber]</td></tr><tr><td>400</td><td>CMN-101</td><td>Parameter [transport] value is invalid</td></tr><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-129</td><td>Access token corrupted</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>401</td><td>OAU-213</td><td>Token not found</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr><tr><td>429</td><td>CMN-301</td><td>Request rate exceeded</td></tr> </tbody></table>								
      */
     list(query?: ListQuery): Promise<ExtensionCallLogResponse> {
         return this._send({
@@ -23,7 +23,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.3 (Release 5.11)</p><p>Returns call log records filtered by the specified parameters.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  <p>Returns call log records filtered by parameters specified.</p><h4>App Permission</h4><p>ReadCallLog</p><h4>User Permission</h4><p>ReadCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CLG-110</td><td>Parameter [sessionId] is not allowed for usage along with parameter [extensionNumber]</td></tr><tr><td>400</td><td>CMN-101</td><td>Parameter [transport] value is invalid</td></tr><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-129</td><td>Access token corrupted</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>401</td><td>OAU-213</td><td>Token not found</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr><tr><td>429</td><td>CMN-301</td><td>Request rate exceeded</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -36,7 +36,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditCallLog</td><td>Viewing and updating user call logs</td></tr><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  <p>Deletes filtered call log records.</p><h4>App Permission</h4><p>EditCallLog</p><h4>User Permission</h4><p>EditCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [EditCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [EditCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
      */
     delete(query?: DeleteQuery): Promise<void> {
         return this._send({
@@ -48,7 +48,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditCallLog</td><td>Viewing and updating user call logs</td></tr><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  <p>Deletes filtered call log records.</p><h4>App Permission</h4><p>EditCallLog</p><h4>User Permission</h4><p>EditCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [EditCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [EditCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     deleteRaw(query?: DeleteQuery): Promise<any> {
@@ -61,7 +61,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  
+     *  <p>Returns call log records by ID.</p><h4>App Permission</h4><p>ReadCallLog</p><h4>User Permission</h4><p>ReadCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
      */
     get(query?: GetQuery): Promise<UserCallLogRecord> {
         return this._send({
@@ -75,7 +75,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  
+     *  <p>Returns call log records by ID.</p><h4>App Permission</h4><p>ReadCallLog</p><h4>User Permission</h4><p>ReadCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     getRaw(query?: GetQuery): Promise<any> {
@@ -91,22 +91,22 @@ export default class CallLog extends PathSegment {
 export interface ListQuery {
 
     /**
-     * Extension number of a user. If specified, returns call log for a particular extension only. Cannot be specified together with the phoneNumber filter
+     * Extension number of a user. If specified, returns call log for a particular extension only
      */
     extensionNumber?: string;
 
     /**
-     * If 'True' then calls from/to blocked numbers are returned. The default value is 'True'
+     * If 'True' then calls from/to blocked numbers are returned
      */
     showBlocked?: boolean;
 
     /**
-     * Phone number of a caller/call recipient. If specified, returns all calls (both incoming and outcoming) with the mentioned phone number. Cannot be specified together with the extensionNumber filter
+     * Phone number of a caller/callee. If specified, returns all calls (both incoming and outcoming) with the phone number specified
      */
     phoneNumber?: string;
 
     /**
-     * The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
+     * The direction for the resulting records. If not specified, both inbound and outbound records are returned. Multiple values are accepted
      */
     direction?: ("Inbound" | "Outbound")[];
 
@@ -126,12 +126,12 @@ export interface ListQuery {
     transport?: ("PSTN" | "VoIP")[];
 
     /**
-     * The default value is 'Simple' for both account and extension call log
+     * 
      */
-    view?: ("Simple" | "Detailed")[];
+    view?: "Simple" | "Detailed";
 
     /**
-     * 'True' if only recorded calls have to be returned
+     * True should be specified to return recorded calls only
      */
     withRecording?: boolean;
 
@@ -146,14 +146,19 @@ export interface ListQuery {
     dateFrom?: string;
 
     /**
-     * Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'
+     * Indicates the page number to retrieve. Only positive number values are allowed
      */
     page?: number;
 
     /**
-     * Indicates the page size (number of items). If not specified, the value is '100' by default
+     * Indicates the page size (number of items)
      */
     perPage?: number;
+
+    /**
+     * If 'True' then deleted calls are returned
+     */
+    showDeleted?: boolean;
 }
 
 export interface DeleteQuery {

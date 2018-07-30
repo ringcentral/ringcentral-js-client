@@ -1,4 +1,5 @@
 // Generated Source
+import GlipMentionsInfo from "./GlipMentionsInfo";
 
 interface GlipPostEvent {
 
@@ -41,6 +42,11 @@ interface GlipPostEvent {
      * For PersonsRemoved post type only. Identifiers of persons removed from a group
      */
     removedPersonIds?: string[];
+
+    /**
+     * List of at mentions in post text with names.
+     */
+    mentions?: GlipMentionsInfo[];
 
     /**
      * Post creation datetime in ISO 8601 format

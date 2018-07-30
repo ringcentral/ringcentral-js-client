@@ -1,5 +1,5 @@
 // Generated Source
-import LicenseInfo from "./LicenseInfo";
+import DictionaryLicenseInfo from "./DictionaryLicenseInfo";
 import NavigationInfo from "./NavigationInfo";
 import PagingInfo from "./PagingInfo";
 
@@ -13,7 +13,7 @@ interface LicenseTypes {
     /**
      * List of supported licenses
      */
-    records?: LicenseInfo[];
+    records?: DictionaryLicenseInfo[];
 
     /**
      * Information on paging

@@ -97,6 +97,11 @@ interface IncomingCallEvent {
      * Notification lifetime value in seconds, the default value is 30 seconds
      */
     pn_ttl?: number;
+
+    /**
+     * Internal identifier of a subscription owner extension
+     */
+    ownerId?: string;
 }
 
 export default IncomingCallEvent;

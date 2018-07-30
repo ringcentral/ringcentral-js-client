@@ -5,6 +5,7 @@ import GlipGroupList from "../definitions/GlipGroupList";
 import PathSegment from "../PathSegment";
 import BulkAssign from "./BulkAssign";
 import Posts from "./Posts";
+import Webhooks from "./Webhooks";
 
 export default class Groups extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -26,7 +27,14 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns the list of groups associated with the user.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     * Internal identifier of a webhook
+     */
+    webhooks(id?: string) {
+        return new Webhooks(this, id);
+    }
+
+    /**
+     *  <p>Returns the list of groups where the user is a member.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Medium</p>
      */
     list(query?: ListQuery): Promise<GlipGroupList> {
         return this._send({
@@ -40,7 +48,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns the list of groups associated with the user.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  <p>Returns the list of groups where the user is a member.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Medium</p>
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -53,7 +61,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a group.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  <p>Creates a new private chat/team.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Medium</p>
      */
     post(body: GlipCreateGroup): Promise<GlipGroupInfo> {
         return this._send({
@@ -67,7 +75,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a group.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  <p>Creates a new private chat/team.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Medium</p>
      *  return {ApiResponse}
      */
     postRaw(body: GlipCreateGroup): Promise<any> {
@@ -80,7 +88,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns a group or few groups by ID(s). Batch request is supported.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+     *  <p>Returns information about a group or multiple groups by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Light</p>
      */
     get(): Promise<GlipGroupInfo> {
         return this._send({
@@ -94,7 +102,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns a group or few groups by ID(s). Batch request is supported.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+     *  <p>Returns information about a group or multiple groups by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -110,17 +118,17 @@ export default class Groups extends PathSegment {
 export interface ListQuery {
 
     /**
-     * Type of a group. 'PrivateChat' is a group of 2 members. 'Group' is a chat of 2 and more participants, the membership cannot be changed after group creation. 'Team' is a chat of 1 and more participants, the membership can be modified in future
+     * Type of groups to be fetched (by default all type of groups will be fetched)
      */
-    type?: ("PrivateChat" | "Group" | "Team")[];
+    type?: "Group" | "Team" | "PrivateChat";
 
     /**
-     * Token of a page to be returned, see Glip Navigation Info
-     */
-    pageToken?: string;
-
-    /**
-     * Max numbers of records to be returned. The default/maximum value is 250
+     * Max number of groups to be fetched by one request (Not more than 250).
      */
     recordCount?: number;
+
+    /**
+     * Pagination token.
+     */
+    pageToken?: string;
 }

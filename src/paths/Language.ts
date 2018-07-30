@@ -9,7 +9,7 @@ export default class Language extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns the information about supported languages.</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns the information about supported languages.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr> </tbody></table>								
      */
     list(): Promise<LanguageList> {
         return this._send({
@@ -23,7 +23,7 @@ export default class Language extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns the information about supported languages.</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns the information about supported languages.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     listRaw(): Promise<any> {
@@ -36,7 +36,7 @@ export default class Language extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns language by its respective ID.</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns language by ID.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [languageId] is not found</td></tr> </tbody></table>								
      */
     get(): Promise<LanguageInfo> {
         return this._send({
@@ -50,7 +50,7 @@ export default class Language extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns language by its respective ID.</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns language by ID.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [languageId] is not found</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

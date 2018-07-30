@@ -35,7 +35,7 @@ interface UserCallLogRecord {
     type?: "Voice" | "Fax";
 
     /**
-     * Call direction = ['Inbound', 'Outbound']
+     * Call direction
      */
     direction?: "Inbound" | "Outbound";
 

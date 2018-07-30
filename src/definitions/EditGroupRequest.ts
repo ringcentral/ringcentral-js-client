@@ -3,7 +3,7 @@
 interface EditGroupRequest {
 
     /**
-     * List of users to be added to the team
+     * List of users to be added to a team
      */
     addedPersonIds?: string[];
 

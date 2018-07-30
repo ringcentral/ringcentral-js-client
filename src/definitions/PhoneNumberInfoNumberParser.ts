@@ -39,7 +39,7 @@ interface PhoneNumberInfoNumberParser {
     originalString?: string;
 
     /**
-     * True  if the number is in a special format (for example N11 code)
+     * 'True'  if the number is in a special format (for example N11 code)
      */
     special?: boolean;
 

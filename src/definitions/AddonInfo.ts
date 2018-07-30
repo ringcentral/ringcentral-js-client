@@ -10,6 +10,11 @@ interface AddonInfo {
     /**
      * 
      */
+    name?: string;
+
+    /**
+     * 
+     */
     count?: string;
 }
 

@@ -1,4 +1,6 @@
 // Generated Source
+import DisabledFilterInfo from "./DisabledFilterInfo";
+import NotificationBlacklistedData from "./NotificationBlacklistedData";
 import NotificationDeliveryMode from "./NotificationDeliveryMode";
 
 interface SubscriptionInfo {
@@ -14,9 +16,14 @@ interface SubscriptionInfo {
     uri?: string;
 
     /**
-     * Collection of URIs to API resources (message-store/presence/detailed presence)
+     * Collection of API resources (message-store/presence/detailed presence) corresponding to events the user is subscribed to
      */
     eventFilters?: string[];
+
+    /**
+     * Collection of API resources (message-store/presence/detailed presence) corresponding to events the user is not subscribed to due to certain limitations
+     */
+    disabledFilters?: DisabledFilterInfo[];
 
     /**
      * Subscription expiration datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
@@ -24,14 +31,14 @@ interface SubscriptionInfo {
     expirationTime?: string;
 
     /**
-     * Subscription lifetime in seconds. The default value is 900
+     * Subscription lifetime in seconds
      */
     expiresIn?: number;
 
     /**
      * Subscription status
      */
-    status?: "Active" | "Suspended";
+    status?: "Active" | "Suspended" | "Blacklisted";
 
     /**
      * Subscription creation datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
@@ -42,6 +49,11 @@ interface SubscriptionInfo {
      * Delivery mode data
      */
     deliveryMode?: NotificationDeliveryMode;
+
+    /**
+     * 
+     */
+    blacklistedData?: NotificationBlacklistedData;
 }
 
 export default SubscriptionInfo;

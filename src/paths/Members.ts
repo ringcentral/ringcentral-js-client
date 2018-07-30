@@ -1,5 +1,5 @@
 // This is Generated Source.
-import DepartmentMemberList from "../definitions/DepartmentMemberList";
+import CallQueueMembers from "../definitions/CallQueueMembers";
 import PathSegment from "../PathSegment";
 
 export default class Members extends PathSegment {
@@ -8,9 +8,9 @@ export default class Members extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns call queue group members.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadExtensions</p><h4>Usage Plan Group</h4><p>Light</p>
      */
-    list(query?: ListQuery): Promise<DepartmentMemberList> {
+    list(query?: ListQuery): Promise<CallQueueMembers> {
         return this._send({
             body: undefined,
             ignoreId: false,
@@ -22,7 +22,7 @@ export default class Members extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns call queue group members.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadExtensions</p><h4>Usage Plan Group</h4><p>Light</p>
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -38,12 +38,12 @@ export default class Members extends PathSegment {
 export interface ListQuery {
 
     /**
-     * Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'
+     * Indicates the page number to retrieve. Only positive number values are allowed
      */
     page?: number;
 
     /**
-     * Indicates the page size (number of items). If not specified, the value is '100' by default
+     * Indicates the page size (number of items)
      */
     perPage?: number;
 }

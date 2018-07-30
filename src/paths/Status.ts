@@ -7,7 +7,7 @@ export default class Status extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.27 (Release 8.3)</p><p>Returns the API status; status '200' means the API is working fine, and '503' means it is temporary unavailable.</p><h4>API Group</h4><p>Light</p>
+     *  <p>Returns current PAS service status.</p><h4>Usage Plan Group</h4><p>NoThrottling</p>
      */
     get(): Promise<void> {
         return this._send({
@@ -19,7 +19,7 @@ export default class Status extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.27 (Release 8.3)</p><p>Returns the API status; status '200' means the API is working fine, and '503' means it is temporary unavailable.</p><h4>API Group</h4><p>Light</p>
+     *  <p>Returns current PAS service status.</p><h4>Usage Plan Group</h4><p>NoThrottling</p>
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

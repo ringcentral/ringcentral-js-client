@@ -3,24 +3,34 @@
 interface AccountLimits {
 
     /**
-     * The maximum number of free softphone phone lines per user extension
+     * Max number of free softphone phone lines per user extension
      */
     freeSoftPhoneLinesPerExtension?: number;
 
     /**
-     * The maximum number of participants in RingCentral Meeting hosted by this account's user
+     * Max number of participants in RingCentral Meeting hosted by this account's user
      */
     meetingSize?: number;
 
     /**
-     * The maximum number of extensions which can be included in the list of users monitored for Presence
+     * Max number of extensions which can be included in the list of users monitored for Presence
      */
     maxMonitoredExtensionsPerUser?: number;
 
     /**
-     * Maximum length for extension numbers of an account; depends on account type. The default value is 5
+     * Max length of extension numbers of an account; depends on account type
      */
     maxExtensionNumberLength?: number;
+
+    /**
+     * Length of a site code
+     */
+    siteCodeLength?: number;
+
+    /**
+     * Length of a short extension number
+     */
+    shortExtensionNumberLength?: number;
 }
 
 export default AccountLimits;

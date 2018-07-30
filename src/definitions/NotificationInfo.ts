@@ -6,7 +6,7 @@ interface NotificationInfo {
     /**
      * Alert information
      */
-    alerts?: AlertInfo;
+    alert?: AlertInfo;
 
     /**
      * Number of incoming messages

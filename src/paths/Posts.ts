@@ -10,7 +10,7 @@ export default class Posts extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns list of posts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+     *  <p>Returns posts which are available for the current user (by group ID). The maximum number of posts returned is 250.</p><h4>Usage Plan Group</h4><p>Medium</p>
      */
     list(query?: ListQuery): Promise<GlipPosts> {
         return this._send({
@@ -24,7 +24,7 @@ export default class Posts extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns list of posts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+     *  <p>Returns posts which are available for the current user (by group ID). The maximum number of posts returned is 250.</p><h4>Usage Plan Group</h4><p>Medium</p>
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -37,7 +37,7 @@ export default class Posts extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a post.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+     *  <p>Creates a new post in a group specified.</p><h4>Usage Plan Group</h4><p>Medium</p>
      */
     post(body: GlipCreatePost): Promise<GlipPostInfo> {
         return this._send({
@@ -51,7 +51,7 @@ export default class Posts extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a post.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+     *  <p>Creates a new post in a group specified.</p><h4>Usage Plan Group</h4><p>Medium</p>
      *  return {ApiResponse}
      */
     postRaw(body: GlipCreatePost): Promise<any> {
@@ -67,12 +67,12 @@ export default class Posts extends PathSegment {
 export interface ListQuery {
 
     /**
-     * Token of a page to be returned, see Glip Navigation Info
-     */
-    pageToken?: string;
-
-    /**
-     * Max numbers of records to be returned. The default/maximum value is 250
+     * Max number of records to be returned
      */
     recordCount?: number;
+
+    /**
+     * Pagination token
+     */
+    pageToken?: string;
 }

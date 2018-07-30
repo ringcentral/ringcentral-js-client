@@ -1,5 +1,5 @@
 // Generated Source
-import CallQueueInfo from "./CallQueueInfo";
+import CallQueueExtensionInfo from "./CallQueueExtensionInfo";
 import ContactInfo from "./ContactInfo";
 import DepartmentInfo from "./DepartmentInfo";
 import ExtensionPermissions from "./ExtensionPermissions";
@@ -8,6 +8,7 @@ import ExtensionStatusInfo from "./ExtensionStatusInfo";
 import ProfileImageInfo from "./ProfileImageInfo";
 import ReferenceInfo from "./ReferenceInfo";
 import RegionalSettings from "./RegionalSettings";
+import Roles from "./Roles";
 
 interface GetExtensionInfoResponse {
 
@@ -47,7 +48,7 @@ interface GetExtensionInfoResponse {
     partnerId?: string;
 
     /**
-     * Extension permissions, corresponding to the Service Web permissions 'Admin' and 'InternationalCalling'
+     * 
      */
     permissions?: ExtensionPermissions;
 
@@ -62,6 +63,11 @@ interface GetExtensionInfoResponse {
     references?: ReferenceInfo[];
 
     /**
+     * 
+     */
+    roles?: Roles[];
+
+    /**
      * Extension region data (timezone, home country, language)
      */
     regionalSettings?: RegionalSettings;
@@ -72,7 +78,7 @@ interface GetExtensionInfoResponse {
     serviceFeatures?: ExtensionServiceFeatureInfo[];
 
     /**
-     * Specifies extension configuration wizard state (web service setup). The default value is 'NotStarted'
+     * Specifies extension configuration wizard state (web service setup).
      */
     setupWizardState?: "NotStarted" | "Incomplete" | "Completed";
 
@@ -94,7 +100,12 @@ interface GetExtensionInfoResponse {
     /**
      * For Department extension type only. Call queue settings
      */
-    callQueueInfo?: CallQueueInfo;
+    callQueueExtensionInfo?: CallQueueExtensionInfo;
+
+    /**
+     * Hides extension from showing in company directory. Supported for extensions of User type only
+     */
+    hidden?: boolean;
 }
 
 export default GetExtensionInfoResponse;

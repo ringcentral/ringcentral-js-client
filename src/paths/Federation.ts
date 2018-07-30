@@ -1,5 +1,5 @@
 // This is Generated Source.
-import FederationInfo from "../definitions/FederationInfo";
+import FederationResource from "../definitions/FederationResource";
 import PathSegment from "../PathSegment";
 
 export default class Federation extends PathSegment {
@@ -8,9 +8,9 @@ export default class Federation extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'></p><p>Returns information on a federation and associated accounts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  <p>Returns information on a federation and associated accounts.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
      */
-    get(): Promise<FederationInfo> {
+    get(): Promise<FederationResource> {
         return this._send({
             body: undefined,
             ignoreId: true,
@@ -22,7 +22,7 @@ export default class Federation extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'></p><p>Returns information on a federation and associated accounts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+     *  <p>Returns information on a federation and associated accounts.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

@@ -1,14 +1,14 @@
 // Generated Source
 import NavigationInfo from "./NavigationInfo";
 import PagingInfo from "./PagingInfo";
-import PhoneNumberInfo from "./PhoneNumberInfo";
+import UserPhoneNumberInfo from "./UserPhoneNumberInfo";
 
 interface GetExtensionPhoneNumbersResponse {
 
     /**
      * List of phone numbers
      */
-    records?: PhoneNumberInfo[];
+    records?: UserPhoneNumberInfo[];
 
     /**
      * Information on navigation

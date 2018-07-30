@@ -1,14 +1,14 @@
 // Generated Source
+import CompanyPhoneNumberInfo from "./CompanyPhoneNumberInfo";
 import NavigationInfo from "./NavigationInfo";
 import PagingInfo from "./PagingInfo";
-import PhoneNumberInfo from "./PhoneNumberInfo";
 
 interface AccountPhoneNumbers {
 
     /**
      * List of account phone numbers
      */
-    records?: PhoneNumberInfo[];
+    records?: CompanyPhoneNumberInfo[];
 
     /**
      * Information on navigation

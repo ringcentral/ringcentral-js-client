@@ -1,5 +1,5 @@
 // Generated Source
-import ContactAddressInfo from "./ContactAddressInfo";
+import ContactBusinessAddressInfo from "./ContactBusinessAddressInfo";
 
 interface AccountBusinessAddressResource {
 
@@ -11,7 +11,7 @@ interface AccountBusinessAddressResource {
     /**
      * 
      */
-    businessAddress?: ContactAddressInfo;
+    businessAddress?: ContactBusinessAddressInfo;
 
     /**
      * 

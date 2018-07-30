@@ -1,6 +1,9 @@
 // Generated Source
+import ActiveCallsRecordExtensionInfo from "./ActiveCallsRecordExtensionInfo";
 import CallLogCallerInfo from "./CallLogCallerInfo";
 import CallLogRecordLegInfo from "./CallLogRecordLegInfo";
+import CallLogRecordMessage from "./CallLogRecordMessage";
+import DelegateInfo from "./DelegateInfo";
 import RecordingInfo from "./RecordingInfo";
 
 interface CallLogRecord {
@@ -76,9 +79,29 @@ interface CallLogRecord {
     transport?: "PSTN" | "VoIP";
 
     /**
+     * Information about extension on whose behalf a call is initiated. For Secretary call log the Boss extension info is returned
+     */
+    extension?: ActiveCallsRecordExtensionInfo;
+
+    /**
+     * Information on a delegate extension that actually implemented a call action. For Secretary call log the field is returned if the current extension implemented a call. For Boss call log the field contains information on a Secretary extension which actually implemented a call on behalf of the current extension
+     */
+    delegate?: DelegateInfo;
+
+    /**
      * For 'Detailed' view only. Leg description
      */
     legs?: CallLogRecordLegInfo[];
+
+    /**
+     * 
+     */
+    message?: CallLogRecordMessage;
+
+    /**
+     * Returned only if this call was deleted. Value is set to 'True' in this case
+     */
+    deleted?: boolean;
 }
 
 export default CallLogRecord;

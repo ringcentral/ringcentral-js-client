@@ -16,7 +16,7 @@ export default class V2 extends PathSegment {
     }
 
     /**
-     * Internal identifier of a user
+     * user id
      */
     users(id?: string) {
         return new Users(this, id);

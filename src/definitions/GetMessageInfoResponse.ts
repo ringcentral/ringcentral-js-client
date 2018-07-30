@@ -1,4 +1,5 @@
 // Generated Source
+import ConversationInfo from "./ConversationInfo";
 import MessageAttachmentInfo from "./MessageAttachmentInfo";
 import MessageStoreCallerInfoResponse from "./MessageStoreCallerInfoResponse";
 
@@ -25,9 +26,14 @@ interface GetMessageInfoResponse {
     availability?: "Alive" | "Deleted" | "Purged";
 
     /**
-     * SMS and Pager only. Identifier of the conversation the message belongs to
+     * SMS and Pager only. Identifier of a conversation the message belongs to
      */
     conversationId?: number;
+
+    /**
+     * SMS and Pager only. Identifier of a conversation the message belongs to
+     */
+    conversation?: ConversationInfo;
 
     /**
      * Message creation datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
@@ -45,12 +51,12 @@ interface GetMessageInfoResponse {
     direction?: "Inbound" | "Outbound";
 
     /**
-     * Fax only. Page count in fax message
+     * Fax only. Page count in a fax message
      */
     faxPageCount?: number;
 
     /**
-     * Fax only. Resolution of fax message. ('High' for black and white image scanned at 200 dpi, 'Low' for black and white image scanned at 100 dpi)
+     * Fax only. Resolution of a fax message. 'High' for black and white image scanned at 200 dpi, 'Low' for black and white image scanned at 100 dpi
      */
     faxResolution?: "High" | "Low";
 

@@ -10,7 +10,7 @@ interface GlipGroupList {
     records?: GlipGroupInfo[];
 
     /**
-     * Information on navigation
+     * 
      */
     navigation?: GlipNavigationInfo;
 }

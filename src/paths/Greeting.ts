@@ -1,6 +1,6 @@
 // This is Generated Source.
 import CustomCompanyGreetingInfo from "../definitions/CustomCompanyGreetingInfo";
-import CustomGreetingRequest from "../definitions/CustomGreetingRequest";
+import CustomCompanyGreetingRequest from "../definitions/CustomCompanyGreetingRequest";
 import DictionaryGreetingInfo from "../definitions/DictionaryGreetingInfo";
 import DictionaryGreetingList from "../definitions/DictionaryGreetingList";
 import PathSegment from "../PathSegment";
@@ -11,7 +11,7 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 8.2 (Release 1.0.26)</p><p>Returns a list of predefined standard greetings. Please note: Custom greetings recorded by user are not returned in response to this request. See Get Extension Custom Greetings.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>View Greetings</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns a list of predefined standard greetings. Custom greetings recorded by user are not returned in response to this request. See Get Extension Custom Greetings.</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [type] value is invalid</td></tr> </tbody></table>								
      */
     list(query?: ListQuery): Promise<DictionaryGreetingList> {
         return this._send({
@@ -25,7 +25,7 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 8.2 (Release 1.0.26)</p><p>Returns a list of predefined standard greetings. Please note: Custom greetings recorded by user are not returned in response to this request. See Get Extension Custom Greetings.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>View Greetings</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns a list of predefined standard greetings. Custom greetings recorded by user are not returned in response to this request. See Get Extension Custom Greetings.</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [type] value is invalid</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -38,7 +38,7 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 8.2 (Release 1.0.26)</p><p>Returns a standard greeting by ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>View Greetings</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+     *  <p>Returns a standard greeting by ID.</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [greetingId] is not found</td></tr> </tbody></table>								
      */
     get(): Promise<DictionaryGreetingInfo> {
         return this._send({
@@ -52,7 +52,7 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 8.2 (Release 1.0.26)</p><p>Returns a standard greeting by ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>View Greetings</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+     *  <p>Returns a standard greeting by ID.</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [greetingId] is not found</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -65,9 +65,9 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  
+     *  <p>Creates a custom company greeting.</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>ReadUserInfo</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>AWR-129</td><td>Invalid attachment media type</td></tr><tr><td>400</td><td>AWR-178</td><td>Greeting type [Voicemail] is not applicable to company rule</td></tr><tr><td>400</td><td>CMN-101</td><td>Parameter [type] value is invalid</td></tr><tr><td>400</td><td>CMN-102</td><td>Resource for parameter [answeringRule.id] is not found</td></tr> </tbody></table>								
      */
-    post(body: CustomGreetingRequest): Promise<CustomCompanyGreetingInfo> {
+    post(body: CustomCompanyGreetingRequest): Promise<CustomCompanyGreetingInfo> {
         return this._send({
             body: body,
             ignoreId: true,
@@ -79,10 +79,10 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  
+     *  <p>Creates a custom company greeting.</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>ReadUserInfo</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>AWR-129</td><td>Invalid attachment media type</td></tr><tr><td>400</td><td>AWR-178</td><td>Greeting type [Voicemail] is not applicable to company rule</td></tr><tr><td>400</td><td>CMN-101</td><td>Parameter [type] value is invalid</td></tr><tr><td>400</td><td>CMN-102</td><td>Resource for parameter [answeringRule.id] is not found</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
-    postRaw(body: CustomGreetingRequest): Promise<any> {
+    postRaw(body: CustomCompanyGreetingRequest): Promise<any> {
         return this._send({
             body: body,
             ignoreId: true,
@@ -95,12 +95,12 @@ export default class Greeting extends PathSegment {
 export interface ListQuery {
 
     /**
-     * Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'
+     * Indicates the page number to retrieve. Only positive number values are accepted.
      */
     page?: number;
 
     /**
-     * Indicates the page size (number of items). If not specified, the value is '100' by default
+     * Indicates the page size (number of items).
      */
     perPage?: number;
 

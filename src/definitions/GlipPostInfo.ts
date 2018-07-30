@@ -50,27 +50,27 @@ interface GlipPostInfo {
     attachments?: GlipMessageAttachmentInfo[];
 
     /**
-     * List of posted attachments
+     * 
      */
     mentions?: GlipMentionsInfo[];
 
     /**
-     * activity type
+     * label of activity type
      */
     activity?: string;
 
     /**
-     * Title of the message. Can be set for bot messages only
+     * Title of the message. (Can be set for bot's messages only).
      */
     title?: string;
 
     /**
-     * URI to an image to use as the icon for this message.
+     * URI to an image to use as the icon for this message
      */
     iconUri?: string;
 
     /**
-     * Emoji to use as the icon for a message
+     * Emoji to use as the icon for a message.
      */
     iconEmoji?: string;
 }

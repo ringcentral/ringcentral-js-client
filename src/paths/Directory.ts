@@ -9,7 +9,7 @@ export default class Directory extends PathSegment {
     }
 
     /**
-     * Internal identifier of an extension
+     * Internal identifier of an extension to read information for
      */
     contacts(id?: string) {
         return new Contacts(this, id);

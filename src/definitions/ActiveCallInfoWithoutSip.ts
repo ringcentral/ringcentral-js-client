@@ -18,9 +18,24 @@ interface ActiveCallInfoWithoutSip {
     from?: string;
 
     /**
+     * Name of a caller
+     */
+    fromName?: string;
+
+    /**
      * Phone number or extension number of a callee
      */
     to?: string;
+
+    /**
+     * Name of a callee
+     */
+    toName?: string;
+
+    /**
+     * Time when the call is actually started
+     */
+    startTime?: string;
 
     /**
      * Telephony call status

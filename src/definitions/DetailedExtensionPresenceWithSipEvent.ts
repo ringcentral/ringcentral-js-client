@@ -1,57 +1,32 @@
 // Generated Source
-import ActiveCallInfo from "./ActiveCallInfo";
+import DetailedExtensionPresenceWithSipEventBody from "./DetailedExtensionPresenceWithSipEventBody";
 
 interface DetailedExtensionPresenceWithSipEvent {
 
     /**
-     * Internal identifier of an extension. Optional parameter
+     * Universally unique identifier of a notification
      */
-    extensionId?: string;
+    uuid?: string;
 
     /**
-     * Telephony presence status. Returned if telephony status is changed.
+     * Event filter URI
      */
-    telephonyStatus?: "NoCall" | "CallConnected" | "Ringing" | "OnHold" | "ParkedCall";
+    event?: string;
 
     /**
-     * Collection of Active Call Info
+     * Datetime of sending a notification in [ISO 8601](shttps://en.wikipedia.org/wiki/ISO_8601) format including timezone, for example *2016-03-10T18:07:52.534Z*
      */
-    activeCalls?: ActiveCallInfo[];
+    timestamp?: string;
 
     /**
-     * Order number of a notification to state the chronology
+     * Internal identifier of a subscription
      */
-    sequence?: number;
+    subscriptionId?: string;
 
     /**
-     * Aggregated presence status, calculated from a number of sources
+     * Notification payload body
      */
-    presenceStatus?: "Offline" | "Busy" | "Available";
-
-    /**
-     * User-defined presence status (as previously published by the user)
-     */
-    userStatus?: "Offline" | "Busy" | "Available";
-
-    /**
-     * Extended DnD (Do not Disturb) status
-     */
-    dndStatus?: "TakeAllCalls" | "DoNotAcceptAnyCalls" | "DoNotAcceptDepartmentCalls" | "TakeDepartmentCallsOnly";
-
-    /**
-     * If 'True' enables other extensions to see the extension presence status
-     */
-    allowSeeMyPresence?: boolean;
-
-    /**
-     * If 'True' enables to ring extension phone, if any user monitored by this extension is ringing
-     */
-    ringOnMonitoredCall?: boolean;
-
-    /**
-     * If 'True' enables the extension user to pick up a monitored line on hold
-     */
-    pickUpCallsOnHold?: boolean;
+    body?: DetailedExtensionPresenceWithSipEventBody;
 }
 
 export default DetailedExtensionPresenceWithSipEvent;

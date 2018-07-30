@@ -11,6 +11,11 @@ interface PermissionIdResource {
      * 
      */
     id?: string;
+
+    /**
+     * Site compatibility flag set for permission
+     */
+    siteCompatible?: "Compatible" | "Incompatible" | "Independent";
 }
 
 export default PermissionIdResource;

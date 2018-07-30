@@ -1,15 +1,17 @@
 // Generated Source
-import AccountServiceInfoResource from "./AccountServiceInfoResource";
-import ExtensionResource from "./ExtensionResource";
-import SignupInfoResource from "./SignupInfoResource";
-import StatusInfo from "./StatusInfo";
+import PhoneNumberResource from "./PhoneNumberResource";
 
 interface AccountResource {
 
     /**
      * 
      */
-    uri?: string;
+    companyName?: string;
+
+    /**
+     * 
+     */
+    federatedName?: string;
 
     /**
      * 
@@ -19,62 +21,7 @@ interface AccountResource {
     /**
      * 
      */
-    serviceInfo?: AccountServiceInfoResource;
-
-    /**
-     * 
-     */
-    partnerId?: string;
-
-    /**
-     * 
-     */
-    operator?: ExtensionResource;
-
-    /**
-     * 
-     */
-    mainNumber?: string;
-
-    /**
-     * 
-     */
-    reservationId?: string;
-
-    /**
-     * 
-     */
-    sessionId?: string;
-
-    /**
-     * 
-     */
-    status?: "Initial" | "Unconfirmed" | "Confirmed" | "Disabled";
-
-    /**
-     * 
-     */
-    statusInfo?: StatusInfo;
-
-    /**
-     * 
-     */
-    signupInfo?: SignupInfoResource;
-
-    /**
-     * 
-     */
-    setupWizardState?: "NotStarted" | "Incomplete" | "Completed" | "Unknown";
-
-    /**
-     * 
-     */
-    testerFlags?: string[];
-
-    /**
-     * 
-     */
-    promotionCode?: string;
+    mainNumber?: PhoneNumberResource;
 }
 
 export default AccountResource;

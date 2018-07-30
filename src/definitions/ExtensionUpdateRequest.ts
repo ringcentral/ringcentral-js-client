@@ -3,6 +3,7 @@ import CallQueueInfoRequest from "./CallQueueInfoRequest";
 import ContactInfoUpdateRequest from "./ContactInfoUpdateRequest";
 import ExtensionRegionalSettingRequest from "./ExtensionRegionalSettingRequest";
 import ExtensionStatusInfo from "./ExtensionStatusInfo";
+import UserTransitionInfo from "./UserTransitionInfo";
 
 interface ExtensionUpdateRequest {
 
@@ -67,9 +68,9 @@ interface ExtensionUpdateRequest {
     callQueueInfo?: CallQueueInfoRequest;
 
     /**
-     * For NotActivated extensions only. Welcome email setting
+     * 
      */
-    transition?: string;
+    transition?: UserTransitionInfo[];
 }
 
 export default ExtensionUpdateRequest;

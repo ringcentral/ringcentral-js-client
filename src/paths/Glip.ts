@@ -1,10 +1,12 @@
 // This is Generated Source.
 import PathSegment from "../PathSegment";
-import Companies from "./Companies";
 import Groups from "./Groups";
-import Persons from "./Persons";
+import Posts from "./Posts";
 import Files from "./Files";
-import Profile from "./Profile";
+import Cards from "./Cards";
+import Persons from "./Persons";
+import Companies from "./Companies";
+import Webhooks from "./Webhooks";
 
 export default class Glip extends PathSegment {
     constructor(prv: PathSegment, id?: string, service?) {
@@ -12,17 +14,31 @@ export default class Glip extends PathSegment {
     }
 
     /**
-     * Internal identifier of an RC account/Glip company, or tilde (~) to indicate a company the current user belongs to
-     */
-    companies(id?: string) {
-        return new Companies(this, id);
-    }
-
-    /**
-     * Id of a group to send post
+     * 
      */
     groups(id?: string) {
         return new Groups(this, id);
+    }
+
+    /**
+     * 
+     */
+    posts(id?: string) {
+        return new Posts(this, id);
+    }
+
+    /**
+     * 
+     */
+    files(id?: string) {
+        return new Files(this, id);
+    }
+
+    /**
+     * card id to delete.
+     */
+    cards(id?: string) {
+        return new Cards(this, id);
     }
 
     /**
@@ -33,16 +49,16 @@ export default class Glip extends PathSegment {
     }
 
     /**
-     * Internal identifier of file.
+     * Internal identifier of an RC account/Glip company, or tilde (~) to indicate a company the current user belongs to
      */
-    files(id?: string) {
-        return new Files(this, id);
+    companies(id?: string) {
+        return new Companies(this, id);
     }
 
     /**
-     * 
+     * Internal identifier of a webhook
      */
-    profile(id?: string) {
-        return new Profile(this, id);
+    webhooks(id?: string) {
+        return new Webhooks(this, id);
     }
 }

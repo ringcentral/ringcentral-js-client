@@ -1,7 +1,7 @@
 // Generated Source
 
 interface ApsInfo {
-  "content-available"?: number;
+    "content-available"?: number;
 }
 
 export default ApsInfo;

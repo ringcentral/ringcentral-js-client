@@ -8,7 +8,7 @@ export default class Location extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the available locations for the certain state.</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns all available locations for a certain state.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [orderBy] value is invalid</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [location] is not found</td></tr> </tbody></table>								
      */
     list(query?: ListQuery): Promise<GetLocationListResponse> {
         return this._send({
@@ -22,7 +22,7 @@ export default class Location extends PathSegment {
     }
 
     /**
-     *  <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the available locations for the certain state.</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  <p>Returns all available locations for a certain state.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [orderBy] value is invalid</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [location] is not found</td></tr> </tbody></table>								
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -38,17 +38,17 @@ export default class Location extends PathSegment {
 export interface ListQuery {
 
     /**
-     * Sorts results by the specified property. The default value is 'City'
+     * Sorts results by the property specified
      */
     orderBy?: ("Npa" | "City")[];
 
     /**
-     * Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'.
+     * Indicates the page number to retrieve. Only positive number values are accepted
      */
     page?: number;
 
     /**
-     * Indicates the page size (number of items). If not specified, the value is '100' by default.
+     * Indicates the page size (number of items)
      */
     perPage?: number;
 

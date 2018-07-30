@@ -3,12 +3,12 @@
 interface GetCallRecordingResponse {
 
     /**
-     * Internal identifier of the call recording
+     * Internal identifier of a call recording
      */
     id?: string;
 
     /**
-     * Link to the call recording binary content
+     * Link to a call recording binary content
      */
     contentUri?: string;
 

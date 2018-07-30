@@ -9,7 +9,7 @@ interface CustomGreetingRequest {
     type?: "Introductory" | "Announcement" | "ConnectingMessage" | "ConnectingAudio" | "Voicemail" | "Unavailable" | "HoldMusic";
 
     /**
-     * nformation on an answering rule that the greeting is applied to
+     * Information on an answering rule that the greeting is applied to
      */
     answeringRule?: CustomGreetingAnsweringRuleInfoRequest;
 }

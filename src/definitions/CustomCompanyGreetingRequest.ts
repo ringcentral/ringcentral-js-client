@@ -1,17 +1,23 @@
 // Generated Source
 import CustomCompanyGreetingAnsweringRuleInfo from "./CustomCompanyGreetingAnsweringRuleInfo";
+import CustomCompanyGreetingLanguageInfoRequest from "./CustomCompanyGreetingLanguageInfoRequest";
 
 interface CustomCompanyGreetingRequest {
 
     /**
-     * Type of a greeting, specifying the case when the greeting is played. See Greeting Types = ['Introductory', 'Announcement', 'ConnectingMessage', 'ConnectingAudio', 'Voicemail', 'Unavailable', 'HoldMusic']
+     * Type of a greeting
      */
-    type?: "Introductory" | "Announcement" | "ConnectingMessage" | "ConnectingAudio" | "Voicemail" | "Unavailable" | "HoldMusic";
+    type?: "Company" | "StartRecording" | "StopRecording" | "AutomaticRecording";
 
     /**
-     * nformation on an answering rule that the greeting is applied to
+     * Information on an answering rule that the greeting is applied to
      */
     answeringRule?: CustomCompanyGreetingAnsweringRuleInfo;
+
+    /**
+     * Information on a greeting language. Supported for types 'StopRecording', 'StartRecording', 'AutomaticRecording'
+     */
+    language?: CustomCompanyGreetingLanguageInfoRequest;
 }
 
 export default CustomCompanyGreetingRequest;

@@ -1,5 +1,5 @@
 // Generated Source
-import SubscriptionResponse from "./SubscriptionResponse";
+import SubscriptionInfo from "./SubscriptionInfo";
 
 interface RecordsCollectionResourceSubscriptionResponse {
 
@@ -11,7 +11,7 @@ interface RecordsCollectionResourceSubscriptionResponse {
     /**
      * 
      */
-    records?: SubscriptionResponse[];
+    records?: SubscriptionInfo[];
 }
 
 export default RecordsCollectionResourceSubscriptionResponse;

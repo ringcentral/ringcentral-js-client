@@ -8,17 +8,17 @@ interface GetTimezoneInfoResponse {
     id?: string;
 
     /**
-     * Canonical URI of the timezone
+     * Canonical URI of a timezone
      */
     uri?: string;
 
     /**
-     * Short name of the timezone
+     * Short name of a timezone
      */
     name?: string;
 
     /**
-     * Description of the timezone
+     * Description of a timezone
      */
     description?: string;
 }

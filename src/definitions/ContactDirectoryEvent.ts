@@ -70,6 +70,11 @@ interface ContactDirectoryEvent {
      * Extension profile image information. Not returned if profile images are absent for an extension
      */
     profileImage?: CompanyDirectoryProfileImageInfo;
+
+    /**
+     * Internal identifier of a subscription owner extension
+     */
+    ownerId?: string;
 }
 
 export default ContactDirectoryEvent;
