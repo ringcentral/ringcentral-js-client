@@ -23,6 +23,7 @@ import Meeting from "./Meeting";
 import AuthzProfile from "./AuthzProfile";
 import BusinessHours from "./BusinessHours";
 import CallerBlocking from "./CallerBlocking";
+import BlockedNumber from "./BlockedNumber";
 import ForwardingNumber from "./ForwardingNumber";
 import AnsweringRule from "./AnsweringRule";
 import Greeting from "./Greeting";
@@ -47,35 +48,35 @@ export default class Extension extends PathSegment {
     }
 
     /**
-     * 
+     *
      */
     callLogSync(id?: string) {
         return new CallLogSync(this, id);
     }
 
     /**
-     * 
+     *
      */
     activeCalls(id?: string) {
         return new ActiveCalls(this, id);
     }
 
     /**
-     * 
+     *
      */
     sms(id?: string) {
         return new Sms(this, id);
     }
 
     /**
-     * 
+     *
      */
     companyPager(id?: string) {
         return new CompanyPager(this, id);
     }
 
     /**
-     * 
+     *
      */
     fax(id?: string) {
         return new Fax(this, id);
@@ -89,14 +90,14 @@ export default class Extension extends PathSegment {
     }
 
     /**
-     * 
+     *
      */
     messageSync(id?: string) {
         return new MessageSync(this, id);
     }
 
     /**
-     * 
+     *
      */
     voicemail(id?: string) {
         return new Voicemail(this, id);
@@ -110,28 +111,28 @@ export default class Extension extends PathSegment {
     }
 
     /**
-     * 
+     *
      */
     addressBook(id?: string) {
         return new AddressBook(this, id);
     }
 
     /**
-     * 
+     *
      */
     addressBookSync(id?: string) {
         return new AddressBookSync(this, id);
     }
 
     /**
-     * 
+     *
      */
     favorite(id?: string) {
         return new Favorite(this, id);
     }
 
     /**
-     * 
+     *
      */
     presence(id?: string) {
         return new Presence(this, id);
@@ -145,24 +146,31 @@ export default class Extension extends PathSegment {
     }
 
     /**
-     * 
+     *
      */
     authzProfile(id?: string) {
         return new AuthzProfile(this, id);
     }
 
     /**
-     * 
+     *
      */
     businessHours(id?: string) {
         return new BusinessHours(this, id);
     }
 
     /**
-     * 
+     *
      */
     callerBlocking(id?: string) {
         return new CallerBlocking(this, id);
+    }
+
+    /**
+     * Deprecated
+     */
+    blockedNumber(id?: string) {
+        return new BlockedNumber(this, id);
     }
 
     /**
@@ -180,7 +188,7 @@ export default class Extension extends PathSegment {
     }
 
     /**
-     * 
+     *
      */
     greeting(id?: string) {
         return new Greeting(this, id);
@@ -194,21 +202,21 @@ export default class Extension extends PathSegment {
     }
 
     /**
-     * 
+     *
      */
     callerId(id?: string) {
         return new CallerId(this, id);
     }
 
     /**
-     * 
+     *
      */
     grant(id?: string) {
         return new Grant(this, id);
     }
 
     /**
-     * 
+     *
      */
     notificationSettings(id?: string) {
         return new NotificationSettings(this, id);
@@ -222,14 +230,14 @@ export default class Extension extends PathSegment {
     }
 
     /**
-     * 
+     *
      */
     conferencing(id?: string) {
         return new Conferencing(this, id);
     }
 
     /**
-     * 
+     *
      */
     device(id?: string) {
         return new Device(this, id);

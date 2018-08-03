@@ -12,14 +12,14 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     * 
+     *
      */
     end(id?: string) {
         return new End(this, id);
     }
 
     /**
-     * 
+     *
      */
     serviceInfo(id?: string) {
         return new ServiceInfo(this, id);
@@ -55,12 +55,14 @@ export default class Meeting extends PathSegment {
     /**
      *  Creates a new meeting.
      */
-    post(body: MeetingRequestResource): Promise<void> {
+    post(body: MeetingRequestResource): Promise<any> {
         return this._send({
             body: body,
             ignoreId: true,
             method: "post",
             query: undefined,
+        }).then((res) => {
+                return res.json();
         });
     }
 
