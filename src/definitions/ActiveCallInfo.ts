@@ -14,7 +14,7 @@ interface ActiveCallInfo {
     direction?: "Inbound" | "Outbound";
 
     /**
-     * Phone number or extension number of a caller
+     * Phone number or extension number of a caller. For GCM transport type '_from' property should be used
      */
     from?: string;
 

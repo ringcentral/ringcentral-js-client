@@ -8,7 +8,7 @@ export default class Voicemail extends PathSegment {
     }
 
     /**
-     *  <p>Sends a voicemail.</p><h4>App Permission</h4><p>Voicemail</p><h4>User Permission</h4><p>Voicemail</p><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  Sends a voicemail.
      */
     post(body: CreateVoicemail): Promise<void> {
         return this._send({
@@ -20,7 +20,7 @@ export default class Voicemail extends PathSegment {
     }
 
     /**
-     *  <p>Sends a voicemail.</p><h4>App Permission</h4><p>Voicemail</p><h4>User Permission</h4><p>Voicemail</p><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  Sends a voicemail.
      *  return {ApiResponse}
      */
     postRaw(body: CreateVoicemail): Promise<any> {

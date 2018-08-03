@@ -7,7 +7,7 @@ export default class Status extends PathSegment {
     }
 
     /**
-     *  <p>Returns current PAS service status.</p><h4>Usage Plan Group</h4><p>NoThrottling</p>
+     *  Returns current PAS service status.
      */
     get(): Promise<void> {
         return this._send({
@@ -19,7 +19,7 @@ export default class Status extends PathSegment {
     }
 
     /**
-     *  <p>Returns current PAS service status.</p><h4>Usage Plan Group</h4><p>NoThrottling</p>
+     *  Returns current PAS service status.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

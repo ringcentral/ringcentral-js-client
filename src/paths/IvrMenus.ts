@@ -8,7 +8,7 @@ export default class IvrMenus extends PathSegment {
     }
 
     /**
-     *  <p>Returns a company IVR menu by ID.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>AutoReceptionist</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns a company IVR menu by ID.
      */
     get(): Promise<IvrMenuInfo> {
         return this._send({
@@ -22,7 +22,7 @@ export default class IvrMenus extends PathSegment {
     }
 
     /**
-     *  <p>Returns a company IVR menu by ID.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>AutoReceptionist</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns a company IVR menu by ID.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

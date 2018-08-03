@@ -11,7 +11,7 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  <p>Returns a list of predefined standard greetings. Custom greetings recorded by user are not returned in response to this request. See Get Extension Custom Greetings.</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [type] value is invalid</td></tr> </tbody></table>								
+     *  Returns a list of predefined standard greetings. Custom greetings recorded by user are not returned in response to this request. See Get Extension Custom Greetings.
      */
     list(query?: ListQuery): Promise<DictionaryGreetingList> {
         return this._send({
@@ -25,7 +25,7 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  <p>Returns a list of predefined standard greetings. Custom greetings recorded by user are not returned in response to this request. See Get Extension Custom Greetings.</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [type] value is invalid</td></tr> </tbody></table>								
+     *  Returns a list of predefined standard greetings. Custom greetings recorded by user are not returned in response to this request. See Get Extension Custom Greetings.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -38,7 +38,7 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  <p>Returns a standard greeting by ID.</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [greetingId] is not found</td></tr> </tbody></table>								
+     *  Returns a standard greeting by ID.
      */
     get(): Promise<DictionaryGreetingInfo> {
         return this._send({
@@ -52,7 +52,7 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  <p>Returns a standard greeting by ID.</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [greetingId] is not found</td></tr> </tbody></table>								
+     *  Returns a standard greeting by ID.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -65,7 +65,7 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  <p>Creates a custom company greeting.</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>ReadUserInfo</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>AWR-129</td><td>Invalid attachment media type</td></tr><tr><td>400</td><td>AWR-178</td><td>Greeting type [Voicemail] is not applicable to company rule</td></tr><tr><td>400</td><td>CMN-101</td><td>Parameter [type] value is invalid</td></tr><tr><td>400</td><td>CMN-102</td><td>Resource for parameter [answeringRule.id] is not found</td></tr> </tbody></table>								
+     *  Creates a custom company greeting.
      */
     post(body: CustomCompanyGreetingRequest): Promise<CustomCompanyGreetingInfo> {
         return this._send({
@@ -79,7 +79,7 @@ export default class Greeting extends PathSegment {
     }
 
     /**
-     *  <p>Creates a custom company greeting.</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>ReadUserInfo</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>AWR-129</td><td>Invalid attachment media type</td></tr><tr><td>400</td><td>AWR-178</td><td>Greeting type [Voicemail] is not applicable to company rule</td></tr><tr><td>400</td><td>CMN-101</td><td>Parameter [type] value is invalid</td></tr><tr><td>400</td><td>CMN-102</td><td>Resource for parameter [answeringRule.id] is not found</td></tr> </tbody></table>								
+     *  Creates a custom company greeting.
      *  return {ApiResponse}
      */
     postRaw(body: CustomCompanyGreetingRequest): Promise<any> {

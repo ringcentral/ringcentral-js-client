@@ -8,7 +8,7 @@ export default class BulkPurchase extends PathSegment {
     }
 
     /**
-     *  <p>Purchases licenses for add-on features: Rooms, Room Connector, Webinar, Live Reports, etc.</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>MeetingsPlan</p><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  Purchases licenses for add-on features: Rooms, Room Connector, Webinar, Live Reports, etc.
      */
     post(body: OrderLicensesRequest): Promise<void> {
         return this._send({
@@ -20,7 +20,7 @@ export default class BulkPurchase extends PathSegment {
     }
 
     /**
-     *  <p>Purchases licenses for add-on features: Rooms, Room Connector, Webinar, Live Reports, etc.</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>MeetingsPlan</p><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  Purchases licenses for add-on features: Rooms, Room Connector, Webinar, Live Reports, etc.
      *  return {ApiResponse}
      */
     postRaw(body: OrderLicensesRequest): Promise<any> {

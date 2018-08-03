@@ -7,7 +7,7 @@ export default class CustomGreetings extends PathSegment {
     }
 
     /**
-     *  <p>Returns call recording custom greetings.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns call recording custom greetings.
      */
     get(): Promise<void> {
         return this._send({
@@ -19,7 +19,7 @@ export default class CustomGreetings extends PathSegment {
     }
 
     /**
-     *  <p>Returns call recording custom greetings.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns call recording custom greetings.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -32,7 +32,7 @@ export default class CustomGreetings extends PathSegment {
     }
 
     /**
-     *  <p>Deletes call recording custom greetings.</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>EditCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Deletes call recording custom greetings.
      */
     delete(): Promise<void> {
         return this._send({
@@ -44,7 +44,7 @@ export default class CustomGreetings extends PathSegment {
     }
 
     /**
-     *  <p>Deletes call recording custom greetings.</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>EditCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Deletes call recording custom greetings.
      *  return {ApiResponse}
      */
     deleteRaw(): Promise<any> {

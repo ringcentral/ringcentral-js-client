@@ -7,7 +7,7 @@ export default class End extends PathSegment {
     }
 
     /**
-     *  <p>Ends a meetings which is in progress.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [meetingId] is not found</td></tr> </tbody></table>								
+     *  Ends a meetings which is in progress.
      */
     post(): Promise<void> {
         return this._send({
@@ -19,7 +19,7 @@ export default class End extends PathSegment {
     }
 
     /**
-     *  <p>Ends a meetings which is in progress.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [meetingId] is not found</td></tr> </tbody></table>								
+     *  Ends a meetings which is in progress.
      *  return {ApiResponse}
      */
     postRaw(): Promise<any> {

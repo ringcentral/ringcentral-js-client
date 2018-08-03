@@ -24,7 +24,7 @@ export default class CallMonitoringGroups extends PathSegment {
     }
 
     /**
-     *  <p>Returns call monitoring groups that can be filtered by some extension.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadExtensions</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns call monitoring groups that can be filtered by some extension.
      */
     list(query?: ListQuery): Promise<ICallMonitoringGroups> {
         return this._send({
@@ -38,7 +38,7 @@ export default class CallMonitoringGroups extends PathSegment {
     }
 
     /**
-     *  <p>Returns call monitoring groups that can be filtered by some extension.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadExtensions</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns call monitoring groups that can be filtered by some extension.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {

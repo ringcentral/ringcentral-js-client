@@ -17,7 +17,7 @@ interface InstantMessageEventBody {
     to?: NotificationRecipientInfo[];
 
     /**
-     * Extension Type
+     * Extension Type. For GCM transport type '_from' property should be used
      */
     from?: SenderInfo;
 

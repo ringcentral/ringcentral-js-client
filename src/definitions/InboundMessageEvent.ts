@@ -19,7 +19,7 @@ interface InboundMessageEvent {
     conversationId?: string;
 
     /**
-     * Sender phone number
+     * Sender phone number. For GCM transport type '_from' property should be used
      */
     from?: string;
 

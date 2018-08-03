@@ -8,7 +8,7 @@ export default class Meetings extends PathSegment {
     }
 
     /**
-     *  <p>Returns Zoom meetings presence status of an extension</p><h4>App Permission</h4><p>ReadPresence</p><h4>User Permission</h4><p>ReadPresenceStatus</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns Zoom meetings presence status of an extension
      */
     get(): Promise<MeetingsPresence> {
         return this._send({
@@ -22,7 +22,7 @@ export default class Meetings extends PathSegment {
     }
 
     /**
-     *  <p>Returns Zoom meetings presence status of an extension</p><h4>App Permission</h4><p>ReadPresence</p><h4>User Permission</h4><p>ReadPresenceStatus</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns Zoom meetings presence status of an extension
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -35,7 +35,7 @@ export default class Meetings extends PathSegment {
     }
 
     /**
-     *  <p>Set Zoom meetings presence status of an extension</p><h4>App Permission</h4><p>ReadPresence</p><h4>User Permission</h4><p>ReadPresenceStatus</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Set Zoom meetings presence status of an extension
      */
     post(body: MeetingsPresence): Promise<MeetingsPresence> {
         return this._send({
@@ -49,7 +49,7 @@ export default class Meetings extends PathSegment {
     }
 
     /**
-     *  <p>Set Zoom meetings presence status of an extension</p><h4>App Permission</h4><p>ReadPresence</p><h4>User Permission</h4><p>ReadPresenceStatus</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Set Zoom meetings presence status of an extension
      *  return {ApiResponse}
      */
     postRaw(body: MeetingsPresence): Promise<any> {

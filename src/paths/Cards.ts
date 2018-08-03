@@ -9,7 +9,7 @@ export default class Cards extends PathSegment {
     }
 
     /**
-     *  <p>Creates a new card.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Creates a new card.
      */
     post(body: GlipMessageAttachmentInfoRequest, query?: PostQuery): Promise<GlipMessageAttachmentInfo> {
         return this._send({
@@ -23,7 +23,7 @@ export default class Cards extends PathSegment {
     }
 
     /**
-     *  <p>Creates a new card.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Creates a new card.
      *  return {ApiResponse}
      */
     postRaw(body: GlipMessageAttachmentInfoRequest, query?: PostQuery): Promise<any> {
@@ -36,7 +36,7 @@ export default class Cards extends PathSegment {
     }
 
     /**
-     *  <p>Returns card(s) with given id(s).</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns card(s) with given id(s).
      */
     get(): Promise<GlipMessageAttachmentInfo> {
         return this._send({
@@ -50,7 +50,7 @@ export default class Cards extends PathSegment {
     }
 
     /**
-     *  <p>Returns card(s) with given id(s).</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns card(s) with given id(s).
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -63,7 +63,7 @@ export default class Cards extends PathSegment {
     }
 
     /**
-     *  <p>Updates a card</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Updates a card
      */
     put(body: GlipMessageAttachmentInfoRequest): Promise<void> {
         return this._send({
@@ -75,7 +75,7 @@ export default class Cards extends PathSegment {
     }
 
     /**
-     *  <p>Updates a card</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Updates a card
      *  return {ApiResponse}
      */
     putRaw(body: GlipMessageAttachmentInfoRequest): Promise<any> {
@@ -88,7 +88,7 @@ export default class Cards extends PathSegment {
     }
 
     /**
-     *  <p>Deletes a card by ID.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Deletes a card by ID.
      */
     delete(): Promise<void> {
         return this._send({
@@ -100,7 +100,7 @@ export default class Cards extends PathSegment {
     }
 
     /**
-     *  <p>Deletes a card by ID.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Deletes a card by ID.
      *  return {ApiResponse}
      */
     deleteRaw(): Promise<any> {

@@ -8,7 +8,7 @@ export default class Renew extends PathSegment {
     }
 
     /**
-     *  <p>Renews an existent subscription by ID by posting request with an empty body.</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Renews an existent subscription by ID by posting request with an empty body.
      */
     post(): Promise<SubscriptionInfo> {
         return this._send({
@@ -22,7 +22,7 @@ export default class Renew extends PathSegment {
     }
 
     /**
-     *  <p>Renews an existent subscription by ID by posting request with an empty body.</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Renews an existent subscription by ID by posting request with an empty body.
      *  return {ApiResponse}
      */
     postRaw(): Promise<any> {

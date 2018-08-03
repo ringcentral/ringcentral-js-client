@@ -8,7 +8,7 @@ export default class Persons extends PathSegment {
     }
 
     /**
-     *  <p>Returns a user or multiple users by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns a user or multiple users by their ID(s). Batch request is supported.
      */
     get(): Promise<GlipPersonInfo> {
         return this._send({
@@ -22,7 +22,7 @@ export default class Persons extends PathSegment {
     }
 
     /**
-     *  <p>Returns a user or multiple users by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns a user or multiple users by their ID(s). Batch request is supported.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

@@ -34,7 +34,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p>Returns the list of groups where the user is a member.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns the list of groups where the user is a member.
      */
     list(query?: ListQuery): Promise<GlipGroupList> {
         return this._send({
@@ -48,7 +48,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p>Returns the list of groups where the user is a member.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns the list of groups where the user is a member.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -61,7 +61,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p>Creates a new private chat/team.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Creates a new private chat/team.
      */
     post(body: GlipCreateGroup): Promise<GlipGroupInfo> {
         return this._send({
@@ -75,7 +75,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p>Creates a new private chat/team.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Creates a new private chat/team.
      *  return {ApiResponse}
      */
     postRaw(body: GlipCreateGroup): Promise<any> {
@@ -88,7 +88,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p>Returns information about a group or multiple groups by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns information about a group or multiple groups by their ID(s). Batch request is supported.
      */
     get(): Promise<GlipGroupInfo> {
         return this._send({
@@ -102,7 +102,7 @@ export default class Groups extends PathSegment {
     }
 
     /**
-     *  <p>Returns information about a group or multiple groups by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns information about a group or multiple groups by their ID(s). Batch request is supported.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

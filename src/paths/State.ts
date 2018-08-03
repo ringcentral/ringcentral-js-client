@@ -9,7 +9,7 @@ export default class State extends PathSegment {
     }
 
     /**
-     *  <p>Returns all the states of a certain country</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [stateId] is not found</td></tr> </tbody></table>								
+     *  Returns all the states of a certain country
      */
     list(query?: ListQuery): Promise<GetStateListResponse> {
         return this._send({
@@ -23,7 +23,7 @@ export default class State extends PathSegment {
     }
 
     /**
-     *  <p>Returns all the states of a certain country</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [stateId] is not found</td></tr> </tbody></table>								
+     *  Returns all the states of a certain country
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -36,7 +36,7 @@ export default class State extends PathSegment {
     }
 
     /**
-     *  <p>Returns the information on a specific state.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [stateId] is not found</td></tr> </tbody></table>								
+     *  Returns the information on a specific state.
      */
     get(): Promise<GetStateInfoResponse> {
         return this._send({
@@ -50,7 +50,7 @@ export default class State extends PathSegment {
     }
 
     /**
-     *  <p>Returns the information on a specific state.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [stateId] is not found</td></tr> </tbody></table>								
+     *  Returns the information on a specific state.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

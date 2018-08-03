@@ -17,7 +17,7 @@ export default class CallerBlocking extends PathSegment {
     }
 
     /**
-     *  <p>Returns the current call blocking settings of a user.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadBlockedNumbers</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns the current call blocking settings of a user.
      */
     get(): Promise<CallerBlockingSettings> {
         return this._send({
@@ -31,7 +31,7 @@ export default class CallerBlocking extends PathSegment {
     }
 
     /**
-     *  <p>Returns the current call blocking settings of a user.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadBlockedNumbers</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns the current call blocking settings of a user.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -44,7 +44,7 @@ export default class CallerBlocking extends PathSegment {
     }
 
     /**
-     *  <p>Updates the current call blocking settings of a user.</p><h4>App Permission</h4><p>EditExtensions</p><h4>User Permission</h4><p>EditBlockedNumbers</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [greetings] value is invalid</td></tr> </tbody></table>								
+     *  Updates the current call blocking settings of a user.
      */
     put(body: CallerBlockingSettingsUpdate): Promise<CallerBlockingSettings> {
         return this._send({
@@ -58,7 +58,7 @@ export default class CallerBlocking extends PathSegment {
     }
 
     /**
-     *  <p>Updates the current call blocking settings of a user.</p><h4>App Permission</h4><p>EditExtensions</p><h4>User Permission</h4><p>EditBlockedNumbers</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [greetings] value is invalid</td></tr> </tbody></table>								
+     *  Updates the current call blocking settings of a user.
      *  return {ApiResponse}
      */
     putRaw(body: CallerBlockingSettingsUpdate): Promise<any> {

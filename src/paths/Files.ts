@@ -8,7 +8,7 @@ export default class Files extends PathSegment {
     }
 
     /**
-     *  <p>Posts a file.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  Posts a file.
      */
     post(query?: PostQuery): Promise<PostGlipFile> {
         return this._send({
@@ -22,7 +22,7 @@ export default class Files extends PathSegment {
     }
 
     /**
-     *  <p>Posts a file.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Heavy</p>
+     *  Posts a file.
      *  return {ApiResponse}
      */
     postRaw(query?: PostQuery): Promise<any> {

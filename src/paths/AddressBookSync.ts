@@ -8,7 +8,7 @@ export default class AddressBookSync extends PathSegment {
     }
 
     /**
-     *  <p>Synchronizes user contacts.</p><h4>App Permission</h4><p>ReadContacts</p><h4>User Permission</h4><p>ReadPersonalContacts</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadContacts] permission</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Synchronizes user contacts.
      */
     list(query?: ListQuery): Promise<IAddressBookSync> {
         return this._send({
@@ -22,7 +22,7 @@ export default class AddressBookSync extends PathSegment {
     }
 
     /**
-     *  <p>Synchronizes user contacts.</p><h4>App Permission</h4><p>ReadContacts</p><h4>User Permission</h4><p>ReadPersonalContacts</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadContacts] permission</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Synchronizes user contacts.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {

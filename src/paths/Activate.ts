@@ -8,7 +8,7 @@ export default class Activate extends PathSegment {
     }
 
     /**
-     *  <p>Activates webhooks by ID.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Activates webhooks by ID.
      */
     post(): Promise<GlipWebhookInfo> {
         return this._send({
@@ -22,7 +22,7 @@ export default class Activate extends PathSegment {
     }
 
     /**
-     *  <p>Activates webhooks by ID.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Activates webhooks by ID.
      *  return {ApiResponse}
      */
     postRaw(): Promise<any> {

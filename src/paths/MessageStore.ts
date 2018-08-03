@@ -18,7 +18,7 @@ export default class MessageStore extends PathSegment {
     }
 
     /**
-     *  <p>Returns the list of messages from an extension mailbox.</p><h4>App Permission</h4><p>ReadMessages</p><h4>User Permission</h4><p>ReadMessages</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [readStatus] value is invalid</td></tr><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadMessages] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadMessages] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Returns the list of messages from an extension mailbox.
      */
     list(query?: ListQuery): Promise<GetMessageList> {
         return this._send({
@@ -32,7 +32,7 @@ export default class MessageStore extends PathSegment {
     }
 
     /**
-     *  <p>Returns the list of messages from an extension mailbox.</p><h4>App Permission</h4><p>ReadMessages</p><h4>User Permission</h4><p>ReadMessages</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [readStatus] value is invalid</td></tr><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadMessages] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadMessages] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Returns the list of messages from an extension mailbox.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -45,7 +45,7 @@ export default class MessageStore extends PathSegment {
     }
 
     /**
-     *  <p>Deletes conversation(s) by conversation ID(s).</p><h4>App Permission</h4><p>EditMessages</p><h4>User Permission</h4><p>EditMessages</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [conversationId] value is invalid</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [EditMessages] permission</td></tr> </tbody></table>								
+     *  Deletes conversation(s) by conversation ID(s).
      */
     delete(query?: DeleteQuery): Promise<void> {
         return this._send({
@@ -57,7 +57,7 @@ export default class MessageStore extends PathSegment {
     }
 
     /**
-     *  <p>Deletes conversation(s) by conversation ID(s).</p><h4>App Permission</h4><p>EditMessages</p><h4>User Permission</h4><p>EditMessages</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [conversationId] value is invalid</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [EditMessages] permission</td></tr> </tbody></table>								
+     *  Deletes conversation(s) by conversation ID(s).
      *  return {ApiResponse}
      */
     deleteRaw(query?: DeleteQuery): Promise<any> {
@@ -70,7 +70,7 @@ export default class MessageStore extends PathSegment {
     }
 
     /**
-     *  <p>Returns individual message record(s) by the given message ID(s). The length of inbound messages is unlimited. Batch request is supported.</p><h4>App Permission</h4><p>ReadMessages</p><h4>User Permission</h4><p>ReadMessages</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadMessages] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadMessages] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Returns individual message record(s) by the given message ID(s). The length of inbound messages is unlimited. Batch request is supported.
      */
     get(): Promise<GetMessageInfoResponse> {
         return this._send({
@@ -84,7 +84,7 @@ export default class MessageStore extends PathSegment {
     }
 
     /**
-     *  <p>Returns individual message record(s) by the given message ID(s). The length of inbound messages is unlimited. Batch request is supported.</p><h4>App Permission</h4><p>ReadMessages</p><h4>User Permission</h4><p>ReadMessages</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadMessages] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadMessages] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Returns individual message record(s) by the given message ID(s). The length of inbound messages is unlimited. Batch request is supported.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -97,7 +97,7 @@ export default class MessageStore extends PathSegment {
     }
 
     /**
-     *  <p>Updates message(s) by ID(s). Batch request is supported, see Batch Requests for details. Currently, only the message read status updating is supported.</p><h4>App Permission</h4><p>EditMessages</p><h4>User Permission</h4><p>EditMessages</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [] value is invalid</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [EditMessages] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [EditMessages] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Updates message(s) by ID(s). Batch request is supported, see Batch Requests for details. Currently, only the message read status updating is supported.
      */
     put(body: UpdateMessageRequest): Promise<GetMessageInfoResponse> {
         return this._send({
@@ -111,7 +111,7 @@ export default class MessageStore extends PathSegment {
     }
 
     /**
-     *  <p>Updates message(s) by ID(s). Batch request is supported, see Batch Requests for details. Currently, only the message read status updating is supported.</p><h4>App Permission</h4><p>EditMessages</p><h4>User Permission</h4><p>EditMessages</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [] value is invalid</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [EditMessages] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [EditMessages] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Updates message(s) by ID(s). Batch request is supported, see Batch Requests for details. Currently, only the message read status updating is supported.
      *  return {ApiResponse}
      */
     putRaw(body: UpdateMessageRequest): Promise<any> {
@@ -193,4 +193,9 @@ export interface DeleteQuery {
      * Messages received earlier then the date specified will be deleted. The default value is 'Now'
      */
     dateTo?: string;
+
+    /**
+     * Type of messages to be deleted
+     */
+    type?: "Fax" | "SMS" | "VoiceMail" | "Pager" | "Text" | "All";
 }

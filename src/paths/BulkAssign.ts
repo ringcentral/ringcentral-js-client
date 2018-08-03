@@ -9,7 +9,7 @@ export default class BulkAssign extends PathSegment {
     }
 
     /**
-     *  <p>Updates group members. Please note: Only groups of &#39;Team&#39; type can be updated. Currently only one operation at a time (either adding or removal) is supported.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Updates group members. Please note: Only groups of 'Team' type can be updated. Currently only one operation at a time (either adding or removal) is supported.
      */
     post(body: EditGroupRequest): Promise<GlipGroupInfo> {
         return this._send({
@@ -23,7 +23,7 @@ export default class BulkAssign extends PathSegment {
     }
 
     /**
-     *  <p>Updates group members. Please note: Only groups of &#39;Team&#39; type can be updated. Currently only one operation at a time (either adding or removal) is supported.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Updates group members. Please note: Only groups of 'Team' type can be updated. Currently only one operation at a time (either adding or removal) is supported.
      *  return {ApiResponse}
      */
     postRaw(body: EditGroupRequest): Promise<any> {

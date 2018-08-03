@@ -8,7 +8,7 @@ export default class LicenseTypes extends PathSegment {
     }
 
     /**
-     *  <p>Returns supported license types.</p><h4>User Permission</h4><p>MeetingsPlan</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns supported license types.
      */
     list(): Promise<ILicenseTypes> {
         return this._send({
@@ -22,7 +22,7 @@ export default class LicenseTypes extends PathSegment {
     }
 
     /**
-     *  <p>Returns supported license types.</p><h4>User Permission</h4><p>MeetingsPlan</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns supported license types.
      *  return {ApiResponse}
      */
     listRaw(): Promise<any> {

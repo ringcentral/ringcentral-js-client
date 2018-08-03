@@ -8,7 +8,7 @@ export default class Companies extends PathSegment {
     }
 
     /**
-     *  <p>Returns information about a company by ID.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns information about a company by ID.
      */
     get(): Promise<GlipCompany> {
         return this._send({
@@ -22,7 +22,7 @@ export default class Companies extends PathSegment {
     }
 
     /**
-     *  <p>Returns information about a company by ID.</p><h4>App Permission</h4><p>Glip</p><h4>User Permission</h4><p>Glip</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns information about a company by ID.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

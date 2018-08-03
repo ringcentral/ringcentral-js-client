@@ -7,7 +7,7 @@ export default class Extensions extends PathSegment {
     }
 
     /**
-     *  <p>Returns the list of extensions to be recorded.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns the list of extensions to be recorded.
      */
     get(): Promise<void> {
         return this._send({
@@ -19,7 +19,7 @@ export default class Extensions extends PathSegment {
     }
 
     /**
-     *  <p>Returns the list of extensions to be recorded.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns the list of extensions to be recorded.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

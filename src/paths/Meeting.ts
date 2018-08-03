@@ -26,7 +26,7 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  <p>Returns a list of meetings for a particular extension. The list of meetings does not include meetings of &#39;Instant&#39; type.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns a list of meetings for a particular extension. The list of meetings does not include meetings of 'Instant' type.
      */
     list(): Promise<MeetingsResource> {
         return this._send({
@@ -40,7 +40,7 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  <p>Returns a list of meetings for a particular extension. The list of meetings does not include meetings of &#39;Instant&#39; type.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns a list of meetings for a particular extension. The list of meetings does not include meetings of 'Instant' type.
      *  return {ApiResponse}
      */
     listRaw(): Promise<any> {
@@ -53,7 +53,7 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  <p>Creates a new meeting.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [schedule] value is invalid</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Creates a new meeting.
      */
     post(body: MeetingRequestResource): Promise<void> {
         return this._send({
@@ -65,7 +65,7 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  <p>Creates a new meeting.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [schedule] value is invalid</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Creates a new meeting.
      *  return {ApiResponse}
      */
     postRaw(body: MeetingRequestResource): Promise<any> {
@@ -78,7 +78,7 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  <p>Returns a particular meetings details by ID.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [meetingId] is not found</td></tr> </tbody></table>								
+     *  Returns a particular meetings details by ID.
      */
     get(): Promise<MeetingResponseResource> {
         return this._send({
@@ -92,7 +92,7 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  <p>Returns a particular meetings details by ID.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [meetingId] is not found</td></tr> </tbody></table>								
+     *  Returns a particular meetings details by ID.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -105,7 +105,7 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  <p>Modifies a particular meeting.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [password] value is invalid</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Modifies a particular meeting.
      */
     put(body: MeetingRequestResource): Promise<MeetingResponseResource> {
         return this._send({
@@ -119,7 +119,7 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  <p>Modifies a particular meeting.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Medium</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [password] value is invalid</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Modifies a particular meeting.
      *  return {ApiResponse}
      */
     putRaw(body: MeetingRequestResource): Promise<any> {
@@ -132,7 +132,7 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  <p>Deletes a scheduled meeting.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Deletes a scheduled meeting.
      */
     delete(): Promise<void> {
         return this._send({
@@ -144,7 +144,7 @@ export default class Meeting extends PathSegment {
     }
 
     /**
-     *  <p>Deletes a scheduled meeting.</p><h4>App Permission</h4><p>Meetings</p><h4>User Permission</h4><p>Meetings</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Deletes a scheduled meeting.
      *  return {ApiResponse}
      */
     deleteRaw(): Promise<any> {

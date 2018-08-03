@@ -9,7 +9,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  <p>Returns call log records filtered by parameters specified.</p><h4>App Permission</h4><p>ReadCallLog</p><h4>User Permission</h4><p>ReadCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CLG-110</td><td>Parameter [sessionId] is not allowed for usage along with parameter [extensionNumber]</td></tr><tr><td>400</td><td>CMN-101</td><td>Parameter [transport] value is invalid</td></tr><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-129</td><td>Access token corrupted</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>401</td><td>OAU-213</td><td>Token not found</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr><tr><td>429</td><td>CMN-301</td><td>Request rate exceeded</td></tr> </tbody></table>								
+     *  Returns call log records filtered by parameters specified.
      */
     list(query?: ListQuery): Promise<ExtensionCallLogResponse> {
         return this._send({
@@ -23,7 +23,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  <p>Returns call log records filtered by parameters specified.</p><h4>App Permission</h4><p>ReadCallLog</p><h4>User Permission</h4><p>ReadCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CLG-110</td><td>Parameter [sessionId] is not allowed for usage along with parameter [extensionNumber]</td></tr><tr><td>400</td><td>CMN-101</td><td>Parameter [transport] value is invalid</td></tr><tr><td>401</td><td>CMN-405</td><td>Login to extension required</td></tr><tr><td>401</td><td>OAU-129</td><td>Access token corrupted</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>401</td><td>OAU-213</td><td>Token not found</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr><tr><td>429</td><td>CMN-301</td><td>Request rate exceeded</td></tr> </tbody></table>								
+     *  Returns call log records filtered by parameters specified.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -36,7 +36,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  <p>Deletes filtered call log records.</p><h4>App Permission</h4><p>EditCallLog</p><h4>User Permission</h4><p>EditCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [EditCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [EditCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Deletes filtered call log records.
      */
     delete(query?: DeleteQuery): Promise<void> {
         return this._send({
@@ -48,7 +48,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  <p>Deletes filtered call log records.</p><h4>App Permission</h4><p>EditCallLog</p><h4>User Permission</h4><p>EditCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [EditCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [EditCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Deletes filtered call log records.
      *  return {ApiResponse}
      */
     deleteRaw(query?: DeleteQuery): Promise<any> {
@@ -61,7 +61,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  <p>Returns call log records by ID.</p><h4>App Permission</h4><p>ReadCallLog</p><h4>User Permission</h4><p>ReadCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Returns call log records by ID.
      */
     get(query?: GetQuery): Promise<UserCallLogRecord> {
         return this._send({
@@ -75,7 +75,7 @@ export default class CallLog extends PathSegment {
     }
 
     /**
-     *  <p>Returns call log records by ID.</p><h4>App Permission</h4><p>ReadCallLog</p><h4>User Permission</h4><p>ReadCallLog</p><h4>Usage Plan Group</h4><p>Heavy</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadCallLog] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadCallLog] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Returns call log records by ID.
      *  return {ApiResponse}
      */
     getRaw(query?: GetQuery): Promise<any> {

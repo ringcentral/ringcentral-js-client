@@ -10,7 +10,7 @@ export default class Posts extends PathSegment {
     }
 
     /**
-     *  <p>Returns posts which are available for the current user (by group ID). The maximum number of posts returned is 250.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns posts which are available for the current user (by group ID). The maximum number of posts returned is 250.
      */
     list(query?: ListQuery): Promise<GlipPosts> {
         return this._send({
@@ -24,7 +24,7 @@ export default class Posts extends PathSegment {
     }
 
     /**
-     *  <p>Returns posts which are available for the current user (by group ID). The maximum number of posts returned is 250.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns posts which are available for the current user (by group ID). The maximum number of posts returned is 250.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -37,7 +37,7 @@ export default class Posts extends PathSegment {
     }
 
     /**
-     *  <p>Creates a new post in a group specified.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Creates a new post in a group specified.
      */
     post(body: GlipCreatePost): Promise<GlipPostInfo> {
         return this._send({
@@ -51,7 +51,7 @@ export default class Posts extends PathSegment {
     }
 
     /**
-     *  <p>Creates a new post in a group specified.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Creates a new post in a group specified.
      *  return {ApiResponse}
      */
     postRaw(body: GlipCreatePost): Promise<any> {

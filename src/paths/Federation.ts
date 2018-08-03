@@ -8,7 +8,7 @@ export default class Federation extends PathSegment {
     }
 
     /**
-     *  <p>Returns information on a federation and associated accounts.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns information on a federation and associated accounts.
      */
     get(): Promise<FederationResource> {
         return this._send({
@@ -22,7 +22,7 @@ export default class Federation extends PathSegment {
     }
 
     /**
-     *  <p>Returns information on a federation and associated accounts.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns information on a federation and associated accounts.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

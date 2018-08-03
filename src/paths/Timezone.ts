@@ -9,7 +9,7 @@ export default class Timezone extends PathSegment {
     }
 
     /**
-     *  <p>Returns all available timezones.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr> </tbody></table>								
+     *  Returns all available timezones.
      */
     list(query?: ListQuery): Promise<GetTimezoneListResponse> {
         return this._send({
@@ -23,7 +23,7 @@ export default class Timezone extends PathSegment {
     }
 
     /**
-     *  <p>Returns all available timezones.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr> </tbody></table>								
+     *  Returns all available timezones.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -36,7 +36,7 @@ export default class Timezone extends PathSegment {
     }
 
     /**
-     *  <p>Returns the information on a certain timezone.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [timezoneId] is not found</td></tr> </tbody></table>								
+     *  Returns the information on a certain timezone.
      */
     get(query?: GetQuery): Promise<GetTimezoneInfoResponse> {
         return this._send({
@@ -50,7 +50,7 @@ export default class Timezone extends PathSegment {
     }
 
     /**
-     *  <p>Returns the information on a certain timezone.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [timezoneId] is not found</td></tr> </tbody></table>								
+     *  Returns the information on a certain timezone.
      *  return {ApiResponse}
      */
     getRaw(query?: GetQuery): Promise<any> {

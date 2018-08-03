@@ -8,7 +8,7 @@ export default class Devices extends PathSegment {
     }
 
     /**
-     *  <p>Returns the list of paging devices assigned to this group.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyDevices</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadAccounts] permission</td></tr> </tbody></table>								
+     *  Returns the list of paging devices assigned to this group.
      */
     list(query?: ListQuery): Promise<PagingOnlyGroupDevices> {
         return this._send({
@@ -22,7 +22,7 @@ export default class Devices extends PathSegment {
     }
 
     /**
-     *  <p>Returns the list of paging devices assigned to this group.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyDevices</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadAccounts] permission</td></tr> </tbody></table>								
+     *  Returns the list of paging devices assigned to this group.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {

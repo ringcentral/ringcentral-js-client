@@ -49,7 +49,7 @@ interface IncomingCallEvent {
     serverId?: string;
 
     /**
-     * Phone number of a caller
+     * Phone number of a caller. For GCM transport type '_from' property should be used
      */
     from?: string;
 

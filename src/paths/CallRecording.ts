@@ -32,7 +32,7 @@ export default class CallRecording extends PathSegment {
     }
 
     /**
-     *  <p>Returns call recording settings.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns call recording settings.
      */
     get(): Promise<CallRecordingSettingsResource> {
         return this._send({
@@ -46,7 +46,7 @@ export default class CallRecording extends PathSegment {
     }
 
     /**
-     *  <p>Returns call recording settings.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadCompanyInfo</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns call recording settings.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -59,7 +59,7 @@ export default class CallRecording extends PathSegment {
     }
 
     /**
-     *  <p>Updates current call recording settings</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>EditCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Updates current call recording settings
      */
     put(body: CallRecordingSettingsResource): Promise<CallRecordingSettingsResource> {
         return this._send({
@@ -73,7 +73,7 @@ export default class CallRecording extends PathSegment {
     }
 
     /**
-     *  <p>Updates current call recording settings</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>EditCompanyInfo</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Updates current call recording settings
      *  return {ApiResponse}
      */
     putRaw(body: CallRecordingSettingsResource): Promise<any> {

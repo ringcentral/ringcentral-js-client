@@ -10,7 +10,7 @@ export default class PhoneNumbers extends PathSegment {
     }
 
     /**
-     *  <p>Returns the lists of blocked and allowed phone numbers.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadBlockedNumbers</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [accountId] is not found</td></tr> </tbody></table>								
+     *  Returns the lists of blocked and allowed phone numbers.
      */
     list(query?: ListQuery): Promise<BlockedAllowedPhoneNumbersList> {
         return this._send({
@@ -24,7 +24,7 @@ export default class PhoneNumbers extends PathSegment {
     }
 
     /**
-     *  <p>Returns the lists of blocked and allowed phone numbers.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadBlockedNumbers</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [accountId] is not found</td></tr> </tbody></table>								
+     *  Returns the lists of blocked and allowed phone numbers.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -37,7 +37,7 @@ export default class PhoneNumbers extends PathSegment {
     }
 
     /**
-     *  <p>Updates either blocked or allowed phone number list with a new phone number.</p><h4>App Permission</h4><p>EditExtensions</p><h4>User Permission</h4><p>EditBlockedNumbers</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Updates either blocked or allowed phone number list with a new phone number.
      */
     post(body: AddBlockedAllowedPhoneNumber): Promise<BlockedAllowedPhoneNumberInfo> {
         return this._send({
@@ -51,7 +51,7 @@ export default class PhoneNumbers extends PathSegment {
     }
 
     /**
-     *  <p>Updates either blocked or allowed phone number list with a new phone number.</p><h4>App Permission</h4><p>EditExtensions</p><h4>User Permission</h4><p>EditBlockedNumbers</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Updates either blocked or allowed phone number list with a new phone number.
      *  return {ApiResponse}
      */
     postRaw(body: AddBlockedAllowedPhoneNumber): Promise<any> {
@@ -64,7 +64,7 @@ export default class PhoneNumbers extends PathSegment {
     }
 
     /**
-     *  <p>Returns blocked or allowed phone number(s) by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadBlockedNumbers</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [accountId] is not found</td></tr> </tbody></table>								
+     *  Returns blocked or allowed phone number(s) by their ID(s). Batch request is supported.
      */
     get(): Promise<BlockedAllowedPhoneNumberInfo> {
         return this._send({
@@ -78,7 +78,7 @@ export default class PhoneNumbers extends PathSegment {
     }
 
     /**
-     *  <p>Returns blocked or allowed phone number(s) by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadBlockedNumbers</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [accountId] is not found</td></tr> </tbody></table>								
+     *  Returns blocked or allowed phone number(s) by their ID(s). Batch request is supported.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -91,7 +91,7 @@ export default class PhoneNumbers extends PathSegment {
     }
 
     /**
-     *  <p>Deletes blocked or allowed phone number(s) by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>EditExtensions</p><h4>User Permission</h4><p>EditBlockedNumbers</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Deletes blocked or allowed phone number(s) by their ID(s). Batch request is supported.
      */
     delete(): Promise<void> {
         return this._send({
@@ -103,7 +103,7 @@ export default class PhoneNumbers extends PathSegment {
     }
 
     /**
-     *  <p>Deletes blocked or allowed phone number(s) by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>EditExtensions</p><h4>User Permission</h4><p>EditBlockedNumbers</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Deletes blocked or allowed phone number(s) by their ID(s). Batch request is supported.
      *  return {ApiResponse}
      */
     deleteRaw(): Promise<any> {
@@ -116,7 +116,7 @@ export default class PhoneNumbers extends PathSegment {
     }
 
     /**
-     *  <p>Updates blocked or allowed phone number(s) by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>EditExtensions</p><h4>User Permission</h4><p>EditBlockedNumbers</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Updates blocked or allowed phone number(s) by their ID(s). Batch request is supported.
      */
     put(): Promise<void> {
         return this._send({
@@ -128,7 +128,7 @@ export default class PhoneNumbers extends PathSegment {
     }
 
     /**
-     *  <p>Updates blocked or allowed phone number(s) by their ID(s). Batch request is supported.</p><h4>App Permission</h4><p>EditExtensions</p><h4>User Permission</h4><p>EditBlockedNumbers</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Updates blocked or allowed phone number(s) by their ID(s). Batch request is supported.
      *  return {ApiResponse}
      */
     putRaw(): Promise<any> {

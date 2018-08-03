@@ -8,7 +8,7 @@ export default class MessageSync extends PathSegment {
     }
 
     /**
-     *  <p>Synchronizes messages.</p><h4>App Permission</h4><p>ReadMessages</p><h4>User Permission</h4><p>ReadMessages</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [messageType] value is invalid</td></tr><tr><td>400</td><td>MSG-333</td><td>Parameter [syncToken] is invalid</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadMessages] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadMessages] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Synchronizes messages.
      */
     list(query?: ListQuery): Promise<GetMessageSyncResponse> {
         return this._send({
@@ -22,7 +22,7 @@ export default class MessageSync extends PathSegment {
     }
 
     /**
-     *  <p>Synchronizes messages.</p><h4>App Permission</h4><p>ReadMessages</p><h4>User Permission</h4><p>ReadMessages</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [messageType] value is invalid</td></tr><tr><td>400</td><td>MSG-333</td><td>Parameter [syncToken] is invalid</td></tr><tr><td>403</td><td>CMN-401</td><td>In order to call this API endpoint, application needs to have [ReadMessages] permission</td></tr><tr><td>403</td><td>CMN-408</td><td>In order to call this API endpoint, user needs to have [ReadMessages] permission for requested resource.</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [extensionId] is not found</td></tr> </tbody></table>								
+     *  Synchronizes messages.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {

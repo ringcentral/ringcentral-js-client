@@ -25,7 +25,7 @@ export default class Webhooks extends PathSegment {
     }
 
     /**
-     *  <p>Create new Webhook</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Create new Webhook
      */
     post(): Promise<GlipWebhookInfo> {
         return this._send({
@@ -39,7 +39,7 @@ export default class Webhooks extends PathSegment {
     }
 
     /**
-     *  <p>Create new Webhook</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Create new Webhook
      *  return {ApiResponse}
      */
     postRaw(): Promise<any> {
@@ -52,7 +52,7 @@ export default class Webhooks extends PathSegment {
     }
 
     /**
-     *  <p>Returns webhooks which are available for the current user (by group ID).</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns webhooks which are available for the current user (by group ID).
      */
     list(): Promise<GlipWebhookList> {
         return this._send({
@@ -66,7 +66,7 @@ export default class Webhooks extends PathSegment {
     }
 
     /**
-     *  <p>Returns webhooks which are available for the current user (by group ID).</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns webhooks which are available for the current user (by group ID).
      *  return {ApiResponse}
      */
     listRaw(): Promise<any> {
@@ -79,7 +79,7 @@ export default class Webhooks extends PathSegment {
     }
 
     /**
-     *  <p>Deletes the webhook by ID.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Deletes the webhook by ID.
      */
     delete(): Promise<void> {
         return this._send({
@@ -91,7 +91,7 @@ export default class Webhooks extends PathSegment {
     }
 
     /**
-     *  <p>Deletes the webhook by ID.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Deletes the webhook by ID.
      *  return {ApiResponse}
      */
     deleteRaw(): Promise<any> {

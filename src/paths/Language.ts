@@ -9,7 +9,7 @@ export default class Language extends PathSegment {
     }
 
     /**
-     *  <p>Returns the information about supported languages.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr> </tbody></table>								
+     *  Returns the information about supported languages.
      */
     list(): Promise<LanguageList> {
         return this._send({
@@ -23,7 +23,7 @@ export default class Language extends PathSegment {
     }
 
     /**
-     *  <p>Returns the information about supported languages.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr> </tbody></table>								
+     *  Returns the information about supported languages.
      *  return {ApiResponse}
      */
     listRaw(): Promise<any> {
@@ -36,7 +36,7 @@ export default class Language extends PathSegment {
     }
 
     /**
-     *  <p>Returns language by ID.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [languageId] is not found</td></tr> </tbody></table>								
+     *  Returns language by ID.
      */
     get(): Promise<LanguageInfo> {
         return this._send({
@@ -50,7 +50,7 @@ export default class Language extends PathSegment {
     }
 
     /**
-     *  <p>Returns language by ID.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [languageId] is not found</td></tr> </tbody></table>								
+     *  Returns language by ID.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

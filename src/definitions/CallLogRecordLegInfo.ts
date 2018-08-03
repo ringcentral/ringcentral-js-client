@@ -28,7 +28,7 @@ interface CallLogRecordLegInfo {
     /**
      * Leg type
      */
-    legType?: string;
+    legType?: "SipForwarding" | "ServiceMinus2" | "ServiceMinus3" | "PstnToSip" | "Accept" | "FindMe" | "FollowMe" | "TestCall" | "FaxSent" | "CallBack" | "CallingCard" | "RingDirectly" | "RingOutWebToSubscriber" | "RingOutWebToCaller" | "SipToPstnMetered" | "RingOutClientToSubscriber" | "RingOutClientToCaller" | "RingMe" | "TransferCall" | "SipToPstnUnmetered" | "RingOutDeviceToSubscriber" | "RingOutDeviceToCaller" | "RingOutOneLegToCaller" | "ExtensionToExtension" | "CallPark" | "PagingServer" | "Hunting" | "OutgoingFreeSpDl" | "ParkLocation" | "ConferenceCall" | "MobileApp" | "MoveToConference" | "Unknown";
 
     /**
      * The call start datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z

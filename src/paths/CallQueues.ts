@@ -24,7 +24,7 @@ export default class CallQueues extends PathSegment {
     }
 
     /**
-     *  <p>Returns call queue group list</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadExtensions</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns call queue group list
      */
     list(query?: ListQuery): Promise<ICallQueues> {
         return this._send({
@@ -38,7 +38,7 @@ export default class CallQueues extends PathSegment {
     }
 
     /**
-     *  <p>Returns call queue group list</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadExtensions</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns call queue group list
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {

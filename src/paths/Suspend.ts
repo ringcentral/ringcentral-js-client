@@ -8,7 +8,7 @@ export default class Suspend extends PathSegment {
     }
 
     /**
-     *  <p>Suspends webhooks by ID.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Suspends webhooks by ID.
      */
     post(): Promise<GlipWebhookInfo> {
         return this._send({
@@ -22,7 +22,7 @@ export default class Suspend extends PathSegment {
     }
 
     /**
-     *  <p>Suspends webhooks by ID.</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Suspends webhooks by ID.
      *  return {ApiResponse}
      */
     postRaw(): Promise<any> {

@@ -17,7 +17,7 @@ export default class Licenses extends PathSegment {
     }
 
     /**
-     *  <p>Returns list of licenses for a specific user.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>MeetingsPlan</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns list of licenses for a specific user.
      */
     list(query?: ListQuery): Promise<LicenseList> {
         return this._send({
@@ -31,7 +31,7 @@ export default class Licenses extends PathSegment {
     }
 
     /**
-     *  <p>Returns list of licenses for a specific user.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>MeetingsPlan</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns list of licenses for a specific user.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -44,7 +44,7 @@ export default class Licenses extends PathSegment {
     }
 
     /**
-     *  <p>Returns license information by its ID.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>MeetingsPlan</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns license information by its ID.
      */
     get(): Promise<LicenseInfo> {
         return this._send({
@@ -58,7 +58,7 @@ export default class Licenses extends PathSegment {
     }
 
     /**
-     *  <p>Returns license information by its ID.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>MeetingsPlan</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns license information by its ID.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
@@ -71,7 +71,7 @@ export default class Licenses extends PathSegment {
     }
 
     /**
-     *  <p>Removes a license for a specific user. Please note: It is not allowed to remove assigned licenses (only Webinars and Large Meetings can be assigned).</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>MeetingsPlan</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Removes a license for a specific user. Please note: It is not allowed to remove assigned licenses (only Webinars and Large Meetings can be assigned).
      */
     delete(): Promise<void> {
         return this._send({
@@ -83,7 +83,7 @@ export default class Licenses extends PathSegment {
     }
 
     /**
-     *  <p>Removes a license for a specific user. Please note: It is not allowed to remove assigned licenses (only Webinars and Large Meetings can be assigned).</p><h4>App Permission</h4><p>EditAccounts</p><h4>User Permission</h4><p>MeetingsPlan</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Removes a license for a specific user. Please note: It is not allowed to remove assigned licenses (only Webinars and Large Meetings can be assigned).
      *  return {ApiResponse}
      */
     deleteRaw(): Promise<any> {

@@ -19,6 +19,11 @@ interface NotificationInfo {
     sound?: string;
 
     /**
+     * Content availability
+     */
+    contentAvailable?: string;
+
+    /**
      * Category of a message
      */
     category?: string;

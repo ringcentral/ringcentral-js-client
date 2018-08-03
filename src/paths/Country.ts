@@ -9,7 +9,7 @@ export default class Country extends PathSegment {
     }
 
     /**
-     *  <p>Returns all the countries available for calling.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr><tr><td>401</td><td>AGW-401</td><td>Authorization header is not specified</td></tr><tr><td>401</td><td>OAU-129</td><td>Access token corrupted</td></tr> </tbody></table>								
+     *  Returns all the countries available for calling.
      */
     list(query?: ListQuery): Promise<GetCountryListResponse> {
         return this._send({
@@ -23,7 +23,7 @@ export default class Country extends PathSegment {
     }
 
     /**
-     *  <p>Returns all the countries available for calling.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-101</td><td>Parameter [perPage] value is invalid</td></tr><tr><td>401</td><td>AGW-401</td><td>Authorization header is not specified</td></tr><tr><td>401</td><td>OAU-129</td><td>Access token corrupted</td></tr> </tbody></table>								
+     *  Returns all the countries available for calling.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -36,7 +36,7 @@ export default class Country extends PathSegment {
     }
 
     /**
-     *  <p>Returns the information on a specific country.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-122</td><td>Method is brand specific</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [countryId] is not found</td></tr> </tbody></table>								
+     *  Returns the information on a specific country.
      */
     get(): Promise<GetCountryInfoDictionaryResponse> {
         return this._send({
@@ -50,7 +50,7 @@ export default class Country extends PathSegment {
     }
 
     /**
-     *  <p>Returns the information on a specific country.</p><h4>Usage Plan Group</h4><p>Light</p><h4>Error Codes</h4><table> <thead>  <tr>   <th>HTTP Code</th>   <th>Error Code</th>   <th>Error Message</th>  </tr> </thead> <tbody><tr><td>400</td><td>CMN-122</td><td>Method is brand specific</td></tr><tr><td>401</td><td>OAU-151</td><td>Authorization method not supported</td></tr><tr><td>404</td><td>CMN-102</td><td>Resource for parameter [countryId] is not found</td></tr> </tbody></table>								
+     *  Returns the information on a specific country.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {

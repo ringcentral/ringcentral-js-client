@@ -8,7 +8,7 @@ export default class Members extends PathSegment {
     }
 
     /**
-     *  <p>Returns call queue group members.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadExtensions</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns call queue group members.
      */
     list(query?: ListQuery): Promise<CallQueueMembers> {
         return this._send({
@@ -22,7 +22,7 @@ export default class Members extends PathSegment {
     }
 
     /**
-     *  <p>Returns call queue group members.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>User Permission</h4><p>ReadExtensions</p><h4>Usage Plan Group</h4><p>Light</p>
+     *  Returns call queue group members.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {

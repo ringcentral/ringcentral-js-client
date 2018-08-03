@@ -9,7 +9,7 @@ export default class Contacts extends PathSegment {
     }
 
     /**
-     *  <p>Returns contact information on corporate users of federated accounts. Please note: 1. User, DigitalUser, VirtualUser and FaxUser types are returned as User type. 2.ApplicationExtension type is not returned. 3. Only extensions in Enabled, Disabled and NotActivated state are returned.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns contact information on corporate users of federated accounts. Please note: 1. User, DigitalUser, VirtualUser and FaxUser types are returned as User type. 2.ApplicationExtension type is not returned. 3. Only extensions in Enabled, Disabled and NotActivated state are returned.
      */
     list(query?: ListQuery): Promise<DirectoryResource> {
         return this._send({
@@ -23,7 +23,7 @@ export default class Contacts extends PathSegment {
     }
 
     /**
-     *  <p>Returns contact information on corporate users of federated accounts. Please note: 1. User, DigitalUser, VirtualUser and FaxUser types are returned as User type. 2.ApplicationExtension type is not returned. 3. Only extensions in Enabled, Disabled and NotActivated state are returned.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns contact information on corporate users of federated accounts. Please note: 1. User, DigitalUser, VirtualUser and FaxUser types are returned as User type. 2.ApplicationExtension type is not returned. 3. Only extensions in Enabled, Disabled and NotActivated state are returned.
      *  return {ApiResponse}
      */
     listRaw(query?: ListQuery): Promise<any> {
@@ -36,7 +36,7 @@ export default class Contacts extends PathSegment {
     }
 
     /**
-     *  <p>Returns contact information on a particular corporate user of a federated account.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns contact information on a particular corporate user of a federated account.
      */
     get(): Promise<ContactResource> {
         return this._send({
@@ -50,7 +50,7 @@ export default class Contacts extends PathSegment {
     }
 
     /**
-     *  <p>Returns contact information on a particular corporate user of a federated account.</p><h4>App Permission</h4><p>ReadAccounts</p><h4>Usage Plan Group</h4><p>Medium</p>
+     *  Returns contact information on a particular corporate user of a federated account.
      *  return {ApiResponse}
      */
     getRaw(): Promise<any> {
