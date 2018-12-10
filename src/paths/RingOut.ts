@@ -18,7 +18,7 @@ export default class RingOut extends PathSegment {
             method: "post",
             query: undefined,
         }).then((res) => {
-                return res.json();
+            return res.json();
         });
     }
 
@@ -45,7 +45,7 @@ export default class RingOut extends PathSegment {
             method: "get",
             query: undefined,
         }).then((res) => {
-                return res.json();
+            return res.json();
         });
     }
 
@@ -71,6 +71,8 @@ export default class RingOut extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: undefined,
+        }).then((res) => {
+            return res.json();
         });
     }
 

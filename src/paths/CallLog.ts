@@ -18,7 +18,7 @@ export default class CallLog extends PathSegment {
             method: "get",
             query: query,
         }).then((res) => {
-                return res.json();
+            return res.json();
         });
     }
 
@@ -44,6 +44,8 @@ export default class CallLog extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: query,
+        }).then((res) => {
+            return res.json();
         });
     }
 
@@ -70,7 +72,7 @@ export default class CallLog extends PathSegment {
             method: "get",
             query: query,
         }).then((res) => {
-                return res.json();
+            return res.json();
         });
     }
 

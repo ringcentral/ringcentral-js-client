@@ -15,6 +15,8 @@ export default class End extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+        }).then((res) => {
+            return res.json();
         });
     }
 

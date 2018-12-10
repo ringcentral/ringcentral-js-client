@@ -15,6 +15,8 @@ export default class FaxCoverPage extends PathSegment {
             ignoreId: true,
             method: "get",
             query: query,
+        }).then((res) => {
+            return res.json();
         });
     }
 

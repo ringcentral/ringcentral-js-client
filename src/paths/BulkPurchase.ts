@@ -16,6 +16,8 @@ export default class BulkPurchase extends PathSegment {
             ignoreId: true,
             method: "post",
             query: undefined,
+        }).then((res) => {
+            return res.json();
         });
     }
 

@@ -15,6 +15,8 @@ export default class ProfileImage extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+        }).then((res) => {
+            return res.json();
         });
     }
 

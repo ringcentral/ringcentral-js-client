@@ -16,6 +16,8 @@ export default class Favorite extends PathSegment {
             ignoreId: true,
             method: "get",
             query: undefined,
+        }).then((res) => {
+            return res.json();
         });
     }
 
@@ -41,6 +43,8 @@ export default class Favorite extends PathSegment {
             ignoreId: true,
             method: "put",
             query: undefined,
+        }).then((res) => {
+            return res.json();
         });
     }
 

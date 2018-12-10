@@ -46,11 +46,9 @@
         "name": "RingCentral, Inc.",
         "email": "devsupport@ringcentral.com"
     },
-    "contributors": [
-        {
-            "name": "Kirill Konshin"
-        }
-    ],
+    "contributors": [{
+        "name": "Kirill Konshin"
+    }],
     "repository": {
         "type": "git",
         "url": "git://github.com/ringcentral/ringcentral-js-client.git"

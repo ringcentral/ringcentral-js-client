@@ -27,7 +27,7 @@ export default class MessageStore extends PathSegment {
             method: "get",
             query: query,
         }).then((res) => {
-                return res.json();
+            return res.json();
         });
     }
 
@@ -53,6 +53,8 @@ export default class MessageStore extends PathSegment {
             ignoreId: true,
             method: "delete",
             query: query,
+        }).then((res) => {
+            return res.json();
         });
     }
 
@@ -79,7 +81,7 @@ export default class MessageStore extends PathSegment {
             method: "get",
             query: undefined,
         }).then((res) => {
-                return res.json();
+            return res.json();
         });
     }
 
@@ -106,7 +108,7 @@ export default class MessageStore extends PathSegment {
             method: "put",
             query: undefined,
         }).then((res) => {
-                return res.json();
+            return res.json();
         });
     }
 
