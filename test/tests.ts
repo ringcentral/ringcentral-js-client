@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { createReadStream } from "fs";
 import * as RingCentral from "ringcentral";
 import Client from "../src/Client";
-import "../src/Client-test";
+import "./Client-test";
 import testConfig from "./config";
 import "./url-segments-test";
 
