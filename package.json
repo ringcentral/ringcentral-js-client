@@ -40,8 +40,8 @@
     },
     "preferGlobal": false,
     "private": false,
-    "main": "./dist/Client.js",
-    "typings": "./dist/Client.d.ts",
+    "main": "./build/Client.js",
+    "typings": "./build/Client.d.ts",
     "author": {
         "name": "RingCentral, Inc.",
         "email": "devsupport@ringcentral.com"
