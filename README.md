@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/ringcentral/ringcentral-js-client.svg?branch=master)](https://travis-ci.org/ringcentral/ringcentral-js-client)
 [![Coverage Status](https://coveralls.io/repos/github/ringcentral/ringcentral-js-client/badge.svg?branch=master)](https://coveralls.io/github/ringcentral/ringcentral-js-client?branch=master)
 
-This is a library implemented in typescript which provides convenient apis for typescript and javascript developers to access RingCentral webservice(https://developer.ringcentral.com/api-docs/latest/index.html).
+This is a library implemented in TypeScript which provides convenient APIs for TypeScript and JavaScript developers to access RingCentral webservice(https://developer.ringcentral.com/api-docs/latest/index.html).
 
 # Table of contents
 
