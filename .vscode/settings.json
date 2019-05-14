@@ -9,6 +9,5 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true
-    },
-    "editor.formatOnSave": true
+    }
 }

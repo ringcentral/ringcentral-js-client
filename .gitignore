@@ -10,3 +10,4 @@ typings/
 .tscache
 bower_components
 npm-debug.*
+dist/

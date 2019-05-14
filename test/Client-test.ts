@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import * as RingCentral from "ringcentral";
-import testConfig from "../test/config";
-import Client from "./Client";
+import testConfig from "./config";
+import Client from "../src/Client";
 
 let client: Client;
 testConfig.then((config) => {

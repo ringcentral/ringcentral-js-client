@@ -4,7 +4,8 @@
     "scripts": {
         "prepublish": "npm run build",
         "start": "node server.js",
-        "build": "tsc && webpack",
+        "build": "tsc -p tsconfig.json",
+        "dev-build": "tsc -p tsconfig.prod.json && webpack",
         "watch": "npm run build -- watch",
         "test": "_mocha --no-timeouts",
         "generate": "node ../rc-codegen/ -l typescript -o src/ -t codegen/templates/ -c codegen/config.json",
@@ -30,7 +31,7 @@
         "sinon": "^3.2.0",
         "sinon-chai": "^2.8.0",
         "source-map-loader": "^0.2.1 ",
-        "tslint": "^5.6.0",
+        "tslint": "^5.16.0",
         "typedoc": "^0.8.0",
         "typescript": "latest",
         "webpack": "^1.0.0"
@@ -40,8 +41,8 @@
     },
     "preferGlobal": false,
     "private": false,
-    "main": "./src/Client.js",
-    "typings": "./src/Client.ts",
+    "main": "./build/Client.js",
+    "typings": "./build/Client.d.ts",
     "author": {
         "name": "RingCentral, Inc.",
         "email": "devsupport@ringcentral.com"

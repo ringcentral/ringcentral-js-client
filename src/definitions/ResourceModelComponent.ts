@@ -1,10 +1,9 @@
 // Generated Source
-import ResourceModelComponent from "./ResourceModelComponent";
+import * as ResourceModelComponent from "./ResourceModelComponent";
 
 interface ResourceModelComponent {
-
     /**
-     * 
+     *
      */
     components?: ResourceModelComponent[];
 }

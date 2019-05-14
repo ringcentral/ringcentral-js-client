@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { createReadStream } from "fs";
 import * as RingCentral from "ringcentral";
 import Client from "../src/Client";
-import "../src/Client-test";
+import "./Client-test";
 import testConfig from "./config";
 import "./url-segments-test";
 
@@ -97,7 +97,7 @@ describe("Binary response", () => {
 const imgPath = __dirname + "/res/banner_index_logged.png";
 describe("Binary request", () => {
 
-    before("Only run in node", () => {
+    before("Only run in node", function() {
         if (!inNode) {
             this.skip();
         }
