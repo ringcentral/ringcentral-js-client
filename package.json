@@ -1,11 +1,11 @@
 {
     "name": "ringcentral-client",
-    "version": "1.0.0-beta.2",
+    "version": "1.0.0-beta.1",
     "scripts": {
         "prepublish": "npm run build",
         "start": "node server.js",
-        "build": "tsc -p tsconfig.prod.json && webpack",
-        "definitions": "tsc -p tsconfig.json",
+        "build": "tsc -p tsconfig.json",
+        "dev-build": "tsc -p tsconfig.prod.json && webpack",
         "watch": "npm run build -- watch",
         "test": "_mocha --no-timeouts",
         "generate": "node ../rc-codegen/ -l typescript -o src/ -t codegen/templates/ -c codegen/config.json",
