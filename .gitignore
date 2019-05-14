@@ -1,3 +1,7 @@
+*.js
+*.js.map
+*.d.ts
+build/
 coverage/
 node_modules/
 typings/
@@ -6,5 +10,4 @@ typings/
 .tscache
 bower_components
 npm-debug.*
-build/
 dist/
