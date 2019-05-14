@@ -6,3 +6,5 @@ typings/
 .tscache
 bower_components
 npm-debug.*
+build/
+dist/

@@ -97,7 +97,7 @@ describe("Binary response", () => {
 const imgPath = __dirname + "/res/banner_index_logged.png";
 describe("Binary request", () => {
 
-    before("Only run in node", () => {
+    before("Only run in node", function() {
         if (!inNode) {
             this.skip();
         }

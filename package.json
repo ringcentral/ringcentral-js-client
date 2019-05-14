@@ -4,7 +4,8 @@
     "scripts": {
         "prepublish": "npm run build",
         "start": "node server.js",
-        "build": "tsc && webpack",
+        "build": "tsc -p tsconfig.prod.json && webpack",
+        "definitions": "tsc -p tsconfig.json",
         "watch": "npm run build -- watch",
         "test": "_mocha --no-timeouts",
         "generate": "node ../rc-codegen/ -l typescript -o src/ -t codegen/templates/ -c codegen/config.json",
@@ -30,6 +31,7 @@
         "sinon": "^3.2.0",
         "sinon-chai": "^2.8.0",
         "source-map-loader": "^0.2.1 ",
+        "ts-loader": "^6.0.0",
         "tslint": "^5.6.0",
         "typedoc": "^0.8.0",
         "typescript": "latest",

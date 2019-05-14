@@ -1,9 +1,9 @@
 const webpack = require("webpack");
 
 module.exports = [{
-    entry: "./src/Client.js",
+    entry: "./dist/src/Client.js",
     output: {
-        path: "./build",
+        path: "./dist",
         filename: "ringcentral-client.min.js",
         library: "RingCentral"
     },
@@ -24,9 +24,9 @@ module.exports = [{
         ]
     }
 }, {
-    entry: "./test/tests.js",
+    entry: "./dist/test/tests.js",
     output: {
-        path: "./build",
+        path: "./dist",
         filename: "tests.js"
     },
     module: {
