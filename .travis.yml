@@ -5,7 +5,7 @@ node_js:
 - '6'
 - '7'
 script:
-- yarn lint
+- npm run lint
 # - npm run docs # typedoc is not compatible with typescript 2.0 at the moment.
 
 deploy:
