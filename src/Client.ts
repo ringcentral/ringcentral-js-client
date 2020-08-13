@@ -1,4 +1,4 @@
-import { SDK } from '@ringcentral/sdk';
+import { SDK } from "@ringcentral/sdk";
 import Account from "./paths/Account";
 import ClientInfo from "./paths/ClientInfo";
 import Dictionary from "./paths/Dictionary";
@@ -6,7 +6,7 @@ import Glip from "./paths/Glip";
 import NumberParser from "./paths/NumberParser";
 import Subscription from "./paths/Subscription";
 
-import PathSegment from './PathSegment';
+import PathSegment from "./PathSegment";
 
 export default class Client {
 
@@ -16,14 +16,14 @@ export default class Client {
 
     constructor(sv: SDK, isSDKV4 = true) {
         this.service = sv;
-        this._isSDKV4 = isSDKV4
+        this._isSDKV4 = isSDKV4;
     }
 
     restPrefix() {
       if (!this._isSDKV4) {
           return null;
       }
-      return new PathSegment('restapi/v1.0', null, null, this.service.platform());
+      return new PathSegment("restapi/v1.0", null, null, this.service.platform());
     }
 
     account(id?: string): Account {
