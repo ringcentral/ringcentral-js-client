@@ -1,6 +1,6 @@
 {
     "name": "ringcentral-client",
-    "version": "1.0.0-beta.2",
+    "version": "1.0.0-beta.3",
     "scripts": {
         "prepublish": "npm run build",
         "start": "node server.js",
@@ -27,7 +27,7 @@
         "json-loader": "^0.5.4",
         "mocha": "^3.2.0",
         "remap-istanbul": "^0.9.5",
-        "ringcentral": "https://github.com/ringcentral/ringcentral-js.git#master",
+        "@ringcentral/sdk": "^4.2.3",
         "sinon": "^3.2.0",
         "sinon-chai": "^2.8.0",
         "source-map-loader": "^0.2.1 ",
@@ -37,7 +37,7 @@
         "webpack": "^1.0.0"
     },
     "peerDependencies": {
-        "ringcentral": ">=3.0.0"
+        "@ringcentral/sdk": ">=4.0.0"
     },
     "preferGlobal": false,
     "private": false,

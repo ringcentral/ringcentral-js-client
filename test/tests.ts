@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { createReadStream } from "fs";
-import * as RingCentral from "ringcentral";
+import { SDK } from "@ringcentral/sdk";
 import Client from "../src/Client";
 import "./Client-test";
 import testConfig from "./config";
@@ -16,7 +16,7 @@ before(() => {
     // runs before all tests in this block
     return testConfig.then((conf) => {
         const config = conf;
-        client = new Client(new RingCentral(config.app));
+        client = new Client(new SDK(config.app));
         return client.service.platform().login(config.user);
     });
 });

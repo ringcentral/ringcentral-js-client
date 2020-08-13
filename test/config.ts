@@ -1,4 +1,3 @@
-import "es6-promise";
 import * as fetch from "isomorphic-fetch";
 
 interface Config {
