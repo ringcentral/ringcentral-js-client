@@ -1,5 +1,5 @@
 // This is Generated Source.
-import * as FormData from "form-data";
+import FormData from "form-data";
 import Binary from "../Binary";
 import PathSegment from "../PathSegment";
 import ProfileImageBase from "./ProfileImageBase";

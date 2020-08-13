@@ -16,7 +16,7 @@
         "lint": "tslint ./src/*.ts ./src/**/*.ts"
     },
     "dependencies": {
-        "form-data": "^2.1.2",
+        "form-data": "^2.5.1",
         "isomorphic-fetch": "^2.2.1"
     },
     "devDependencies": {
