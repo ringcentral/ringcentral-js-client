@@ -1,4 +1,4 @@
-import * as FormData from "form-data";
+import FormData from "form-data";
 import Binary from "../Binary";
 import CallerInfo from "../definitions/CallerInfo";
 import MessageInfo from "../definitions/GetMessageInfoResponse";

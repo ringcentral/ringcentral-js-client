@@ -30,9 +30,9 @@ This is a library implemented in TypeScript which provides convenient APIs for T
 
 ```shell
 npm install ringcentral-client --save
-npm install ringcentral     # Install the peerDependency
+npm install @ringcentral/sdk     # Install the peerDependency
 
-yarn add ringcentral-client ringcentral
+yarn add ringcentral-client @ringcentral/sdk
 ```
 
 ### Import the module
@@ -40,7 +40,7 @@ yarn add ringcentral-client ringcentral
 #### In Typescript or ES6 (Recommended)
 ```typescript
 import RingCentralClient, {SERVER_SANDBOX} from "ringcentral-client";
-import SDK from "ringcentral";
+import { SDK } from "@ringcentral/sdk";
 ```
 
 #### In commonjs(node.js, webpack and browserify)
@@ -48,7 +48,7 @@ import SDK from "ringcentral";
 var ringcentral = require("ringcentral-client");
 var RingCentralClient = ringcentral.Client;
 var SERVER_SANDBOX = ringcentral.SERVER_SANDBOX;
-var SDK = require("ringcentral");
+var SDK = require("@ringcentral/sdk").SDK;
 ```
 
 #### Used in browser through the prebuilt javascript bundle
@@ -71,8 +71,8 @@ Login, logout, get account info.
 ```typescript
 const sdk = new SDK({
 	server: SERVER_PRODUCTION, // Optional, default is production server
-	appKey: process.env.APP_KEY,
-	appSecret: process.env.APP_SECRET
+	clientId: process.env.CLIENT_ID,
+	clientSecret: process.env.CLIENT_SECRET
 });
 const client = new RingCentralClient(sdk);
 
